@@ -91,15 +91,20 @@ class PlaygroundObjectWriter : PlaygroundWriter {
     }
     
     // this assumes there will never be an out-of-bounds range - callers beware
-    func encode(children: LoggerMirror, depth: UInt64, range: ChildrenRange) {
+    func encode(children: LoggerMirror,
+                depth: UInt64,
+                range: ChildrenRange,
+                onChild0: (LoggerMirror)->Void) {
         func encodeChild(_ child_name: String, _ child_object: LoggerMirror, _ depth: UInt64) {
             stream.write(child_name)
             encode(object: child_object, depth: depth)
         }
-        for index in range {
-            let child_object = children[Int(index)]
+        for index in range.map({Int($0)}) {
+            let child_object = children[index]
             let child_name = child_object.label ?? "\(index)"
-            
+
+            if index == 0 { onChild0(child_object) }
+
             encodeChild(child_name, child_object, depth)
         }
     }
@@ -124,6 +129,7 @@ class PlaygroundObjectWriter : PlaygroundWriter {
         if (max_depth == nested_depth) {
             // this is the maximum depth - just emit a gap here
             stream.write(UInt8(1))
+            stream.write(false)
             encode_gap()
             return
         }
@@ -134,14 +140,26 @@ class PlaygroundObjectWriter : PlaygroundWriter {
             real_count += num_gaps
         }
         stream.write(real_count)
+        var anyWritten = false
         for range in actual_ranges {
             // in practice, we always start logging at 0, so we don't need a "start range"
-            encode(children: structure, depth: nested_depth, range: range)
+            encode(children: structure,
+                   depth: nested_depth,
+                   range: range,
+                   onChild0: { (m: LoggerMirror)->Void in
+                    if m.isSuperclass {
+                        self.stream.write(true)
+                    } else {
+                        self.stream.write(false)
+                    }
+                    anyWritten = true
+                    })
             // encode a gap after each range - unless the range goes all the way to the end
             if (encode_gaps && range.endIndex < count) {
                 encode_gap()
             }
         }
+        if !anyWritten { self.stream.write(false) }
     }
 
     func encode(object: LoggerMirror, depth: UInt64) {

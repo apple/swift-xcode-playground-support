@@ -33,7 +33,7 @@ class VersionDecodingTestCase : TestCase {
         let logdata = playground_log_impl(1, "", TestHelpers.defaultSourceRange())
         let opt_decoded = playground_log_decode(logdata)
         let decoded = TestHelpers.unwrapOrFail(opt_decoded)
-        expectEqual(10, decoded.version)
+        expectEqual(11, decoded.version)
     }
 }
 
@@ -167,6 +167,46 @@ class StructuredTypesDecodingTestCase : TestCase {
         expectEqual(s.type, PlaygroundRepresentation.Struct.description)
         expectEqual(c.type, PlaygroundRepresentation.Class.description)
         expectEqual(t.type, PlaygroundRepresentation.Tuple.description)
+        
+        expectFalse(s.hasSuperclass)
+        expectFalse(c.hasSuperclass)
+        expectFalse(t.hasSuperclass)
+    }
+}
+    
+class BaseClassDecodingTestCase : TestCase {
+    required init?() {}
+    var name: String { return "BaseClassDecoding" }
+    var explanation: String { return "Check that base class data is correctly marked and vended" }
+    var behavior: TestBehavior { return .ExpectedSuccess }
+    func doTest() {
+        class Base {
+            var a = 1
+        }
+        class Derived: Base {
+            var b = 2
+        }
+        
+        let b = Base()
+        let d = Derived()
+        
+        let b_logdata = playground_log_impl(b, "b", TestHelpers.defaultSourceRange())
+        let d_logdata = playground_log_impl(d, "d", TestHelpers.defaultSourceRange())
+
+        let b_decoded = TestHelpers.unwrapOrFail(playground_log_decode(b_logdata))
+        let d_decoded = TestHelpers.unwrapOrFail(playground_log_decode(d_logdata))
+
+        let b_structured = TestHelpers.unwrapOrFail(b_decoded.object as? PlaygroundDecodedObject_Structured)
+        let d_structured = TestHelpers.unwrapOrFail(d_decoded.object as? PlaygroundDecodedObject_Structured)
+        
+        expectFalse(b_structured.hasSuperclass)
+        expectTrue(d_structured.hasSuperclass)
+        
+        expectEqual(d_structured.children.count, 2)
+        expectEqual(b_structured.children.count, 1)
+        expectEqual(d_structured.children[0].name, "super")
+        expectEqual(d_structured.children[1].name, "b")
+        expectEqual(b_structured.children[0].name, "a")
     }
 }
 

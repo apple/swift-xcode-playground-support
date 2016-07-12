@@ -154,9 +154,11 @@ A `structured` log entry contains:
 * A `number` that specifies the number of elements contained within the
   structured object **that are contained in the log** (stored-count).
 
-  Due to the presence of gap elements, consumers are encouraged to avoid making deductions based on the relationship between `total-count` and `stored-count`.
-  
-  One exception is that the logger itself will, if the `total-count` field happens to be zero, not emit the `stored-count` field. It is then safe to assume that `total-count == 0 ==> stored-count == 0`. The rationale should be obvious.
+* A `bool` that specifies whether the first child vended is a base class object. This field is always `false` for log entries for non-`class` kinds (base-class).
+
+  If this field is `true`, consumers should assume that the first child element is going to be the base class data for the current object, and will be named `super`. The reverse deduction is strongly discouraged. 
+
+As an optiimization, if the `total-count` field happens to be zero, neither `stored-count` nor `base-class` will be emitted. It is then safe to assume that `total-count == 0 ==> stored-count == 0 ==> base-class == false`. The rationale should be obvious.
 
 Following this specification, there are as many log entries as specified to be
 contained in the log. Each of them follows the general format of a log entry,

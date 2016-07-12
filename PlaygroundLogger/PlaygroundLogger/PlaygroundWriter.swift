@@ -16,7 +16,7 @@ class PlaygroundWriter {
     // this is the version of the PlaygroundLogger protocol
     // this needs to be changed if anyhthing in the encoding changes
     // in such a way that it would break existing consumers
-    static let version : UInt8 = 10
+    static let version : UInt8 = 11
     
     init() {
         stream = BytesStream()

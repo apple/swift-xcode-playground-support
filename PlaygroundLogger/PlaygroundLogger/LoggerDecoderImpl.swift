@@ -36,15 +36,17 @@ class PlaygroundDecodedObject_Structured: PlaygroundDecodedObject {
     let totalCount: UInt64
     let storedCount: UInt64
     let type: String
+    let hasSuperclass: Bool
     var children: [PlaygroundDecodedObject]
 
-    init (_ name: String, _ brief: String, _ long: String, _ total: UInt64, _ stored: UInt64, _ type: String) {
+    init (_ name: String, _ brief: String, _ long: String, _ total: UInt64, _ stored: UInt64, _ type: String, _ superclass: Bool) {
         self.typeName = brief
         self.summary = long
         self.totalCount = total
         self.storedCount = stored
         self.children = [PlaygroundDecodedObject]()
         self.type = type
+        self.hasSuperclass = superclass
         super.init(name)
     }
 
@@ -76,7 +78,8 @@ class PlaygroundObjectDecoder_Structured: PlaygroundObjectDecoder {
         guard let long = String(storage: bytes) else { return nil }
         guard let total = UInt64(storage: bytes) else { return nil }
         guard let stored: UInt64 = ((total > 0) ? UInt64(storage: bytes) : 0) else { return nil }
-        let object = PlaygroundDecodedObject_Structured(name, brief, long, total, stored, kind.description)
+        guard let superclass = ((total > 0) ? Bool(storage: bytes) : false) else { return nil }
+        let object = PlaygroundDecodedObject_Structured(name, brief, long, total, stored, kind.description, superclass)
         stored.doFor {
             object.addChild(decoder.decodeObject(bytes)!)
         }

@@ -21,6 +21,7 @@ final class LoggerMirror {
     private var typeNameData: String?
     private var displayTypeNameData: String?
     private var quickLookData: PlaygroundQuickLook?? = nil
+    private var isSuperclassMirror: Bool = false
     
     private static let Swift_Stdlib_Regex = Regex(pattern: "(?<!\\.)\\b(Swift\\.)")
     
@@ -34,18 +35,20 @@ final class LoggerMirror {
         self.superclassMirror = (false,nil)
     }
     
-    private init(object x: Any, label: String?) {
+    private init(object x: Any, label: String?, isSuperclass: Bool = false) {
         self.object = x
         self.mirror = Mirror(reflecting: x)
         self.text = label
         self.superclassMirror = (false,nil)
+        self.isSuperclassMirror = isSuperclass
     }
 
-    private init(mirror x: Mirror, _ label: String?) {
+    private init(mirror x: Mirror, _ label: String?, isSuperclass: Bool = false) {
         self.object = nil
         self.mirror = x
         self.text = label
         self.superclassMirror = (false,nil)
+        self.isSuperclassMirror = isSuperclass
     }
     
     var count: Int {
@@ -57,7 +60,7 @@ final class LoggerMirror {
     var superclass: LoggerMirror? {
         if !self.superclassMirror.0 {
             if let sm = self.mirror.superclassMirror {
-                self.superclassMirror.1 = LoggerMirror(mirror: sm, "super")
+                self.superclassMirror.1 = LoggerMirror(mirror: sm, "super", isSuperclass: true)
             }
             self.superclassMirror.0 = true
         }
@@ -92,6 +95,10 @@ final class LoggerMirror {
             typeNameData = _typeName(valueType)
         }
         return typeNameData ?? ""
+    }
+    
+    var isSuperclass: Bool {
+        return isSuperclassMirror
     }
     
     var displayTypeName: String {

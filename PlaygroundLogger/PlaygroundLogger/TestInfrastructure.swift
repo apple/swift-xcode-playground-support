@@ -106,6 +106,7 @@ public func playground_logger_test() {
         NameDecodingTestCase.self,
         BaseTypesDecodingTestCase.self,
         StructuredTypesDecodingTestCase.self,
+        BaseClassDecodingTestCase.self,
         NSNumberDecodingTestCase.self,
         OnePlusOneDecodingTestCase.self,
         MetatypeLoggingTestCase.self,
