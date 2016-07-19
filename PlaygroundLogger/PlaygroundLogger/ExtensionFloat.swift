@@ -13,8 +13,8 @@
 extension Float : Serializable {
     
     func toBytes() -> [UInt8] {
-        var udPtr = UnsafeMutablePointer<Float>(allocatingCapacity: 1)
-        defer { udPtr.deallocateCapacity(1) }
+        var udPtr = UnsafeMutablePointer<Float>.allocate(capacity: 1)
+        defer { udPtr.deallocate(capacity: 1) }
         udPtr.pointee = self
         let ubPtr = UnsafeMutablePointer<UInt8>(udPtr)
         var arr = Array<UInt8>(repeating: 0, count: 4)
@@ -26,8 +26,8 @@ extension Float : Serializable {
     
     
     init? (storage: BytesStorage) {
-        var ubPtr = UnsafeMutablePointer<UInt8>(allocatingCapacity: 4)
-        defer { ubPtr.deallocateCapacity(4) }
+        var ubPtr = UnsafeMutablePointer<UInt8>.allocate(capacity: 4)
+        defer { ubPtr.deallocate(capacity: 4) }
         4.doFor {
             ubPtr[$0] = storage.get()
         }

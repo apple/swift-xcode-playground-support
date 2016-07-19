@@ -21,8 +21,8 @@ final class BytesStream {
     
     @discardableResult
     func write(_ x : UInt8) -> BytesStream {
-        var ptr_x = UnsafeMutablePointer<UInt8>(allocatingCapacity: 1)
-        defer { ptr_x.deallocateCapacity(1) }
+        var ptr_x = UnsafeMutablePointer<UInt8>.allocate(capacity: 1)
+        defer { ptr_x.deallocate(capacity: 1) }
         ptr_x.pointee = x
         data.append(ptr_x, length: 1)
         return self

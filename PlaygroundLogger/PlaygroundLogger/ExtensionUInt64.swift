@@ -20,8 +20,8 @@ extension UInt64 : Serializable {
 
 		var ret = Array<UInt8>()
         ret.append(UInt64.largeNumMarker)
-        var up_int = UnsafeMutablePointer<UInt64>(allocatingCapacity: 1)
-        defer { up_int.deallocateCapacity(1) }
+        var up_int = UnsafeMutablePointer<UInt64>.allocate(capacity: 1)
+        defer { up_int.deallocate(capacity: 1) }
 		up_int.pointee = self
         var up_byte: UnsafePointer<UInt8> = UnsafePointer(up_int)
         8.doFor {
@@ -33,8 +33,8 @@ extension UInt64 : Serializable {
 
     func toEightBytes() -> [UInt8] {
         var ret = Array<UInt8>()
-        var up_int = UnsafeMutablePointer<UInt64>(allocatingCapacity: 1)
-        defer { up_int.deallocateCapacity(1) }
+        var up_int = UnsafeMutablePointer<UInt64>.allocate(capacity: 1)
+        defer { up_int.deallocate(capacity: 1) }
         up_int.pointee = self
         var up_byte: UnsafePointer<UInt8> = UnsafePointer(up_int)
         8.doFor {
@@ -59,8 +59,8 @@ extension UInt64 : Serializable {
 
     init? (eightBytesStorage: BytesStorage) {
         if !eightBytesStorage.has(8) { return nil }
-		var up_byte = UnsafeMutablePointer<UInt8>(allocatingCapacity: 8)
-        defer { up_byte.deallocateCapacity(8) }
+		var up_byte = UnsafeMutablePointer<UInt8>.allocate(capacity: 8)
+        defer { up_byte.deallocate(capacity: 8) }
         8.doFor {
             up_byte[$0] = eightBytesStorage.get()
         }
