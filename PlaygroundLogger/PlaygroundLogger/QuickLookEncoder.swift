@@ -69,15 +69,7 @@ extension QuickLookObject {
         return .Failure("image data not supported")
 #endif
         case .sprite(_):
-#if APPLE_FRAMEWORKS_AVAILABLE
-         if let unwrapped = self.genericUnwrap() {
-            return getImageData(unwrapped, "SKIT", SpriteKitImageRepresentation())
-         } else {
-            return .Failure("sprite kit image not valid")
-        }
-#else
-        return .Failure("image data not supported")
-#endif
+            return QuickLookingResult("STRN",("SpriteKit image data".toBytes()))
         case ._raw(let bytes, let tag):
             return QuickLookingResult(tag,.Array(bytes))
         case .color(let clr):
