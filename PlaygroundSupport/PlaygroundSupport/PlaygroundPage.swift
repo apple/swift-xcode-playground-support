@@ -83,7 +83,7 @@ public final class PlaygroundPage {
                 needsIndefiniteExecution = true
             }
             
-            let userInfo: [String: AnyObject]
+            let userInfo: [NSString: Any]
             
             if let liveView = liveView {
                 switch liveView.playgroundLiveViewRepresentation {
