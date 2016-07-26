@@ -13,11 +13,12 @@
 import Foundation
 
 struct Regex {
-    var rgx: RegularExpression
+    typealias FoundationRegex = NSRegularExpression
+    var rgx: FoundationRegex
     
     init? (pattern: String) {
         do {
-            let r = try RegularExpression(pattern: pattern, options: RegularExpression.Options.useUnicodeWordBoundaries)
+            let r = try FoundationRegex(pattern: pattern, options: FoundationRegex.Options.useUnicodeWordBoundaries)
             self.rgx = r
         } catch {
             return nil

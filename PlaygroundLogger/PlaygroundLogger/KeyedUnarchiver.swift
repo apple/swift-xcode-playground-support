@@ -37,7 +37,7 @@ final class LoggerUnarchiver {
     return UInt64(unarchiver.decodeInt64(forKey: uint64))
    }
    
-   func get(object : String) -> AnyObject! {
+   func get(object : String) -> Any! {
     return unarchiver.decodeObject(forKey: object)
    }
    
