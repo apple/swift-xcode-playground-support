@@ -50,7 +50,7 @@ automatically pulls and builds the Xcode Playground Support source.
 
 **Via HTTPS**  For those checking out sources as read-only, HTTPS works best:
 
-    git clone https://github.com/apple/swift-xcode-playround-support.git
+    git clone https://github.com/apple/swift-xcode-playground-support.git
     cd swift-xcode-playground-support
 
 **Via SSH**  For those who plan on regularly making direct commits,
