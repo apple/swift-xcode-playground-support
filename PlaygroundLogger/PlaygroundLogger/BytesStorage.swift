@@ -19,7 +19,7 @@ final class BytesStorage {
 	
 	init(_ _bytes: NSData) {
         data = _bytes
-        bytes = UnsafeMutablePointer(data.bytes)
+        bytes = data.bytes.bindMemory(to: UInt8.self, data.length)
         index = 0
 	}
 		
