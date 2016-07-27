@@ -12,34 +12,34 @@
 
 import Foundation
 
+struct ArraySink <T> {
+    typealias Element = T;
+    var elements: Array<T>
+    var i = 0
+    
+    init(count: Int, element: T) {
+        elements = Array(repeating: element, count: count)
+    }
+    
+    mutating func put(_ x: T) {
+        if i >= elements.capacity {
+            elements.reserveCapacity(2 * i)
+        }
+        if i >= elements.count {
+            elements.append(x)
+        } else {
+            elements[i] = x
+        }
+        i += 1
+    }
+    
+    func get() -> [T] {
+        return [T](elements[0..<i])
+    }
+}
+
 extension String : Serializable {
 	func toBytesAndSize() -> [UInt8] {
-        struct ArraySink <T> {
-            typealias Element = T;
-            var elements: Array<T>
-            var i = 0
-            
-            init(count: Int, element: T) {
-                elements = Array(repeating: element, count: count)
-            }
-            
-            mutating func put(_ x: T) {
-                if i >= elements.capacity {
-                    elements.reserveCapacity(2 * i)
-                }
-                if i >= elements.count {
-                    elements.append(x)
-                } else {
-                    elements[i] = x
-                }
-                i += 1
-            }
-            
-            func get() -> [T] {
-                return [T](elements[0..<i])
-            }
-        }
-
 		var bas = ArraySink<UInt8>(count: self.byteLength, element: 0)
         let len = UInt64(self.byteLength).toBytes()
         for byte in len {
