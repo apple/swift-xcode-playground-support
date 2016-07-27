@@ -70,7 +70,7 @@ public final class XCPlaygroundPage {
     ///
     /// This method does not return, as Xcode will kill the process hosting playground execution when this method is called.
     @available(*,deprecated,message:"Use 'PlaygroundPage.current.finishExecution()' from the 'PlaygroundSupport' module instead")
-    @noreturn public func finishExecution() {
+    public func finishExecution() -> Never {
         // Send a message to Xcode requesting that we be killed.
         NotificationCenter.default.post(name: "XCPlaygroundPageFinishExecutionNotification" as NSNotification.Name, object: self, userInfo: nil)
     
@@ -97,7 +97,7 @@ public final class XCPlaygroundPage {
                 needsIndefiniteExecution = true
             }
             
-            let userInfo: [String: AnyObject]
+            let userInfo: [NSString: Any]
             
             if let liveView = liveView {
                 switch liveView.playgroundLiveViewRepresentation() {

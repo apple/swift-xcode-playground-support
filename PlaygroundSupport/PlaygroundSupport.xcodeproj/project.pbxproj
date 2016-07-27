@@ -1316,6 +1316,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_STDLIB = swiftCore;
+				SWIFT_VERSION = 3.0;
 				TOOLCHAINS = default;
 			};
 			name = Debug;
@@ -1328,6 +1329,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				SWIFT_SKIP_IMPLICIT_STDLIB_RUNPATH_SEARCH_PATH = YES;
 				SWIFT_STDLIB = swiftCore;
+				SWIFT_VERSION = 3.0;
 				TOOLCHAINS = default;
 			};
 			name = Release;
@@ -2422,6 +2424,7 @@
 				94182A0D1D25D5F5002CCB9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A80607181CCEAD2500E951C8 /* Build configuration list for PBXAggregateTarget "XCPlayground" */ = {
 			isa = XCConfigurationList;

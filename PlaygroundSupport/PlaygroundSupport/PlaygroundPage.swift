@@ -57,7 +57,7 @@ public final class PlaygroundPage {
     /// Instructs Xcode that the playground page has finished execution.
     ///
     /// This method does not return, as Xcode will kill the process hosting playground execution when this method is called.
-    @noreturn public func finishExecution() {
+    public func finishExecution() -> Never {
         // Send a message to Xcode requesting that we be killed.
         NotificationCenter.default.post(name: "PlaygroundPageFinishExecutionNotification" as NSNotification.Name, object: self, userInfo: nil)
     
@@ -83,7 +83,7 @@ public final class PlaygroundPage {
                 needsIndefiniteExecution = true
             }
             
-            let userInfo: [String: AnyObject]
+            let userInfo: [NSString: Any]
             
             if let liveView = liveView {
                 switch liveView.playgroundLiveViewRepresentation {
