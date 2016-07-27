@@ -14,12 +14,12 @@ import Foundation
 
 final class BytesStorage {
 	let data: NSData // hold on to the NSData so it doesn't go away from under us
-    let bytes: UnsafeMutablePointer<UInt8> // but a pointer is good enough to actually index bytes by
+	let bytes: UnsafeMutablePointer<UInt8> // but a pointer is good enough to actually index bytes by
 	var index: Int
 	
 	init(_ _bytes: NSData) {
         data = _bytes
-        bytes = data.bytes.bindMemory(to: UInt8.self, data.length)
+        bytes = UnsafeMutablePointer(data.bytes.bindMemory(to: UInt8.self, capacity: data.length))
         index = 0
 	}
 		
