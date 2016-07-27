@@ -56,7 +56,7 @@ class PlaygroundDecodedObject_Structured: PlaygroundDecodedObject {
 
     subscript(x: Int) -> PlaygroundDecodedObject { return children[x] }
 
-    override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+    override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
         let prefix = "\t"*depth
         super.print(&stream, depth)
         Swift.print("\(prefix)Typename: \(typeName)", to: &stream)
@@ -89,7 +89,7 @@ class PlaygroundDecodedObject_Gap: PlaygroundDecodedObject {
         super.init(name)
     }
 
-    override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+    override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
         let prefix = "\t"*depth
         super.print(&stream, depth)
         Swift.print("\(prefix)Type: Gap", to: &stream)
@@ -107,7 +107,7 @@ class PlaygroundDecodedObject_ScopeEntry: PlaygroundDecodedObject {
         super.init(name)
     }
 
-    override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+    override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
         let prefix = "\t"*depth
         super.print(&stream, depth)
         Swift.print("\(prefix)Type: Scope Entry", to: &stream)
@@ -125,7 +125,7 @@ class PlaygroundDecodedObject_ScopeExit: PlaygroundDecodedObject {
         super.init(name)
     }
 
-    override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+    override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
         let prefix = "\t"*depth
         super.print(&stream, depth)
         Swift.print("\(prefix)Type: Scope Exit", to: &stream)
@@ -146,7 +146,7 @@ class PlaygroundDecodedObject_Error: PlaygroundDecodedObject {
         super.init(name)
     }
 
-    override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+    override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
         let prefix = "\t"*depth
         super.print(&stream, depth)
         Swift.print("\(prefix)Type: Error", to: &stream)
@@ -186,7 +186,7 @@ class PlaygroundIDEReprDecoder_String: PlaygroundIDEReprDecoder {
             super.init(name, psum, brief, long, tag)
         }
 
-        override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+        override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
             let prefix = "\t"*depth
             super.print(&stream, depth)
             Swift.print("\(prefix)Data: \(data)", to: &stream)
@@ -209,7 +209,7 @@ class PlaygroundIDEReprDecoder_Int: PlaygroundIDEReprDecoder {
             super.init(name, psum, brief, long, tag)
         }
 
-        override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+        override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
             let prefix = "\t"*depth
             super.print(&stream, depth)
             Swift.print("\(prefix)Data: \(data)", to: &stream)
@@ -233,7 +233,7 @@ class PlaygroundIDEReprDecoder_UInt: PlaygroundIDEReprDecoder {
             super.init(name, psum, brief, long, tag)
         }
 
-        override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+        override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
             let prefix = "\t"*depth
             super.print(&stream, depth)
             Swift.print("\(prefix)Data: \(data)", to: &stream)
@@ -256,7 +256,7 @@ class PlaygroundIDEReprDecoder_Float: PlaygroundIDEReprDecoder {
             super.init(name, psum, brief, long, tag)
         }
 
-        override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+        override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
             let prefix = "\t"*depth
             super.print(&stream, depth)
             Swift.print("\(prefix)Data: \(data)", to: &stream)
@@ -279,7 +279,7 @@ class PlaygroundIDEReprDecoder_Double: PlaygroundIDEReprDecoder {
             super.init(name, psum, brief, long, tag)
         }
 
-        override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+        override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
             let prefix = "\t"*depth
             super.print(&stream, depth)
             Swift.print("\(prefix)Data: \(data)", to: &stream)
@@ -303,7 +303,7 @@ class PlaygroundIDEReprDecoder_Point: PlaygroundIDEReprDecoder {
             super.init(name, psum, brief, long, tag)
         }
 
-        override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+        override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
             let prefix = "\t"*depth
             super.print(&stream, depth)
             Swift.print("\(prefix)Data: \(data)", to: &stream)
@@ -327,7 +327,7 @@ class PlaygroundIDEReprDecoder_Size: PlaygroundIDEReprDecoder {
             super.init(name, psum, brief, long, tag)
         }
 
-        override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+        override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
             let prefix = "\t"*depth
             super.print(&stream, depth)
             Swift.print("\(prefix)Data: \(data)", to: &stream)
@@ -351,7 +351,7 @@ class PlaygroundIDEReprDecoder_Rect: PlaygroundIDEReprDecoder {
             super.init(name, psum, brief, long, tag)
         }
 
-        override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+        override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
             let prefix = "\t"*depth
             super.print(&stream, depth)
             Swift.print("\(prefix)Data: \(data)", to: &stream)
@@ -384,7 +384,7 @@ class PlaygroundIDEReprDecoder_Range: PlaygroundIDEReprDecoder {
             super.init(name, psum, brief, long, tag)
         }
 
-        override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+        override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
             let prefix = "\t"*depth
             super.print(&stream, depth)
             Swift.print("\(prefix)Data: \(data)", to: &stream)
@@ -408,7 +408,7 @@ class PlaygroundIDEReprDecoder_Bool: PlaygroundIDEReprDecoder {
             super.init(name, psum, brief, long, tag)
         }
 
-        override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+        override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
             let prefix = "\t"*depth
             super.print(&stream, depth)
             Swift.print("\(prefix)Data: \(data)", to: &stream)
@@ -431,7 +431,7 @@ class PlaygroundIDEReprDecoder_URL: PlaygroundIDEReprDecoder {
             super.init(name, psum, brief, long, tag)
         }
 
-        override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+        override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
             let prefix = "\t"*depth
             super.print(&stream, depth)
             Swift.print("\(prefix)Data: \(data)", to: &stream)
@@ -456,7 +456,7 @@ class PlaygroundIDEReprDecoder_Image: PlaygroundIDEReprDecoder {
             super.init(name, psum, brief, long, tag)
         }
         
-        override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+        override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
             let prefix = "\t"*depth
             super.print(&stream, depth)
             Swift.print("\(prefix)Data: \(data)", to: &stream)
@@ -582,7 +582,7 @@ class PlaygroundDecodedObject {
         self.name = name
     }
 
-    func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+    func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
         let prefix = "\t"*depth
         Swift.print("\(prefix)Name: \(name)", to: &stream)
     }
@@ -602,7 +602,7 @@ class PlaygroundDecodedObject_IDERepr: PlaygroundDecodedObject {
         super.init(name)
     }
 
-    override func print<T: OutputStream>(_ stream: inout T, _ depth: Int) {
+    override func print<T: TextOutputStream>(_ stream: inout T, _ depth: Int) {
         let prefix = "\t"*depth
         super.print(&stream, depth)
         Swift.print("\(prefix)Typename: \(typeName)", to: &stream)

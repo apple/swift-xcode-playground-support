@@ -35,7 +35,7 @@ public class PlaygroundDecodedLogEntry {
         self.object = object
     }
     
-    func print<T: OutputStream>(to stream: inout T) {
+    func print<T: TextOutputStream>(to stream: inout T) {
         Swift.print("Version: \(version)", to: &stream)
         Swift.print("\(header.count) header entries", to: &stream)
         for (key,value) in header {
