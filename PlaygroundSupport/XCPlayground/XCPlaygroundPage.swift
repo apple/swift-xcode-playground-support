@@ -102,9 +102,9 @@ public final class XCPlaygroundPage {
             if let liveView = liveView {
                 switch liveView.playgroundLiveViewRepresentation() {
                 case .ViewController(let viewController):
-                    userInfo = ["XCPlaygroundPageLiveViewController" as AnyHashable: viewController]
+                    userInfo = ["XCPlaygroundPageLiveViewController" as AnyHashable : viewController]
                 case .View(let view):
-                    userInfo = ["XCPlaygroundPageLiveView" as AnyHashable: view]
+                    userInfo = ["XCPlaygroundPageLiveView" as AnyHashable : view]
                 }
             }
             else {
