@@ -45,7 +45,7 @@ public final class XCPlaygroundPage {
     /// - note: This function has been deprecated. 
     @available(*,deprecated) public func captureValue<T>(value: T, withIdentifier identifier: String) {
         if let value = value as? AnyObject {
-            NotificationCenter.default.post(name: "XCPCaptureValue" as NSNotification.Name, object: self, userInfo: [ "value" : value, "identifier" : identifier as AnyObject])
+            NotificationCenter.default.post(name: "XCPCaptureValue" as NSNotification.Name, object: self, userInfo: [ "value" as AnyHashable : value, "identifier" as AnyHashable: identifier as AnyObject])
         }
     }
 
