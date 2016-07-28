@@ -62,7 +62,7 @@ public final class XCPlaygroundPage {
     @available(*,deprecated,message:"Use 'PlaygroundPage.current.needsIndefiniteExecution' from the 'PlaygroundSupport' module instead")
     public var needsIndefiniteExecution: Bool = false {
         didSet {
-            NotificationCenter.default.post(name: "XCPlaygroundPageNeedsIndefiniteExecutionDidChangeNotification" as NSNotification.Name, object: self, userInfo: [ "XCPlaygroundPageNeedsIndefiniteExecution" : needsIndefiniteExecution as AnyObject])
+            NotificationCenter.default.post(name: "XCPlaygroundPageNeedsIndefiniteExecutionDidChangeNotification" as NSNotification.Name, object: self, userInfo: [ "XCPlaygroundPageNeedsIndefiniteExecution" as AnyHashable : needsIndefiniteExecution as AnyObject])
         }
     }
 
