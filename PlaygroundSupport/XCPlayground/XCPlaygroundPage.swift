@@ -97,7 +97,7 @@ public final class XCPlaygroundPage {
                 needsIndefiniteExecution = true
             }
             
-            let userInfo: [NSString: Any]
+            let userInfo: [AnyHashable: Any]
             
             if let liveView = liveView {
                 switch liveView.playgroundLiveViewRepresentation() {
