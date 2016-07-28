@@ -45,7 +45,7 @@ public final class XCPlaygroundPage {
     /// - note: This function has been deprecated. 
     @available(*,deprecated) public func captureValue<T>(value: T, withIdentifier identifier: String) {
         if let value = value as? AnyObject {
-            NotificationCenter.default.post(name: "XCPCaptureValue" as NSNotification.Name, object: self, userInfo: [ "value" as AnyHashable : value, "identifier" as AnyHashable: identifier as AnyObject])
+            NotificationCenter.default.post(name: "XCPCaptureValue" as NSNotification.Name, object: self, userInfo: [ AnyHashable("value") : value, AnyHashable("identifier"): identifier as AnyObject])
         }
     }
 
@@ -62,7 +62,7 @@ public final class XCPlaygroundPage {
     @available(*,deprecated,message:"Use 'PlaygroundPage.current.needsIndefiniteExecution' from the 'PlaygroundSupport' module instead")
     public var needsIndefiniteExecution: Bool = false {
         didSet {
-            NotificationCenter.default.post(name: "XCPlaygroundPageNeedsIndefiniteExecutionDidChangeNotification" as NSNotification.Name, object: self, userInfo: [ "XCPlaygroundPageNeedsIndefiniteExecution" as AnyHashable : needsIndefiniteExecution as AnyObject])
+            NotificationCenter.default.post(name: "XCPlaygroundPageNeedsIndefiniteExecutionDidChangeNotification" as NSNotification.Name, object: self, userInfo: [ AnyHashable("XCPlaygroundPageNeedsIndefiniteExecution") : needsIndefiniteExecution as AnyObject])
         }
     }
 
@@ -102,9 +102,9 @@ public final class XCPlaygroundPage {
             if let liveView = liveView {
                 switch liveView.playgroundLiveViewRepresentation() {
                 case .ViewController(let viewController):
-                    userInfo = ["XCPlaygroundPageLiveViewController" as AnyHashable : viewController]
+                    userInfo = [AnyHashable("XCPlaygroundPageLiveViewController") : viewController]
                 case .View(let view):
-                    userInfo = ["XCPlaygroundPageLiveView" as AnyHashable : view]
+                    userInfo = [AnyHashable("XCPlaygroundPageLiveView") : view]
                 }
             }
             else {
