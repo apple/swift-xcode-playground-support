@@ -50,7 +50,7 @@ public final class PlaygroundPage {
     ///
     public var needsIndefiniteExecution: Bool = false {
         didSet {
-            NotificationCenter.default.post(name: "PlaygroundPageNeedsIndefiniteExecutionDidChangeNotification" as NSNotification.Name, object: self, userInfo: [ "PlaygroundPageNeedsIndefiniteExecution" : needsIndefiniteExecution as AnyObject])
+            NotificationCenter.default.post(name: "PlaygroundPageNeedsIndefiniteExecutionDidChangeNotification" as NSNotification.Name, object: self, userInfo: [ "PlaygroundPageNeedsIndefiniteExecution" as AnyHashable : needsIndefiniteExecution as AnyObject])
         }
     }
 
@@ -83,14 +83,14 @@ public final class PlaygroundPage {
                 needsIndefiniteExecution = true
             }
             
-            let userInfo: [NSString: Any]
+            let userInfo: [AnyHashable: Any]
             
             if let liveView = liveView {
                 switch liveView.playgroundLiveViewRepresentation {
                 case .viewController(let viewController):
-                    userInfo = ["PlaygroundPageLiveViewController": viewController]
+                    userInfo = ["PlaygroundPageLiveViewController" as AnyHashable : viewController]
                 case .view(let view):
-                    userInfo = ["PlaygroundPageLiveView": view]
+                    userInfo = ["PlaygroundPageLiveView" as AnyHashable : view]
                 }
             }
             else {
