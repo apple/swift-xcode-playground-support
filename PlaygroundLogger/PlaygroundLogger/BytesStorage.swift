@@ -18,9 +18,9 @@ final class BytesStorage {
 	var index: Int
 	
 	init(_ _bytes: NSData) {
-        data = _bytes
-        bytes = UnsafeMutablePointer(data.bytes.bindMemory(to: UInt8.self, capacity: data.length))
-        index = 0
+		data = _bytes
+		bytes = UnsafeMutablePointer(mutating: data.bytes.bindMemory(to: UInt8.self, capacity: data.length))
+		index = 0
 	}
 		
 	func get() -> UInt8 {

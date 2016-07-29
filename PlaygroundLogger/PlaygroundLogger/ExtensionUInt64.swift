@@ -23,9 +23,9 @@ extension UInt64 : Serializable {
         var up_int = UnsafeMutablePointer<UInt64>.allocate(capacity: 1)
         defer { up_int.deallocate(capacity: 1) }
 		up_int.pointee = self
-        var up_byte: UnsafePointer<UInt8> = UnsafePointer(up_int)
+        var up_byte = UnsafeRawPointer(up_int)
         8.doFor {
-			ret.append(up_byte.pointee)
+			ret.append(up_byte.load(as: UInt8.self))
 			up_byte = up_byte.successor()
 		}
 		return ret
@@ -36,9 +36,9 @@ extension UInt64 : Serializable {
         var up_int = UnsafeMutablePointer<UInt64>.allocate(capacity: 1)
         defer { up_int.deallocate(capacity: 1) }
         up_int.pointee = self
-        var up_byte: UnsafePointer<UInt8> = UnsafePointer(up_int)
+        var up_byte = UnsafeRawPointer(up_int)
         8.doFor {
-            ret.append(up_byte.pointee)
+            ret.append(up_byte.load(as: UInt8.self))
             up_byte = up_byte.successor()
         }
         return ret
@@ -64,7 +64,8 @@ extension UInt64 : Serializable {
         8.doFor {
             up_byte[$0] = eightBytesStorage.get()
         }
-        let up_int: UnsafePointer<UInt64> = UnsafePointer(up_byte)
+        let up_int: UnsafePointer<UInt64> = UnsafeRawPointer(up_byte).bindMemory(
+            to: UInt64.self, capacity: 1)
 		self = up_int.pointee
     }
 }

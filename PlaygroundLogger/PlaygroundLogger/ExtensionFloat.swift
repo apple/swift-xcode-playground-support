@@ -16,10 +16,10 @@ extension Float : Serializable {
         var udPtr = UnsafeMutablePointer<Float>.allocate(capacity: 1)
         defer { udPtr.deallocate(capacity: 1) }
         udPtr.pointee = self
-        let ubPtr = UnsafeMutablePointer<UInt8>(udPtr)
+        let ubPtr = UnsafeMutableRawPointer(udPtr)
         var arr = Array<UInt8>(repeating: 0, count: 4)
         4.doFor {
-            arr[$0] = ubPtr[$0]
+            arr[$0] = ubPtr.load(fromByteOffset: $0, as: UInt8.self)
         }
         return arr
     }
@@ -31,7 +31,8 @@ extension Float : Serializable {
         4.doFor {
             ubPtr[$0] = storage.get()
         }
-        let udPtr = UnsafeMutablePointer<Float>(ubPtr)
+        let udPtr = UnsafeMutableRawPointer(ubPtr).bindMemory(
+            to: Float.self, capacity: 1)
         self = udPtr.pointee
     }
     

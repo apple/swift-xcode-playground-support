@@ -16,10 +16,10 @@ extension Double : Serializable {
         var udPtr = UnsafeMutablePointer<Double>.allocate(capacity: 1)
         defer { udPtr.deallocate(capacity: 1) }
         udPtr.pointee = self
-        let ubPtr = UnsafeMutablePointer<UInt8>(udPtr)
+        let ubPtr = UnsafeMutableRawPointer(udPtr)
         var arr = Array<UInt8>(repeating: 0, count: 8)
         8.doFor {
-            arr[$0] = ubPtr[$0]
+            arr[$0] = ubPtr.load(fromByteOffset: $0, as: UInt8.self)
         }
         return arr
     }
@@ -31,7 +31,8 @@ extension Double : Serializable {
         8.doFor {
             ubPtr[$0] = storage.get()
         }
-        let udPtr = UnsafeMutablePointer<Double>(ubPtr)
+        let udPtr = UnsafeMutableRawPointer(ubPtr).bindMemory(
+            to: Double.self, capacity: 1)
         self = udPtr.pointee
     }
     
