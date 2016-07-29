@@ -26,7 +26,7 @@ extension UInt64 : Serializable {
         var up_byte = UnsafeRawPointer(up_int)
         8.doFor {
 			ret.append(up_byte.load(as: UInt8.self))
-			up_byte = up_byte.successor()
+			up_byte += 1
 		}
 		return ret
 	}
@@ -39,7 +39,7 @@ extension UInt64 : Serializable {
         var up_byte = UnsafeRawPointer(up_int)
         8.doFor {
             ret.append(up_byte.load(as: UInt8.self))
-            up_byte = up_byte.successor()
+            up_byte += 1
         }
         return ret
     }
