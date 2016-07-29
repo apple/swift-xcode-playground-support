@@ -154,17 +154,17 @@ public func playground_logger_test() {
         default: ()
         }
         switch behavior {
-            case .ExpectedSuccess: ucTest.test(String(test)) { test.doTest() }
+            case .ExpectedSuccess: ucTest.test(String(describing: test)) { test.doTest() }
             case .Skip(let reason):
-                ucTest.test(String(test)).skip(
+                ucTest.test(String(describing: test)).skip(
                     .custom( { true }, reason: reason )
                 ).code { test.doTest() }
             case .ExpectedFailure(let reason):
-                ucTest.test(String(test)).xfail(
+                ucTest.test(String(describing: test)).xfail(
                     .custom( { true }, reason: reason )
                 ).code { test.doTest() }
             case .Custom(let predicate):
-                ucTest.test(String(test)).xfail(
+                ucTest.test(String(describing: test)).xfail(
                     .custom( { predicate.evaluate() }, reason: predicate.description )
                 ).code { test.doTest() }
             default: ()

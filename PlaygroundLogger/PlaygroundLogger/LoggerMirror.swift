@@ -119,7 +119,7 @@ final class LoggerMirror {
         if let str = obj as? String {
             return str
         }
-        return String(obj)
+        return String(describing: obj)
     }
     
     var displayStyle: Mirror.DisplayStyle {
