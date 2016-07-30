@@ -164,7 +164,7 @@ class PlaygroundObjectWriter : PlaygroundWriter {
 
     func encodeObject<T>(_ object : T, _ name : String, _ range: SourceRange) -> Int {
         Woodchuck.chuck {
-            return Woodchuck.LogEntry("object being logged has name = \(name) and type = \(object.dynamicType)")
+            return Woodchuck.LogEntry("object being logged has name = \(name) and type = \(type(of: object))")
         }
 
         let initial_size = stream.size
