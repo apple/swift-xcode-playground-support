@@ -50,7 +50,7 @@ public final class PlaygroundPage {
     ///
     public var needsIndefiniteExecution: Bool = false {
         didSet {
-            NotificationCenter.default.post(name: "PlaygroundPageNeedsIndefiniteExecutionDidChangeNotification" as NSNotification.Name, object: self, userInfo: [ AnyHashable("PlaygroundPageNeedsIndefiniteExecution") : needsIndefiniteExecution as AnyObject])
+            NotificationCenter.default.post(name: "PlaygroundPageNeedsIndefiniteExecutionDidChangeNotification" as NSString as NSNotification.Name, object: self, userInfo: [ AnyHashable("PlaygroundPageNeedsIndefiniteExecution") : needsIndefiniteExecution as AnyObject])
         }
     }
 
@@ -59,7 +59,7 @@ public final class PlaygroundPage {
     /// This method does not return, as Xcode will kill the process hosting playground execution when this method is called.
     public func finishExecution() -> Never {
         // Send a message to Xcode requesting that we be killed.
-        NotificationCenter.default.post(name: "PlaygroundPageFinishExecutionNotification" as NSNotification.Name, object: self, userInfo: nil)
+        NotificationCenter.default.post(name: "PlaygroundPageFinishExecutionNotification" as NSString as NSNotification.Name, object: self, userInfo: nil)
     
         // Sleep for a while to let Xcode kill us.
         for _ in 1...10 {
@@ -102,7 +102,7 @@ public final class PlaygroundPage {
                 userInfo = [:]
             }
 
-            NotificationCenter.default.post(name: "PlaygroundPageLiveViewDidChangeNotification" as NSNotification.Name, object: self, userInfo: userInfo)
+            NotificationCenter.default.post(name: "PlaygroundPageLiveViewDidChangeNotification" as NSString as NSNotification.Name, object: self, userInfo: userInfo)
         }
     }
 }
