@@ -699,7 +699,7 @@ class ColorLoggingTestCase : TestCase {
     var behavior: TestBehavior { return .ExpectedSuccess }
     func doTest() {
         #if os(OSX)
-            let color = NSColor.red()
+            let color = NSColor.red
             let mirror = LoggerMirror.reflect(color)
             TestHelpers.unwrapOrFail(mirror.quickLookObject)
         #endif
