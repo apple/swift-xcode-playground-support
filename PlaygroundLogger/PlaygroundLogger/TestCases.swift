@@ -648,7 +648,7 @@ class PrintHookTestCase : TestCase {
     }
 }
     
-class _PlaygroundQuickLookCalledOnceTestCase : TestCase {
+class PlaygroundQuickLookCalledOnceTestCase : TestCase {
     required init?() {}
     var name: String { return "PlaygroundQuickLookCalledOnce" }
     var explanation: String { return "Check that the logger only calls customPlaygroundQuickLook() one time per log operation" }
