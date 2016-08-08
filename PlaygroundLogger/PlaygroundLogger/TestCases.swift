@@ -603,7 +603,7 @@ class EnumSummaryTestCase_NotGeneric : TestCase {
 //                NSBezierPath(rect: rect).fill()
 //            }
 //        }
-//        class MyView: NSView , CustomPlaygroundQuickLookable{
+//        class MyView: NSView , _CustomPlaygroundQuickLookable{
 //            override func drawRect(_ rect: CGRect) {
 //                NSColor.blueColor().set()
 //                NSBezierPath(rect: rect).fill()
@@ -654,7 +654,7 @@ class PlaygroundQuickLookCalledOnceTestCase : TestCase {
     var explanation: String { return "Check that the logger only calls customPlaygroundQuickLook() one time per log operation" }
     var behavior: TestBehavior { return .ExpectedSuccess }
     func doTest() {
-        class MyObject : CustomPlaygroundQuickLookable {
+        class MyObject : _CustomPlaygroundQuickLookable {
             var numCalls = 0
             var customPlaygroundQuickLook: _PlaygroundQuickLook {
                 get {
