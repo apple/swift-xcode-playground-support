@@ -45,7 +45,7 @@ public final class XCPlaygroundPage {
     /// - note: This function has been deprecated. 
     @available(*,deprecated) public func captureValue<T>(value: T, withIdentifier identifier: String) {
         if let value = value as? AnyObject {
-            NotificationCenter.default.post(name: "XCPCaptureValue" as NSString as NSNotification.Name, object: self, userInfo: [ AnyHashable("value") : value, AnyHashable("identifier"): identifier as AnyObject])
+            NotificationCenter.default.post(name: "XCPCaptureValue" as NSString as NSNotification.Name, object: self, userInfo: [ "value" : value, "identifier": identifier as AnyObject])
         }
     }
 
@@ -62,7 +62,7 @@ public final class XCPlaygroundPage {
     @available(*,deprecated,message:"Use 'PlaygroundPage.current.needsIndefiniteExecution' from the 'PlaygroundSupport' module instead")
     public var needsIndefiniteExecution: Bool = false {
         didSet {
-            NotificationCenter.default.post(name: "XCPlaygroundPageNeedsIndefiniteExecutionDidChangeNotification" as NSString as NSNotification.Name, object: self, userInfo: [ AnyHashable("XCPlaygroundPageNeedsIndefiniteExecution") : needsIndefiniteExecution as AnyObject])
+            NotificationCenter.default.post(name: "XCPlaygroundPageNeedsIndefiniteExecutionDidChangeNotification" as NSString as NSNotification.Name, object: self, userInfo: [ "XCPlaygroundPageNeedsIndefiniteExecution" : needsIndefiniteExecution as AnyObject])
         }
     }
 
@@ -102,9 +102,9 @@ public final class XCPlaygroundPage {
             if let liveView = liveView {
                 switch liveView.playgroundLiveViewRepresentation() {
                 case .ViewController(let viewController):
-                    userInfo = [AnyHashable("XCPlaygroundPageLiveViewController") : viewController]
+                    userInfo = ["XCPlaygroundPageLiveViewController" : viewController]
                 case .View(let view):
-                    userInfo = [AnyHashable("XCPlaygroundPageLiveView") : view]
+                    userInfo = ["XCPlaygroundPageLiveView" : view]
                 }
             }
             else {
