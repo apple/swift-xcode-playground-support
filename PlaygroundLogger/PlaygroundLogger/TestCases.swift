@@ -608,9 +608,9 @@ class EnumSummaryTestCase_NotGeneric : TestCase {
 //                NSColor.blueColor().set()
 //                NSBezierPath(rect: rect).fill()
 //            }
-//            func customPlaygroundQuickLook() -> PlaygroundQuickLook {
+//            func customPlaygroundQuickLook() -> _PlaygroundQuickLook {
 //                let hv = HelperView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-//                return PlaygroundQuickLook.View(hv)
+//                return _PlaygroundQuickLook.View(hv)
 //            }
 //        }
 //
@@ -648,7 +648,7 @@ class PrintHookTestCase : TestCase {
     }
 }
     
-class PlaygroundQuickLookCalledOnceTestCase : TestCase {
+class _PlaygroundQuickLookCalledOnceTestCase : TestCase {
     required init?() {}
     var name: String { return "PlaygroundQuickLookCalledOnce" }
     var explanation: String { return "Check that the logger only calls customPlaygroundQuickLook() one time per log operation" }
@@ -656,10 +656,10 @@ class PlaygroundQuickLookCalledOnceTestCase : TestCase {
     func doTest() {
         class MyObject : CustomPlaygroundQuickLookable {
             var numCalls = 0
-            var customPlaygroundQuickLook: PlaygroundQuickLook {
+            var customPlaygroundQuickLook: _PlaygroundQuickLook {
                 get {
                     numCalls = numCalls + 1
-                    return PlaygroundQuickLook(reflecting: "Hello world")
+                    return _PlaygroundQuickLook(reflecting: "Hello world")
                 }
             }
         }
