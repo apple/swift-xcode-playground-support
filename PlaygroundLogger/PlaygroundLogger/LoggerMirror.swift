@@ -136,7 +136,7 @@ final class LoggerMirror {
         let cpql = _PlaygroundQuickLook(reflecting: obj)
         switch cpql {
         case .text( _):
-            if (obj as? CustomPlaygroundQuickLookable_) != nil {
+            if (obj as? _CustomPlaygroundQuickLookable) != nil {
                 quickLookData = cpql
             } else {
                 // ignore .Text quicklook data that doesn't come from a CustomPlaygroundQuickLookable as that is a synthetized conformance
