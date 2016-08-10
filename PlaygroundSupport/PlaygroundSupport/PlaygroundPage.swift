@@ -182,8 +182,3 @@ extension NSViewController: PlaygroundLiveViewable {
     }
 }
 #endif
-
-// FIXME(ABI) the actual declarations and all the conformances should
-// be moved here before ABI stability.
-typealias CustomPlaygroundQuickLookable = Swift._CustomPlaygroundQuickLookable
-typealias PlaygroundQuickLook = Swift._PlaygroundQuickLook

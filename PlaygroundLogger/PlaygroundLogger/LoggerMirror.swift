@@ -20,7 +20,7 @@ final class LoggerMirror {
     private var superclassMirror: (Bool, LoggerMirror?)
     private var typeNameData: String?
     private var displayTypeNameData: String?
-    private var quickLookData: _PlaygroundQuickLook?? = nil
+    private var quickLookData: PlaygroundQuickLook?? = nil
     
     private static let Swift_Stdlib_Regex = Regex(pattern: "(?<!\\.)\\b(Swift\\.)")
     
@@ -127,16 +127,16 @@ final class LoggerMirror {
         else { return .`struct` }
     }
     
-    var quickLookObject: _PlaygroundQuickLook? {
+    var quickLookObject: PlaygroundQuickLook? {
         if let prefetched = quickLookData {
             return prefetched
         }
         guard let obj = object else { return nil }
         quickLookData = nil
-        let cpql = _PlaygroundQuickLook(reflecting: obj)
+        let cpql = PlaygroundQuickLook(reflecting: obj)
         switch cpql {
         case .text( _):
-            if (obj as? _CustomPlaygroundQuickLookable) != nil {
+            if (obj as? CustomPlaygroundQuickLookable) != nil {
                 quickLookData = cpql
             } else {
                 // ignore .Text quicklook data that doesn't come from a CustomPlaygroundQuickLookable as that is a synthetized conformance

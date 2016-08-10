@@ -21,7 +21,7 @@ protocol Serializable {
 }
 
 typealias ChildrenRange = CountableRange<UInt64>
-typealias QuickLookObject = Swift._PlaygroundQuickLook
+typealias QuickLookObject = Swift.PlaygroundQuickLook
 
 // given a disparate array of ranges, return a possibly smaller such array such that
 // no two ranges overlap and ranges are sorted by their startIndex
