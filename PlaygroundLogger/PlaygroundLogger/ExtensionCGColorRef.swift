@@ -107,8 +107,11 @@ class LoggerCGColor {
         }
         if components == nil {
             let nc = Int(numComponents)
-            let unsafes = self.color.components!
-
+            
+            guard let unsafes = self.color.__unsafeComponents else {
+                return nil
+            }
+            
             var tmp_comps = [CGFloat](repeating:0, count: nc)
             self.components = Array(repeating:0, count: nc)
             nc.doFor {

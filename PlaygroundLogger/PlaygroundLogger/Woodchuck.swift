@@ -17,7 +17,7 @@ import Foundation
 private extension NSDate {
     func toShortString() -> String {
         let f = DateFormatter()
-        f.locale = Locale.system
+        f.locale = nil
         f.dateFormat = "yyyy-MM-dd HH:mm"
         return f.string(from: self as Date)
     }
