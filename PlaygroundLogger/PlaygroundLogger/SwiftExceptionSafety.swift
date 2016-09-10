@@ -11,7 +11,7 @@
 //===----------------------------------------------------------------------===//
 
 // On Apple platforms, SwiftExceptionSafety is used to turn ObjC-based throws into an exception return which Swift code then can handle without crashing
-// On non-Apple platforms, there is no ObjC runtime throwing things around, so provide an hollow stub to keep other code happy with minimal #ifs
+// On non-Apple platforms, there is no ObjC runtime throwing things around, so provide a hollow stub to keep other code happy with minimal #ifs
 
 class NSException {
     var description: String {
