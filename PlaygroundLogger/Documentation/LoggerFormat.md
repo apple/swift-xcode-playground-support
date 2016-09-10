@@ -69,7 +69,7 @@ two pairs:
 * (ending line, ending column)
 
 For consumers that produce logging data by instrumenting source code, these
-are the locations in the instrumented source code that are responsibile for
+are the locations in the instrumented source code that are responsible for
 generating the data being logged. No sanity checking of any kind is performed,
 and consumers should be ready to receive any possible value combinations.
 
@@ -119,7 +119,7 @@ Entries of types:
 * `struct`
 * `tuple`
 * `enum`
-* `agregate`
+* `aggregate`
 * `container`
 * `index_container`
 * `key_container`
