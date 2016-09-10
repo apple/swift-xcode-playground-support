@@ -119,7 +119,7 @@ Entries of types:
 * `struct`
 * `tuple`
 * `enum`
-* `agregate`
+* `aggregate`
 * `container`
 * `index_container`
 * `key_container`
