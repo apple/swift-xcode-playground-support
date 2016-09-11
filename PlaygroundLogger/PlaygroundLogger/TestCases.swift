@@ -350,11 +350,11 @@ class StackWorksTestCase : TestCase {
         expectEqual(2, stack.pop())
         expectEqual(1, stack.pop())
         expectTrue(stack.empty)
-        expectEmpty(stack.tryPop())
+        expectNil(stack.tryPop())
         stack.push(4)
         expectFalse(stack.empty)
         TestHelpers.unwrapOrFail(stack.tryPop())
-        expectEmpty(stack.tryPop())
+        expectNil(stack.tryPop())
     }
 }
 
@@ -372,7 +372,7 @@ class NeverLoggingPolicyTestCase : TestCase {
         logdata = playground_log (object, "object", 1, 0,0,0,0)
         decoded = TestHelpers.unwrapOrFail( playground_log_decode(logdata) )
         let gap2 = decoded.object as? PlaygroundDecodedObject_Gap
-        expectEmpty(gap2)
+        expectNil(gap2)
     }
 }
 
@@ -715,7 +715,7 @@ class StructLoggingTestCase : TestCase {
     func doTest() {
         struct S { var a = 1 }
         let mirror = LoggerMirror.reflect(S())
-        expectEmpty(mirror.quickLookObject)
+        expectNil(mirror.quickLookObject)
     }
 }
     

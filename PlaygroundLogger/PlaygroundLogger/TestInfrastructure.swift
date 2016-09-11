@@ -178,7 +178,7 @@ struct TestHelpers {
     
     @discardableResult
     static func unwrapOrFail<T>(_ x: T?) -> T {
-        let _ = expectNotEmpty(x)
+        let _ = expectNotNil(x)
         return x!
     }
     
