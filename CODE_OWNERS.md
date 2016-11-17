@@ -7,8 +7,8 @@ The list is sorted by surname and formatted to allow easy grepping and
 beautification by scripts.  The fields are: name (N), email (E), web-address
 (W), description (D).
 
-N: Enrico Granata
-E: egranata@apple.com
+N: Connor Wakamo
+E: cwakamo@apple.com
 D: PlaygroundLogger
 
 N: Sam Page
