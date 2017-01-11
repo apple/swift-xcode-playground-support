@@ -256,7 +256,7 @@ class NSImageLoggingTestCase : TestCase {
     }
     var name: String { return "NSImageLogging" }
     var explanation: String { return "Check that we can correctly log an NSImage without crashing" }
-    var behavior: TestBehavior { return .ExpectedSuccess }
+    var behavior: TestBehavior { return .Skip("SR-3613") }
     func doTest() {
         #if os(OSX)
         let image = NSImage(contentsOf: NSURL(string: "http://images.apple.com/support/assets/images/home/qp_apple_icon.png")! as URL)
@@ -278,7 +278,7 @@ class SpriteKitLoggingTestCase : TestCase {
     }
     var name: String { return "SpriteKitLogging" }
     var explanation: String { return "Check that we correctly choose PNG over JPG when necessary" }
-    var behavior: TestBehavior { return .ExpectedSuccess }
+    var behavior: TestBehavior { return .Skip("SR-3613") }
     func doTest() {
         #if os(OSX)
             let spritekit_image_encoder = SpriteKitImageRepresentation()
