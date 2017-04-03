@@ -50,7 +50,7 @@ final class LoggerMirror {
     
     var count: Int {
         let direct_count = self.mirror.children.count
-        let base_count = (nil == self.superclass ? 0 : 1)
+        let base_count: Int64 = (nil == self.superclass ? 0 : 1)
         return Int(direct_count+base_count)
     }
     

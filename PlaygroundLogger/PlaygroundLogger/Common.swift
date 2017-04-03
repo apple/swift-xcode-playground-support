@@ -67,7 +67,7 @@ func boundCheckRanges(_ ranges : [ChildrenRange], _ upper_bound : UInt64) -> [Ch
     return actual_ranges
 }
 
-extension Integer where Self.Stride: SignedInteger {
+extension FixedWidthInteger where Self.Stride: SignedInteger {
     func doFor (f: (Self) -> ()) {
         for x in CountableRange(uncheckedBounds: (lower: 0 as Self, upper:self)) {
             f(x)
