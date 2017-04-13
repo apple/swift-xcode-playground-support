@@ -420,7 +420,7 @@ class TypenameManagementTestCase : TestCase {
         var logdata = playground_log_impl(object, "object", TestHelpers.defaultSourceRange())
         var decoded = TestHelpers.unwrapOrFail( playground_log_decode(logdata) )
         var structured = TestHelpers.unwrapOrFail( decoded.object as? PlaygroundDecodedObject_Structured )
-        expectEqual("PlaygroundLogger.TypenameManagementTestCase.(doTest () -> ()).(SomeStruct #1)", structured.typeName)
+        expectEqual("SomeStruct #1 in PlaygroundLogger.TypenameManagementTestCase.doTest() -> ()", structured.typeName)
         object = (1,2,2,4)
         logdata = playground_log_impl(object, "object", TestHelpers.defaultSourceRange())
         decoded = TestHelpers.unwrapOrFail( playground_log_decode(logdata) )
@@ -436,7 +436,7 @@ class TypenameManagementTestCase : TestCase {
         logdata = playground_log_impl(object, "object", TestHelpers.defaultSourceRange())
         decoded = TestHelpers.unwrapOrFail( playground_log_decode(logdata) )
         structured = TestHelpers.unwrapOrFail( decoded.object as? PlaygroundDecodedObject_Structured )
-        expectEqual("PlaygroundLogger.TypenameManagementTestCase.(doTest () -> ()).(Foo #1).Swift.Bar.Baz", structured.typeName)
+        expectEqual("Bar.Baz in Foo #1 in PlaygroundLogger.TypenameManagementTestCase.doTest() -> ()", structured.typeName)
     }
 }
 
