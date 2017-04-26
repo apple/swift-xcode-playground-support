@@ -73,7 +73,7 @@ final class LoggerMirror {
                 else { actualIndex = actualIndex - 1 }
             }
             let startIndex = self.mirror.children.startIndex
-            let index = self.mirror.children.index(startIndex, offsetBy:IntMax(actualIndex))
+            let index = self.mirror.children.index(startIndex, offsetBy:Int64(actualIndex))
             let child = self.mirror.children[index]
             return LoggerMirror(object: child.value, label: child.label)
         }
