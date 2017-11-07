@@ -17,7 +17,7 @@
                BlueprintIdentifier = "9416EBBD1990436400D5BC21"
                BuildableName = "PlaygroundLogger_TestDriver"
                BlueprintName = "PlaygroundLogger_TestDriver"
-               ReferencedContainer = "container:PlaygroundLogger/PlaygroundLogger.xcodeproj">
+               ReferencedContainer = "container:Legacy/PlaygroundLogger/PlaygroundLogger.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -50,7 +50,7 @@
             BlueprintIdentifier = "9416EBBD1990436400D5BC21"
             BuildableName = "PlaygroundLogger_TestDriver"
             BlueprintName = "PlaygroundLogger_TestDriver"
-            ReferencedContainer = "container:PlaygroundLogger/PlaygroundLogger.xcodeproj">
+            ReferencedContainer = "container:Legacy/PlaygroundLogger/PlaygroundLogger.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -68,7 +68,7 @@
             BlueprintIdentifier = "9416EBBD1990436400D5BC21"
             BuildableName = "PlaygroundLogger_TestDriver"
             BlueprintName = "PlaygroundLogger_TestDriver"
-            ReferencedContainer = "container:PlaygroundLogger/PlaygroundLogger.xcodeproj">
+            ReferencedContainer = "container:Legacy/PlaygroundLogger/PlaygroundLogger.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

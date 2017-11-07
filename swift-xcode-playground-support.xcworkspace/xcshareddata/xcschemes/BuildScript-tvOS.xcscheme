@@ -17,7 +17,7 @@
                BlueprintIdentifier = "A80FEB081C59453A004E722A"
                BuildableName = "PlaygroundLogger.framework"
                BlueprintName = "PlaygroundLogger_tvOS"
-               ReferencedContainer = "container:PlaygroundLogger/PlaygroundLogger.xcodeproj">
+               ReferencedContainer = "container:Legacy/PlaygroundLogger/PlaygroundLogger.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "A80FEB081C59453A004E722A"
             BuildableName = "PlaygroundLogger.framework"
             BlueprintName = "PlaygroundLogger_tvOS"
-            ReferencedContainer = "container:PlaygroundLogger/PlaygroundLogger.xcodeproj">
+            ReferencedContainer = "container:Legacy/PlaygroundLogger/PlaygroundLogger.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -87,7 +87,7 @@
             BlueprintIdentifier = "A80FEB081C59453A004E722A"
             BuildableName = "PlaygroundLogger.framework"
             BlueprintName = "PlaygroundLogger_tvOS"
-            ReferencedContainer = "container:PlaygroundLogger/PlaygroundLogger.xcodeproj">
+            ReferencedContainer = "container:Legacy/PlaygroundLogger/PlaygroundLogger.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -105,7 +105,7 @@
             BlueprintIdentifier = "A80FEB081C59453A004E722A"
             BuildableName = "PlaygroundLogger.framework"
             BlueprintName = "PlaygroundLogger_tvOS"
-            ReferencedContainer = "container:PlaygroundLogger/PlaygroundLogger.xcodeproj">
+            ReferencedContainer = "container:Legacy/PlaygroundLogger/PlaygroundLogger.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

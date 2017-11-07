@@ -296,8 +296,8 @@
 /* Begin PBXFileReference section */
 		5E06BF1319BA882000C5C2DE /* PlaygroundLogger.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = PlaygroundLogger.modulemap; sourceTree = "<group>"; };
 		5E06BF1519BA883700C5C2DE /* PlaygroundLogger.private.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = PlaygroundLogger.private.modulemap; sourceTree = "<group>"; };
-		5E6C2B491FEB16F800DEE489 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = ../XcodeConfig/Release.xcconfig; sourceTree = "<group>"; };
-		5E6C2B4A1FEB16F800DEE489 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = ../XcodeConfig/Debug.xcconfig; sourceTree = "<group>"; };
+		5E6C2B491FEB16F800DEE489 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = ../../XcodeConfig/Release.xcconfig; sourceTree = "<group>"; };
+		5E6C2B4A1FEB16F800DEE489 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = ../../XcodeConfig/Debug.xcconfig; sourceTree = "<group>"; };
 		5EA8B30F18D12FF8007A88F4 /* PlaygroundLogger-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlaygroundLogger-Info.plist"; sourceTree = "<group>"; };
 		622D8E0518F615D200D064D0 /* PlaygroundLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlaygroundLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		622D8E0918F615D200D064D0 /* PlaygroundLogger_iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlaygroundLogger_iOS-Info.plist"; sourceTree = "<group>"; };
