@@ -11,6 +11,7 @@
 		5E2646361FB64876002DC6B6 /* PlaygroundLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2646351FB64876002DC6B6 /* PlaygroundLoggerTests.swift */; };
 		5E2646381FB64876002DC6B6 /* PlaygroundLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E26462A1FB64876002DC6B6 /* PlaygroundLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2646421FB64B2A002DC6B6 /* LoggerEntrypoints.swift */; };
+		5E2646501FB64F95002DC6B6 /* PlaygroundRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E26464A1FB64F6B002DC6B6 /* PlaygroundRuntime.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,6 +21,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5E2646261FB64876002DC6B6;
 			remoteInfo = PlaygroundLogger;
+		};
+		5E2646491FB64F6B002DC6B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E2646451FB64F6B002DC6B6 /* PlaygroundRuntime.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5EB7828B1FAE6B6F00ADE84E;
+			remoteInfo = PlaygroundRuntime;
+		};
+		5E26464C1FB64F7B002DC6B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E2646451FB64F6B002DC6B6 /* PlaygroundRuntime.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EB7828A1FAE6B6F00ADE84E;
+			remoteInfo = PlaygroundRuntime;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -31,6 +46,7 @@
 		5E2646351FB64876002DC6B6 /* PlaygroundLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundLoggerTests.swift; sourceTree = "<group>"; };
 		5E2646371FB64876002DC6B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E2646421FB64B2A002DC6B6 /* LoggerEntrypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerEntrypoints.swift; sourceTree = "<group>"; };
+		5E2646451FB64F6B002DC6B6 /* PlaygroundRuntime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PlaygroundRuntime.xcodeproj; path = ../PlaygroundRuntime/PlaygroundRuntime.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E2646501FB64F95002DC6B6 /* PlaygroundRuntime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +75,9 @@
 				5E2646291FB64876002DC6B6 /* PlaygroundLogger */,
 				5E2646341FB64876002DC6B6 /* PlaygroundLoggerTests */,
 				5E2646411FB649D0002DC6B6 /* PlaygroundLoggerTests_macOS */,
+				5E2646441FB64F54002DC6B6 /* Referenced Projects */,
 				5E2646281FB64876002DC6B6 /* Products */,
+				5E26464F1FB64F95002DC6B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +116,29 @@
 			path = PlaygroundLoggerTests_macOS;
 			sourceTree = "<group>";
 		};
+		5E2646441FB64F54002DC6B6 /* Referenced Projects */ = {
+			isa = PBXGroup;
+			children = (
+				5E2646451FB64F6B002DC6B6 /* PlaygroundRuntime.xcodeproj */,
+			);
+			name = "Referenced Projects";
+			sourceTree = "<group>";
+		};
+		5E2646461FB64F6B002DC6B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E26464A1FB64F6B002DC6B6 /* PlaygroundRuntime.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5E26464F1FB64F95002DC6B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -123,6 +165,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5E26464D1FB64F7B002DC6B6 /* PBXTargetDependency */,
 			);
 			name = PlaygroundLogger;
 			productName = PlaygroundLogger;
@@ -178,6 +221,12 @@
 			mainGroup = 5E26461D1FB64876002DC6B6;
 			productRefGroup = 5E2646281FB64876002DC6B6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5E2646461FB64F6B002DC6B6 /* Products */;
+					ProjectRef = 5E2646451FB64F6B002DC6B6 /* PlaygroundRuntime.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5E2646261FB64876002DC6B6 /* PlaygroundLogger */,
@@ -185,6 +234,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5E26464A1FB64F6B002DC6B6 /* PlaygroundRuntime.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PlaygroundRuntime.framework;
+			remoteRef = 5E2646491FB64F6B002DC6B6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5E2646251FB64876002DC6B6 /* Resources */ = {
@@ -227,6 +286,11 @@
 			isa = PBXTargetDependency;
 			target = 5E2646261FB64876002DC6B6 /* PlaygroundLogger */;
 			targetProxy = 5E2646321FB64876002DC6B6 /* PBXContainerItemProxy */;
+		};
+		5E26464D1FB64F7B002DC6B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PlaygroundRuntime;
+			targetProxy = 5E26464C1FB64F7B002DC6B6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
