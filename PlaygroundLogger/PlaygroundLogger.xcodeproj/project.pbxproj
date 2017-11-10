@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5E2646311FB64876002DC6B6 /* PlaygroundLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2646271FB64876002DC6B6 /* PlaygroundLogger.framework */; };
+		5E2646361FB64876002DC6B6 /* PlaygroundLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2646351FB64876002DC6B6 /* PlaygroundLoggerTests.swift */; };
+		5E2646381FB64876002DC6B6 /* PlaygroundLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E26462A1FB64876002DC6B6 /* PlaygroundLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2646421FB64B2A002DC6B6 /* LoggerEntrypoints.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5E2646321FB64876002DC6B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E26461E1FB64876002DC6B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E2646261FB64876002DC6B6;
+			remoteInfo = PlaygroundLogger;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5E2646271FB64876002DC6B6 /* PlaygroundLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlaygroundLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E26462A1FB64876002DC6B6 /* PlaygroundLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaygroundLogger.h; sourceTree = "<group>"; };
+		5E26462B1FB64876002DC6B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E2646301FB64876002DC6B6 /* PlaygroundLoggerTests_macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundLoggerTests_macOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E2646351FB64876002DC6B6 /* PlaygroundLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundLoggerTests.swift; sourceTree = "<group>"; };
+		5E2646371FB64876002DC6B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E2646421FB64B2A002DC6B6 /* LoggerEntrypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerEntrypoints.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5E2646231FB64876002DC6B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E26462D1FB64876002DC6B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E2646311FB64876002DC6B6 /* PlaygroundLogger.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5E26461D1FB64876002DC6B6 = {
+			isa = PBXGroup;
+			children = (
+				5E2646291FB64876002DC6B6 /* PlaygroundLogger */,
+				5E2646341FB64876002DC6B6 /* PlaygroundLoggerTests */,
+				5E2646411FB649D0002DC6B6 /* PlaygroundLoggerTests_macOS */,
+				5E2646281FB64876002DC6B6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5E2646281FB64876002DC6B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E2646271FB64876002DC6B6 /* PlaygroundLogger.framework */,
+				5E2646301FB64876002DC6B6 /* PlaygroundLoggerTests_macOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5E2646291FB64876002DC6B6 /* PlaygroundLogger */ = {
+			isa = PBXGroup;
+			children = (
+				5E26462A1FB64876002DC6B6 /* PlaygroundLogger.h */,
+				5E2646421FB64B2A002DC6B6 /* LoggerEntrypoints.swift */,
+				5E26462B1FB64876002DC6B6 /* Info.plist */,
+			);
+			path = PlaygroundLogger;
+			sourceTree = "<group>";
+		};
+		5E2646341FB64876002DC6B6 /* PlaygroundLoggerTests */ = {
+			isa = PBXGroup;
+			children = (
+				5E2646351FB64876002DC6B6 /* PlaygroundLoggerTests.swift */,
+			);
+			path = PlaygroundLoggerTests;
+			sourceTree = "<group>";
+		};
+		5E2646411FB649D0002DC6B6 /* PlaygroundLoggerTests_macOS */ = {
+			isa = PBXGroup;
+			children = (
+				5E2646371FB64876002DC6B6 /* Info.plist */,
+			);
+			path = PlaygroundLoggerTests_macOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5E2646241FB64876002DC6B6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E2646381FB64876002DC6B6 /* PlaygroundLogger.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5E2646261FB64876002DC6B6 /* PlaygroundLogger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E26463B1FB64876002DC6B6 /* Build configuration list for PBXNativeTarget "PlaygroundLogger" */;
+			buildPhases = (
+				5E2646221FB64876002DC6B6 /* Sources */,
+				5E2646231FB64876002DC6B6 /* Frameworks */,
+				5E2646241FB64876002DC6B6 /* Headers */,
+				5E2646251FB64876002DC6B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlaygroundLogger;
+			productName = PlaygroundLogger;
+			productReference = 5E2646271FB64876002DC6B6 /* PlaygroundLogger.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5E26462F1FB64876002DC6B6 /* PlaygroundLoggerTests_macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E26463E1FB64876002DC6B6 /* Build configuration list for PBXNativeTarget "PlaygroundLoggerTests_macOS" */;
+			buildPhases = (
+				5E26462C1FB64876002DC6B6 /* Sources */,
+				5E26462D1FB64876002DC6B6 /* Frameworks */,
+				5E26462E1FB64876002DC6B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E2646331FB64876002DC6B6 /* PBXTargetDependency */,
+			);
+			name = PlaygroundLoggerTests_macOS;
+			productName = PlaygroundLoggerTests;
+			productReference = 5E2646301FB64876002DC6B6 /* PlaygroundLoggerTests_macOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5E26461E1FB64876002DC6B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Swift project";
+				TargetAttributes = {
+					5E2646261FB64876002DC6B6 = {
+						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
+						ProvisioningStyle = Automatic;
+					};
+					5E26462F1FB64876002DC6B6 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5E2646211FB64876002DC6B6 /* Build configuration list for PBXProject "PlaygroundLogger" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5E26461D1FB64876002DC6B6;
+			productRefGroup = 5E2646281FB64876002DC6B6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5E2646261FB64876002DC6B6 /* PlaygroundLogger */,
+				5E26462F1FB64876002DC6B6 /* PlaygroundLoggerTests_macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5E2646251FB64876002DC6B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E26462E1FB64876002DC6B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5E2646221FB64876002DC6B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E26462C1FB64876002DC6B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E2646361FB64876002DC6B6 /* PlaygroundLoggerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E2646331FB64876002DC6B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E2646261FB64876002DC6B6 /* PlaygroundLogger */;
+			targetProxy = 5E2646321FB64876002DC6B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5E2646391FB64876002DC6B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5E26463A1FB64876002DC6B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5E26463C1FB64876002DC6B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = PlaygroundLogger/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.PlaygroundLogger;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos appletvsimulator appletvos";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		5E26463D1FB64876002DC6B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = PlaygroundLogger/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.PlaygroundLogger;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos appletvsimulator appletvos";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		5E26463F1FB64876002DC6B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PlaygroundLoggerTests_macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.PlaygroundLoggerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		5E2646401FB64876002DC6B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PlaygroundLoggerTests_macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.PlaygroundLoggerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5E2646211FB64876002DC6B6 /* Build configuration list for PBXProject "PlaygroundLogger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E2646391FB64876002DC6B6 /* Debug */,
+				5E26463A1FB64876002DC6B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E26463B1FB64876002DC6B6 /* Build configuration list for PBXNativeTarget "PlaygroundLogger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E26463C1FB64876002DC6B6 /* Debug */,
+				5E26463D1FB64876002DC6B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E26463E1FB64876002DC6B6 /* Build configuration list for PBXNativeTarget "PlaygroundLoggerTests_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E26463F1FB64876002DC6B6 /* Debug */,
+				5E2646401FB64876002DC6B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5E26461E1FB64876002DC6B6 /* Project object */;
+}
