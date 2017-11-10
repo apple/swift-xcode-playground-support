@@ -68,3 +68,9 @@ enum LogEntry {
     case scopeEntry, scopeExit
     case error(reason: String)
 }
+
+extension LogEntry {
+    init(describing instance: Any, name: String? = nil) {
+        fatalError("Unimplemented function \(#function)")
+    }
+}

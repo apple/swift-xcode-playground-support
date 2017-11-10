@@ -19,6 +19,10 @@ func logResult(_ result: Any,
                endLine: Int,
                startColumn: Int,
                endColumn: Int) {
+    let packet = LogPacket(describingResult: result, named: name, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
+    
+    _ = packet
+    
     fatalError("Unimplemented function \(#function)")
 }
 
@@ -26,6 +30,10 @@ func logScopeEntry(startLine: Int,
                    endLine: Int,
                    startColumn: Int,
                    endColumn: Int) {
+    let packet = LogPacket(scopeEntryWithStartLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
+    
+    _ = packet
+    
     fatalError("Unimplemented function \(#function)")
 }
 
@@ -33,6 +41,10 @@ func logScopeExit(startLine: Int,
                   endLine: Int,
                   startColumn: Int,
                   endColumn: Int) {
+    let packet = LogPacket(scopeExitWithStartLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
+    
+    _ = packet
+    
     fatalError("Unimplemented function \(#function)")
 }
 
@@ -52,7 +64,9 @@ func logPostPrint(startLine: Int,
     
     Thread.current.threadDictionary.removeObject(forKey: printedStringThreadDictionaryKey)
     
-    _ = printedString
+    let packet = LogPacket(printedString: printedString, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
+    
+    _ = packet
     
     fatalError("Unimplemented function \(#function)")
 }

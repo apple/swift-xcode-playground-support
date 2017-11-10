@@ -10,6 +10,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+import Darwin
+
 struct LogPacket {
     var startLine: Int
     var endLine: Int
@@ -19,4 +21,51 @@ struct LogPacket {
     var threadID: String
     
     var logEntry: LogEntry
+}
+
+private let stringTypeName = _typeName(String.self)
+
+extension LogPacket {
+    private init(logEntry: LogEntry, startLine: Int, endLine: Int, startColumn: Int, endColumn: Int, threadID: String?) {
+        self.startLine = startLine
+        self.endLine = endLine
+        self.startColumn = startColumn
+        self.endColumn = endColumn
+        self.threadID = threadID ?? "\(pthread_mach_thread_np(pthread_self()))"
+        self.logEntry = .scopeEntry
+    }
+    
+    init(describingResult result: Any, named name: String, startLine: Int, endLine: Int, startColumn: Int, endColumn: Int, threadID: String? = nil) {
+        self = .init(logEntry: LogEntry(describing: result, name: name), startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: threadID)
+    }
+    
+    init(scopeEntryWithStartLine startLine: Int, endLine: Int, startColumn: Int, endColumn: Int, threadID: String? = nil) {
+        self = .init(logEntry: .scopeEntry, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: threadID)
+    }
+    
+    init(scopeExitWithStartLine startLine: Int, endLine: Int, startColumn: Int, endColumn: Int, threadID: String? = nil) {
+        self = .init(logEntry: .scopeExit, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: threadID)
+    }
+    
+    init(gapWithStartLine startLine: Int, endLine: Int, startColumn: Int, endColumn: Int, threadID: String? = nil) {
+        self = .init(logEntry: .gap, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: threadID)
+    }
+    
+    init(errorWithReason errorReason: String, startLine: Int, endLine: Int, startColumn: Int, endColumn: Int, threadID: String? = nil) {
+        self = .init(logEntry: .error(reason: errorReason), startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: threadID)
+    }
+    
+    init(printedString: String, startLine: Int, endLine: Int, startColumn: Int, endColumn: Int, threadID: String? = nil) {
+        // TODO: This should log something more specific than a generic opaque log entry, but the current PlaygroundLogger format does not support anything else.
+        self = .init(logEntry: .opaque(name: "",
+                                       typeName: stringTypeName,
+                                       summary: printedString,
+                                       preferBriefSummary: false,
+                                       representation: .string(printedString)),
+                     startLine: startLine,
+                     endLine: endLine,
+                     startColumn: startColumn,
+                     endColumn: endColumn,
+                     threadID: threadID)
+    }
 }
