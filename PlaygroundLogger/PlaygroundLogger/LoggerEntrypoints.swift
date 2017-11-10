@@ -36,13 +36,23 @@ func logScopeExit(startLine: Int,
     fatalError("Unimplemented function \(#function)")
 }
 
+fileprivate let printedStringThreadDictionaryKey: NSString = "org.swift.PlaygroundLogger.printedString"
+
 func printHook(string: String) {
-    fatalError("Unimplemented function \(#function)")
+    Thread.current.threadDictionary[printedStringThreadDictionaryKey] = string as NSString
 }
 
 func logPostPrint(startLine: Int,
                   endLine: Int,
                   startColumn: Int,
                   endColumn: Int) {
+    guard let printedString = Thread.current.threadDictionary[printedStringThreadDictionaryKey] as! String? else {
+        return
+    }
+    
+    Thread.current.threadDictionary.removeObject(forKey: printedStringThreadDictionaryKey)
+    
+    _ = printedString
+    
     fatalError("Unimplemented function \(#function)")
 }
