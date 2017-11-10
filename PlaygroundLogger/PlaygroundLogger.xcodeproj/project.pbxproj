@@ -12,6 +12,7 @@
 		5E2646381FB64876002DC6B6 /* PlaygroundLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E26462A1FB64876002DC6B6 /* PlaygroundLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2646421FB64B2A002DC6B6 /* LoggerEntrypoints.swift */; };
 		5E2646501FB64F95002DC6B6 /* PlaygroundRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E26464A1FB64F6B002DC6B6 /* PlaygroundRuntime.framework */; };
+		5E2646521FB65026002DC6B6 /* LoggerInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2646511FB65026002DC6B6 /* LoggerInitialization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		5E2646371FB64876002DC6B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E2646421FB64B2A002DC6B6 /* LoggerEntrypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerEntrypoints.swift; sourceTree = "<group>"; };
 		5E2646451FB64F6B002DC6B6 /* PlaygroundRuntime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PlaygroundRuntime.xcodeproj; path = ../PlaygroundRuntime/PlaygroundRuntime.xcodeproj; sourceTree = "<group>"; };
+		5E2646511FB65026002DC6B6 /* LoggerInitialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerInitialization.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				5E26462A1FB64876002DC6B6 /* PlaygroundLogger.h */,
+				5E2646511FB65026002DC6B6 /* LoggerInitialization.swift */,
 				5E2646421FB64B2A002DC6B6 /* LoggerEntrypoints.swift */,
 				5E26462B1FB64876002DC6B6 /* Info.plist */,
 			);
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */,
+				5E2646521FB65026002DC6B6 /* LoggerInitialization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +430,7 @@
 				INFOPLIST_FILE = PlaygroundLogger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -debugger-support";
 				PRODUCT_BUNDLE_IDENTIFIER = org.swift.PlaygroundLogger;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -449,6 +454,7 @@
 				INFOPLIST_FILE = PlaygroundLogger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -debugger-support";
 				PRODUCT_BUNDLE_IDENTIFIER = org.swift.PlaygroundLogger;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

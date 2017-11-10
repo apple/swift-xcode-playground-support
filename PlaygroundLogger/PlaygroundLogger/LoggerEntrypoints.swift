@@ -36,6 +36,10 @@ func logScopeExit(startLine: Int,
     fatalError("Unimplemented function \(#function)")
 }
 
+func printHook(string: String) {
+    fatalError("Unimplemented function \(#function)")
+}
+
 func logPostPrint(startLine: Int,
                   endLine: Int,
                   startColumn: Int,
