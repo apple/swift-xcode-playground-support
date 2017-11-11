@@ -15,6 +15,7 @@
 		5E2646521FB65026002DC6B6 /* LoggerInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2646511FB65026002DC6B6 /* LoggerInitialization.swift */; };
 		5E2755CF1FB657F200B69C83 /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2755CE1FB657F200B69C83 /* LogEntry.swift */; };
 		5E2755D11FB6619800B69C83 /* LogPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2755D01FB6619800B69C83 /* LogPacket.swift */; };
+		5E2755D31FB672DC00B69C83 /* SendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2755D21FB672DC00B69C83 /* SendData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		5E2646511FB65026002DC6B6 /* LoggerInitialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerInitialization.swift; sourceTree = "<group>"; };
 		5E2755CE1FB657F200B69C83 /* LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
 		5E2755D01FB6619800B69C83 /* LogPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPacket.swift; sourceTree = "<group>"; };
+		5E2755D21FB672DC00B69C83 /* SendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				5E2646421FB64B2A002DC6B6 /* LoggerEntrypoints.swift */,
 				5E2755CE1FB657F200B69C83 /* LogEntry.swift */,
 				5E2755D01FB6619800B69C83 /* LogPacket.swift */,
+				5E2755D21FB672DC00B69C83 /* SendData.swift */,
 				5E26462B1FB64876002DC6B6 /* Info.plist */,
 			);
 			path = PlaygroundLogger;
@@ -207,7 +210,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0910;
-				ORGANIZATIONNAME = "Swift project";
+				ORGANIZATIONNAME = "Apple Inc. and the Swift project authors";
 				TargetAttributes = {
 					5E2646261FB64876002DC6B6 = {
 						CreatedOnToolsVersion = 9.1;
@@ -280,6 +283,7 @@
 				5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */,
 				5E2646521FB65026002DC6B6 /* LoggerInitialization.swift in Sources */,
 				5E2755CF1FB657F200B69C83 /* LogEntry.swift in Sources */,
+				5E2755D31FB672DC00B69C83 /* SendData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
