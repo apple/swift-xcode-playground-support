@@ -17,14 +17,14 @@ import CoreGraphics
     import UIKit
     
     typealias Image = UIImage
-    typealias Color = UIColor
     typealias BezierPath = UIBezierPath
+    typealias View = UIView
 #elseif os(macOS)
     import AppKit
     
     typealias Image = NSImage
-    typealias Color = NSColor
     typealias BezierPath = NSBezierPath
+    typealias View = NSView
 #endif
 
 enum LogEntry {
@@ -36,17 +36,15 @@ enum LogEntry {
         case double(Double)
         case boolean(Bool)
         case image(Image)
-        // TODO: determine if this should be NS/UIView instead
-        case view(Image)
-        // TODO: determine if this should be SKSpriteNode instead
+        case view(View)
         case sprite(Image)
-        case color(Color)
+        case color(CGColor)
         case bezierPath(BezierPath)
         case attributedString(NSAttributedString)
         case point(CGPoint)
         case size(CGSize)
         case rect(CGRect)
-        case range(NSRange)
+        case nsRange(NSRange)
         case url(URL)
     }
     
@@ -69,8 +67,21 @@ enum LogEntry {
     case error(reason: String)
 }
 
+private let emptyName = ""
+
 extension LogEntry {
     init(describing instance: Any, name: String? = nil) {
         fatalError("Unimplemented function \(#function)")
+    }
+    
+    var name: String {
+        switch self {
+        case let .structured(name, _, _, _, _, _):
+            return name
+        case let .opaque(name, _, _, _, _):
+            return name
+        case .gap, .scopeEntry, .scopeExit, .error:
+            return emptyName
+        }
     }
 }

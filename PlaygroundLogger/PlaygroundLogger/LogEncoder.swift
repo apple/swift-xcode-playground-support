@@ -25,6 +25,15 @@ final class LogEncoder {
     
     var encodedData: Data { return buffer as Data }
     
+    func encode(byte: UInt8) {
+        var byte = byte
+        buffer.append(&byte, length: 1)
+    }
+    
+    func encode(bytes: UnsafePointer<UInt8>, length: Int) {
+        buffer.append(bytes, length: length)
+    }
+    
     func encode(number: UInt64, allowShortEncoding: Bool = true) {
         if allowShortEncoding && number < 255 {
             var byte = UInt8(number)
@@ -58,5 +67,9 @@ final class LogEncoder {
     func encode(double: Double) {
         var double = double
         buffer.append(&double, length: MemoryLayout<Double>.size)
+    }
+    
+    func encode(data: Data) {
+        buffer.append(data)
     }
 }
