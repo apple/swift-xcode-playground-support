@@ -17,6 +17,8 @@
 		5E2755D11FB6619800B69C83 /* LogPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2755D01FB6619800B69C83 /* LogPacket.swift */; };
 		5E2755D31FB672DC00B69C83 /* SendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2755D21FB672DC00B69C83 /* SendData.swift */; };
 		5E2755D51FB6807F00B69C83 /* LogPacket+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2755D41FB6807F00B69C83 /* LogPacket+Encoding.swift */; };
+		5E2755D71FB682DE00B69C83 /* LogEntry+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2755D61FB682DE00B69C83 /* LogEntry+Encoding.swift */; };
+		5E2755D91FB6836800B69C83 /* LogEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2755D81FB6836800B69C83 /* LogEncoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		5E2755D01FB6619800B69C83 /* LogPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPacket.swift; sourceTree = "<group>"; };
 		5E2755D21FB672DC00B69C83 /* SendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendData.swift; sourceTree = "<group>"; };
 		5E2755D41FB6807F00B69C83 /* LogPacket+Encoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogPacket+Encoding.swift"; sourceTree = "<group>"; };
+		5E2755D61FB682DE00B69C83 /* LogEntry+Encoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogEntry+Encoding.swift"; sourceTree = "<group>"; };
+		5E2755D81FB6836800B69C83 /* LogEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEncoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +110,9 @@
 				5E26462A1FB64876002DC6B6 /* PlaygroundLogger.h */,
 				5E2646511FB65026002DC6B6 /* LoggerInitialization.swift */,
 				5E2646421FB64B2A002DC6B6 /* LoggerEntrypoints.swift */,
+				5E2755D81FB6836800B69C83 /* LogEncoder.swift */,
 				5E2755CE1FB657F200B69C83 /* LogEntry.swift */,
+				5E2755D61FB682DE00B69C83 /* LogEntry+Encoding.swift */,
 				5E2755D01FB6619800B69C83 /* LogPacket.swift */,
 				5E2755D41FB6807F00B69C83 /* LogPacket+Encoding.swift */,
 				5E2755D21FB672DC00B69C83 /* SendData.swift */,
@@ -283,9 +289,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E2755D11FB6619800B69C83 /* LogPacket.swift in Sources */,
+				5E2755D71FB682DE00B69C83 /* LogEntry+Encoding.swift in Sources */,
 				5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */,
 				5E2646521FB65026002DC6B6 /* LoggerInitialization.swift in Sources */,
 				5E2755D51FB6807F00B69C83 /* LogPacket+Encoding.swift in Sources */,
+				5E2755D91FB6836800B69C83 /* LogEncoder.swift in Sources */,
 				5E2755CF1FB657F200B69C83 /* LogEntry.swift in Sources */,
 				5E2755D31FB672DC00B69C83 /* SendData.swift in Sources */,
 			);

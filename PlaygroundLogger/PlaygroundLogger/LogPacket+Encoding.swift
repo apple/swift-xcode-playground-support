@@ -12,14 +12,27 @@
 
 import Foundation
 
-enum EncodingFormat {
-    case ten
-    
-    static let current = EncodingFormat.ten
-}
-
 extension LogPacket {
-    func encode(inFormat format: EncodingFormat = .current) -> Data {
-        fatalError("Unimplemented function \(#function)")
+    func encode(inFormat format: LogEncoder.Format = .current) -> Data {
+        let encoder = LogEncoder()
+        
+        // Encode the format version.
+        encoder.encode(number: format.rawValue)
+        
+        // Encode the source location.
+        encoder.encode(number: UInt64(startLine), allowShortEncoding: false)
+        encoder.encode(number: UInt64(endLine), allowShortEncoding: false)
+        encoder.encode(number: UInt64(startColumn), allowShortEncoding: false)
+        encoder.encode(number: UInt64(endColumn), allowShortEncoding: false)
+        
+        // Encode the thread ID.
+        encoder.encode(number: 1)
+        encoder.encode(string: "tid")
+        encoder.encode(string: threadID)
+        
+        // Encode our top-level log entry. (This will add any child entries automatically.)
+        logEntry.encode(with: encoder, format: format)
+        
+        return encoder.encodedData
     }
 }
