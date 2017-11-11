@@ -21,9 +21,9 @@ func logResult(_ result: Any,
                endColumn: Int) {
     let packet = LogPacket(describingResult: result, named: name, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
     
-    _ = packet
+    let data = packet.encode()
     
-    fatalError("Unimplemented function \(#function)")
+    sendData(data as NSData)
 }
 
 func logScopeEntry(startLine: Int,
@@ -32,9 +32,9 @@ func logScopeEntry(startLine: Int,
                    endColumn: Int) {
     let packet = LogPacket(scopeEntryWithStartLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
     
-    _ = packet
+    let data = packet.encode()
     
-    fatalError("Unimplemented function \(#function)")
+    sendData(data as NSData)
 }
 
 func logScopeExit(startLine: Int,
@@ -43,9 +43,9 @@ func logScopeExit(startLine: Int,
                   endColumn: Int) {
     let packet = LogPacket(scopeExitWithStartLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
     
-    _ = packet
+    let data = packet.encode()
     
-    fatalError("Unimplemented function \(#function)")
+    sendData(data as NSData)
 }
 
 fileprivate let printedStringThreadDictionaryKey: NSString = "org.swift.PlaygroundLogger.printedString"
@@ -66,7 +66,7 @@ func logPostPrint(startLine: Int,
     
     let packet = LogPacket(printedString: printedString, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
     
-    _ = packet
+    let data = packet.encode()
     
-    fatalError("Unimplemented function \(#function)")
+    sendData(data as NSData)
 }
