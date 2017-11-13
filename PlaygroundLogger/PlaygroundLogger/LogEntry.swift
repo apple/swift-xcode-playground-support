@@ -70,10 +70,6 @@ enum LogEntry {
 private let emptyName = ""
 
 extension LogEntry {
-    init(describing instance: Any, name: String? = nil) {
-        fatalError("Unimplemented function \(#function)")
-    }
-    
     var name: String {
         switch self {
         case let .structured(name, _, _, _, _, _):
