@@ -27,7 +27,7 @@ class ImageRepresentation {
 }
 
 #if os(iOS) || os(tvOS)
-    func CI2Data(_ x: CIImage, callback: (UIImage!) -> (Data?)) -> Data? {
+    func CI2Data(_ x: CIImage, callback: (UIImage?) -> (Data?)) -> Data? {
         let size = x.extent.size
         if size.width <= 0 || size.height <= 0 { return nil }
         UIGraphicsBeginImageContext(size)
@@ -46,12 +46,12 @@ class ImageRepresentation {
         if let ui_image = x as? UIImage {
             if ui_image.cgImage == nil {
                 if let ci_image = ui_image.ciImage {
-                    return CI2Data(ci_image) { return UIImageJPEGRepresentation($0, compressionFactor) }
+                    return CI2Data(ci_image) { return UIImageJPEGRepresentation($0!, compressionFactor) }
                 }
             } else { return UIImageJPEGRepresentation(ui_image, compressionFactor) }
         }
         else if let ci_image = x as? CIImage {
-                return CI2Data(ci_image) { return UIImageJPEGRepresentation($0, compressionFactor) }
+                return CI2Data(ci_image) { return UIImageJPEGRepresentation($0!, compressionFactor) }
         }
         return nil
     }
@@ -60,12 +60,12 @@ class ImageRepresentation {
         if let ui_image = x as? UIImage {
             if ui_image.cgImage == nil {
                 if let ci_image = ui_image.ciImage {
-                    return CI2Data(ci_image) { return UIImagePNGRepresentation($0) }
+                    return CI2Data(ci_image) { return UIImagePNGRepresentation($0!) }
                 }
             } else { return UIImagePNGRepresentation(ui_image) }
         }
         else if let ci_image = x as? CIImage {
-            return CI2Data(ci_image) { return UIImagePNGRepresentation($0) }
+            return CI2Data(ci_image) { return UIImagePNGRepresentation($0!) }
         }
         return nil
     }
