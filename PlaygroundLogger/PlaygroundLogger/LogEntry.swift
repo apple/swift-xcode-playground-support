@@ -13,6 +13,10 @@
 import Foundation
 import CoreGraphics
 
+protocol OpaqueLogEntryRepresentation {
+    func encode(into encoder: LogEncoder, usingFormat format: LogEncoder.Format)
+}
+
 #if os(iOS) || os(tvOS)
     import UIKit
     
@@ -28,6 +32,7 @@ import CoreGraphics
 #endif
 
 enum LogEntry {
+    @available(*, deprecated)
     enum OpaqueRepresentation {
         case string(String)
         case signedInteger(Int64)
@@ -61,7 +66,7 @@ enum LogEntry {
     }
     
     case structured(name: String, typeName: String, summary: String, totalChildrenCount: Int, children: [LogEntry], disposition: StructuredDisposition)
-    case opaque(name: String, typeName: String, summary: String, preferBriefSummary: Bool, representation: OpaqueRepresentation)
+    case opaque(name: String, typeName: String, summary: String, preferBriefSummary: Bool, representation: OpaqueLogEntryRepresentation)
     case gap
     case scopeEntry, scopeExit
     case error(reason: String)

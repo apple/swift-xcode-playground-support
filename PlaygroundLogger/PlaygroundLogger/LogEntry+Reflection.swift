@@ -67,7 +67,7 @@ extension LogEntry {
     
     private init(playgroundQuickLook: PlaygroundQuickLook, name: String, typeName: String, summary: String) {
         // TODO: figure out when to set `preferBriefSummary` to true
-        self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: .init(playgroundQuickLook: playgroundQuickLook))
+        self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: LogEntry.OpaqueRepresentation(playgroundQuickLook: playgroundQuickLook))
     }
     
     private init(debugQuickLookObject: AnyObject, name: String, typeName: String, summary: String) {

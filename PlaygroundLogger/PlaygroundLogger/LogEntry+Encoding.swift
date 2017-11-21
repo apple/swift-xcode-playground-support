@@ -106,7 +106,7 @@ extension LogEntry {
         children.forEach { $0.encode(with: encoder, format: format) }
     }
     
-    private static func encode(opaqueWithTypeName typeName: String, summary: String, preferBriefSummary: Bool, representation: OpaqueRepresentation, into encoder: LogEncoder, usingFormat format: LogEncoder.Format) {
+    private static func encode(opaqueWithTypeName typeName: String, summary: String, preferBriefSummary: Bool, representation: OpaqueLogEntryRepresentation, into encoder: LogEncoder, usingFormat format: LogEncoder.Format) {
         // Opaque entries contain the following type-specific information:
         //   - Prefers brief summary, encoded as a boolean
         //   - Type name, encoded as a string
@@ -128,7 +128,7 @@ extension LogEntry {
     }
 }
 
-extension LogEntry.OpaqueRepresentation {
+extension LogEntry.OpaqueRepresentation: OpaqueLogEntryRepresentation {
     private enum Tag: String {
         case string = "STRN"
         case signedInteger = "SINT"
@@ -188,7 +188,7 @@ extension LogEntry.OpaqueRepresentation {
         }
     }
     
-    fileprivate func encode(into encoder: LogEncoder, usingFormat format: LogEncoder.Format) {
+    func encode(into encoder: LogEncoder, usingFormat format: LogEncoder.Format) {
         // Opaque representations are encoded as follows:
         //   - Tag, encoded as a string
         //   - Payload byte count, encoded as a number
