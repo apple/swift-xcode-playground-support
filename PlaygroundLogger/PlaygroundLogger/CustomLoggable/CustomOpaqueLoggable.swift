@@ -13,3 +13,9 @@
 protocol CustomOpaqueLoggable {
     var opaqueRepresentation: LogEntry.OpaqueRepresentation { get }
 }
+
+extension CustomOpaqueLoggable where Self: LogEntry.OpaqueRepresentation {
+    var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+        return self
+    }
+}
