@@ -67,7 +67,7 @@ extension LogEntry {
     
     private init(playgroundQuickLook: PlaygroundQuickLook, name: String, typeName: String, summary: String) {
         // TODO: figure out when to set `preferBriefSummary` to true
-        self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: LogEntry.OpaqueRepresentation(playgroundQuickLook: playgroundQuickLook))
+        self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: playgroundQuickLook.opaqueRepresentation)
     }
     
     private init(debugQuickLookObject: AnyObject, name: String, typeName: String, summary: String) {
@@ -81,82 +81,127 @@ extension LogEntry {
     }
 }
 
-extension LogEntry.OpaqueRepresentation {
-    fileprivate init(playgroundQuickLook: PlaygroundQuickLook) {
-        // TODO: convert fatalErrors to throws
-        
-        switch playgroundQuickLook {
+extension PlaygroundQuickLook {
+    var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+        switch self {
         case let .text(text):
-            self = .string(text)
+            return text
         case let .int(int):
-            self = .signedInteger(int)
+            return int
         case let .uInt(uInt):
-            self = .unsignedInteger(uInt)
+            return uInt
         case let .float(float):
-            self = .float(float)
+            return float
         case let .double(double):
-            self = .double(double)
+            return double
         case let .image(image):
-            guard let image = image as? Image else {
-                fatalError("Must be a \(Image.self)")
-            }
-            
-            self = .image(image)
-        case let .view(viewOrImage):
-            if let view = viewOrImage as? View {
-                self = .view(view)
-            }
-            else if let image = viewOrImage as? Image {
-                self = .image(image)
-            }
-            else {
-                fatalError("Must be a \(View.self) or \(Image.self)")
-            }
-        case let .sprite(image):
-            // TODO: figure out if this is even a little bit right. (The previous implementation just logged a string for sprites?)
-            guard let image = image as? Image else {
-                fatalError("Must be a \(Image.self)")
-            }
-            
-            self = .image(image)
+            #if os(macOS)
+                guard let image = image as? NSImage else {
+                    fatalError("Must be an NSImage")
+                }
+                
+                return ImageOpaqueRepresentation(kind: .image, backedBy: image)
+            #elseif os(iOS) || os(tvOS)
+                guard let image = image as? UIImage else {
+                    fatalError("Must be an IOImage")
+                }
+                
+                return ImageOpaqueRepresentation(kind: .image, backedBy: image)
+
+            #endif
         case .sound:
-            fatalError("Sounds not supported")
+            fatalError("Sounds not yet supported")
         case let .color(color):
             guard let color = color as? Color else {
                 fatalError("Must be a \(Color.self)")
             }
             
-            self = .color(color.cgColor)
+            return color.cgColor
         case let .bezierPath(bezierPath):
-            guard let bezierPath = bezierPath as? BezierPath else {
-                fatalError("Must be a \(BezierPath.self)")
-            }
-            
-            self = .bezierPath(bezierPath)
+            #if os(macOS)
+                guard let bezierPath = bezierPath as? NSBezierPath else {
+                    fatalError("Must be an NSBezierPath")
+                }
+                
+                return bezierPath
+            #elseif os(iOS) || os(tvOS)
+                guard let bezierPath = bezierPath as? UIBezierPath else {
+                    fatalError("Must be a UIBezierPath")
+                }
+                
+                return bezierPath
+            #endif
         case let .attributedString(attributedString):
             guard let attributedString = attributedString as? NSAttributedString else {
                 fatalError("Must be an NSAttributedString")
             }
             
-            self = .attributedString(attributedString)
+            return attributedString
         case let .rectangle(x, y, width, height):
-            self = .rect(CGRect(x: x, y: y, width: width, height: height))
+            return CGRect(x: x, y: y, width: width, height: height)
         case let .point(x, y):
-            self = .point(CGPoint(x: x, y: y))
+            return CGPoint(x: x, y: y)
         case let .size(width, height):
-            self = .size(CGSize(width: width, height: height))
+            return CGSize(width: width, height: height)
         case let .bool(bool):
-            self = .boolean(bool)
+            return bool
         case let .range(location, length):
-            self = .nsRange(NSRange(location: Int(location), length: Int(length)))
+            return NSRange(location: Int(location), length: Int(length))
+        case let .view(viewOrImage):
+            #if os(macOS)
+                if let view = viewOrImage as? NSView {
+                    return ImageOpaqueRepresentation(kind: .view, backedBy: view)
+                }
+                else if let image = viewOrImage as? NSImage {
+                    return ImageOpaqueRepresentation(kind: .view, backedBy: image)
+                }
+                else {
+                    fatalError("Must be an NSView or NSImage")
+                }
+            #elseif os(iOS) || os(tvOS)
+                if let view = viewOrImage as? UIView {
+                    return ImageOpaqueRepresentation(kind: .view, backedBy: view)
+                }
+                else if let image = viewOrImage as? UIImage {
+                    return ImageOpaqueRepresentation(kind: .view, backedBy: image)
+                }
+                else {
+                    fatalError("Must be a UIView or UIImage")
+                }
+            #endif
+        case let .sprite(image):
+            // TODO: figure out if this is even a little bit right. (The previous implementation just logged a string for sprites?)
+            #if os(macOS)
+                guard let image = image as? NSImage else {
+                    fatalError("Must be an NSImage")
+                }
+                
+                return ImageOpaqueRepresentation(kind: .sprite, backedBy: image)
+            #elseif os(iOS) || os(tvOS)
+                guard let image = image as? UIImage else {
+                    fatalError("Must be a UIImage")
+                }
+                
+                return ImageOpaqueRepresentation(kind: .sprite, backedBy: image)
+            #endif
         case let .url(urlString):
             guard let url = URL(string: urlString) else {
                 fatalError("Must be a valid URL string!")
             }
             
-            self = .url(url)
-        case ._raw(_, _):
-            fatalError("Raw case is unsupported in the new logger")
+            return url
+        case let ._raw(bytes, tag):
+            struct RawOpaqueRepresentation: TaggedOpaqueRepresentation {
+                var tag: String
+                var bytes: [UInt8]
+                
+                func encodePayload(into encoder: LogEncoder, usingFormat format: LogEncoder.Format) {
+                    encoder.encode(number: UInt64(bytes.count))
+                    encoder.encode(bytes: bytes, length: bytes.count)
+                }
+            }
+            
+            return RawOpaqueRepresentation(tag: tag, bytes: bytes)
         }
     }
 }

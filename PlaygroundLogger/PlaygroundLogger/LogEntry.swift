@@ -10,48 +10,12 @@
 //
 //===----------------------------------------------------------------------===//
 
-import Foundation
-import CoreGraphics
-
 protocol OpaqueLogEntryRepresentation {
     func encode(into encoder: LogEncoder, usingFormat format: LogEncoder.Format)
 }
 
-#if os(iOS) || os(tvOS)
-    import UIKit
-    
-    typealias Image = UIImage
-    typealias BezierPath = UIBezierPath
-    typealias View = UIView
-#elseif os(macOS)
-    import AppKit
-    
-    typealias Image = NSImage
-    typealias BezierPath = NSBezierPath
-    typealias View = NSView
-#endif
-
 enum LogEntry {
-    @available(*, deprecated)
-    enum OpaqueRepresentation {
-        case string(String)
-        case signedInteger(Int64)
-        case unsignedInteger(UInt64)
-        case float(Float)
-        case double(Double)
-        case boolean(Bool)
-        case image(Image)
-        case view(View)
-        case sprite(Image)
-        case color(CGColor)
-        case bezierPath(BezierPath)
-        case attributedString(NSAttributedString)
-        case point(CGPoint)
-        case size(CGSize)
-        case rect(CGRect)
-        case nsRange(NSRange)
-        case url(URL)
-    }
+    typealias OpaqueRepresentation = OpaqueLogEntryRepresentation
     
     enum StructuredDisposition {
         case `class`
@@ -66,7 +30,7 @@ enum LogEntry {
     }
     
     case structured(name: String, typeName: String, summary: String, totalChildrenCount: Int, children: [LogEntry], disposition: StructuredDisposition)
-    case opaque(name: String, typeName: String, summary: String, preferBriefSummary: Bool, representation: OpaqueLogEntryRepresentation)
+    case opaque(name: String, typeName: String, summary: String, preferBriefSummary: Bool, representation: OpaqueRepresentation)
     case gap
     case scopeEntry, scopeExit
     case error(reason: String)

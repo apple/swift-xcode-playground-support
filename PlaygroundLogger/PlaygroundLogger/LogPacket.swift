@@ -61,7 +61,7 @@ extension LogPacket {
                                        typeName: stringTypeName,
                                        summary: printedString,
                                        preferBriefSummary: false,
-                                       representation: LogEntry.OpaqueRepresentation.string(printedString)),
+                                       representation: printedString),
                      startLine: startLine,
                      endLine: endLine,
                      startColumn: startColumn,
