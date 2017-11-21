@@ -37,6 +37,12 @@ extension LogEntry {
             // TODO: pass nil or concrete summary?
             self = .init(describing: customRepresentable.playgroundRepresentation, name: name, typeName: typeName, summary: nil)
         }
+            
+        // For types which conform to the `CustomOpaqueLoggable` protocol, get their custom representation and construct an opaque log entry. (This is checked *second* so that user implementations of `CustomPlaygroundRepresentable` are honored over this framework's implementations of `CustomOpaqueLoggable`.)
+        else if let customOpaqueLoggable = instance as? CustomOpaqueLoggable {
+            // TODO: figure out when to set `preferBriefSummary` to true
+            self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: customOpaqueLoggable.opaqueRepresentation)
+        }
         
         // For types which conform to the legacy `CustomPlaygroundQuickLookable` or `_DefaultCustomPlaygroundQuickLookable` protocols, get their `PlaygroundQuickLook` and use that for logging.
         else if let customQuickLookable = instance as? CustomPlaygroundQuickLookable {

@@ -41,6 +41,7 @@
 		5E27564A1FC4DF0200B69C83 /* UIImage+OpaqueImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756491FC4DF0200B69C83 /* UIImage+OpaqueImageRepresentable.swift */; };
 		5E27564C1FC4E07600B69C83 /* UIView+OpaqueImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27564B1FC4E07600B69C83 /* UIView+OpaqueImageRepresentable.swift */; };
 		5E27564F1FC4E58300B69C83 /* PlaygroundQuickLook+OpaqueRepresentationSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27564E1FC4E58300B69C83 /* PlaygroundQuickLook+OpaqueRepresentationSupport.swift */; };
+		5E2756531FC4EC6200B69C83 /* CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756521FC4EC6200B69C83 /* CustomOpaqueLoggable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		5E2756491FC4DF0200B69C83 /* UIImage+OpaqueImageRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+OpaqueImageRepresentable.swift"; sourceTree = "<group>"; };
 		5E27564B1FC4E07600B69C83 /* UIView+OpaqueImageRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+OpaqueImageRepresentable.swift"; sourceTree = "<group>"; };
 		5E27564E1FC4E58300B69C83 /* PlaygroundQuickLook+OpaqueRepresentationSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaygroundQuickLook+OpaqueRepresentationSupport.swift"; sourceTree = "<group>"; };
+		5E2756521FC4EC6200B69C83 /* CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOpaqueLoggable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				5E2755D41FB6807F00B69C83 /* LogPacket+Encoding.swift */,
 				5E2755D21FB672DC00B69C83 /* SendData.swift */,
 				5E27561B1FC4854C00B69C83 /* Opaque Representations */,
+				5E2756511FC4EC4100B69C83 /* Custom Loggable */,
 				5E27564D1FC4E54A00B69C83 /* Legacy Support */,
 				5E26462B1FB64876002DC6B6 /* Info.plist */,
 			);
@@ -282,6 +285,15 @@
 			);
 			name = "Legacy Support";
 			path = LegacySupport;
+			sourceTree = "<group>";
+		};
+		5E2756511FC4EC4100B69C83 /* Custom Loggable */ = {
+			isa = PBXGroup;
+			children = (
+				5E2756521FC4EC6200B69C83 /* CustomOpaqueLoggable.swift */,
+			);
+			name = "Custom Loggable";
+			path = CustomLoggable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +427,7 @@
 				5E2756321FC48FD300B69C83 /* NSRange+KeyedArchiveOpaqueRepresentation.swift in Sources */,
 				5E2756241FC4886A00B69C83 /* String+TaggedOpaqueRepresentation.swift in Sources */,
 				5E27563D1FC4D17F00B69C83 /* CGColor+KeyedArchiveOpaqueRepresentation.swift in Sources */,
+				5E2756531FC4EC6200B69C83 /* CustomOpaqueLoggable.swift in Sources */,
 				5E27562A1FC48C7D00B69C83 /* Bool+TaggedOpaqueRepresentation.swift in Sources */,
 				5E2755D11FB6619800B69C83 /* LogPacket.swift in Sources */,
 				5E27564F1FC4E58300B69C83 /* PlaygroundQuickLook+OpaqueRepresentationSupport.swift in Sources */,
