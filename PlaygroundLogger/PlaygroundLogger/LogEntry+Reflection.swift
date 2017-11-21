@@ -15,10 +15,8 @@ import PlaygroundRuntime // temporary, for CustomPlaygroundRepresentable
 
 #if os(iOS) || os(tvOS)
     import UIKit
-    fileprivate typealias Color = UIColor
 #elseif os(macOS)
     import AppKit
-    fileprivate typealias Color = NSColor
 #endif
 
 fileprivate class DebugQuickLookObjectHook: NSObject {
@@ -112,11 +110,19 @@ extension PlaygroundQuickLook {
         case .sound:
             fatalError("Sounds not yet supported")
         case let .color(color):
-            guard let color = color as? Color else {
-                fatalError("Must be a \(Color.self)")
-            }
-            
-            return color.cgColor
+            #if os(macOS)
+                guard let color = color as? NSColor else {
+                    fatalError("Must be an NSColor")
+                }
+                
+                return color.cgColor
+            #elseif os(iOS) || os(tvOS)
+                guard let color = color as? UIColor else {
+                    fatalError("Must be a UIColor")
+                }
+                
+                return color.cgColor
+            #endif
         case let .bezierPath(bezierPath):
             #if os(macOS)
                 guard let bezierPath = bezierPath as? NSBezierPath else {
