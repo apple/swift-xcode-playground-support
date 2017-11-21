@@ -10,10 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-protocol OpaqueLogEntryRepresentation {
-    func encode(into encoder: LogEncoder, usingFormat format: LogEncoder.Format)
-}
-
 enum LogEntry {
     typealias OpaqueRepresentation = OpaqueLogEntryRepresentation
     
@@ -34,6 +30,10 @@ enum LogEntry {
     case gap
     case scopeEntry, scopeExit
     case error(reason: String)
+}
+
+protocol OpaqueLogEntryRepresentation {
+    func encode(into encoder: LogEncoder, usingFormat format: LogEncoder.Format)
 }
 
 private let emptyName = ""
