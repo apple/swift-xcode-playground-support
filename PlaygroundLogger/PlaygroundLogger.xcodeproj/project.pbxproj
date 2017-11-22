@@ -42,6 +42,11 @@
 		5E27564C1FC4E07600B69C83 /* UIView+OpaqueImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27564B1FC4E07600B69C83 /* UIView+OpaqueImageRepresentable.swift */; };
 		5E27564F1FC4E58300B69C83 /* PlaygroundQuickLook+OpaqueRepresentationSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27564E1FC4E58300B69C83 /* PlaygroundQuickLook+OpaqueRepresentationSupport.swift */; };
 		5E2756531FC4EC6200B69C83 /* CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756521FC4EC6200B69C83 /* CustomOpaqueLoggable.swift */; };
+		5E2756561FC4F25E00B69C83 /* String+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756551FC4F25E00B69C83 /* String+CustomOpaqueLoggable.swift */; };
+		5E2756581FC4F2C900B69C83 /* Integers+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756571FC4F2C900B69C83 /* Integers+CustomOpaqueLoggable.swift */; };
+		5E27565A1FC4F35300B69C83 /* FloatingPoint+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756591FC4F35300B69C83 /* FloatingPoint+CustomOpaqueLoggable.swift */; };
+		5E27565C1FC4F3B200B69C83 /* Bool+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27565B1FC4F3B200B69C83 /* Bool+CustomOpaqueLoggable.swift */; };
+		5E27565E1FC4F3E600B69C83 /* UnsafePointers+CustomPlaygroundLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27565D1FC4F3E600B69C83 /* UnsafePointers+CustomPlaygroundLoggable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +112,11 @@
 		5E27564B1FC4E07600B69C83 /* UIView+OpaqueImageRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+OpaqueImageRepresentable.swift"; sourceTree = "<group>"; };
 		5E27564E1FC4E58300B69C83 /* PlaygroundQuickLook+OpaqueRepresentationSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaygroundQuickLook+OpaqueRepresentationSupport.swift"; sourceTree = "<group>"; };
 		5E2756521FC4EC6200B69C83 /* CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOpaqueLoggable.swift; sourceTree = "<group>"; };
+		5E2756551FC4F25E00B69C83 /* String+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E2756571FC4F2C900B69C83 /* Integers+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Integers+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E2756591FC4F35300B69C83 /* FloatingPoint+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E27565B1FC4F3B200B69C83 /* Bool+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E27565D1FC4F3E600B69C83 /* UnsafePointers+CustomPlaygroundLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnsafePointers+CustomPlaygroundLoggable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,9 +301,22 @@
 			isa = PBXGroup;
 			children = (
 				5E2756521FC4EC6200B69C83 /* CustomOpaqueLoggable.swift */,
+				5E2756541FC4F24B00B69C83 /* Swift */,
 			);
 			name = "Custom Loggable";
 			path = CustomLoggable;
+			sourceTree = "<group>";
+		};
+		5E2756541FC4F24B00B69C83 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				5E2756551FC4F25E00B69C83 /* String+CustomOpaqueLoggable.swift */,
+				5E2756571FC4F2C900B69C83 /* Integers+CustomOpaqueLoggable.swift */,
+				5E2756591FC4F35300B69C83 /* FloatingPoint+CustomOpaqueLoggable.swift */,
+				5E27565B1FC4F3B200B69C83 /* Bool+CustomOpaqueLoggable.swift */,
+				5E27565D1FC4F3E600B69C83 /* UnsafePointers+CustomPlaygroundLoggable.swift */,
+			);
+			path = Swift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,18 +448,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E2756321FC48FD300B69C83 /* NSRange+KeyedArchiveOpaqueRepresentation.swift in Sources */,
+				5E27565A1FC4F35300B69C83 /* FloatingPoint+CustomOpaqueLoggable.swift in Sources */,
 				5E2756241FC4886A00B69C83 /* String+TaggedOpaqueRepresentation.swift in Sources */,
 				5E27563D1FC4D17F00B69C83 /* CGColor+KeyedArchiveOpaqueRepresentation.swift in Sources */,
 				5E2756531FC4EC6200B69C83 /* CustomOpaqueLoggable.swift in Sources */,
 				5E27562A1FC48C7D00B69C83 /* Bool+TaggedOpaqueRepresentation.swift in Sources */,
 				5E2755D11FB6619800B69C83 /* LogPacket.swift in Sources */,
+				5E27565C1FC4F3B200B69C83 /* Bool+CustomOpaqueLoggable.swift in Sources */,
 				5E27564F1FC4E58300B69C83 /* PlaygroundQuickLook+OpaqueRepresentationSupport.swift in Sources */,
 				5E2756261FC488DC00B69C83 /* Float+TaggedOpaqueRepresentation.swift in Sources */,
 				5E2755D71FB682DE00B69C83 /* LogEntry+Encoding.swift in Sources */,
 				5E2755DB1FB7069300B69C83 /* LogEntry+Reflection.swift in Sources */,
 				5E2756361FC4CC2600B69C83 /* URL+TaggedOpaqueRepresentation.swift in Sources */,
 				5E27562D1FC48D2800B69C83 /* CGGeometry+KeyedArchiveOpaqueRepresentation.swift in Sources */,
+				5E2756561FC4F25E00B69C83 /* String+CustomOpaqueLoggable.swift in Sources */,
 				5E2756441FC4D60600B69C83 /* NSImage+OpaqueImageRepresentable.swift in Sources */,
+				5E2756581FC4F2C900B69C83 /* Integers+CustomOpaqueLoggable.swift in Sources */,
 				5E27564A1FC4DF0200B69C83 /* UIImage+OpaqueImageRepresentable.swift in Sources */,
 				5E2756201FC485AA00B69C83 /* TaggedOpaqueRepresentation.swift in Sources */,
 				5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */,
@@ -446,6 +473,7 @@
 				5E27563F1FC4D31D00B69C83 /* NSBezierPath+KeyedArchiveOpaqueRepresentation.swift in Sources */,
 				5E2756421FC4D3BF00B69C83 /* UIBezierPath+KeyedArchiveOpaqueRepresentation.swift in Sources */,
 				5E2755D91FB6836800B69C83 /* LogEncoder.swift in Sources */,
+				5E27565E1FC4F3E600B69C83 /* UnsafePointers+CustomPlaygroundLoggable.swift in Sources */,
 				5E27564C1FC4E07600B69C83 /* UIView+OpaqueImageRepresentable.swift in Sources */,
 				5E2756341FC490AF00B69C83 /* NSAttributedString+KeyedArchiveOpaqueRepresentation.swift in Sources */,
 				5E2755CF1FB657F200B69C83 /* LogEntry.swift in Sources */,
