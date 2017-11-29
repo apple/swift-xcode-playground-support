@@ -57,6 +57,8 @@
 		5E2756701FC51FCB00B69C83 /* CGColor+OpaquePlaygroundLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27566F1FC51FCB00B69C83 /* CGColor+OpaquePlaygroundLoggable.swift */; };
 		5E2756721FC51FF400B69C83 /* CGImage+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756711FC51FF400B69C83 /* CGImage+CustomOpaqueLoggable.swift */; };
 		5E2756741FC5205F00B69C83 /* CGImage+OpaqueImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756731FC5205F00B69C83 /* CGImage+OpaqueImageRepresentable.swift */; };
+		5E2756771FCF3C9700B69C83 /* CIColor+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756761FCF3C9700B69C83 /* CIColor+CustomOpaqueLoggable.swift */; };
+		5E2756791FCF3D3200B69C83 /* CIImage+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756781FCF3D3200B69C83 /* CIImage+CustomOpaqueLoggable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +139,8 @@
 		5E27566F1FC51FCB00B69C83 /* CGColor+OpaquePlaygroundLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGColor+OpaquePlaygroundLoggable.swift"; sourceTree = "<group>"; };
 		5E2756711FC51FF400B69C83 /* CGImage+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 		5E2756731FC5205F00B69C83 /* CGImage+OpaqueImageRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+OpaqueImageRepresentable.swift"; sourceTree = "<group>"; };
+		5E2756761FCF3C9700B69C83 /* CIColor+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIColor+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E2756781FCF3D3200B69C83 /* CIImage+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +329,7 @@
 				5E2756541FC4F24B00B69C83 /* Swift */,
 				5E27565F1FC51B8200B69C83 /* Foundation */,
 				5E27566C1FC51F5300B69C83 /* CoreGraphics */,
+				5E2756751FCF3C7100B69C83 /* CoreImage */,
 			);
 			name = "Custom Loggable";
 			path = CustomLoggable;
@@ -363,6 +368,15 @@
 				5E2756711FC51FF400B69C83 /* CGImage+CustomOpaqueLoggable.swift */,
 			);
 			path = CoreGraphics;
+			sourceTree = "<group>";
+		};
+		5E2756751FCF3C7100B69C83 /* CoreImage */ = {
+			isa = PBXGroup;
+			children = (
+				5E2756761FCF3C9700B69C83 /* CIColor+CustomOpaqueLoggable.swift */,
+				5E2756781FCF3D3200B69C83 /* CIImage+CustomOpaqueLoggable.swift */,
+			);
+			path = CoreImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -516,6 +530,7 @@
 				5E2756691FC51CBD00B69C83 /* NSNumber+CustomOpaqueLoggable.swift in Sources */,
 				5E2756581FC4F2C900B69C83 /* Integers+CustomOpaqueLoggable.swift in Sources */,
 				5E27564A1FC4DF0200B69C83 /* UIImage+OpaqueImageRepresentable.swift in Sources */,
+				5E2756771FCF3C9700B69C83 /* CIColor+CustomOpaqueLoggable.swift in Sources */,
 				5E27566E1FC51F7E00B69C83 /* CGGeometry+CustomOpaqueLoggable.swift in Sources */,
 				5E2756201FC485AA00B69C83 /* TaggedOpaqueRepresentation.swift in Sources */,
 				5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */,
@@ -526,6 +541,7 @@
 				5E2756421FC4D3BF00B69C83 /* UIBezierPath+KeyedArchiveOpaqueRepresentation.swift in Sources */,
 				5E2756741FC5205F00B69C83 /* CGImage+OpaqueImageRepresentable.swift in Sources */,
 				5E2755D91FB6836800B69C83 /* LogEncoder.swift in Sources */,
+				5E2756791FCF3D3200B69C83 /* CIImage+CustomOpaqueLoggable.swift in Sources */,
 				5E27565E1FC4F3E600B69C83 /* UnsafePointers+CustomPlaygroundLoggable.swift in Sources */,
 				5E2756611FC51BAE00B69C83 /* Date+CustomOpaqueLoggable.swift in Sources */,
 				5E27564C1FC4E07600B69C83 /* UIView+OpaqueImageRepresentable.swift in Sources */,
