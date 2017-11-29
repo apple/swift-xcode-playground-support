@@ -11,6 +11,7 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
+import CoreGraphics
 import PlaygroundRuntime // temporary, for CustomPlaygroundRepresentable
 
 fileprivate class DebugQuickLookObjectHook: NSObject {
