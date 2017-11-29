@@ -57,9 +57,20 @@ extension LogEntry {
             self = .init(debugQuickLookObject: debugQuickLookObject, name: name, typeName: typeName, summary: summary)
         }
             
-        // Otherwise, simply log the structure of `instance`.
+        // Otherwise, first check if this is an interesting CF type before logging structure.
+        // This works around SR-2289/<rdar://problem/27116100>.
         else {
-            self = .init(structureOf: instance, name: name, typeName: typeName, summary: summary)
+            switch CFGetTypeID(instance as CFTypeRef) {
+            case CGColor.typeID:
+                let cgColor = instance as! CGColor
+                self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: cgColor.opaqueRepresentation)
+            case CGImage.typeID:
+                let cgImage = instance as! CGImage
+                self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: cgImage.opaqueRepresentation)
+            default:
+                // This isn't one of the CF types we want to specially handle, so the log entry should just reflect the instance's structure.
+                self = .init(structureOf: instance, name: name, typeName: typeName, summary: summary)
+            }
         }
     }
     

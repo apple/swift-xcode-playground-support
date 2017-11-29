@@ -53,6 +53,10 @@
 		5E2756671FC51C9C00B69C83 /* NSRange+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756661FC51C9C00B69C83 /* NSRange+CustomOpaqueLoggable.swift */; };
 		5E2756691FC51CBD00B69C83 /* NSNumber+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756681FC51CBD00B69C83 /* NSNumber+CustomOpaqueLoggable.swift */; };
 		5E27566B1FC51D2B00B69C83 /* NSAttributedString+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27566A1FC51D2B00B69C83 /* NSAttributedString+CustomOpaqueLoggable.swift */; };
+		5E27566E1FC51F7E00B69C83 /* CGGeometry+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27566D1FC51F7E00B69C83 /* CGGeometry+CustomOpaqueLoggable.swift */; };
+		5E2756701FC51FCB00B69C83 /* CGColor+OpaquePlaygroundLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27566F1FC51FCB00B69C83 /* CGColor+OpaquePlaygroundLoggable.swift */; };
+		5E2756721FC51FF400B69C83 /* CGImage+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756711FC51FF400B69C83 /* CGImage+CustomOpaqueLoggable.swift */; };
+		5E2756741FC5205F00B69C83 /* CGImage+OpaqueImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756731FC5205F00B69C83 /* CGImage+OpaqueImageRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +133,10 @@
 		5E2756661FC51C9C00B69C83 /* NSRange+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRange+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 		5E2756681FC51CBD00B69C83 /* NSNumber+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNumber+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 		5E27566A1FC51D2B00B69C83 /* NSAttributedString+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E27566D1FC51F7E00B69C83 /* CGGeometry+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGGeometry+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E27566F1FC51FCB00B69C83 /* CGColor+OpaquePlaygroundLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGColor+OpaquePlaygroundLoggable.swift"; sourceTree = "<group>"; };
+		5E2756711FC51FF400B69C83 /* CGImage+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E2756731FC5205F00B69C83 /* CGImage+OpaqueImageRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+OpaqueImageRepresentable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +274,7 @@
 			children = (
 				5E27562C1FC48D2800B69C83 /* CGGeometry+KeyedArchiveOpaqueRepresentation.swift */,
 				5E27563C1FC4D17F00B69C83 /* CGColor+KeyedArchiveOpaqueRepresentation.swift */,
+				5E2756731FC5205F00B69C83 /* CGImage+OpaqueImageRepresentable.swift */,
 			);
 			path = CoreGraphics;
 			sourceTree = "<group>";
@@ -315,6 +324,7 @@
 				5E2756521FC4EC6200B69C83 /* CustomOpaqueLoggable.swift */,
 				5E2756541FC4F24B00B69C83 /* Swift */,
 				5E27565F1FC51B8200B69C83 /* Foundation */,
+				5E27566C1FC51F5300B69C83 /* CoreGraphics */,
 			);
 			name = "Custom Loggable";
 			path = CustomLoggable;
@@ -343,6 +353,16 @@
 				5E2756621FC51C3E00B69C83 /* URL+CustomOpaqueLoggable.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		5E27566C1FC51F5300B69C83 /* CoreGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				5E27566D1FC51F7E00B69C83 /* CGGeometry+CustomOpaqueLoggable.swift */,
+				5E27566F1FC51FCB00B69C83 /* CGColor+OpaquePlaygroundLoggable.swift */,
+				5E2756711FC51FF400B69C83 /* CGImage+CustomOpaqueLoggable.swift */,
+			);
+			path = CoreGraphics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,6 +505,7 @@
 				5E27565C1FC4F3B200B69C83 /* Bool+CustomOpaqueLoggable.swift in Sources */,
 				5E27564F1FC4E58300B69C83 /* PlaygroundQuickLook+OpaqueRepresentationSupport.swift in Sources */,
 				5E2756261FC488DC00B69C83 /* Float+TaggedOpaqueRepresentation.swift in Sources */,
+				5E2756721FC51FF400B69C83 /* CGImage+CustomOpaqueLoggable.swift in Sources */,
 				5E27566B1FC51D2B00B69C83 /* NSAttributedString+CustomOpaqueLoggable.swift in Sources */,
 				5E2755D71FB682DE00B69C83 /* LogEntry+Encoding.swift in Sources */,
 				5E2755DB1FB7069300B69C83 /* LogEntry+Reflection.swift in Sources */,
@@ -495,6 +516,7 @@
 				5E2756691FC51CBD00B69C83 /* NSNumber+CustomOpaqueLoggable.swift in Sources */,
 				5E2756581FC4F2C900B69C83 /* Integers+CustomOpaqueLoggable.swift in Sources */,
 				5E27564A1FC4DF0200B69C83 /* UIImage+OpaqueImageRepresentable.swift in Sources */,
+				5E27566E1FC51F7E00B69C83 /* CGGeometry+CustomOpaqueLoggable.swift in Sources */,
 				5E2756201FC485AA00B69C83 /* TaggedOpaqueRepresentation.swift in Sources */,
 				5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */,
 				5E2646521FB65026002DC6B6 /* LoggerInitialization.swift in Sources */,
@@ -502,10 +524,12 @@
 				5E2756461FC4DC0C00B69C83 /* ImageOpaqueRepresentation.swift in Sources */,
 				5E27563F1FC4D31D00B69C83 /* NSBezierPath+KeyedArchiveOpaqueRepresentation.swift in Sources */,
 				5E2756421FC4D3BF00B69C83 /* UIBezierPath+KeyedArchiveOpaqueRepresentation.swift in Sources */,
+				5E2756741FC5205F00B69C83 /* CGImage+OpaqueImageRepresentable.swift in Sources */,
 				5E2755D91FB6836800B69C83 /* LogEncoder.swift in Sources */,
 				5E27565E1FC4F3E600B69C83 /* UnsafePointers+CustomPlaygroundLoggable.swift in Sources */,
 				5E2756611FC51BAE00B69C83 /* Date+CustomOpaqueLoggable.swift in Sources */,
 				5E27564C1FC4E07600B69C83 /* UIView+OpaqueImageRepresentable.swift in Sources */,
+				5E2756701FC51FCB00B69C83 /* CGColor+OpaquePlaygroundLoggable.swift in Sources */,
 				5E2756341FC490AF00B69C83 /* NSAttributedString+KeyedArchiveOpaqueRepresentation.swift in Sources */,
 				5E2756631FC51C3E00B69C83 /* URL+CustomOpaqueLoggable.swift in Sources */,
 				5E2755CF1FB657F200B69C83 /* LogEntry.swift in Sources */,
