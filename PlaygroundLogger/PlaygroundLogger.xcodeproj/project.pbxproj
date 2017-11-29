@@ -64,6 +64,10 @@
 		5E2756801FCF435300B69C83 /* NSBezierPath+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27567F1FCF435300B69C83 /* NSBezierPath+CustomOpaqueLoggable.swift */; };
 		5E2756821FCF439D00B69C83 /* NSImage+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756811FCF439D00B69C83 /* NSImage+CustomOpaqueLoggable.swift */; };
 		5E2756841FCF43DD00B69C83 /* NSView+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756831FCF43DD00B69C83 /* NSView+CustomOpaqueLoggable.swift */; };
+		5E2756871FCF451900B69C83 /* UIBezierPath+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756861FCF451900B69C83 /* UIBezierPath+CustomOpaqueLoggable.swift */; };
+		5E2756891FCF454D00B69C83 /* UIColor+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756881FCF454D00B69C83 /* UIColor+CustomOpaqueLoggable.swift */; };
+		5E27568B1FCF458900B69C83 /* UIImage+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27568A1FCF458900B69C83 /* UIImage+CustomOpaqueLoggable.swift */; };
+		5E27568D1FCF45AE00B69C83 /* UIView+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27568C1FCF45AE00B69C83 /* UIView+CustomOpaqueLoggable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +155,10 @@
 		5E27567F1FCF435300B69C83 /* NSBezierPath+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBezierPath+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 		5E2756811FCF439D00B69C83 /* NSImage+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 		5E2756831FCF43DD00B69C83 /* NSView+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E2756861FCF451900B69C83 /* UIBezierPath+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E2756881FCF454D00B69C83 /* UIColor+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E27568A1FCF458900B69C83 /* UIImage+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E27568C1FCF45AE00B69C83 /* UIView+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +349,7 @@
 				5E27566C1FC51F5300B69C83 /* CoreGraphics */,
 				5E2756751FCF3C7100B69C83 /* CoreImage */,
 				5E27567A1FCF420700B69C83 /* AppKit */,
+				5E2756851FCF44FC00B69C83 /* UIKit */,
 			);
 			name = "Custom Loggable";
 			path = CustomLoggable;
@@ -400,6 +409,17 @@
 				5E2756831FCF43DD00B69C83 /* NSView+CustomOpaqueLoggable.swift */,
 			);
 			path = AppKit;
+			sourceTree = "<group>";
+		};
+		5E2756851FCF44FC00B69C83 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				5E2756861FCF451900B69C83 /* UIBezierPath+CustomOpaqueLoggable.swift */,
+				5E2756881FCF454D00B69C83 /* UIColor+CustomOpaqueLoggable.swift */,
+				5E27568A1FCF458900B69C83 /* UIImage+CustomOpaqueLoggable.swift */,
+				5E27568C1FCF45AE00B69C83 /* UIView+CustomOpaqueLoggable.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -544,6 +564,7 @@
 				5E2756261FC488DC00B69C83 /* Float+TaggedOpaqueRepresentation.swift in Sources */,
 				5E2756721FC51FF400B69C83 /* CGImage+CustomOpaqueLoggable.swift in Sources */,
 				5E2756801FCF435300B69C83 /* NSBezierPath+CustomOpaqueLoggable.swift in Sources */,
+				5E27568D1FCF45AE00B69C83 /* UIView+CustomOpaqueLoggable.swift in Sources */,
 				5E27566B1FC51D2B00B69C83 /* NSAttributedString+CustomOpaqueLoggable.swift in Sources */,
 				5E2755D71FB682DE00B69C83 /* LogEntry+Encoding.swift in Sources */,
 				5E2755DB1FB7069300B69C83 /* LogEntry+Reflection.swift in Sources */,
@@ -555,6 +576,7 @@
 				5E2756581FC4F2C900B69C83 /* Integers+CustomOpaqueLoggable.swift in Sources */,
 				5E27564A1FC4DF0200B69C83 /* UIImage+OpaqueImageRepresentable.swift in Sources */,
 				5E2756771FCF3C9700B69C83 /* CIColor+CustomOpaqueLoggable.swift in Sources */,
+				5E2756891FCF454D00B69C83 /* UIColor+CustomOpaqueLoggable.swift in Sources */,
 				5E27566E1FC51F7E00B69C83 /* CGGeometry+CustomOpaqueLoggable.swift in Sources */,
 				5E2756201FC485AA00B69C83 /* TaggedOpaqueRepresentation.swift in Sources */,
 				5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */,
@@ -568,10 +590,12 @@
 				5E2756821FCF439D00B69C83 /* NSImage+CustomOpaqueLoggable.swift in Sources */,
 				5E2755D91FB6836800B69C83 /* LogEncoder.swift in Sources */,
 				5E2756791FCF3D3200B69C83 /* CIImage+CustomOpaqueLoggable.swift in Sources */,
+				5E2756871FCF451900B69C83 /* UIBezierPath+CustomOpaqueLoggable.swift in Sources */,
 				5E2756841FCF43DD00B69C83 /* NSView+CustomOpaqueLoggable.swift in Sources */,
 				5E27565E1FC4F3E600B69C83 /* UnsafePointers+CustomPlaygroundLoggable.swift in Sources */,
 				5E2756611FC51BAE00B69C83 /* Date+CustomOpaqueLoggable.swift in Sources */,
 				5E27564C1FC4E07600B69C83 /* UIView+OpaqueImageRepresentable.swift in Sources */,
+				5E27568B1FCF458900B69C83 /* UIImage+CustomOpaqueLoggable.swift in Sources */,
 				5E2756701FC51FCB00B69C83 /* CGColor+OpaquePlaygroundLoggable.swift in Sources */,
 				5E2756341FC490AF00B69C83 /* NSAttributedString+KeyedArchiveOpaqueRepresentation.swift in Sources */,
 				5E2756631FC51C3E00B69C83 /* URL+CustomOpaqueLoggable.swift in Sources */,
