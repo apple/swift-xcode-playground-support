@@ -59,6 +59,11 @@
 		5E2756741FC5205F00B69C83 /* CGImage+OpaqueImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756731FC5205F00B69C83 /* CGImage+OpaqueImageRepresentable.swift */; };
 		5E2756771FCF3C9700B69C83 /* CIColor+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756761FCF3C9700B69C83 /* CIColor+CustomOpaqueLoggable.swift */; };
 		5E2756791FCF3D3200B69C83 /* CIImage+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756781FCF3D3200B69C83 /* CIImage+CustomOpaqueLoggable.swift */; };
+		5E27567C1FCF423400B69C83 /* NSColor+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27567B1FCF423400B69C83 /* NSColor+CustomOpaqueLoggable.swift */; };
+		5E27567E1FCF429900B69C83 /* NSCursor+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27567D1FCF429900B69C83 /* NSCursor+CustomOpaqueLoggable.swift */; };
+		5E2756801FCF435300B69C83 /* NSBezierPath+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27567F1FCF435300B69C83 /* NSBezierPath+CustomOpaqueLoggable.swift */; };
+		5E2756821FCF439D00B69C83 /* NSImage+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756811FCF439D00B69C83 /* NSImage+CustomOpaqueLoggable.swift */; };
+		5E2756841FCF43DD00B69C83 /* NSView+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756831FCF43DD00B69C83 /* NSView+CustomOpaqueLoggable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +146,11 @@
 		5E2756731FC5205F00B69C83 /* CGImage+OpaqueImageRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+OpaqueImageRepresentable.swift"; sourceTree = "<group>"; };
 		5E2756761FCF3C9700B69C83 /* CIColor+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIColor+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 		5E2756781FCF3D3200B69C83 /* CIImage+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E27567B1FCF423400B69C83 /* NSColor+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E27567D1FCF429900B69C83 /* NSCursor+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCursor+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E27567F1FCF435300B69C83 /* NSBezierPath+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBezierPath+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E2756811FCF439D00B69C83 /* NSImage+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5E2756831FCF43DD00B69C83 /* NSView+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +340,7 @@
 				5E27565F1FC51B8200B69C83 /* Foundation */,
 				5E27566C1FC51F5300B69C83 /* CoreGraphics */,
 				5E2756751FCF3C7100B69C83 /* CoreImage */,
+				5E27567A1FCF420700B69C83 /* AppKit */,
 			);
 			name = "Custom Loggable";
 			path = CustomLoggable;
@@ -377,6 +388,18 @@
 				5E2756781FCF3D3200B69C83 /* CIImage+CustomOpaqueLoggable.swift */,
 			);
 			path = CoreImage;
+			sourceTree = "<group>";
+		};
+		5E27567A1FCF420700B69C83 /* AppKit */ = {
+			isa = PBXGroup;
+			children = (
+				5E27567F1FCF435300B69C83 /* NSBezierPath+CustomOpaqueLoggable.swift */,
+				5E27567B1FCF423400B69C83 /* NSColor+CustomOpaqueLoggable.swift */,
+				5E27567D1FCF429900B69C83 /* NSCursor+CustomOpaqueLoggable.swift */,
+				5E2756811FCF439D00B69C83 /* NSImage+CustomOpaqueLoggable.swift */,
+				5E2756831FCF43DD00B69C83 /* NSView+CustomOpaqueLoggable.swift */,
+			);
+			path = AppKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -520,6 +543,7 @@
 				5E27564F1FC4E58300B69C83 /* PlaygroundQuickLook+OpaqueRepresentationSupport.swift in Sources */,
 				5E2756261FC488DC00B69C83 /* Float+TaggedOpaqueRepresentation.swift in Sources */,
 				5E2756721FC51FF400B69C83 /* CGImage+CustomOpaqueLoggable.swift in Sources */,
+				5E2756801FCF435300B69C83 /* NSBezierPath+CustomOpaqueLoggable.swift in Sources */,
 				5E27566B1FC51D2B00B69C83 /* NSAttributedString+CustomOpaqueLoggable.swift in Sources */,
 				5E2755D71FB682DE00B69C83 /* LogEntry+Encoding.swift in Sources */,
 				5E2755DB1FB7069300B69C83 /* LogEntry+Reflection.swift in Sources */,
@@ -540,8 +564,11 @@
 				5E27563F1FC4D31D00B69C83 /* NSBezierPath+KeyedArchiveOpaqueRepresentation.swift in Sources */,
 				5E2756421FC4D3BF00B69C83 /* UIBezierPath+KeyedArchiveOpaqueRepresentation.swift in Sources */,
 				5E2756741FC5205F00B69C83 /* CGImage+OpaqueImageRepresentable.swift in Sources */,
+				5E27567C1FCF423400B69C83 /* NSColor+CustomOpaqueLoggable.swift in Sources */,
+				5E2756821FCF439D00B69C83 /* NSImage+CustomOpaqueLoggable.swift in Sources */,
 				5E2755D91FB6836800B69C83 /* LogEncoder.swift in Sources */,
 				5E2756791FCF3D3200B69C83 /* CIImage+CustomOpaqueLoggable.swift in Sources */,
+				5E2756841FCF43DD00B69C83 /* NSView+CustomOpaqueLoggable.swift in Sources */,
 				5E27565E1FC4F3E600B69C83 /* UnsafePointers+CustomPlaygroundLoggable.swift in Sources */,
 				5E2756611FC51BAE00B69C83 /* Date+CustomOpaqueLoggable.swift in Sources */,
 				5E27564C1FC4E07600B69C83 /* UIView+OpaqueImageRepresentable.swift in Sources */,
@@ -553,6 +580,7 @@
 				5E2756281FC4895100B69C83 /* Double+TaggedOpaqueRepresentation.swift in Sources */,
 				5E2756481FC4DE1500B69C83 /* NSView+OpaqueImageRepresentable.swift in Sources */,
 				5E2755D31FB672DC00B69C83 /* SendData.swift in Sources */,
+				5E27567E1FCF429900B69C83 /* NSCursor+CustomOpaqueLoggable.swift in Sources */,
 				5E27561E1FC4859300B69C83 /* Int64+TaggedOpaqueRepresentation.swift in Sources */,
 				5E27562F1FC48DDE00B69C83 /* KeyedArchiveOpaqueRepresentation.swift in Sources */,
 			);
