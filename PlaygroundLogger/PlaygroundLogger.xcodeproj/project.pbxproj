@@ -70,6 +70,7 @@
 		5E27568D1FCF45AE00B69C83 /* UIView+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27568C1FCF45AE00B69C83 /* UIView+CustomOpaqueLoggable.swift */; };
 		5E27568F1FCF964400B69C83 /* NSBitmapImageRep+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27568E1FCF964400B69C83 /* NSBitmapImageRep+CustomOpaqueLoggable.swift */; };
 		5E2756911FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756901FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift */; };
+		5E2756941FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756931FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,7 @@
 		5E27568C1FCF45AE00B69C83 /* UIView+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 		5E27568E1FCF964400B69C83 /* NSBitmapImageRep+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBitmapImageRep+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 		5E2756901FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBitmapImageRep+OpaqueImageRepresentable.swift"; sourceTree = "<group>"; };
+		5E2756931FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitOpaqueLoggable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +357,7 @@
 				5E2756751FCF3C7100B69C83 /* CoreImage */,
 				5E27567A1FCF420700B69C83 /* AppKit */,
 				5E2756851FCF44FC00B69C83 /* UIKit */,
+				5E2756921FCF9C5F00B69C83 /* SpriteKit */,
 			);
 			name = "Custom Loggable";
 			path = CustomLoggable;
@@ -426,6 +429,14 @@
 				5E27568C1FCF45AE00B69C83 /* UIView+CustomOpaqueLoggable.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		5E2756921FCF9C5F00B69C83 /* SpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				5E2756931FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift */,
+			);
+			path = SpriteKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -583,6 +594,7 @@
 				5E2756581FC4F2C900B69C83 /* Integers+CustomOpaqueLoggable.swift in Sources */,
 				5E27564A1FC4DF0200B69C83 /* UIImage+OpaqueImageRepresentable.swift in Sources */,
 				5E2756771FCF3C9700B69C83 /* CIColor+CustomOpaqueLoggable.swift in Sources */,
+				5E2756941FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift in Sources */,
 				5E2756911FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift in Sources */,
 				5E2756891FCF454D00B69C83 /* UIColor+CustomOpaqueLoggable.swift in Sources */,
 				5E27566E1FC51F7E00B69C83 /* CGGeometry+CustomOpaqueLoggable.swift in Sources */,
