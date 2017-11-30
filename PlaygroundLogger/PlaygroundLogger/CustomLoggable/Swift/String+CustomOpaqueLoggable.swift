@@ -11,3 +11,33 @@
 //===----------------------------------------------------------------------===//
 
 extension String: CustomOpaqueLoggable {}
+
+extension Character: CustomOpaqueLoggable {
+    var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+        return String(self)
+    }
+}
+
+extension UnicodeScalar: CustomOpaqueLoggable {
+    var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+        return UInt64(self)
+    }
+}
+
+extension String.UnicodeScalarView: CustomOpaqueLoggable {
+    var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+        return self.description
+    }
+}
+
+extension String.UTF16View: CustomOpaqueLoggable {
+    var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+        return self.description
+    }
+}
+
+extension String.UTF8View: CustomOpaqueLoggable {
+    var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+        return self.description
+    }
+}
