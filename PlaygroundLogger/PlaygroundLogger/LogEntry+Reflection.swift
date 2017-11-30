@@ -53,9 +53,9 @@ extension LogEntry {
             self = .init(playgroundQuickLook: defaultQuickLookable._defaultCustomPlaygroundQuickLook, name: name, typeName: typeName, summary: summary)
         }
             
-        // If a type implements the `debugQuickLookObject()` Objective-C method, then get their debug quick look object and use that for logging.
+        // If a type implements the `debugQuickLookObject()` Objective-C method, then get their debug quick look object and use that for logging (by passing it back through this initializer).
         else if let debugQuickLookObjectMethod = (instance as AnyObject).debugQuickLookObject, let debugQuickLookObject = debugQuickLookObjectMethod() {
-            self = .init(debugQuickLookObject: debugQuickLookObject, name: name, typeName: typeName, summary: summary)
+            self = .init(describing: debugQuickLookObject, name: name, typeName: typeName, summary: nil)
         }
             
         // Otherwise, first check if this is an interesting CF type before logging structure.
@@ -78,10 +78,6 @@ extension LogEntry {
     private init(playgroundQuickLook: PlaygroundQuickLook, name: String, typeName: String, summary: String) {
         // TODO: figure out when to set `preferBriefSummary` to true
         self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: playgroundQuickLook.opaqueRepresentation)
-    }
-    
-    private init(debugQuickLookObject: AnyObject, name: String, typeName: String, summary: String) {
-        fatalError()
     }
     
     private init(structureOf instance: Any, name: String, typeName: String, summary: String) {
