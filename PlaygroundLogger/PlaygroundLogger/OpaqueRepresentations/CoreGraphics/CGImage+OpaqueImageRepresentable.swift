@@ -14,6 +14,6 @@ import CoreGraphics
 
 extension CGImage: OpaqueImageRepresentable {
     func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) {
-        fatalError("Image encoding not yet implemented")
+        unimplemented()
     }
 }

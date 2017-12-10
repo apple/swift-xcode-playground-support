@@ -20,6 +20,8 @@ import Foundation
 
 extension PlaygroundQuickLook {
     var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+        // TODO: don't crash in this function; instead, throw an error so we can encode an error log message instead
+        
         switch self {
         case let .text(text):
             return text

@@ -14,7 +14,7 @@ import SpriteKit
 
 @objc fileprivate class SpriteKitCopyImageDataHook: NSObject {
     @objc(_copyImageData) func _copyImageData() -> Data? {
-        fatalError()
+        fatalError("This stub _copyImageData should not be called!")
     }
 }
 
@@ -23,12 +23,13 @@ fileprivate protocol SpriteKitOpaqueLoggable: class, OpaqueImageRepresentable, C
 extension SpriteKitOpaqueLoggable {
     func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) {
         guard let copyImageDataMethod = (self as AnyObject)._copyImageData, let imageData = copyImageDataMethod() else {
+            // TODO: don't crash in this case
             fatalError("Unable to get image data, unable to encode anything")
         }
         
         _ = imageData
         
-        fatalError("SpriteKit image encoding not yet implemented")
+        unimplemented()
     }
     
     var opaqueRepresentation: LogEntry.OpaqueRepresentation {

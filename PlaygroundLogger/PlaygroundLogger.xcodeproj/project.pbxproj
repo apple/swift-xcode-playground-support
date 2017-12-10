@@ -71,6 +71,7 @@
 		5E27568F1FCF964400B69C83 /* NSBitmapImageRep+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27568E1FCF964400B69C83 /* NSBitmapImageRep+CustomOpaqueLoggable.swift */; };
 		5E2756911FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756901FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift */; };
 		5E2756941FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756931FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift */; };
+		5E4AF1AD1FDDBDE400B7C9D9 /* Unimplemented.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4AF1AC1FDDBDE400B7C9D9 /* Unimplemented.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,7 @@
 		5E27568E1FCF964400B69C83 /* NSBitmapImageRep+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBitmapImageRep+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 		5E2756901FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBitmapImageRep+OpaqueImageRepresentable.swift"; sourceTree = "<group>"; };
 		5E2756931FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitOpaqueLoggable.swift; sourceTree = "<group>"; };
+		5E4AF1AC1FDDBDE400B7C9D9 /* Unimplemented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unimplemented.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 				5E27561B1FC4854C00B69C83 /* Opaque Representations */,
 				5E2756511FC4EC4100B69C83 /* Custom Loggable */,
 				5E27564D1FC4E54A00B69C83 /* Legacy Support */,
+				5E4AF1AB1FDDBDCD00B7C9D9 /* Utilities */,
 				5E26462B1FB64876002DC6B6 /* Info.plist */,
 			);
 			path = PlaygroundLogger;
@@ -439,6 +442,14 @@
 			path = SpriteKit;
 			sourceTree = "<group>";
 		};
+		5E4AF1AB1FDDBDCD00B7C9D9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5E4AF1AC1FDDBDE400B7C9D9 /* Unimplemented.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -597,6 +608,7 @@
 				5E2756941FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift in Sources */,
 				5E2756911FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift in Sources */,
 				5E2756891FCF454D00B69C83 /* UIColor+CustomOpaqueLoggable.swift in Sources */,
+				5E4AF1AD1FDDBDE400B7C9D9 /* Unimplemented.swift in Sources */,
 				5E27566E1FC51F7E00B69C83 /* CGGeometry+CustomOpaqueLoggable.swift in Sources */,
 				5E2756201FC485AA00B69C83 /* TaggedOpaqueRepresentation.swift in Sources */,
 				5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */,

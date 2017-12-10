@@ -15,7 +15,7 @@
     
     extension UIView: OpaqueImageRepresentable {
         func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) {
-            fatalError("View encoding not yet implemented")
+            unimplemented()
         }
     }
 #endif
