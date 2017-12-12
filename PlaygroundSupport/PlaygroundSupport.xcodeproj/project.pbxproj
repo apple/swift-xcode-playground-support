@@ -1513,7 +1513,6 @@
 				PRODUCT_NAME = XCPlayground;
 				SDKROOT = iphonesimulator;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_DISABLE_SAFETY_CHECKS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -1678,7 +1677,6 @@
 				PRODUCT_NAME = PlaygroundSupport;
 				SDKROOT = iphonesimulator;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_DISABLE_SAFETY_CHECKS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -1770,7 +1768,6 @@
 				PRODUCT_NAME = PlaygroundSupport;
 				SDKROOT = appletvsimulator;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
-				SWIFT_DISABLE_SAFETY_CHECKS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -2126,7 +2123,6 @@
 				PRODUCT_NAME = XCPlayground;
 				SDKROOT = appletvsimulator;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
-				SWIFT_DISABLE_SAFETY_CHECKS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
