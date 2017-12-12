@@ -340,11 +340,11 @@
 		A8318FB21CF6036E0015809A /* PlaygroundSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlaygroundSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8318FC41CF603790015809A /* PlaygroundSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlaygroundSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8318FD81CF604D50015809A /* PlaygroundPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaygroundPage.swift; sourceTree = "<group>"; };
-		A8318FF41CF605CF0015809A /* Playground-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Playground-Info.plist"; path = "Playground/Playground-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A8318FF41CF605CF0015809A /* PlaygroundSupport-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlaygroundSupport-Info.plist"; sourceTree = "<group>"; };
 		A83190011CF607C00015809A /* PlaygroundSupportTests_OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundSupportTests_OSX.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A831900F1CF607C50015809A /* PlaygroundSupportTests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundSupportTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A831901D1CF607C70015809A /* PlaygroundSupportTests_tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundSupportTests_tvOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A87782211C73AC70008A7C4C /* XCPlayground-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "XCPlayground-Info.plist"; path = "XCPlayground/XCPlayground-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A87782211C73AC70008A7C4C /* XCPlayground-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "XCPlayground-Info.plist"; sourceTree = "<group>"; };
 		A8E46BF01ACB6C9D003F5755 /* XCPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8FBD6A31C74FEE6005B5982 /* XCPlaygroundTests_OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XCPlaygroundTests_OSX.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8FBD6A51C74FEE6005B5982 /* XCPlaygroundTests_OSX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCPlaygroundTests_OSX.swift; sourceTree = "<group>"; };
@@ -454,7 +454,6 @@
 			children = (
 				A8318FD61CF604D50015809A /* PlaygroundSupport */,
 				1DF4117A18DCBB27001CDFC7 /* XCPlayground */,
-				1D80230A18C6A09600D522B2 /* SupportingFiles */,
 				A80A0AB31CF610E70074DF3B /* PlaygroundSupportTests */,
 				A8FBD6BD1C752480005B5982 /* XCPlaygroundTests */,
 				1D7FD51B18BFE00400C718C6 /* Products */,
@@ -480,15 +479,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1D80230A18C6A09600D522B2 /* SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-				A8318FF41CF605CF0015809A /* Playground-Info.plist */,
-				A87782211C73AC70008A7C4C /* XCPlayground-Info.plist */,
-			);
-			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
 		1DF4117A18DCBB27001CDFC7 /* XCPlayground */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,6 +487,7 @@
 				1D31347C18DCE66E00891152 /* XCPValueHistory.swift */,
 				626A2754195C9E4200A2D70F /* XCPExecutionShouldContinue.swift */,
 				5E3FBDB81970721F000BC36F /* XCPSharedDataDirectory.swift */,
+				A87782211C73AC70008A7C4C /* XCPlayground-Info.plist */,
 			);
 			path = XCPlayground;
 			sourceTree = "<group>";
@@ -540,6 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				A8318FD81CF604D50015809A /* PlaygroundPage.swift */,
+				A8318FF41CF605CF0015809A /* PlaygroundSupport-Info.plist */,
 			);
 			path = PlaygroundSupport;
 			sourceTree = "<group>";
