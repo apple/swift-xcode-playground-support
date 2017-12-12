@@ -102,6 +102,9 @@
 		5EC01A1F1BA0DE86008FCDB1 /* XCPlaygroundPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC01A1E1BA0DE86008FCDB1 /* XCPlaygroundPage.swift */; };
 		5EC01A201BA0DE86008FCDB1 /* XCPlaygroundPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC01A1E1BA0DE86008FCDB1 /* XCPlaygroundPage.swift */; };
 		5EC01A211BA0DE86008FCDB1 /* XCPlaygroundPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC01A1E1BA0DE86008FCDB1 /* XCPlaygroundPage.swift */; };
+		5ECA7DC41FDF579C005D0A3F /* PlaygroundSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 5ECA7DC31FDF579C005D0A3F /* PlaygroundSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5ECA7DC51FDF579C005D0A3F /* PlaygroundSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 5ECA7DC31FDF579C005D0A3F /* PlaygroundSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5ECA7DC61FDF579C005D0A3F /* PlaygroundSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 5ECA7DC31FDF579C005D0A3F /* PlaygroundSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5EF4DDF718F35DEF00B8AE7C /* XCPShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF4DDF618F35DEF00B8AE7C /* XCPShowView.swift */; };
 		620174F4194647B20012C53A /* XCPValueHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D31347C18DCE66E00891152 /* XCPValueHistory.swift */; };
 		626A2759195CA01D00A2D70F /* XCPExecutionShouldContinue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626A2754195C9E4200A2D70F /* XCPExecutionShouldContinue.swift */; };
@@ -328,6 +331,7 @@
 		1DF4117818DCB596001CDFC7 /* XCPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3FBDB81970721F000BC36F /* XCPSharedDataDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCPSharedDataDirectory.swift; sourceTree = "<group>"; };
 		5EC01A1E1BA0DE86008FCDB1 /* XCPlaygroundPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCPlaygroundPage.swift; sourceTree = "<group>"; };
+		5ECA7DC31FDF579C005D0A3F /* PlaygroundSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaygroundSupport.h; sourceTree = "<group>"; };
 		5EF4DDF618F35DEF00B8AE7C /* XCPShowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCPShowView.swift; sourceTree = "<group>"; };
 		620174EB194645E60012C53A /* XCPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		626A2754195C9E4200A2D70F /* XCPExecutionShouldContinue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCPExecutionShouldContinue.swift; sourceTree = "<group>"; };
@@ -530,6 +534,7 @@
 		A8318FD61CF604D50015809A /* PlaygroundSupport */ = {
 			isa = PBXGroup;
 			children = (
+				5ECA7DC31FDF579C005D0A3F /* PlaygroundSupport.h */,
 				A8318FD81CF604D50015809A /* PlaygroundPage.swift */,
 				A8318FF41CF605CF0015809A /* PlaygroundSupport-Info.plist */,
 			);
@@ -596,6 +601,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ECA7DC41FDF579C005D0A3F /* PlaygroundSupport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +609,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ECA7DC51FDF579C005D0A3F /* PlaygroundSupport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +617,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ECA7DC61FDF579C005D0A3F /* PlaygroundSupport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,9 +674,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8318F9D1CF603630015809A /* Build configuration list for PBXNativeTarget "PlaygroundSupport_OSX" */;
 			buildPhases = (
+				A8318F991CF603630015809A /* Headers */,
 				A8318F921CF603630015809A /* Sources */,
 				A8318F981CF603630015809A /* Frameworks */,
-				A8318F991CF603630015809A /* Headers */,
 				A8318F9A1CF603630015809A /* Resources */,
 				A8318F9C1CF603630015809A /* Copy swiftdoc */,
 			);
@@ -686,9 +694,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8318FAF1CF6036E0015809A /* Build configuration list for PBXNativeTarget "PlaygroundSupport_iOS" */;
 			buildPhases = (
+				A8318FAC1CF6036E0015809A /* Headers */,
 				A8318FA51CF6036E0015809A /* Sources */,
 				A8318FAB1CF6036E0015809A /* Frameworks */,
-				A8318FAC1CF6036E0015809A /* Headers */,
 				A8318FAD1CF6036E0015809A /* Resources */,
 			);
 			buildRules = (
@@ -705,9 +713,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8318FC11CF603790015809A /* Build configuration list for PBXNativeTarget "PlaygroundSupport_tvOS" */;
 			buildPhases = (
+				A8318FBE1CF603790015809A /* Headers */,
 				A8318FB71CF603790015809A /* Sources */,
 				A8318FBD1CF603790015809A /* Frameworks */,
-				A8318FBE1CF603790015809A /* Headers */,
 				A8318FBF1CF603790015809A /* Resources */,
 			);
 			buildRules = (
@@ -1501,7 +1509,10 @@
 		A8318F9E1CF603630015809A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				AXLE_ENABLE_DEBUG_INFO = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1521,7 +1532,10 @@
 		A8318F9F1CF603630015809A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				AXLE_ENABLE_DEBUG_INFO = NO;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1557,6 +1571,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1605,6 +1620,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1648,6 +1664,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1696,6 +1713,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
