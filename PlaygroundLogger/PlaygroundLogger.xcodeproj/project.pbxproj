@@ -69,10 +69,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		5E06BF1819BA888E00C5C2DE /* module.modulemap in Copy Module Map */ = {isa = PBXBuildFile; fileRef = 5E06BF1319BA882000C5C2DE /* module.modulemap */; };
-		5E06BF1919BA888E00C5C2DE /* module.private.modulemap in Copy Module Map */ = {isa = PBXBuildFile; fileRef = 5E06BF1519BA883700C5C2DE /* module.private.modulemap */; };
-		5E9ED7BB19BA890900B99ACE /* module.modulemap in Copy Module Map */ = {isa = PBXBuildFile; fileRef = 5E06BF1319BA882000C5C2DE /* module.modulemap */; };
-		5E9ED7BC19BA890900B99ACE /* module.private.modulemap in Copy Module Map */ = {isa = PBXBuildFile; fileRef = 5E06BF1519BA883700C5C2DE /* module.private.modulemap */; };
 		622D8E0618F615D200D064D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941C141B18CE6410004661BB /* Foundation.framework */; };
 		622D8E0C18F615D200D064D0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 622D8E0A18F615D200D064D0 /* InfoPlist.strings */; };
 		622D8E1418F6168300D064D0 /* BytesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C13DC18CE6362004661BB /* BytesStorage.swift */; };
@@ -165,8 +161,6 @@
 		94F9D20C18EC8A7900A54786 /* PlaygroundWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F9D20B18EC8A7900A54786 /* PlaygroundWriter.swift */; };
 		94F9D20E18EC8A7F00A54786 /* PlaygroundObjectWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F9D20D18EC8A7F00A54786 /* PlaygroundObjectWriter.swift */; };
 		94F9D21018EC8A8800A54786 /* PlaygroundScopeWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F9D20F18EC8A8800A54786 /* PlaygroundScopeWriter.swift */; };
-		A80FEB0A1C59453A004E722A /* module.modulemap in Copy Module Map */ = {isa = PBXBuildFile; fileRef = 5E06BF1319BA882000C5C2DE /* module.modulemap */; };
-		A80FEB0B1C59453A004E722A /* module.private.modulemap in Copy Module Map */ = {isa = PBXBuildFile; fileRef = 5E06BF1519BA883700C5C2DE /* module.private.modulemap */; };
 		A80FEB101C59453A004E722A /* BytesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C13DC18CE6362004661BB /* BytesStorage.swift */; };
 		A80FEB111C59453A004E722A /* BytesStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C13DD18CE6362004661BB /* BytesStream.swift */; };
 		A80FEB121C59453A004E722A /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C13DE18CE6362004661BB /* Common.swift */; };
@@ -288,30 +282,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5E06BF1719BA886F00C5C2DE /* Copy Module Map */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = Modules;
-			dstSubfolderSpec = 1;
-			files = (
-				5E06BF1819BA888E00C5C2DE /* module.modulemap in Copy Module Map */,
-				5E06BF1919BA888E00C5C2DE /* module.private.modulemap in Copy Module Map */,
-			);
-			name = "Copy Module Map";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5E9ED7BA19BA890100B99ACE /* Copy Module Map */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = Modules;
-			dstSubfolderSpec = 1;
-			files = (
-				5E9ED7BB19BA890900B99ACE /* module.modulemap in Copy Module Map */,
-				5E9ED7BC19BA890900B99ACE /* module.private.modulemap in Copy Module Map */,
-			);
-			name = "Copy Module Map";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9416EBBC1990436400D5BC21 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -321,23 +291,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		A80FEB091C59453A004E722A /* Copy Module Map */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = Modules;
-			dstSubfolderSpec = 1;
-			files = (
-				A80FEB0A1C59453A004E722A /* module.modulemap in Copy Module Map */,
-				A80FEB0B1C59453A004E722A /* module.private.modulemap in Copy Module Map */,
-			);
-			name = "Copy Module Map";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5E06BF1319BA882000C5C2DE /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		5E06BF1519BA883700C5C2DE /* module.private.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.private.modulemap; sourceTree = "<group>"; };
+		5E06BF1319BA882000C5C2DE /* PlaygroundLogger.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = PlaygroundLogger.modulemap; sourceTree = "<group>"; };
+		5E06BF1519BA883700C5C2DE /* PlaygroundLogger.private.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = PlaygroundLogger.private.modulemap; sourceTree = "<group>"; };
 		5EA8B30F18D12FF8007A88F4 /* PlaygroundLogger-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlaygroundLogger-Info.plist"; sourceTree = "<group>"; };
 		622D8E0518F615D200D064D0 /* PlaygroundLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlaygroundLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		622D8E0918F615D200D064D0 /* PlaygroundLogger_iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlaygroundLogger_iOS-Info.plist"; sourceTree = "<group>"; };
@@ -479,8 +437,8 @@
 		5EA8B30E18D12FD8007A88F4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5E06BF1319BA882000C5C2DE /* module.modulemap */,
-				5E06BF1519BA883700C5C2DE /* module.private.modulemap */,
+				5E06BF1319BA882000C5C2DE /* PlaygroundLogger.modulemap */,
+				5E06BF1519BA883700C5C2DE /* PlaygroundLogger.private.modulemap */,
 				5EA8B30F18D12FF8007A88F4 /* PlaygroundLogger-Info.plist */,
 			);
 			name = Resources;
@@ -640,7 +598,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 622D8E1218F615D200D064D0 /* Build configuration list for PBXNativeTarget "PlaygroundLogger_iOS" */;
 			buildPhases = (
-				5E9ED7BA19BA890100B99ACE /* Copy Module Map */,
 				622D8E0218F615D200D064D0 /* Headers */,
 				5EE8A6ED19BA8FA60064CACE /* Barrier Phase */,
 				622D8E0018F615D200D064D0 /* Sources */,
@@ -678,7 +635,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 941C140A18CE63E4004661BB /* Build configuration list for PBXNativeTarget "PlaygroundLogger" */;
 			buildPhases = (
-				5E06BF1719BA886F00C5C2DE /* Copy Module Map */,
 				941C13ED18CE63E3004661BB /* Headers */,
 				5EE8A6EE19BA8FB00064CACE /* Barrier Phase */,
 				941C13EB18CE63E3004661BB /* Sources */,
@@ -697,7 +653,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A80FEB3F1C59453A004E722A /* Build configuration list for PBXNativeTarget "PlaygroundLogger_tvOS" */;
 			buildPhases = (
-				A80FEB091C59453A004E722A /* Copy Module Map */,
 				A80FEB0C1C59453A004E722A /* Headers */,
 				A80FEB0E1C59453A004E722A /* Barrier Phase */,
 				A80FEB0F1C59453A004E722A /* Sources */,
@@ -1188,6 +1143,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1209,6 +1165,8 @@
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/iphonesimulator";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundLogger;
@@ -1237,6 +1195,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1252,6 +1211,8 @@
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/iphonesimulator";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundLogger;
@@ -1439,7 +1400,9 @@
 		941C140B18CE63E4004661BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1448,6 +1411,8 @@
 				INFOPLIST_FILE = "PlaygroundLogger/PlaygroundLogger-Info.plist";
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../../../usr/lib/swift/macosx";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1459,7 +1424,9 @@
 		941C140C18CE63E4004661BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1468,6 +1435,8 @@
 				INFOPLIST_FILE = "PlaygroundLogger/PlaygroundLogger-Info.plist";
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../../../usr/lib/swift/macosx";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1545,7 +1514,9 @@
 		9428294C1A89373E00521B30 /* BuildAndIntegration */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1560,6 +1531,8 @@
 				INFOPLIST_FILE = "PlaygroundLogger/PlaygroundLogger-Info.plist";
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../../../usr/lib/swift/macosx";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1586,6 +1559,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1607,6 +1581,8 @@
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/iphonesimulator";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundLogger;
@@ -1730,7 +1706,9 @@
 		94584CBC1B20FB47003E0D74 /* BuildAndAutomation */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1739,6 +1717,8 @@
 				INFOPLIST_FILE = "PlaygroundLogger/PlaygroundLogger-Info.plist";
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../../../usr/lib/swift/macosx";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1765,6 +1745,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1786,6 +1767,8 @@
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/iphonesimulator";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundLogger;
@@ -1935,7 +1918,9 @@
 		94A50C0A1CFFAD0B005293C5 /* Toolchain_Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1950,6 +1935,8 @@
 				INFOPLIST_FILE = "PlaygroundLogger/PlaygroundLogger-Info.plist";
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../../../usr/lib/swift/macosx";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1976,6 +1963,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2003,6 +1991,8 @@
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/iphonesimulator";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundLogger;
@@ -2031,6 +2021,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2057,6 +2048,8 @@
 				INFOPLIST_FILE = "PlaygroundLogger_tvOS/PlaygroundLogger_tvOS-Info.plist";
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/PrivateFrameworks";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/appletvsimulator";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundLogger;
@@ -2210,7 +2203,9 @@
 		94A50C151CFFAD12005293C5 /* Toolchain_Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2225,6 +2220,8 @@
 				INFOPLIST_FILE = "PlaygroundLogger/PlaygroundLogger-Info.plist";
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../../../usr/lib/swift/macosx";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2251,6 +2248,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2272,6 +2270,8 @@
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/iphonesimulator";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundLogger;
@@ -2301,6 +2301,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2321,6 +2322,8 @@
 				INFOPLIST_FILE = "PlaygroundLogger_tvOS/PlaygroundLogger_tvOS-Info.plist";
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/PrivateFrameworks";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/appletvsimulator";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundLogger;
@@ -2407,6 +2410,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2427,6 +2431,8 @@
 				INFOPLIST_FILE = "PlaygroundLogger_tvOS/PlaygroundLogger_tvOS-Info.plist";
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/PrivateFrameworks";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/appletvsimulator";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundLogger;
@@ -2456,6 +2462,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2470,6 +2477,8 @@
 				INFOPLIST_FILE = "PlaygroundLogger_tvOS/PlaygroundLogger_tvOS-Info.plist";
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/PrivateFrameworks";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/appletvsimulator";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundLogger;
@@ -2500,6 +2509,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2520,6 +2530,8 @@
 				INFOPLIST_FILE = "PlaygroundLogger_tvOS/PlaygroundLogger_tvOS-Info.plist";
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/PrivateFrameworks";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/appletvsimulator";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundLogger;
@@ -2550,6 +2562,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 8500;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2570,6 +2583,8 @@
 				INFOPLIST_FILE = "PlaygroundLogger_tvOS/PlaygroundLogger_tvOS-Info.plist";
 				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/PrivateFrameworks";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/appletvsimulator";
+				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
+				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundLogger;
