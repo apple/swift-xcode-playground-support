@@ -599,7 +599,6 @@
 			buildConfigurationList = 622D8E1218F615D200D064D0 /* Build configuration list for PBXNativeTarget "PlaygroundLogger_iOS" */;
 			buildPhases = (
 				622D8E0218F615D200D064D0 /* Headers */,
-				5EE8A6ED19BA8FA60064CACE /* Barrier Phase */,
 				622D8E0018F615D200D064D0 /* Sources */,
 				622D8E0118F615D200D064D0 /* Frameworks */,
 				622D8E0318F615D200D064D0 /* Resources */,
@@ -636,7 +635,6 @@
 			buildConfigurationList = 941C140A18CE63E4004661BB /* Build configuration list for PBXNativeTarget "PlaygroundLogger" */;
 			buildPhases = (
 				941C13ED18CE63E3004661BB /* Headers */,
-				5EE8A6EE19BA8FB00064CACE /* Barrier Phase */,
 				941C13EB18CE63E3004661BB /* Sources */,
 				941C13EC18CE63E3004661BB /* Frameworks */,
 			);
@@ -654,7 +652,6 @@
 			buildConfigurationList = A80FEB3F1C59453A004E722A /* Build configuration list for PBXNativeTarget "PlaygroundLogger_tvOS" */;
 			buildPhases = (
 				A80FEB0C1C59453A004E722A /* Headers */,
-				A80FEB0E1C59453A004E722A /* Barrier Phase */,
 				A80FEB0F1C59453A004E722A /* Sources */,
 				A80FEB3B1C59453A004E722A /* Frameworks */,
 				A80FEB3D1C59453A004E722A /* Resources */,
@@ -758,51 +755,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5EE8A6ED19BA8FA60064CACE /* Barrier Phase */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Barrier Phase";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script is needed to make sure the headers are copied before the Swift sources are compiled -- ask Enrico, Connor, or Jordan before touching this phase";
-		};
-		5EE8A6EE19BA8FB00064CACE /* Barrier Phase */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Barrier Phase";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script is needed to make sure the headers are copied before the Swift sources are compiled -- ask Enrico, Connor, or Jordan before touching this phase";
-		};
-		A80FEB0E1C59453A004E722A /* Barrier Phase */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Barrier Phase";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script is needed to make sure the headers are copied before the Swift sources are compiled -- ask Enrico, Connor, or Jordan before touching this phase";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		622D8E0018F615D200D064D0 /* Sources */ = {
