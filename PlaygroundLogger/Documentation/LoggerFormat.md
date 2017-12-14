@@ -78,7 +78,7 @@ This is followed by a `number` field. This is the count of a set of
 about the log being emitted. As of now, there is only one field that can
 be emitted:
 
-* "tid",a unique identifier for the thread that is emitting the log entry
+* "tid", a unique identifier for the thread that is emitting the log entry
 
 Consumers should be ready and willing to accept any (or no) entries here and proceed.
 
