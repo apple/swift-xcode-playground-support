@@ -1395,6 +1395,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = XCPlayground;
 				SDKROOT = macosx;
+				STRIP_SWIFT_SYMBOLS = NO;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Debug;
@@ -1414,6 +1415,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = XCPlayground;
 				SDKROOT = macosx;
+				STRIP_SWIFT_SYMBOLS = NO;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Release;
@@ -1472,6 +1474,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = XCPlayground;
 				SDKROOT = iphonesimulator;
+				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				VALID_ARCHS = x86_64;
@@ -1512,6 +1515,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = XCPlayground;
 				SDKROOT = iphonesimulator;
+				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1568,6 +1572,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundSupport;
 				SDKROOT = macosx;
+				STRIP_SWIFT_SYMBOLS = NO;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Debug;
@@ -1590,6 +1595,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundSupport;
 				SDKROOT = macosx;
+				STRIP_SWIFT_SYMBOLS = NO;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Release;
@@ -1635,6 +1641,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundSupport;
 				SDKROOT = iphonesimulator;
+				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				VALID_ARCHS = x86_64;
@@ -1676,6 +1683,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundSupport;
 				SDKROOT = iphonesimulator;
+				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1726,6 +1734,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundSupport;
 				SDKROOT = appletvsimulator;
+				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				VALID_ARCHS = x86_64;
@@ -1767,6 +1776,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundSupport;
 				SDKROOT = appletvsimulator;
+				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2082,6 +2092,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = XCPlayground;
 				SDKROOT = appletvsimulator;
+				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				VALID_ARCHS = x86_64;
@@ -2122,6 +2133,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = XCPlayground;
 				SDKROOT = appletvsimulator;
+				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
