@@ -32,7 +32,7 @@ extension LogPacket {
         self.startColumn = startColumn
         self.endColumn = endColumn
         self.threadID = threadID ?? "\(pthread_mach_thread_np(pthread_self()))"
-        self.logEntry = .scopeEntry
+        self.logEntry = logEntry
     }
     
     init(describingResult result: Any, named name: String, startLine: Int, endLine: Int, startColumn: Int, endColumn: Int, threadID: String? = nil) {
