@@ -1,0 +1,84 @@
+//===--- XcodeToolchainPackage.xcconfig -----------------------------------===//
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2018 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+//===----------------------------------------------------------------------===//
+//
+// This file contains build settings related to the "XcodeToolchain" package,
+// including the appropriate install paths.
+//
+//===----------------------------------------------------------------------===//
+
+// MARK: - Installation Directories
+
+// TOOLCHAIN_INSTALL_DIR_IS_EMPTY: YES if the TOOLCHAIN_INSTALL_DIR build setting is empty; NO otherwise
+TOOLCHAIN_INSTALL_DIR_IS_EMPTY = $(TOOLCHAIN_INSTALL_DIR_IS_EMPTY_$(TOOLCHAIN_INSTALL_DIR_IS_EMPTY_IMPL))
+TOOLCHAIN_INSTALL_DIR_IS_EMPTY_YES = YES
+TOOLCHAIN_INSTALL_DIR_IS_EMPTY_NO = NO
+TOOLCHAIN_INSTALL_DIR_IS_EMPTY_ = NO
+
+TOOLCHAIN_INSTALL_DIR_IS_EMPTY_IMPL = $(TOOLCHAIN_INSTALL_DIR_IS_EMPTY_IMPL_$(TOOLCHAIN_INSTALL_DIR))
+TOOLCHAIN_INSTALL_DIR_IS_EMPTY_IMPL_ = YES
+
+// DT_TOOLCHAIN_DIR_IS_EMPTY: YES if the DT_TOOLCHAIN_DIR build setting is empty; NO otherwise
+DT_TOOLCHAIN_DIR_IS_EMPTY = $(DT_TOOLCHAIN_DIR_IS_EMPTY_$(DT_TOOLCHAIN_DIR_IS_EMPTY_IMPL))
+DT_TOOLCHAIN_DIR_IS_EMPTY_YES = YES
+DT_TOOLCHAIN_DIR_IS_EMPTY_NO = NO
+DT_TOOLCHAIN_DIR_IS_EMPTY_ = NO
+
+DT_TOOLCHAIN_DIR_IS_EMPTY_IMPL = $(DT_TOOLCHAIN_DIR_IS_EMPTY_IMPL_$(DT_TOOLCHAIN_DIR))
+DT_TOOLCHAIN_DIR_IS_EMPTY_IMPL_ = YES
+
+// PGS_XCTOOLCHAIN_DIR: the path to the xctoolchain into which content should be installed.
+// Set to TOOLCHAIN_INSTALL_DIR if non-empty, falling back to DT_TOOLCHAIN_DIR or a hard-coded path otherwise.
+PGS_XCTOOLCHAIN_DIR = $(PGS_XCTOOLCHAIN_DIR_$(TOOLCHAIN_INSTALL_DIR_IS_EMPTY))
+PGS_XCTOOLCHAIN_DIR_NO = $(TOOLCHAIN_INSTALL_DIR)
+PGS_XCTOOLCHAIN_DIR_YES = $(PGS_XCTOOLCHAIN_DIR_YES_$(DT_TOOLCHAIN_DIR_IS_EMPTY))
+PGS_XCTOOLCHAIN_DIR_YES_NO = $(DT_TOOLCHAIN_DIR)
+PGS_XCTOOLCHAIN_DIR_YES_YES = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain
+
+// PGS_XCTOOLCHAIN_DEVELOPER_DIR: the path to the Developer directory inside of the xctoolchain into which content should be installed.
+PGS_XCTOOLCHAIN_DEVELOPER_DIR = $(PGS_XCTOOLCHAIN_DIR)/Developer
+
+// PGS_XCTOOLCHAIN_PLATFORM_DIR: the path to the per-platform directory inside of the xctoolchain into which content should be installed.
+PGS_XCTOOLCHAIN_PLATFORM_DIR = $(PGS_XCTOOLCHAIN_DEVELOPER_DIR)/Platforms/$(PGS_PLATFORM_DIR_NAME)
+
+// PGS_PLATFORM_DIR_NAME: The name of the .platform directory for a given PLATFORM_NAME.
+PGS_PLATFORM_DIR_NAME = $(PGS_PLATFORM_DIR_NAME_$(PLATFORM_NAME))
+PGS_PLATFORM_DIR_NAME_macosx = MacOSX.platform
+PGS_PLATFORM_DIR_NAME_iphoneos = iPhoneOS.platform
+PGS_PLATFORM_DIR_NAME_iphonesimulator = iPhoneSimulator.platform
+PGS_PLATFORM_DIR_NAME_appletvos = AppleTVOS.platform
+PGS_PLATFORM_DIR_NAME_appletvsimulator = AppleTVSimulator.platform
+PGS_PLATFORM_DIR_NAME_watchos = WatchOS.platform
+PGS_PLATFORM_DIR_NAME_watchsimulator = WatchSimulator.platform
+
+// PGS_XCTOOLCHAIN_PLATFORM_LIBRARY_DIR: the per-platform Developer directory inside of the xctoolchain into which content may be installed.
+PGS_XCTOOLCHAIN_PLATFORM_DEVELOPER_DIR = $(PGS_XCTOOLCHAIN_PLATFORM_DIR)/Developer
+
+// PGS_XCTOOLCHAIN_PLATFORM_LIBRARY_DIR: the per-platform Developer/Library directory inside of the xctoolchain into which content may be installed.
+PGS_XCTOOLCHAIN_PLATFORM_DEVELOPER_LIBRARY_DIR = $(PGS_XCTOOLCHAIN_PLATFORM_DEVELOPER_DIR)/Library
+
+// PGS_XCTOOLCHAIN_PLATFORM_FRAMEWORKS_DIR: the per-platform directory inside of the xctoolchain into which content should be installed for public frameworks.
+PGS_XCTOOLCHAIN_PLATFORM_DEVELOPER_FRAMEWORKS_DIR = $(PGS_XCTOOLCHAIN_PLATFORM_DEVELOPER_LIBRARY_DIR)/Frameworks
+
+// PGS_XCTOOLCHAIN_PLATFORM_PRIVATEFRAMEWORKS_DIR: the per-platform directory inside of the xctoolchain into which content should be installed for private frameworks.
+PGS_XCTOOLCHAIN_PLATFORM_DEVELOPER_PRIVATEFRAMEWORKS_DIR = $(PGS_XCTOOLCHAIN_PLATFORM_DEVELOPER_LIBRARY_DIR)/PrivateFrameworks
+
+// Install Frameworks and PrivateFrameworks into the per-platform directory in the toolchain.
+PGS_XcodeToolchain_FRAMEWORKS_DIR_FOR_INSTALL = $(PGS_XCTOOLCHAIN_PLATFORM_DEVELOPER_FRAMEWORKS_DIR)
+PGS_XcodeToolchain_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL = $(PGS_XCTOOLCHAIN_PLATFORM_DEVELOPER_PRIVATEFRAMEWORKS_DIR)
+
+// MARK: Runpath Search Paths
+
+PGS_XcodeToolchain_SHALLOW_FRAMEWORK_RUNPATH_SEARCH_PATHS = @loader_path/../ @loader_path/../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/$(PLATFORM_NAME)/
+PGS_XcodeToolchain_SHALLOW_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS = @loader_path/../ @loader_path/../../Frameworks/ @loader_path/../../../../../../../usr/lib/swift/$(PLATFORM_NAME)/
+
+PGS_XcodeToolchain_VERSIONED_FRAMEWORK_RUNPATH_SEARCH_PATHS = @loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../../../usr/lib/swift/$(PLATFORM_NAME)/
+PGS_XcodeToolchain_VERSIONED_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS = @loader_path/../../../ @loader_path/../../../../Frameworks/ @loader_path/../../../../../../../../../usr/lib/swift/$(PLATFORM_NAME)/

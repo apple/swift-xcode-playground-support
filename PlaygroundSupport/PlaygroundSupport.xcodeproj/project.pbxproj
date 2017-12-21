@@ -330,6 +330,8 @@
 		1D31347C18DCE66E00891152 /* XCPValueHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCPValueHistory.swift; sourceTree = "<group>"; };
 		1DF4117818DCB596001CDFC7 /* XCPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3FBDB81970721F000BC36F /* XCPSharedDataDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCPSharedDataDirectory.swift; sourceTree = "<group>"; };
+		5E6C2B461FE9DCD000DEE489 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = ../XcodeConfig/Debug.xcconfig; sourceTree = "<group>"; };
+		5E6C2B471FE9DCDD00DEE489 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = ../XcodeConfig/Release.xcconfig; sourceTree = "<group>"; };
 		5EC01A1E1BA0DE86008FCDB1 /* XCPlaygroundPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCPlaygroundPage.swift; sourceTree = "<group>"; };
 		5ECA7DC31FDF579C005D0A3F /* PlaygroundSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaygroundSupport.h; sourceTree = "<group>"; };
 		5EF4DDF618F35DEF00B8AE7C /* XCPShowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCPShowView.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				1DF4117A18DCBB27001CDFC7 /* XCPlayground */,
 				A80A0AB31CF610E70074DF3B /* PlaygroundSupportTests */,
 				A8FBD6BD1C752480005B5982 /* XCPlaygroundTests */,
+				5E6C2B451FE9DCB700DEE489 /* Config Files */,
 				1D7FD51B18BFE00400C718C6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -494,6 +497,15 @@
 				A87782211C73AC70008A7C4C /* XCPlayground-Info.plist */,
 			);
 			path = XCPlayground;
+			sourceTree = "<group>";
+		};
+		5E6C2B451FE9DCB700DEE489 /* Config Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E6C2B461FE9DCD000DEE489 /* Debug.xcconfig */,
+				5E6C2B471FE9DCDD00DEE489 /* Release.xcconfig */,
+			);
+			name = "Config Files";
 			sourceTree = "<group>";
 		};
 		A80A0AB31CF610E70074DF3B /* PlaygroundSupportTests */ = {
@@ -1311,6 +1323,7 @@
 /* Begin XCBuildConfiguration section */
 		1D7FD52118BFE00400C718C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E6C2B461FE9DCD000DEE489 /* Debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1328,7 +1341,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1336,16 +1348,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_STDLIB = swiftCore;
 				SWIFT_VERSION = 3.0;
-				TOOLCHAINS = default;
 			};
 			name = Debug;
 		};
 		1D7FD52218BFE00400C718C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E6C2B471FE9DCDD00DEE489 /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1371,27 +1381,24 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SKIP_IMPLICIT_STDLIB_RUNPATH_SEARCH_PATH = YES;
 				SWIFT_STDLIB = swiftCore;
 				SWIFT_VERSION = 3.0;
-				TOOLCHAINS = default;
 			};
 			name = Release;
 		};
 		1DF4117618DCB596001CDFC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "XCPlayground/XCPlayground-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				INSTALL_PATH = "$(PGS_FRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = XCPlayground;
 				SDKROOT = macosx;
@@ -1403,15 +1410,15 @@
 		1DF4117718DCB596001CDFC7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "XCPlayground/XCPlayground-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				INSTALL_PATH = "$(PGS_FRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = XCPlayground;
 				SDKROOT = macosx;
@@ -1440,7 +1447,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1452,7 +1458,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1470,7 +1475,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "XCPlayground/XCPlayground-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks";
+				INSTALL_PATH = "$(PGS_FRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = XCPlayground;
 				SDKROOT = iphonesimulator;
@@ -1488,7 +1494,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1511,14 +1516,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "XCPlayground/XCPlayground-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks";
+				INSTALL_PATH = "$(PGS_FRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = XCPlayground;
 				SDKROOT = iphonesimulator;
 				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
@@ -1557,18 +1562,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "PlaygroundSupport/PlaygroundSupport-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				INSTALL_PATH = "$(PGS_FRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundSupport;
 				SDKROOT = macosx;
@@ -1581,7 +1583,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1589,9 +1590,8 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "PlaygroundSupport/PlaygroundSupport-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				INSTALL_PATH = "$(PGS_FRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundSupport;
 				SDKROOT = macosx;
@@ -1606,7 +1606,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1619,7 +1618,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
-				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1637,7 +1635,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundSupport/PlaygroundSupport-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks";
+				INSTALL_PATH = "$(PGS_FRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundSupport;
 				SDKROOT = iphonesimulator;
@@ -1655,7 +1654,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1679,14 +1677,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundSupport/PlaygroundSupport-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks";
+				INSTALL_PATH = "$(PGS_FRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundSupport;
 				SDKROOT = iphonesimulator;
 				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
@@ -1699,7 +1697,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1712,7 +1709,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
-				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1730,7 +1726,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundSupport/PlaygroundSupport-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/Frameworks";
+				INSTALL_PATH = "$(PGS_FRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundSupport;
 				SDKROOT = appletvsimulator;
@@ -1748,7 +1745,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1772,14 +1768,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundSupport/PlaygroundSupport-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/Frameworks";
+				INSTALL_PATH = "$(PGS_FRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PlaygroundSupport;
 				SDKROOT = appletvsimulator;
 				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
@@ -1807,7 +1803,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1822,11 +1817,9 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1839,9 +1832,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = PlaygroundSupportTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-OSX";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -1855,7 +1846,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1880,7 +1870,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = PlaygroundSupportTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-OSX";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1895,7 +1884,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1909,11 +1897,9 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1926,7 +1912,6 @@
 				INFOPLIST_FILE = PlaygroundSupportTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1940,7 +1925,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1978,7 +1962,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1991,11 +1974,9 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -2008,7 +1989,6 @@
 				INFOPLIST_FILE = PlaygroundSupportTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -2022,7 +2002,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -2058,7 +2037,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2070,7 +2048,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2088,7 +2065,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "XCPlayground/XCPlayground-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/Frameworks";
+				INSTALL_PATH = "$(PGS_FRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = XCPlayground;
 				SDKROOT = appletvsimulator;
@@ -2106,7 +2084,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2129,14 +2106,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "XCPlayground/XCPlayground-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/Frameworks";
+				INSTALL_PATH = "$(PGS_FRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = XCPlayground;
 				SDKROOT = appletvsimulator;
 				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
@@ -2150,7 +2127,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -2165,11 +2141,9 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -2182,9 +2156,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = XCPlaygroundTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.XCPlaygroundTests-OSX";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -2198,7 +2170,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -2223,7 +2194,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = XCPlaygroundTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.XCPlaygroundTests-OSX";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2238,7 +2208,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -2252,11 +2221,9 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -2283,7 +2250,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -2321,7 +2287,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -2334,11 +2299,9 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -2365,7 +2328,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;

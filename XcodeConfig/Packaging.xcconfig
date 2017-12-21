@@ -1,0 +1,63 @@
+//===--- Packaging.xcconfig -----------------------------------------------===//
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2018 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+//===----------------------------------------------------------------------===//
+//
+// This file provides build settings which support packaging the products
+// delivered in swift-xcode-playground-support.
+//
+// Although there's only a single kind of supported package at this time,
+// this provides an easy-to-extend mechanism by which other packaging schemes
+// can be added.
+//
+// Packages should provide the following build settings:
+//
+// - PGS_<package name>_FRAMEWORKS_DIR_FOR_INSTALL
+// - PGS_<package name>_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL
+// - PGS_<package name>_SHALLOW_FRAMEWORK_RUNPATH_SEARCH_PATHS
+// - PGS_<package name>_VERSIONED_FRAMEWORK_RUNPATH_SEARCH_PATHS
+// - PGS_<package name>_SHALLOW_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS
+// - PGS_<package name>_VERSIONED_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS
+//
+// Targets may use the following build settings which abstract over the active
+// package in their configuration:
+//
+// - PGS_FRAMEWORKS_DIR_FOR_INSTALL
+// - PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL
+// - PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS
+// - PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS
+//
+// Targets should **not** use the PGS_PACKAGE build setting directly.
+//
+//===----------------------------------------------------------------------===//
+
+// PGS_PACKAGE: The name of the active package. (This is only used in build settings; it is not, by default, exposed anywhere.)
+PGS_PACKAGE = XcodeToolchain
+
+// PGS_FRAMEWORKS_DIR_FOR_INSTALL: The Frameworks directory in the current package into which content may be installed.
+PGS_FRAMEWORKS_DIR_FOR_INSTALL = $(PGS_$(PGS_PACKAGE)_FRAMEWORKS_DIR_FOR_INSTALL)
+
+// PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL: The PrivateFrameworks directory in the current package into which content may be installed.
+PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL = $(PGS_$(PGS_PACKAGE)_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)
+
+// PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS: The runpath search paths for frameworks installed in the Frameworks directory in the current package.
+PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS = $(PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS_$(SHALLOW_BUNDLE))
+PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS_YES = $(PGS_$(PGS_PACKAGE)_SHALLOW_FRAMEWORK_RUNPATH_SEARCH_PATHS)
+PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS_NO = $(PGS_$(PGS_PACKAGE)_VERSIONED_FRAMEWORK_RUNPATH_SEARCH_PATHS)
+PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS_ = $(PGS_FRAMEWORK_RUNPATH_SEARCH_PATHS_NO)
+
+// PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS: The runpath search paths for frameworks installed in the PrivateFrameworks directory in the current package.
+PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS = $(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS_$(SHALLOW_BUNDLE))
+PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS_YES = $(PGS_$(PGS_PACKAGE)_SHALLOW_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)
+PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS_NO = $(PGS_$(PGS_PACKAGE)_VERSIONED_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)
+PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS_ = $(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS_NO)
+
+// Include support for the XcodeToolchain package.
+#include "XcodeToolchainPackage.xcconfig"

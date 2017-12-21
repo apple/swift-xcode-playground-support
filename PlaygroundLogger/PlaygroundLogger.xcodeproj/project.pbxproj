@@ -296,6 +296,8 @@
 /* Begin PBXFileReference section */
 		5E06BF1319BA882000C5C2DE /* PlaygroundLogger.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = PlaygroundLogger.modulemap; sourceTree = "<group>"; };
 		5E06BF1519BA883700C5C2DE /* PlaygroundLogger.private.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = PlaygroundLogger.private.modulemap; sourceTree = "<group>"; };
+		5E6C2B491FEB16F800DEE489 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = ../XcodeConfig/Release.xcconfig; sourceTree = "<group>"; };
+		5E6C2B4A1FEB16F800DEE489 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = ../XcodeConfig/Debug.xcconfig; sourceTree = "<group>"; };
 		5EA8B30F18D12FF8007A88F4 /* PlaygroundLogger-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlaygroundLogger-Info.plist"; sourceTree = "<group>"; };
 		622D8E0518F615D200D064D0 /* PlaygroundLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlaygroundLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		622D8E0918F615D200D064D0 /* PlaygroundLogger_iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlaygroundLogger_iOS-Info.plist"; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 				622D8E0718F615D200D064D0 /* PlaygroundLogger_iOS */,
 				A80FEB461C59457B004E722A /* PlaygroundLogger_tvOS */,
 				1D80230A18C6A09600D522B2 /* SupportingFiles */,
+				5E6C2B481FEB16D300DEE489 /* Config Files */,
 				5E7F988818CEA2CA003F50B8 /* Frameworks */,
 				1D7FD51B18BFE00400C718C6 /* Products */,
 			);
@@ -421,6 +424,15 @@
 			children = (
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		5E6C2B481FEB16D300DEE489 /* Config Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E6C2B4A1FEB16F800DEE489 /* Debug.xcconfig */,
+				5E6C2B491FEB16F800DEE489 /* Release.xcconfig */,
+			);
+			name = "Config Files";
 			sourceTree = "<group>";
 		};
 		5E7F988818CEA2CA003F50B8 /* Frameworks */ = {
@@ -1003,6 +1015,7 @@
 		};
 		1D7FD52118BFE00400C718C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E6C2B4A1FEB16F800DEE489 /* Debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1020,9 +1033,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CURRENT_PROJECT_VERSION = 8500;
-				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1030,10 +1041,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_STDLIB = swiftCore;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1041,6 +1049,7 @@
 		};
 		1D7FD52218BFE00400C718C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E6C2B491FEB16F800DEE489 /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1058,7 +1067,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CURRENT_PROJECT_VERSION = 8500;
-				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1068,9 +1076,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SKIP_IMPLICIT_STDLIB_RUNPATH_SEARCH_PATH = YES;
 				SWIFT_STDLIB = swiftCore;
 				SWIFT_VERSION = 3.0;
@@ -1083,7 +1089,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1114,9 +1119,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundLogger_iOS/PlaygroundLogger_iOS-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/iphonesimulator";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
@@ -1135,7 +1139,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1160,9 +1163,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundLogger_iOS/PlaygroundLogger_iOS-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/iphonesimulator";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
@@ -1280,7 +1282,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1294,7 +1295,6 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1308,7 +1308,6 @@
 				INSTALL_PATH = "$(PLAYGROUNDLOGGER_INSTALLATION_ROOT)/Platforms/MacOSX.platform/Developer/usr/local/bin";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../../Library/PrivateFrameworks @executable_path/../../../../../../Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx $(DT_TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
@@ -1321,7 +1320,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1353,7 +1351,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1361,8 +1358,8 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "PlaygroundLogger/PlaygroundLogger-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../../../usr/lib/swift/macosx";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
@@ -1377,7 +1374,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1385,8 +1381,8 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "PlaygroundLogger/PlaygroundLogger-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../../../usr/lib/swift/macosx";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
@@ -1399,6 +1395,7 @@
 		};
 		942829481A89373E00521B30 /* BuildAndIntegration */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E6C2B491FEB16F800DEE489 /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1416,7 +1413,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CURRENT_PROJECT_VERSION = 8500;
-				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1426,9 +1422,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SKIP_IMPLICIT_STDLIB_RUNPATH_SEARCH_PATH = YES;
 				SWIFT_STDLIB = swiftCore;
 				SWIFT_VERSION = 3.0;
@@ -1467,7 +1461,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1481,8 +1474,8 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "PlaygroundLogger/PlaygroundLogger-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../../../usr/lib/swift/macosx";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
@@ -1499,7 +1492,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1530,9 +1522,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundLogger_iOS/PlaygroundLogger_iOS-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/iphonesimulator";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
@@ -1560,7 +1551,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1591,6 +1581,7 @@
 		};
 		94584CB81B20FB47003E0D74 /* BuildAndAutomation */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E6C2B491FEB16F800DEE489 /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1608,7 +1599,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CURRENT_PROJECT_VERSION = 8500;
-				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1618,9 +1608,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SKIP_IMPLICIT_STDLIB_RUNPATH_SEARCH_PATH = YES;
 				SWIFT_STDLIB = swiftCore;
 				SWIFT_VERSION = 3.0;
@@ -1659,7 +1647,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1667,8 +1654,8 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "PlaygroundLogger/PlaygroundLogger-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../../../usr/lib/swift/macosx";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
@@ -1685,7 +1672,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1716,9 +1702,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundLogger_iOS/PlaygroundLogger_iOS-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/iphonesimulator";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
@@ -1746,7 +1731,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1796,6 +1780,7 @@
 		};
 		94A50C051CFFAD0B005293C5 /* Toolchain_Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E6C2B4A1FEB16F800DEE489 /* Debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1813,9 +1798,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CURRENT_PROJECT_VERSION = 8500;
-				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1823,10 +1806,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_STDLIB = swiftCore;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1871,7 +1851,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1885,8 +1864,8 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "PlaygroundLogger/PlaygroundLogger-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../../../usr/lib/swift/macosx";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
@@ -1903,7 +1882,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1940,9 +1918,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundLogger_iOS/PlaygroundLogger_iOS-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/iphonesimulator";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
@@ -1961,7 +1938,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1998,8 +1974,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundLogger_tvOS/PlaygroundLogger_tvOS-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/PrivateFrameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/appletvsimulator";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
@@ -2007,7 +1983,6 @@
 				PRODUCT_NAME = PlaygroundLogger;
 				SDKROOT = appletvsimulator;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -2030,7 +2005,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -2044,7 +2018,6 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -2058,7 +2031,6 @@
 				INSTALL_PATH = "$(PLAYGROUNDLOGGER_INSTALLATION_ROOT)/Platforms/MacOSX.platform/Developer/usr/local/bin";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../../Library/PrivateFrameworks @executable_path/../../../../../../Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx $(DT_TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
@@ -2081,6 +2053,7 @@
 		};
 		94A50C101CFFAD12005293C5 /* Toolchain_Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E6C2B491FEB16F800DEE489 /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2098,7 +2071,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CURRENT_PROJECT_VERSION = 8500;
-				DT_TOOLCHAIN_DIR = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2108,9 +2080,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SKIP_IMPLICIT_STDLIB_RUNPATH_SEARCH_PATH = YES;
 				SWIFT_STDLIB = swiftCore;
 				SWIFT_VERSION = 3.0;
@@ -2156,7 +2126,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2170,8 +2139,8 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "PlaygroundLogger/PlaygroundLogger-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../../../usr/lib/swift/macosx";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
@@ -2188,7 +2157,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2219,9 +2187,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundLogger_iOS/PlaygroundLogger_iOS-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/iphonesimulator";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
@@ -2241,7 +2208,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2272,8 +2238,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundLogger_tvOS/PlaygroundLogger_tvOS-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/PrivateFrameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/appletvsimulator";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
@@ -2281,7 +2247,6 @@
 				PRODUCT_NAME = PlaygroundLogger;
 				SDKROOT = appletvsimulator;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
@@ -2302,7 +2267,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -2350,7 +2314,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2381,8 +2344,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundLogger_tvOS/PlaygroundLogger_tvOS-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/PrivateFrameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/appletvsimulator";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
@@ -2390,7 +2353,6 @@
 				PRODUCT_NAME = PlaygroundLogger;
 				SDKROOT = appletvsimulator;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -2402,7 +2364,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2427,8 +2388,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundLogger_tvOS/PlaygroundLogger_tvOS-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/PrivateFrameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/appletvsimulator";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
@@ -2436,7 +2397,6 @@
 				PRODUCT_NAME = PlaygroundLogger;
 				SDKROOT = appletvsimulator;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
@@ -2449,7 +2409,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2480,8 +2439,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundLogger_tvOS/PlaygroundLogger_tvOS-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/PrivateFrameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/appletvsimulator";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE -DNOSTDLIBUNITTEST";
@@ -2489,7 +2448,6 @@
 				PRODUCT_NAME = PlaygroundLogger;
 				SDKROOT = appletvsimulator;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
@@ -2502,7 +2460,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -2533,8 +2490,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "PlaygroundLogger_tvOS/PlaygroundLogger_tvOS-Info.plist";
-				INSTALL_PATH = "$(DT_TOOLCHAIN_DIR)/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/PrivateFrameworks";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../ @loader_path/../../../../PrivateFrameworks/ @loader_path/../../../../../../../usr/lib/swift/appletvsimulator";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
+				LD_RUNPATH_SEARCH_PATHS = "$(PGS_PRIVATE_FRAMEWORK_RUNPATH_SEARCH_PATHS)";
 				MODULEMAP_FILE = PlaygroundLogger/PlaygroundLogger.modulemap;
 				MODULEMAP_PRIVATE_FILE = PlaygroundLogger/PlaygroundLogger.private.modulemap;
 				OTHER_SWIFT_FLAGS = "-DAPPLE_FRAMEWORKS_AVAILABLE";
@@ -2542,7 +2499,6 @@
 				PRODUCT_NAME = PlaygroundLogger;
 				SDKROOT = appletvsimulator;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;

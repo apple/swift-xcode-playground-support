@@ -1,0 +1,25 @@
+//===--- Debug.xcconfig ---------------------------------------------------===//
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2017 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+//===----------------------------------------------------------------------===//
+
+#include "Common.xcconfig"
+
+// Only build the active architecture when building for Debug.
+ONLY_ACTIVE_ARCH = YES
+
+// Enable testability when building for Debug.
+ENABLE_TESTABILITY = YES
+
+// Compile Swift code at -Onone in Debug.
+SWIFT_OPTIMIZATION_LEVEL = -Onone
+
+// Compile C/Objective-C/C++ code at -O0 in Debug.
+GCC_OPTIMIZATION_LEVEL = 0
