@@ -1,0 +1,24 @@
+//===--- Common.xcconfig --------------------------------------------------===//
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2017 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+//===----------------------------------------------------------------------===//
+
+#include "Packaging.xcconfig"
+
+// Enable Clang modules.
+CLANG_ENABLE_MODULES = YES
+
+// Set the macOS, iOS, and tvOS deployment targets to reasonable values.
+MACOSX_DEPLOYMENT_TARGET = 10.11
+IPHONEOS_DEPLOYMENT_TARGET = 10.0
+TVOS_DEPLOYMENT_TARGET = 10.0
+
+// Prefer to use the default toolchain when building (unless an overriding toolchain has been provided, in which case this build setting override will effectively be ignored).
+TOOLCHAINS = default
