@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2017 Apple Inc. and the Swift project authors
+// Copyright (c) 2017-2018 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -41,8 +41,12 @@ final class LogEncoder {
             return
         }
         
-        var marker: UInt8 = 255
-        buffer.append(&marker, length: 1)
+        if allowShortEncoding {
+            // If we allow the short encoding, but our number is too large, we need to include a marker.
+            // If we don't allow the short encoding, we don't need to include the marker.
+            var marker: UInt8 = 255
+            buffer.append(&marker, length: 1)
+        }
         
         var littleEndianNumber = number.littleEndian
         buffer.append(&littleEndianNumber, length: MemoryLayout<UInt64>.size)
