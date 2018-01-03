@@ -15,19 +15,16 @@ import PlaygroundRuntime
 
 /// Initializes the PlaygroundLogger framework.
 ///
-/// - note: This function is invoked via lldb using @_silgen_name.
-@_silgen_name("playground_logger_initialize")
-public func initializePlaygroundLogger() -> Void {
+/// - note: This function is invoked by host stubs via dlsym.
+@_cdecl("PGLInitializePlaygroundLogger")
+public func initializePlaygroundLogger(clientVersion: Int, sendData: @escaping SendDataFunction) -> Void {
     Swift._playgroundPrintHook = printHook
     PlaygroundRuntime.$builtin_log_with_id = logResult
     PlaygroundRuntime.$builtin_log_scope_entry = logScopeEntry
     PlaygroundRuntime.$builtin_log_scope_exit = logScopeExit
     PlaygroundRuntime.$builtin_postPrint = logPostPrint
     
-    let RTLD_DEFAULT = UnsafeMutableRawPointer(bitPattern: -2)
-    guard let legacySendDataFunctionPointer = dlsym(RTLD_DEFAULT, "DVTSendPlaygroundLogData") else {
-        fatalError("Did not discover the DVTSendPlaygroundLogData required for initialization!")
-    }
+    PlaygroundLogger.sendData = sendData
     
-    sendData = unsafeBitCast(legacySendDataFunctionPointer, to: SendDataFunction.self)
+    // TODO: take clientVersion and use to customize PlaygroundLogger behavior.
 }
