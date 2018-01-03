@@ -25,7 +25,6 @@
  */
 
 @_silgen_name("playground_logger_initialize")
-@available(*, deprecated, message: "Use modern PlaygroundLogger initialization instead")
 public func legacyInitializePlaygroundLogger() -> Void {
     Swift._playgroundPrintHook = printHook
     sendData = legacySendDataStub
@@ -36,7 +35,6 @@ fileprivate func legacySendDataStub(_: NSData) -> Void {
 }
 
 @_silgen_name("playground_log_hidden")
-@available(*, deprecated, message: "Use modern PlaygroundLogger log function instead")
 public func legacyLog<T>(instance: T, name: String, id: Int, startLine: Int, endLine: Int, startColumn: Int, endColumn: Int) -> AnyObject {
     let packet = LogPacket(describingResult: instance, named: name, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
     
@@ -46,7 +44,6 @@ public func legacyLog<T>(instance: T, name: String, id: Int, startLine: Int, end
 }
 
 @_silgen_name ("playground_log_scope_entry")
-@available(*, deprecated, message: "Use modern PlaygroundLogger log scope entry function instead")
 public func legacyLogScopeEntry(startLine: Int, endLine: Int, startColumn: Int, endColumn: Int) -> AnyObject {
     let packet = LogPacket(scopeEntryWithStartLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
     
@@ -56,7 +53,6 @@ public func legacyLogScopeEntry(startLine: Int, endLine: Int, startColumn: Int, 
 }
 
 @_silgen_name ("playground_log_scope_exit")
-@available(*, deprecated, message: "Use modern PlaygroundLogger log scope exit function instead")
 public func legacyLogScopeExit(startLine: Int, endLine: Int, startColumn: Int, endColumn: Int) -> AnyObject {
     let packet = LogPacket(scopeExitWithStartLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
     
@@ -66,7 +62,6 @@ public func legacyLogScopeExit(startLine: Int, endLine: Int, startColumn: Int, e
 }
 
 @_silgen_name ("playground_log_postprint")
-@available(*, deprecated, message: "Use modern PlaygroundLogger postprint function instead")
 func legacyLogPostPrint(startLine: Int, endLine: Int, startColumn: Int, endColumn: Int) -> AnyObject {
     let printedString = Thread.current.threadDictionary[printedStringThreadDictionaryKey] as! String? ?? ""
     
