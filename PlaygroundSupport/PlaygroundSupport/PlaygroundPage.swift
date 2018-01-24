@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2018 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -12,7 +12,7 @@
 
 #if os(iOS) || os(tvOS)
 import UIKit
-#elseif os(OSX)
+#elseif os(macOS)
 import AppKit
 #endif
 
@@ -50,7 +50,7 @@ public final class PlaygroundPage {
     ///
     public var needsIndefiniteExecution: Bool = false {
         didSet {
-            NotificationCenter.default.post(name: "PlaygroundPageNeedsIndefiniteExecutionDidChangeNotification" as NSString as NSNotification.Name, object: self, userInfo: [ "PlaygroundPageNeedsIndefiniteExecution" : needsIndefiniteExecution as AnyObject])
+            NotificationCenter.default.post(name: .playgroundPageNeedsIndefiniteExecutionDidChange, object: self, userInfo: ["PlaygroundPageNeedsIndefiniteExecution": needsIndefiniteExecution])
         }
     }
 
@@ -59,7 +59,7 @@ public final class PlaygroundPage {
     /// This method does not return, as Xcode will kill the process hosting playground execution when this method is called.
     public func finishExecution() -> Never {
         // Send a message to Xcode requesting that we be killed.
-        NotificationCenter.default.post(name: "PlaygroundPageFinishExecutionNotification" as NSString as NSNotification.Name, object: self, userInfo: nil)
+        NotificationCenter.default.post(name: .playgroundPageIsReadyToFinishExecution, object: self, userInfo: nil)
     
         // Sleep for a while to let Xcode kill us.
         for _ in 1...10 {
@@ -78,6 +78,9 @@ public final class PlaygroundPage {
     /// - note: This is nil by default.
     public var liveView: PlaygroundLiveViewable? = nil {
         didSet {
+            // Don't do anything if we just went from nil to nil.
+            guard !(liveView == nil && oldValue == nil) else { return }
+
             if liveView != nil {
                 // Setting a live view enables implies a need for indefinite execution.
                 needsIndefiniteExecution = true
@@ -88,21 +91,16 @@ public final class PlaygroundPage {
             if let liveView = liveView {
                 switch liveView.playgroundLiveViewRepresentation {
                 case .viewController(let viewController):
-                    userInfo = ["PlaygroundPageLiveViewController" : viewController]
+                    userInfo = ["PlaygroundPageLiveViewController": viewController]
                 case .view(let view):
-                    userInfo = ["PlaygroundPageLiveView" : view]
+                    userInfo = ["PlaygroundPageLiveView": view]
                 }
             }
             else {
-                if oldValue == nil {
-                    // Don't send a notification if we just went from nil to nil.
-                    return
-                }
-                
                 userInfo = [:]
             }
 
-            NotificationCenter.default.post(name: "PlaygroundPageLiveViewDidChangeNotification" as NSString as NSNotification.Name, object: self, userInfo: userInfo)
+            NotificationCenter.default.post(name: .playgroundPageLiveViewDidChange, object: self, userInfo: userInfo)
         }
     }
 }
@@ -120,7 +118,7 @@ public enum PlaygroundLiveViewRepresentation {
     /// - note: This view controller must be the root of a view controller hierarchy (i.e. it has no parent view controller), and its view must *not* have a superview.
     case viewController(UIViewController)
 
-#elseif os(OSX)
+#elseif os(macOS)
     /// A view which will be displayed as the live view.
     ///
     /// - note: This view must be the root of a view hierarchy (i.e. it must not have a superview), and it must *not* be owned by a view controller.
@@ -137,7 +135,7 @@ public enum PlaygroundLiveViewRepresentation {
 /// A protocol for types which can be displayed as the live view for a playground page.
 ///
 /// On iOS and tvOS, `UIView` and `UIViewController` conform to this protocol.
-/// Likewise, on OS X, `NSView` and `NSViewController` conform to this protocol.
+/// Likewise, on macOS, `NSView` and `NSViewController` conform to this protocol.
 ///
 /// Implement this protocol if your custom type should be usable as the "live view" for a playground page.
 public protocol PlaygroundLiveViewable {
@@ -165,7 +163,7 @@ extension UIViewController: PlaygroundLiveViewable {
         }
     }
 }
-#elseif os(OSX)
+#elseif os(macOS)
 extension NSView: PlaygroundLiveViewable {
     public var playgroundLiveViewRepresentation: PlaygroundLiveViewRepresentation {
         get {
@@ -182,3 +180,15 @@ extension NSViewController: PlaygroundLiveViewable {
     }
 }
 #endif
+
+/// A collection of Notification.Name values used internally by PlaygroundPage.
+private extension Notification.Name {
+    /// Indicates that `PlaygroundPage.needsIndefiniteExecution` did change.
+    static let playgroundPageNeedsIndefiniteExecutionDidChange = Notification.Name(rawValue: "PlaygroundPageNeedsIndefiniteExecutionDidChangeNotification")
+
+    /// Indicates that `PlaygroundPage.finishExecution()` was called.
+    static let playgroundPageIsReadyToFinishExecution = Notification.Name(rawValue: "PlaygroundPageFinishExecutionNotification")
+
+    /// Indicates that `PlaygroundPage.liveView` did change.
+    static let playgroundPageLiveViewDidChange = Notification.Name(rawValue: "PlaygroundPageLiveViewDidChangeNotification")
+}
