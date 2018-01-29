@@ -10,6 +10,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+import LegacyPlaygroundQuickLookSupport
+
 // a wrapper over the reflection APIs providing a one-stop shop for all the things PlaygroundLogger needs
 
 final class LoggerMirror {

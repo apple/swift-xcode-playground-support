@@ -209,6 +209,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5E0A6384201EE985001F42CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E0A637F201EE985001F42CB /* LegacyPlaygroundQuickLookSupport.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5E915198200DC54000CAAD2E;
+			remoteInfo = LegacyPlaygroundQuickLookSupport;
+		};
+		5E0A6386201EE985001F42CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E0A637F201EE985001F42CB /* LegacyPlaygroundQuickLookSupport.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5E9151A1200DC54000CAAD2E;
+			remoteInfo = LegacyPlaygroundQuickLookSupportTests;
+		};
+		5E0A6388201EE990001F42CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E0A637F201EE985001F42CB /* LegacyPlaygroundQuickLookSupport.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E915197200DC54000CAAD2E;
+			remoteInfo = LegacyPlaygroundQuickLookSupport;
+		};
+		5E0A638A201EE995001F42CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E0A637F201EE985001F42CB /* LegacyPlaygroundQuickLookSupport.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E915197200DC54000CAAD2E;
+			remoteInfo = LegacyPlaygroundQuickLookSupport;
+		};
+		5E0A638C201EE999001F42CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E0A637F201EE985001F42CB /* LegacyPlaygroundQuickLookSupport.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E915197200DC54000CAAD2E;
+			remoteInfo = LegacyPlaygroundQuickLookSupport;
+		};
 		62EF801D1925C9000062D058 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1D7FD51218BFE00400C718C6 /* Project object */;
@@ -296,6 +331,7 @@
 /* Begin PBXFileReference section */
 		5E06BF1319BA882000C5C2DE /* PlaygroundLogger.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = PlaygroundLogger.modulemap; sourceTree = "<group>"; };
 		5E06BF1519BA883700C5C2DE /* PlaygroundLogger.private.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = PlaygroundLogger.private.modulemap; sourceTree = "<group>"; };
+		5E0A637F201EE985001F42CB /* LegacyPlaygroundQuickLookSupport.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LegacyPlaygroundQuickLookSupport.xcodeproj; path = ../LegacyPlaygroundQuickLookSupport/LegacyPlaygroundQuickLookSupport.xcodeproj; sourceTree = "<group>"; };
 		5E6C2B491FEB16F800DEE489 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = ../XcodeConfig/Release.xcconfig; sourceTree = "<group>"; };
 		5E6C2B4A1FEB16F800DEE489 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = ../XcodeConfig/Debug.xcconfig; sourceTree = "<group>"; };
 		5EA8B30F18D12FF8007A88F4 /* PlaygroundLogger-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlaygroundLogger-Info.plist"; sourceTree = "<group>"; };
@@ -403,6 +439,7 @@
 				A80FEB461C59457B004E722A /* PlaygroundLogger_tvOS */,
 				1D80230A18C6A09600D522B2 /* SupportingFiles */,
 				5E6C2B481FEB16D300DEE489 /* Config Files */,
+				5E0A637E201EE979001F42CB /* Referenced Projects */,
 				5E7F988818CEA2CA003F50B8 /* Frameworks */,
 				1D7FD51B18BFE00400C718C6 /* Products */,
 			);
@@ -424,6 +461,23 @@
 			children = (
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		5E0A637E201EE979001F42CB /* Referenced Projects */ = {
+			isa = PBXGroup;
+			children = (
+				5E0A637F201EE985001F42CB /* LegacyPlaygroundQuickLookSupport.xcodeproj */,
+			);
+			name = "Referenced Projects";
+			sourceTree = "<group>";
+		};
+		5E0A6380201EE985001F42CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E0A6385201EE985001F42CB /* LegacyPlaygroundQuickLookSupport.framework */,
+				5E0A6387201EE985001F42CB /* LegacyPlaygroundQuickLookSupportTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		5E6C2B481FEB16D300DEE489 /* Config Files */ = {
@@ -618,6 +672,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5E0A638B201EE995001F42CB /* PBXTargetDependency */,
 			);
 			name = PlaygroundLogger_iOS;
 			productName = PlaygroundLogger_iOS;
@@ -653,6 +708,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5E0A6389201EE990001F42CB /* PBXTargetDependency */,
 			);
 			name = PlaygroundLogger;
 			productName = PlaygroundLogger;
@@ -671,6 +727,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5E0A638D201EE999001F42CB /* PBXTargetDependency */,
 			);
 			name = PlaygroundLogger_tvOS;
 			productName = PlaygroundLogger_iOS;
@@ -733,6 +790,12 @@
 			mainGroup = 1D7FD51118BFE00400C718C6;
 			productRefGroup = 1D7FD51B18BFE00400C718C6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5E0A6380201EE985001F42CB /* Products */;
+					ProjectRef = 5E0A637F201EE985001F42CB /* LegacyPlaygroundQuickLookSupport.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1D0D20A518C69600001A2102 /* PlaygroundLogger_Mac_Products */,
@@ -748,6 +811,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5E0A6385201EE985001F42CB /* LegacyPlaygroundQuickLookSupport.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LegacyPlaygroundQuickLookSupport.framework;
+			remoteRef = 5E0A6384201EE985001F42CB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5E0A6387201EE985001F42CB /* LegacyPlaygroundQuickLookSupportTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LegacyPlaygroundQuickLookSupportTests.xctest;
+			remoteRef = 5E0A6386201EE985001F42CB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		622D8E0318F615D200D064D0 /* Resources */ = {
@@ -927,6 +1007,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5E0A6389201EE990001F42CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LegacyPlaygroundQuickLookSupport;
+			targetProxy = 5E0A6388201EE990001F42CB /* PBXContainerItemProxy */;
+		};
+		5E0A638B201EE995001F42CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LegacyPlaygroundQuickLookSupport;
+			targetProxy = 5E0A638A201EE995001F42CB /* PBXContainerItemProxy */;
+		};
+		5E0A638D201EE999001F42CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LegacyPlaygroundQuickLookSupport;
+			targetProxy = 5E0A638C201EE999001F42CB /* PBXContainerItemProxy */;
+		};
 		62EF801E1925C9000062D058 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 622D8E0418F615D200D064D0 /* PlaygroundLogger_iOS */;

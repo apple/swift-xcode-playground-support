@@ -11,6 +11,7 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
+import LegacyPlaygroundQuickLookSupport
 
 typealias SourceLocation = (line: UInt64, col: UInt64)
 typealias SourceRange = (begin: SourceLocation, end: SourceLocation)
@@ -21,7 +22,7 @@ protocol Serializable {
 }
 
 typealias ChildrenRange = CountableRange<UInt64>
-typealias QuickLookObject = Swift.PlaygroundQuickLook
+typealias QuickLookObject = LegacyPlaygroundQuickLookSupport.PlaygroundQuickLook
 
 // given a disparate array of ranges, return a possibly smaller such array such that
 // no two ranges overlap and ranges are sorted by their startIndex

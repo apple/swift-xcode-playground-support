@@ -7,4 +7,7 @@
    <FileRef
       location = "group:PlaygroundSupport/PlaygroundSupport.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:LegacyPlaygroundQuickLookSupport/LegacyPlaygroundQuickLookSupport.xcodeproj">
+   </FileRef>
 </Workspace>

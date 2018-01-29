@@ -14,6 +14,8 @@
 #else
 import StdlibUnittest
 
+import LegacyPlaygroundQuickLookSupport
+
 #if os(OSX)
 import Cocoa
 #else
