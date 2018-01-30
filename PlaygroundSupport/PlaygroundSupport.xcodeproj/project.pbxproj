@@ -97,6 +97,9 @@
 
 /* Begin PBXBuildFile section */
 		1D31347D18DCE66E00891152 /* XCPValueHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D31347C18DCE66E00891152 /* XCPValueHistory.swift */; };
+		5E08F29B201FEFE100ED74A2 /* CustomPlaygroundDisplayConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E08F29A201FEFE100ED74A2 /* CustomPlaygroundDisplayConvertible.swift */; };
+		5E08F29C201FEFE100ED74A2 /* CustomPlaygroundDisplayConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E08F29A201FEFE100ED74A2 /* CustomPlaygroundDisplayConvertible.swift */; };
+		5E08F29D201FEFE100ED74A2 /* CustomPlaygroundDisplayConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E08F29A201FEFE100ED74A2 /* CustomPlaygroundDisplayConvertible.swift */; };
 		5E3FBDBA1970725D000BC36F /* XCPSharedDataDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FBDB81970721F000BC36F /* XCPSharedDataDirectory.swift */; };
 		5E3FBDBB1970725D000BC36F /* XCPSharedDataDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FBDB81970721F000BC36F /* XCPSharedDataDirectory.swift */; };
 		5EC01A1F1BA0DE86008FCDB1 /* XCPlaygroundPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC01A1E1BA0DE86008FCDB1 /* XCPlaygroundPage.swift */; };
@@ -329,6 +332,7 @@
 /* Begin PBXFileReference section */
 		1D31347C18DCE66E00891152 /* XCPValueHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCPValueHistory.swift; sourceTree = "<group>"; };
 		1DF4117818DCB596001CDFC7 /* XCPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E08F29A201FEFE100ED74A2 /* CustomPlaygroundDisplayConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlaygroundDisplayConvertible.swift; sourceTree = "<group>"; };
 		5E3FBDB81970721F000BC36F /* XCPSharedDataDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCPSharedDataDirectory.swift; sourceTree = "<group>"; };
 		5E6C2B461FE9DCD000DEE489 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = ../XcodeConfig/Debug.xcconfig; sourceTree = "<group>"; };
 		5E6C2B471FE9DCDD00DEE489 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = ../XcodeConfig/Release.xcconfig; sourceTree = "<group>"; };
@@ -548,6 +552,7 @@
 			children = (
 				5ECA7DC31FDF579C005D0A3F /* PlaygroundSupport.h */,
 				A8318FD81CF604D50015809A /* PlaygroundPage.swift */,
+				5E08F29A201FEFE100ED74A2 /* CustomPlaygroundDisplayConvertible.swift */,
 				A8318FF41CF605CF0015809A /* PlaygroundSupport-Info.plist */,
 			);
 			path = PlaygroundSupport;
@@ -1097,6 +1102,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E08F29B201FEFE100ED74A2 /* CustomPlaygroundDisplayConvertible.swift in Sources */,
 				A8318FDC1CF604D50015809A /* PlaygroundPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1105,6 +1111,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E08F29C201FEFE100ED74A2 /* CustomPlaygroundDisplayConvertible.swift in Sources */,
 				A8318FDD1CF604D50015809A /* PlaygroundPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1113,6 +1120,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E08F29D201FEFE100ED74A2 /* CustomPlaygroundDisplayConvertible.swift in Sources */,
 				A8318FDE1CF604D50015809A /* PlaygroundPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
