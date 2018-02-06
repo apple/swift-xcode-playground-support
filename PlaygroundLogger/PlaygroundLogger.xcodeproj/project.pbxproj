@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5E2646311FB64876002DC6B6 /* PlaygroundLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2646271FB64876002DC6B6 /* PlaygroundLogger.framework */; };
-		5E2646361FB64876002DC6B6 /* PlaygroundLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2646351FB64876002DC6B6 /* PlaygroundLoggerTests.swift */; };
 		5E2646381FB64876002DC6B6 /* PlaygroundLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E26462A1FB64876002DC6B6 /* PlaygroundLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2646421FB64B2A002DC6B6 /* LoggerEntrypoints.swift */; };
 		5E2646521FB65026002DC6B6 /* LoggerInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2646511FB65026002DC6B6 /* LoggerInitialization.swift */; };
@@ -90,7 +89,6 @@
 		5E26462A1FB64876002DC6B6 /* PlaygroundLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaygroundLogger.h; sourceTree = "<group>"; };
 		5E26462B1FB64876002DC6B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E2646301FB64876002DC6B6 /* PlaygroundLoggerTests_macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundLoggerTests_macOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E2646351FB64876002DC6B6 /* PlaygroundLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundLoggerTests.swift; sourceTree = "<group>"; };
 		5E2646371FB64876002DC6B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E2646421FB64B2A002DC6B6 /* LoggerEntrypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerEntrypoints.swift; sourceTree = "<group>"; };
 		5E2646511FB65026002DC6B6 /* LoggerInitialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerInitialization.swift; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 		5E2646341FB64876002DC6B6 /* PlaygroundLoggerTests */ = {
 			isa = PBXGroup;
 			children = (
-				5E2646351FB64876002DC6B6 /* PlaygroundLoggerTests.swift */,
 				5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */,
 			);
 			path = PlaygroundLoggerTests;
@@ -602,7 +599,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E2646361FB64876002DC6B6 /* PlaygroundLoggerTests.swift in Sources */,
 				5ECE8F911FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
