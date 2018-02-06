@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2017 Apple Inc. and the Swift project authors
+// Copyright (c) 2017-2018 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -12,7 +12,6 @@
 
 import Foundation
 import CoreGraphics
-import PlaygroundRuntime // temporary, for CustomPlaygroundRepresentable
 
 fileprivate class DebugQuickLookObjectHook: NSObject {
     @objc(debugQuickLookObject) func debugQuickLookObject() -> AnyObject? { return nil }
@@ -32,15 +31,8 @@ extension LogEntry {
         var typeName: String { return passedInTypeName ?? _typeName(type(of: instance)) }
         var summary: String { return passedInSummary ?? String(describing: instance) }
         
-        // For types which conform to the `CustomPlaygroundRepresentable` protocol, get their custom representation and then run it back through the initializer.
-        if let customRepresentable = instance as? CustomPlaygroundRepresentable {
-            // Pass in our current type name so
-            // TODO: pass nil or concrete summary?
-            self = .init(describing: customRepresentable.playgroundRepresentation, name: name, typeName: typeName, summary: nil)
-        }
-            
         // For types which conform to the `CustomOpaqueLoggable` protocol, get their custom representation and construct an opaque log entry. (This is checked *second* so that user implementations of `CustomPlaygroundRepresentable` are honored over this framework's implementations of `CustomOpaqueLoggable`.)
-        else if let customOpaqueLoggable = instance as? CustomOpaqueLoggable {
+        if let customOpaqueLoggable = instance as? CustomOpaqueLoggable {
             // TODO: figure out when to set `preferBriefSummary` to true
             self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: customOpaqueLoggable.opaqueRepresentation)
         }

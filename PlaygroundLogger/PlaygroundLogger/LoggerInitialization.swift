@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2017 Apple Inc. and the Swift project authors
+// Copyright (c) 2017-2018 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -11,7 +11,6 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
-import PlaygroundRuntime
 
 /// Initializes the PlaygroundLogger framework.
 ///
@@ -19,11 +18,6 @@ import PlaygroundRuntime
 @_cdecl("PGLInitializePlaygroundLogger")
 public func initializePlaygroundLogger(clientVersion: Int, sendData: @escaping SendDataFunction) -> Void {
     Swift._playgroundPrintHook = printHook
-    PlaygroundRuntime.$builtin_log_with_id = logResult
-    PlaygroundRuntime.$builtin_log_scope_entry = logScopeEntry
-    PlaygroundRuntime.$builtin_log_scope_exit = logScopeExit
-    PlaygroundRuntime.$builtin_postPrint = logPostPrint
-    
     PlaygroundLogger.sendData = sendData
     
     // TODO: take clientVersion and use to customize PlaygroundLogger behavior.
