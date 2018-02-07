@@ -83,8 +83,33 @@ extension LogEntry {
         self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: playgroundQuickLook.opaqueRepresentation)
     }
     
+    private static let superclassLogEntryName = "super"
+    
     private init(structureFrom mirror: Mirror, name: String, typeName: String, summary: String) {
-        self = .structured(name: name, typeName: typeName, summary: summary, totalChildrenCount: Int(mirror.children.count), children: mirror.children.map { LogEntry(describing: $0.value, name: $0.label) }, disposition: .init(displayStyle: mirror.displayStyle))
+        let totalChildrenCount: Int
+        var childEntries: [LogEntry] = []
+        
+        // If our Mirror has a superclassMirror, then we need to include that as the first "child" (and include it in the total children count).
+        if let superclassMirror = mirror.superclassMirror {
+            let superclassTypeName = _typeName(superclassMirror.subjectType)
+            childEntries.append(LogEntry(structureFrom: superclassMirror, name: LogEntry.superclassLogEntryName, typeName: superclassTypeName, summary: superclassTypeName))
+            
+            totalChildrenCount = Int(mirror.children.count) + 1
+        }
+        else {
+            totalChildrenCount = Int(mirror.children.count)
+        }
+        
+        // Next, we need to generate log entries for all of the "real" children of this mirror.
+        childEntries += mirror.children.map { LogEntry(describing: $0.value, name: $0.label) }
+        
+        self = .structured(name: name,
+                           typeName: typeName,
+                           summary: summary,
+                           totalChildrenCount: totalChildrenCount,
+                           children: childEntries,
+                           disposition: .init(displayStyle: mirror.displayStyle)
+        )
     }
 }
 
