@@ -62,7 +62,18 @@ extension LogEntry {
                 self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: cgImage.opaqueRepresentation)
             default:
                 // This isn't one of the CF types we want to specially handle, so the log entry should just reflect the instance's structure.
-                self = .init(structureOf: instance, name: name, typeName: typeName, summary: summary)
+                
+                // Get a Mirror which reflects the instance being logged.
+                let mirror = Mirror(reflecting: instance)
+                
+                if mirror.displayStyle == .optional && mirror.children.count == 1 {
+                    // If the mirror displays as an Optional and has exactly one child, then we want to unwrap the optionality and generate a log entry for the child.
+                    self = .init(describing: mirror.children.first!.value, name: name, typeName: typeName, summary: nil)
+                }
+                else {
+                    // Otherwise, we want to generate a log entry with the structure from the mirror.
+                    self = .init(structureFrom: mirror, name: name, typeName: typeName, summary: summary)
+                }
             }
         }
     }
@@ -72,9 +83,7 @@ extension LogEntry {
         self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: playgroundQuickLook.opaqueRepresentation)
     }
     
-    private init(structureOf instance: Any, name: String, typeName: String, summary: String) {
-        let mirror = Mirror(reflecting: instance)
-        
+    private init(structureFrom mirror: Mirror, name: String, typeName: String, summary: String) {
         self = .structured(name: name, typeName: typeName, summary: summary, totalChildrenCount: Int(mirror.children.count), children: mirror.children.map { LogEntry(describing: $0.value, name: $0.label) }, disposition: .init(displayStyle: mirror.displayStyle))
     }
 }
