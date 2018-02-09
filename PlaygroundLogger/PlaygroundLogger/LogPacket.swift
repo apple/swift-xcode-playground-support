@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2017 Apple Inc. and the Swift project authors
+// Copyright (c) 2017-2018 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -23,7 +23,7 @@ struct LogPacket {
     var logEntry: LogEntry
 }
 
-private let stringTypeName = _typeName(String.self)
+private let stringTypeName = normalizedName(of: String.self)
 
 extension LogPacket {
     private init(logEntry: LogEntry, startLine: Int, endLine: Int, startColumn: Int, endColumn: Int, threadID: String?) {

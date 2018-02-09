@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E184715202BB72700F01AD1 /* TypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E184714202BB72700F01AD1 /* TypeName.swift */; };
+		5E184718202BB80200F01AD1 /* PGLConcurrentMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E184716202BB80200F01AD1 /* PGLConcurrentMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E184719202BB80200F01AD1 /* PGLConcurrentMap_MRR.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E184717202BB80200F01AD1 /* PGLConcurrentMap_MRR.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5E2646311FB64876002DC6B6 /* PlaygroundLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2646271FB64876002DC6B6 /* PlaygroundLogger.framework */; };
 		5E2646381FB64876002DC6B6 /* PlaygroundLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E26462A1FB64876002DC6B6 /* PlaygroundLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2646421FB64B2A002DC6B6 /* LoggerEntrypoints.swift */; };
@@ -71,6 +74,7 @@
 		5E2756941FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756931FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift */; };
 		5E4AF1AD1FDDBDE400B7C9D9 /* Unimplemented.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4AF1AC1FDDBDE400B7C9D9 /* Unimplemented.swift */; };
 		5E4AF1AF1FDDC12A00B7C9D9 /* LegacyEntrypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4AF1AE1FDDC12A00B7C9D9 /* LegacyEntrypoints.swift */; };
+		5E5FE50B202D13C800E28C3C /* PGLConcurrentMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */; };
 		5ECE8F911FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +89,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E184714202BB72700F01AD1 /* TypeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeName.swift; sourceTree = "<group>"; };
+		5E184716202BB80200F01AD1 /* PGLConcurrentMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGLConcurrentMap.h; sourceTree = "<group>"; };
+		5E184717202BB80200F01AD1 /* PGLConcurrentMap_MRR.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGLConcurrentMap_MRR.m; sourceTree = "<group>"; };
 		5E2646271FB64876002DC6B6 /* PlaygroundLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlaygroundLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E26462A1FB64876002DC6B6 /* PlaygroundLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaygroundLogger.h; sourceTree = "<group>"; };
 		5E26462B1FB64876002DC6B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -152,6 +159,7 @@
 		5E2756931FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitOpaqueLoggable.swift; sourceTree = "<group>"; };
 		5E4AF1AC1FDDBDE400B7C9D9 /* Unimplemented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unimplemented.swift; sourceTree = "<group>"; };
 		5E4AF1AE1FDDC12A00B7C9D9 /* LegacyEntrypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyEntrypoints.swift; sourceTree = "<group>"; };
+		5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGLConcurrentMap.swift; sourceTree = "<group>"; };
 		5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyPlaygroundLoggerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,6 +215,7 @@
 				5E2755D01FB6619800B69C83 /* LogPacket.swift */,
 				5E2755D41FB6807F00B69C83 /* LogPacket+Encoding.swift */,
 				5E2755D21FB672DC00B69C83 /* SendData.swift */,
+				5E184714202BB72700F01AD1 /* TypeName.swift */,
 				5E27561B1FC4854C00B69C83 /* Opaque Representations */,
 				5E2756511FC4EC4100B69C83 /* Custom Loggable */,
 				5E27564D1FC4E54A00B69C83 /* Legacy Support */,
@@ -415,6 +424,9 @@
 			isa = PBXGroup;
 			children = (
 				5E4AF1AC1FDDBDE400B7C9D9 /* Unimplemented.swift */,
+				5E184716202BB80200F01AD1 /* PGLConcurrentMap.h */,
+				5E184717202BB80200F01AD1 /* PGLConcurrentMap_MRR.m */,
+				5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -426,6 +438,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E184718202BB80200F01AD1 /* PGLConcurrentMap.h in Headers */,
 				5E2646381FB64876002DC6B6 /* PlaygroundLogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,7 +494,7 @@
 				TargetAttributes = {
 					5E2646261FB64876002DC6B6 = {
 						CreatedOnToolsVersion = 9.1;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					5E26462F1FB64876002DC6B6 = {
@@ -547,6 +560,7 @@
 				5E4AF1AF1FDDC12A00B7C9D9 /* LegacyEntrypoints.swift in Sources */,
 				5E27568F1FCF964400B69C83 /* NSBitmapImageRep+CustomOpaqueLoggable.swift in Sources */,
 				5E27568D1FCF45AE00B69C83 /* UIView+CustomOpaqueLoggable.swift in Sources */,
+				5E184719202BB80200F01AD1 /* PGLConcurrentMap_MRR.m in Sources */,
 				5E27566B1FC51D2B00B69C83 /* NSAttributedString+CustomOpaqueLoggable.swift in Sources */,
 				5E2755D71FB682DE00B69C83 /* LogEntry+Encoding.swift in Sources */,
 				5E2755DB1FB7069300B69C83 /* LogEntry+Reflection.swift in Sources */,
@@ -560,6 +574,7 @@
 				5E2756771FCF3C9700B69C83 /* CIColor+CustomOpaqueLoggable.swift in Sources */,
 				5E2756941FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift in Sources */,
 				5E2756911FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift in Sources */,
+				5E5FE50B202D13C800E28C3C /* PGLConcurrentMap.swift in Sources */,
 				5E2756891FCF454D00B69C83 /* UIColor+CustomOpaqueLoggable.swift in Sources */,
 				5E4AF1AD1FDDBDE400B7C9D9 /* Unimplemented.swift in Sources */,
 				5E27566E1FC51F7E00B69C83 /* CGGeometry+CustomOpaqueLoggable.swift in Sources */,
@@ -574,6 +589,7 @@
 				5E27567C1FCF423400B69C83 /* NSColor+CustomOpaqueLoggable.swift in Sources */,
 				5E2756821FCF439D00B69C83 /* NSImage+CustomOpaqueLoggable.swift in Sources */,
 				5E2755D91FB6836800B69C83 /* LogEncoder.swift in Sources */,
+				5E184715202BB72700F01AD1 /* TypeName.swift in Sources */,
 				5E2756791FCF3D3200B69C83 /* CIImage+CustomOpaqueLoggable.swift in Sources */,
 				5E2756871FCF451900B69C83 /* UIBezierPath+CustomOpaqueLoggable.swift in Sources */,
 				5E2756841FCF43DD00B69C83 /* NSView+CustomOpaqueLoggable.swift in Sources */,
@@ -750,6 +766,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos appletvsimulator appletvos";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;

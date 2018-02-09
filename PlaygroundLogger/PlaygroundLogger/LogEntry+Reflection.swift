@@ -28,7 +28,7 @@ extension LogEntry {
         // TODO: need to handle optionals better (e.g. implicitly unwrap optionality, I think)
         
         // Returns either the passed-in type name/summary or the type name/summary of `instance`.
-        var typeName: String { return passedInTypeName ?? _typeName(type(of: instance)) }
+        var typeName: String { return passedInTypeName ?? normalizedName(of: type(of: instance)) }
         var summary: String { return passedInSummary ?? String(describing: instance) }
         
         // For types which conform to the `CustomOpaqueLoggable` protocol, get their custom representation and construct an opaque log entry. (This is checked *second* so that user implementations of `CustomPlaygroundRepresentable` are honored over this framework's implementations of `CustomOpaqueLoggable`.)
@@ -91,7 +91,7 @@ extension LogEntry {
         
         // If our Mirror has a superclassMirror, then we need to include that as the first "child" (and include it in the total children count).
         if let superclassMirror = mirror.superclassMirror {
-            let superclassTypeName = _typeName(superclassMirror.subjectType)
+            let superclassTypeName = normalizedName(of: superclassMirror.subjectType)
             childEntries.append(LogEntry(structureFrom: superclassMirror, name: LogEntry.superclassLogEntryName, typeName: superclassTypeName, summary: superclassTypeName))
             
             totalChildrenCount = Int(mirror.children.count) + 1
