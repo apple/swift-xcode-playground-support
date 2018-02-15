@@ -76,6 +76,7 @@
 		5E4AF1AF1FDDC12A00B7C9D9 /* LegacyEntrypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4AF1AE1FDDC12A00B7C9D9 /* LegacyEntrypoints.swift */; };
 		5E5FE50B202D13C800E28C3C /* PGLConcurrentMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */; };
 		5ECE8F911FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */; };
+		5EE3867420352F3200D625F0 /* CGFloat+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3867320352F3200D625F0 /* CGFloat+CustomOpaqueLoggable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,7 @@
 		5E4AF1AE1FDDC12A00B7C9D9 /* LegacyEntrypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyEntrypoints.swift; sourceTree = "<group>"; };
 		5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGLConcurrentMap.swift; sourceTree = "<group>"; };
 		5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyPlaygroundLoggerTests.swift; sourceTree = "<group>"; };
+		5EE3867320352F3200D625F0 /* CGFloat+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +377,7 @@
 				5E27566D1FC51F7E00B69C83 /* CGGeometry+CustomOpaqueLoggable.swift */,
 				5E27566F1FC51FCB00B69C83 /* CGColor+OpaquePlaygroundLoggable.swift */,
 				5E2756711FC51FF400B69C83 /* CGImage+CustomOpaqueLoggable.swift */,
+				5EE3867320352F3200D625F0 /* CGFloat+CustomOpaqueLoggable.swift */,
 			);
 			path = CoreGraphics;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E2756321FC48FD300B69C83 /* NSRange+KeyedArchiveOpaqueRepresentation.swift in Sources */,
+				5EE3867420352F3200D625F0 /* CGFloat+CustomOpaqueLoggable.swift in Sources */,
 				5E27565A1FC4F35300B69C83 /* FloatingPoint+CustomOpaqueLoggable.swift in Sources */,
 				5E2756241FC4886A00B69C83 /* String+TaggedOpaqueRepresentation.swift in Sources */,
 				5E27563D1FC4D17F00B69C83 /* CGColor+KeyedArchiveOpaqueRepresentation.swift in Sources */,

@@ -575,6 +575,44 @@ class LegacyPlaygroundLoggerTests: XCTestCase {
     }
     
     // testUInt64EightBytesEncoding(), testNSColorLogging(), and testStructLogging() are excluded, as in their current form they test implementation details of the legacy logger.
+
+    // MARK: - New Tests Using Legacy Infrastructure
+
+    // These are tests which did not exist in the previous test suite, but which use the legacy infrastructure to run.
+    // They should be migrated to new test infrastructure once such a thing exists.
+
+    func testCGFloatLogging() {
+        let cgFloat: CGFloat = 2.0
+        let logdata = legacyLog(instance: cgFloat, name: "cgFloat", id: 0, startLine: 0, endLine: 0, startColumn: 0, endColumn: 0) as! NSData
+        guard let decoded = legacyLogDecode(logdata), let iderepr = decoded.object as? PlaygroundDecodedObject_IDERepr else {
+            XCTFail("Decoded object is not IDERepr")
+            return
+        }
+
+        XCTAssertEqual(iderepr.name, "cgFloat")
+        XCTAssertEqual(iderepr.typeName, "CoreGraphics.CGFloat")
+        XCTAssertEqual(iderepr.summary, "2.0")
+
+        if CGFloat.NativeType.self == Double.self {
+            XCTAssertEqual(iderepr.tag, "DOBL")
+            guard iderepr.payload is Double else {
+                XCTFail("Expected a Double as payload but did not have one")
+                return
+            }
+            XCTAssertEqual(iderepr.payload as! Double, 2.0 as Double)
+        }
+        else if CGFloat.NativeType.self == Float.self {
+            XCTAssertEqual(iderepr.tag, "FLOT")
+            guard iderepr.payload is Float else {
+                XCTFail("Expected a Float as payload but did not have one")
+                return
+            }
+            XCTAssertEqual(iderepr.payload as! Float, 2.0 as Float)
+        }
+        else {
+            XCTFail("Unknown CGFloat.NativeType: \(CGFloat.NativeType.self)")
+        }
+    }
 }
 
 // generic so can't be nested in the test case itself
