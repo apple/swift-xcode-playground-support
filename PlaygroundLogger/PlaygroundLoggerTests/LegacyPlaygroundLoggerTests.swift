@@ -812,7 +812,7 @@ extension UInt64 {
     init? (eightBytesStorage: BytesStorage) {
         if !eightBytesStorage.has(8) { return nil }
 		var up_byte = UnsafeMutablePointer<UInt8>.allocate(capacity: 8)
-        defer { up_byte.deallocate(capacity: 8) }
+        defer { up_byte.deallocate() }
         for idx in 0..<8 {
             up_byte[idx] = eightBytesStorage.get()
         }
@@ -878,7 +878,7 @@ extension Bool {
 extension Float {
     init? (storage: BytesStorage) {
         var ubPtr = UnsafeMutablePointer<UInt8>.allocate(capacity: 4)
-        defer { ubPtr.deallocate(capacity: 4) }
+        defer { ubPtr.deallocate() }
         for idx in 0..<4 {
             ubPtr[idx] = storage.get()
         }
@@ -893,7 +893,7 @@ extension Float {
 extension Double {
     init? (storage: BytesStorage) {
         var ubPtr = UnsafeMutablePointer<UInt8>.allocate(capacity: 8)
-        defer { ubPtr.deallocate(capacity: 8) }
+        defer { ubPtr.deallocate() }
         for idx in 0..<8 {
             ubPtr[idx] = storage.get()
         }
