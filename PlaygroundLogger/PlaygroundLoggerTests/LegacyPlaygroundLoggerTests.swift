@@ -21,6 +21,12 @@ import Foundation
 
 #if os(macOS)
     import AppKit
+
+    typealias ImageType = NSImage
+#elseif os(iOS) || os(tvOS)
+    import UIKit
+
+    typealias ImageType = UIImage
 #endif
 
 import SpriteKit
@@ -243,8 +249,7 @@ class LegacyPlaygroundLoggerTests: XCTestCase {
     // testExceptionSafety() is excluded, as it tests functionality handled differently in the new implementation.
     
     #if os(macOS)
-    // This test is disabled pending support for logging images and views.
-    func DISABLED_testNSViewLogging() {
+    func testNSViewLogging() {
         let button = NSButton(frame: NSRect(x: 0,y: 0,width: 100,height: 100))
         let logdata  = legacyLog(instance: button, name: "button", id: 0, startLine: 0, endLine: 0, startColumn: 0, endColumn: 0) as! NSData
         guard let decoded = legacyLogDecode(logdata) else {
@@ -256,14 +261,65 @@ class LegacyPlaygroundLoggerTests: XCTestCase {
             return
         }
         XCTAssertEqual(iderepr.tag, "VIEW")
-    }
-    
-    // This test is disabled pending support for logging images and views.
-    func DISABLED_testNSImageLogging() {
-        guard let image = NSImage(contentsOf: URL(string: "http://images.apple.com/support/assets/images/home/qp_apple_icon.png")!) else {
-            XCTFail("Failed to load image")
+
+        guard let payloadImage = iderepr.payload as? NSImage else {
+            XCTFail("Decoded payload is not an image")
             return
         }
+        XCTAssertEqual(payloadImage.size, NSSize(width: 100, height: 100))
+
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    func testUIViewLogging() {
+        let button = UIButton(type: .system)
+        button.setTitle("Button", for: .normal)
+        button.sizeToFit()
+
+        let logdata = legacyLog(instance: button, name: "button", id: 0, startLine: 0, endLine: 0, startColumn: 0, endColumn: 0) as! NSData
+        guard let decoded = legacyLogDecode(logdata) else {
+            XCTFail("Failed to decode log data")
+            return
+        }
+        guard let iderepr = decoded.object as? PlaygroundDecodedObject_IDERepr else {
+            XCTFail("Decoded object is not IDERepr")
+            return
+        }
+        XCTAssertEqual(iderepr.tag, "VIEW")
+
+        guard let payloadImage = iderepr.payload as? UIImage else {
+            XCTFail("Decoded payload is not an image")
+            return
+        }
+        XCTAssertEqual(payloadImage.size, CGSize(width: button.bounds.size.width * UIScreen.main.scale, height: button.bounds.size.height * UIScreen.main.scale))
+    }
+    #endif
+    
+    func testImageLogging() {
+        let size = CGSize(width: 30, height: 30)
+
+        #if os(macOS)
+            let image = NSImage(size: size, flipped: false) { rect -> Bool in
+                NSColor.white.setFill()
+                NSBezierPath(rect: rect).fill()
+                NSColor.orange.setFill()
+                NSBezierPath(roundedRect: rect.insetBy(dx: 5, dy: 5), xRadius: 3, yRadius: 3).fill()
+                return true
+            }
+        #elseif os(iOS) || os(tvOS)
+            let rendererFormat = UIGraphicsImageRendererFormat.preferred()
+            rendererFormat.scale = 1
+            rendererFormat.opaque = true
+
+            let image = UIGraphicsImageRenderer(size: size, format: rendererFormat).image { context in
+                UIColor.white.setFill()
+                UIBezierPath(rect: context.format.bounds).fill()
+                UIColor.orange.setFill()
+                UIBezierPath(roundedRect: context.format.bounds.insetBy(dx: 5, dy: 5), cornerRadius: 3).fill()
+            }
+        #endif
+
         let logdata  = legacyLog(instance: image, name: "image", id: 0, startLine: 0, endLine: 0, startColumn: 0, endColumn: 0) as! NSData
         guard let decoded = legacyLogDecode(logdata) else {
             XCTFail("Failed to decode log data")
@@ -274,10 +330,15 @@ class LegacyPlaygroundLoggerTests: XCTestCase {
             return
         }
         XCTAssertEqual(iderepr.tag, "IMAG")
+
+        guard let payloadImage = iderepr.payload as? ImageType else {
+            XCTFail("Decoded payload is not an image")
+            return
+        }
+        XCTAssertEqual(payloadImage.size, size)
     }
     
     // testSpriteKitLogging() is excluded, as it cannot be trivially ported.
-    #endif
     
     func testOptionalGetsStripped() {
         let some: String?? = "hello"
@@ -403,9 +464,8 @@ class LegacyPlaygroundLoggerTests: XCTestCase {
         XCTAssertEqual(f, f2)
         XCTAssertEqual(d, d2)
     }
-    
-    // This test is disabled pending support for logging images and views.
-    func DISABLED_testSKShapeNode() {
+
+    func testSKShapeNode() {
         let blahNode = SKShapeNode(circleOfRadius: 30.0)
         let logdata = legacyLog(instance: blahNode, name: "blahNode", id: 0, startLine: 0, endLine: 0, startColumn: 0, endColumn: 0) as! NSData
         guard let decoded = legacyLogDecode(logdata) else {
@@ -418,6 +478,8 @@ class LegacyPlaygroundLoggerTests: XCTestCase {
         }
         XCTAssertEqual(bn_repr.tag, "SKIT")
         XCTAssertEqual(bn_repr.typeName, "SKShapeNode")
+
+        XCTAssert(bn_repr.payload is ImageType, "We expect the payload to be an image")
     }
     
     func testBaseClassLogging() {
@@ -1379,12 +1441,11 @@ class PlaygroundIDEReprDecoder_URL: PlaygroundIDEReprDecoder {
     }
 }
 
-#if os(macOS)
 class PlaygroundIDEReprDecoder_Image: PlaygroundIDEReprDecoder {
     class PlaygroundDecodedObject_IDERepr_Image: PlaygroundDecodedObject_IDERepr {
-        let data: NSImage
+        let data: ImageType
         
-        init (_ name: String, _ psum: Bool, _ brief: String, _ long: String, _ tag: String, _ data: NSImage) {
+        init (_ name: String, _ psum: Bool, _ brief: String, _ long: String, _ tag: String, _ data: ImageType) {
             self.data = data
             super.init(name, psum, brief, long, tag)
         }
@@ -1399,11 +1460,10 @@ class PlaygroundIDEReprDecoder_Image: PlaygroundIDEReprDecoder {
     }
     func decodeObject(_ decoder: PlaygroundDecoder, _ bytes: BytesStorage, _ name: String, _ psum: Bool, _ brief: String, _ long: String, _ tag: String) -> PlaygroundDecodedObject_IDERepr? {
         let data = bytes.data
-        guard let image = NSImage(data: data as Data) else { return nil }
+        guard let image = ImageType(data: data as Data) else { return nil }
         return PlaygroundDecodedObject_IDERepr_Image(name, psum ,brief, long, tag, image)
     }
 }
-#endif
 
 class PlaygroundDecoder {
     var bytes: BytesStorage
@@ -1440,9 +1500,9 @@ class PlaygroundDecoder {
         self.iderepr_decoders["RANG"] = PlaygroundIDEReprDecoder_Range()
         self.iderepr_decoders["BOOL"] = PlaygroundIDEReprDecoder_Bool()
         self.iderepr_decoders["URL"]  = PlaygroundIDEReprDecoder_URL()
-        #if os(macOS)
         self.iderepr_decoders["IMAG"]  = PlaygroundIDEReprDecoder_Image()
-        #endif
+        self.iderepr_decoders["VIEW"]  = PlaygroundIDEReprDecoder_Image()
+        self.iderepr_decoders["SKIT"]  = PlaygroundIDEReprDecoder_Image()
     }
 
     func getIDEReprDecoder(_ tag: String) -> PlaygroundIDEReprDecoder {

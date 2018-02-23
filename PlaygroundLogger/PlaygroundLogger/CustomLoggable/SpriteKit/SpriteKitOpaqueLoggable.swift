@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2017 Apple Inc. and the Swift project authors
+// Copyright (c) 2017-2018 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -23,13 +23,11 @@ fileprivate protocol SpriteKitOpaqueLoggable: class, OpaqueImageRepresentable, C
 extension SpriteKitOpaqueLoggable {
     func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) {
         guard let copyImageDataMethod = (self as AnyObject)._copyImageData, let imageData = copyImageDataMethod() else {
-            // TODO: don't crash in this case
-            fatalError("Unable to get image data, unable to encode anything")
+            unimplemented("Handle case where we don't have any image data")
         }
         
-        _ = imageData
-        
-        unimplemented()
+        encoder.encode(number: UInt64(imageData.count))
+        encoder.encode(data: imageData)
     }
     
     var opaqueRepresentation: LogEntry.OpaqueRepresentation {

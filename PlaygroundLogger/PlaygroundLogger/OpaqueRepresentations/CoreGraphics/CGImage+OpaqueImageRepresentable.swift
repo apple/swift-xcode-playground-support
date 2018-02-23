@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2017 Apple Inc. and the Swift project authors
+// Copyright (c) 2017-2018 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -12,8 +12,21 @@
 
 import CoreGraphics
 
+#if os(macOS)
+    import AppKit
+#elseif os(iOS) || os(tvOS)
+    import UIKit
+#endif
+
 extension CGImage: OpaqueImageRepresentable {
     func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) {
-        unimplemented()
+        #if os(macOS)
+            // On macOS, simply create an NSBitmapImageRep with the receiver and use that.
+            let bitmapRep = NSBitmapImageRep(cgImage: self)
+            bitmapRep.encodeImage(into: encoder, withFormat: format)
+        #elseif os(iOS) || os(tvOS)
+            let uiImage = UIImage(cgImage: self)
+            uiImage.encodeImage(into: encoder, withFormat: format)
+        #endif
     }
 }

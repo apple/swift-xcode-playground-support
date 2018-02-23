@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2017 Apple Inc. and the Swift project authors
+// Copyright (c) 2017-2018 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -14,8 +14,30 @@
     import AppKit
     
     extension NSImage: OpaqueImageRepresentable {
+        private var bestBitmapRepresentation: NSBitmapImageRep? {
+            guard let bestRep = self.bestRepresentation(for: NSRect(origin: .zero, size: size).integral, context: nil, hints: nil) else {
+                // We don't have a best representation, so we can't convert it to a bitmap image rep.
+                return nil
+            }
+
+            if let bitmapRep = bestRep as? NSBitmapImageRep {
+                return bitmapRep
+            }
+            else {
+                guard let cgImage = bestRep.cgImage(forProposedRect: nil, context: nil, hints: nil) else {
+                    return nil
+                }
+
+                return NSBitmapImageRep(cgImage: cgImage)
+            }
+        }
+
         func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) {
-            unimplemented()
+            guard let bitmapRep = self.bestBitmapRepresentation else {
+                unimplemented("Need to figure out how to handle when we can't get the best bitmap rep!")
+            }
+
+            bitmapRep.encodeImage(into: encoder, withFormat: format)
         }
     }
 #endif
