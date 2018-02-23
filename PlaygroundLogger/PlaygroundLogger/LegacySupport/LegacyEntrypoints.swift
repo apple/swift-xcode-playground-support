@@ -36,7 +36,7 @@ fileprivate func legacySendDataStub(_: NSData) -> Void {
 
 @_silgen_name("playground_log_hidden")
 public func legacyLog<T>(instance: T, name: String, id: Int, startLine: Int, endLine: Int, startColumn: Int, endColumn: Int) -> AnyObject {
-    let packet = LogPacket(describingResult: instance, named: name, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
+    let packet = LogPacket(describingResult: instance, named: name, withPolicy: .default, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
     
     let data = packet.encode()
     

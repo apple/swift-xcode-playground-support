@@ -19,7 +19,7 @@ func logResult(_ result: Any,
                endLine: Int,
                startColumn: Int,
                endColumn: Int) {
-    let packet = LogPacket(describingResult: result, named: name, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
+    let packet = LogPacket(describingResult: result, named: name, withPolicy: .default, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
     
     let data = packet.encode()
     

@@ -20,11 +20,11 @@ fileprivate class DebugQuickLookObjectHook: NSObject {
 fileprivate let emptyNameString = ""
 
 extension LogEntry {
-    init(describing instance: Any, name: String? = nil) {
-        self = .init(describing: instance, name: name ?? emptyNameString, typeName: nil, summary: nil)
+    init(describing instance: Any, name: String? = nil, policy: LogPolicy) {
+        self = .init(describing: instance, name: name ?? emptyNameString, typeName: nil, summary: nil, policy: policy)
     }
     
-    private init(describing instance: Any, name: String, typeName passedInTypeName: String?, summary passedInSummary: String?) {
+    private init(describing instance: Any, name: String, typeName passedInTypeName: String?, summary passedInSummary: String?, policy: LogPolicy) {
         // TODO: need to handle optionals better (e.g. implicitly unwrap optionality, I think)
         
         // Returns either the passed-in type name/summary or the type name/summary of `instance`.
@@ -47,7 +47,7 @@ extension LogEntry {
             
         // If a type implements the `debugQuickLookObject()` Objective-C method, then get their debug quick look object and use that for logging (by passing it back through this initializer).
         else if let debugQuickLookObjectMethod = (instance as AnyObject).debugQuickLookObject, let debugQuickLookObject = debugQuickLookObjectMethod() {
-            self = .init(describing: debugQuickLookObject, name: name, typeName: typeName, summary: nil)
+            self = .init(describing: debugQuickLookObject, name: name, typeName: typeName, summary: nil, policy: policy)
         }
             
         // Otherwise, first check if this is an interesting CF type before logging structure.
@@ -68,11 +68,11 @@ extension LogEntry {
                 
                 if mirror.displayStyle == .optional && mirror.children.count == 1 {
                     // If the mirror displays as an Optional and has exactly one child, then we want to unwrap the optionality and generate a log entry for the child.
-                    self = .init(describing: mirror.children.first!.value, name: name, typeName: typeName, summary: nil)
+                    self = .init(describing: mirror.children.first!.value, name: name, typeName: typeName, summary: nil, policy: policy)
                 }
                 else {
                     // Otherwise, we want to generate a log entry with the structure from the mirror.
-                    self = .init(structureFrom: mirror, name: name, typeName: typeName, summary: summary)
+                    self = .init(structureFrom: mirror, name: name, typeName: typeName, summary: summary, policy: policy)
                 }
             }
         }
@@ -83,31 +83,14 @@ extension LogEntry {
         self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: playgroundQuickLook.opaqueRepresentation)
     }
     
-    private static let superclassLogEntryName = "super"
+    fileprivate static let superclassLogEntryName = "super"
     
-    private init(structureFrom mirror: Mirror, name: String, typeName: String, summary: String) {
-        let totalChildrenCount: Int
-        var childEntries: [LogEntry] = []
-        
-        // If our Mirror has a superclassMirror, then we need to include that as the first "child" (and include it in the total children count).
-        if let superclassMirror = mirror.superclassMirror {
-            let superclassTypeName = normalizedName(of: superclassMirror.subjectType)
-            childEntries.append(LogEntry(structureFrom: superclassMirror, name: LogEntry.superclassLogEntryName, typeName: superclassTypeName, summary: superclassTypeName))
-            
-            totalChildrenCount = Int(mirror.children.count) + 1
-        }
-        else {
-            totalChildrenCount = Int(mirror.children.count)
-        }
-        
-        // Next, we need to generate log entries for all of the "real" children of this mirror.
-        childEntries += mirror.children.map { LogEntry(describing: $0.value, name: $0.label) }
-        
+    fileprivate init(structureFrom mirror: Mirror, name: String, typeName: String, summary: String, policy: LogPolicy) {
         self = .structured(name: name,
                            typeName: typeName,
                            summary: summary,
-                           totalChildrenCount: totalChildrenCount,
-                           children: childEntries,
+                           totalChildrenCount: mirror.totalChildCount,
+                           children: mirror.childEntries(using: policy),
                            disposition: .init(displayStyle: mirror.displayStyle)
         )
     }
@@ -138,5 +121,90 @@ extension LogEntry.StructuredDisposition {
         case .set:
             self = .membershipContainer
         }
+    }
+}
+
+extension Mirror {
+    fileprivate var totalChildCount: Int {
+        if superclassMirror != nil {
+            return Int(children.count) + 1
+        }
+        else {
+            return Int(children.count)
+        }
+    }
+
+    fileprivate func childEntries(using policy: LogPolicy) -> [LogEntry] {
+        let childPolicy: LogPolicy.ChildPolicy = {
+            switch self.displayStyle ?? .struct {
+            case .class, .struct, .tuple, .enum:
+                return policy.aggregateChildPolicy
+            case .optional, .collection, .dictionary, .set:
+                return policy.containerChildPolicy
+            }
+        }()
+
+        func logEntry(forChild child: Mirror.Child) -> LogEntry {
+            return LogEntry(describing: child.value, name: child.label, policy: policy)
+        }
+
+        func logEntriesForAllChildren() -> [LogEntry] {
+            let childEntries = children.map(logEntry(forChild:))
+            if let superclassMirror = superclassMirror {
+                return [superclassMirror.logEntry(named: LogEntry.superclassLogEntryName, usingPolicy: policy)] + childEntries
+            }
+            else {
+                return childEntries
+            }
+        }
+
+        func logEntries(forFirstChildren count: Int) -> [LogEntry] {
+            let numberOfChildren: Int
+            let superclassEntries: [LogEntry]
+            if let superclassMirror = superclassMirror {
+                superclassEntries = [superclassMirror.logEntry(named: LogEntry.superclassLogEntryName, usingPolicy: policy)]
+                numberOfChildren = count - 1
+            }
+            else {
+                superclassEntries = []
+                numberOfChildren = count
+            }
+
+            let start = children.startIndex
+            let max = children.index(start, offsetBy: numberOfChildren)
+
+            return superclassEntries + children[start..<max].map(logEntry(forChild:))
+        }
+
+        func logEntries(forLastChildren count: Int) -> [LogEntry] {
+            let max = children.endIndex
+            let start = children.index(max, offsetBy: -count)
+
+            return children[start..<max].map(logEntry(forChild:))
+        }
+
+        switch childPolicy {
+        case .all:
+            return logEntriesForAllChildren()
+        case let .head(count):
+            if totalChildCount <= count {
+                return logEntriesForAllChildren()
+            }
+
+            return logEntries(forFirstChildren: count) + [LogEntry.gap]
+        case let .headTail(headCount, tailCount):
+            if totalChildCount <= headCount + tailCount {
+                return logEntriesForAllChildren()
+            }
+
+            return logEntries(forFirstChildren: headCount) + [LogEntry.gap] + logEntries(forLastChildren: tailCount)
+        case .none:
+            return []
+        }
+    }
+
+    fileprivate func logEntry(named name: String, usingPolicy policy: LogPolicy) -> LogEntry {
+        let subjectTypeName = normalizedName(of: self.subjectType)
+        return LogEntry(structureFrom: self, name: name, typeName: subjectTypeName, summary: subjectTypeName, policy: policy)
     }
 }

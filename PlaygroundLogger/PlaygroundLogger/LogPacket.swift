@@ -35,8 +35,8 @@ extension LogPacket {
         self.logEntry = logEntry
     }
     
-    init(describingResult result: Any, named name: String, startLine: Int, endLine: Int, startColumn: Int, endColumn: Int, threadID: String? = nil) {
-        self = .init(logEntry: LogEntry(describing: result, name: name), startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: threadID)
+    init(describingResult result: Any, named name: String, withPolicy policy: LogPolicy, startLine: Int, endLine: Int, startColumn: Int, endColumn: Int, threadID: String? = nil) {
+        self = .init(logEntry: LogEntry(describing: result, name: name, policy: policy), startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: threadID)
     }
     
     init(scopeEntryWithStartLine startLine: Int, endLine: Int, startColumn: Int, endColumn: Int, threadID: String? = nil) {
