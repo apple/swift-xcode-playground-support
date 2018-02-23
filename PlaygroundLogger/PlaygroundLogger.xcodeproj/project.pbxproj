@@ -77,6 +77,17 @@
 		5E5FE50B202D13C800E28C3C /* PGLConcurrentMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */; };
 		5ECE8F911FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */; };
 		5EE3867420352F3200D625F0 /* CGFloat+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3867320352F3200D625F0 /* CGFloat+CustomOpaqueLoggable.swift */; };
+		5EFE9193203F6CF900E21BAA /* LegacyPlaygroundLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */; };
+		5EFE919B203F6DD700E21BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFE919A203F6DD700E21BAA /* AppDelegate.swift */; };
+		5EFE919D203F6DD700E21BAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFE919C203F6DD700E21BAA /* ViewController.swift */; };
+		5EFE91A0203F6DD700E21BAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFE919E203F6DD700E21BAA /* Main.storyboard */; };
+		5EFE91A5203F6DD900E21BAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFE91A3203F6DD900E21BAA /* LaunchScreen.storyboard */; };
+		5EFE91B3203F6E8D00E21BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFE91B2203F6E8D00E21BAA /* AppDelegate.swift */; };
+		5EFE91B5203F6E8D00E21BAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFE91B4203F6E8D00E21BAA /* ViewController.swift */; };
+		5EFE91B8203F6E8D00E21BAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFE91B6203F6E8D00E21BAA /* Main.storyboard */; };
+		5EFE91C0203F6EDD00E21BAA /* PlaygroundLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2646271FB64876002DC6B6 /* PlaygroundLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EFE91C5203F6EEC00E21BAA /* PlaygroundLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2646271FB64876002DC6B6 /* PlaygroundLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5EFE91D7203F6F8100E21BAA /* LegacyPlaygroundLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +98,74 @@
 			remoteGlobalIDString = 5E2646261FB64876002DC6B6;
 			remoteInfo = PlaygroundLogger;
 		};
+		5EFE9191203F6CE500E21BAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E26461E1FB64876002DC6B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E2646261FB64876002DC6B6;
+			remoteInfo = PlaygroundLogger;
+		};
+		5EFE91AA203F6DE100E21BAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E26461E1FB64876002DC6B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EFE9197203F6DD700E21BAA;
+			remoteInfo = PlaygroundLoggerTestHost_iOS;
+		};
+		5EFE91C1203F6EDD00E21BAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E26461E1FB64876002DC6B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E2646261FB64876002DC6B6;
+			remoteInfo = PlaygroundLogger;
+		};
+		5EFE91C6203F6EEC00E21BAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E26461E1FB64876002DC6B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E2646261FB64876002DC6B6;
+			remoteInfo = PlaygroundLogger;
+		};
+		5EFE91D2203F6F6A00E21BAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E26461E1FB64876002DC6B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EFE91AF203F6E8D00E21BAA;
+			remoteInfo = PlaygroundLoggerTestHost_tvOS;
+		};
+		5EFE91D8203F6FF800E21BAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E26461E1FB64876002DC6B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E2646261FB64876002DC6B6;
+			remoteInfo = PlaygroundLogger;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5EFE91C3203F6EDD00E21BAA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5EFE91C0203F6EDD00E21BAA /* PlaygroundLogger.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EFE91C8203F6EEC00E21BAA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5EFE91C5203F6EEC00E21BAA /* PlaygroundLogger.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5E184714202BB72700F01AD1 /* TypeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeName.swift; sourceTree = "<group>"; };
@@ -163,6 +241,21 @@
 		5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGLConcurrentMap.swift; sourceTree = "<group>"; };
 		5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyPlaygroundLoggerTests.swift; sourceTree = "<group>"; };
 		5EE3867320352F3200D625F0 /* CGFloat+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5EFE9189203F6CC400E21BAA /* PlaygroundLoggerTests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundLoggerTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EFE918D203F6CC400E21BAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EFE9198203F6DD700E21BAA /* PlaygroundLoggerTestHost_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaygroundLoggerTestHost_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EFE919A203F6DD700E21BAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5EFE919C203F6DD700E21BAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5EFE919F203F6DD700E21BAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5EFE91A4203F6DD900E21BAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5EFE91A6203F6DD900E21BAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EFE91B0203F6E8D00E21BAA /* PlaygroundLoggerTestHost_tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaygroundLoggerTestHost_tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EFE91B2203F6E8D00E21BAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5EFE91B4203F6E8D00E21BAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5EFE91B7203F6E8D00E21BAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5EFE91BB203F6E8E00E21BAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EFE91CD203F6F6900E21BAA /* PlaygroundLoggerTests_tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundLoggerTests_tvOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EFE91D1203F6F6A00E21BAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +274,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5EFE9186203F6CC400E21BAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EFE9195203F6DD700E21BAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EFE91AD203F6E8D00E21BAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EFE91CA203F6F6900E21BAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -190,6 +311,10 @@
 				5E2646291FB64876002DC6B6 /* PlaygroundLogger */,
 				5E2646341FB64876002DC6B6 /* PlaygroundLoggerTests */,
 				5E2646411FB649D0002DC6B6 /* PlaygroundLoggerTests_macOS */,
+				5EFE918A203F6CC400E21BAA /* PlaygroundLoggerTests_iOS */,
+				5EFE91CE203F6F6A00E21BAA /* PlaygroundLoggerTests_tvOS */,
+				5EFE9199203F6DD700E21BAA /* PlaygroundLoggerTestHost_iOS */,
+				5EFE91B1203F6E8D00E21BAA /* PlaygroundLoggerTestHost_tvOS */,
 				5E2646281FB64876002DC6B6 /* Products */,
 				5E26464F1FB64F95002DC6B6 /* Frameworks */,
 			);
@@ -200,6 +325,10 @@
 			children = (
 				5E2646271FB64876002DC6B6 /* PlaygroundLogger.framework */,
 				5E2646301FB64876002DC6B6 /* PlaygroundLoggerTests_macOS.xctest */,
+				5EFE9189203F6CC400E21BAA /* PlaygroundLoggerTests_iOS.xctest */,
+				5EFE9198203F6DD700E21BAA /* PlaygroundLoggerTestHost_iOS.app */,
+				5EFE91B0203F6E8D00E21BAA /* PlaygroundLoggerTestHost_tvOS.app */,
+				5EFE91CD203F6F6900E21BAA /* PlaygroundLoggerTests_tvOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -434,6 +563,45 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		5EFE918A203F6CC400E21BAA /* PlaygroundLoggerTests_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5EFE918D203F6CC400E21BAA /* Info.plist */,
+			);
+			path = PlaygroundLoggerTests_iOS;
+			sourceTree = "<group>";
+		};
+		5EFE9199203F6DD700E21BAA /* PlaygroundLoggerTestHost_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5EFE919A203F6DD700E21BAA /* AppDelegate.swift */,
+				5EFE919C203F6DD700E21BAA /* ViewController.swift */,
+				5EFE919E203F6DD700E21BAA /* Main.storyboard */,
+				5EFE91A3203F6DD900E21BAA /* LaunchScreen.storyboard */,
+				5EFE91A6203F6DD900E21BAA /* Info.plist */,
+			);
+			path = PlaygroundLoggerTestHost_iOS;
+			sourceTree = "<group>";
+		};
+		5EFE91B1203F6E8D00E21BAA /* PlaygroundLoggerTestHost_tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				5EFE91B2203F6E8D00E21BAA /* AppDelegate.swift */,
+				5EFE91B4203F6E8D00E21BAA /* ViewController.swift */,
+				5EFE91B6203F6E8D00E21BAA /* Main.storyboard */,
+				5EFE91BB203F6E8E00E21BAA /* Info.plist */,
+			);
+			path = PlaygroundLoggerTestHost_tvOS;
+			sourceTree = "<group>";
+		};
+		5EFE91CE203F6F6A00E21BAA /* PlaygroundLoggerTests_tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				5EFE91D1203F6F6A00E21BAA /* Info.plist */,
+			);
+			path = PlaygroundLoggerTests_tvOS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -485,13 +653,89 @@
 			productReference = 5E2646301FB64876002DC6B6 /* PlaygroundLoggerTests_macOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		5EFE9188203F6CC400E21BAA /* PlaygroundLoggerTests_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EFE9190203F6CC400E21BAA /* Build configuration list for PBXNativeTarget "PlaygroundLoggerTests_iOS" */;
+			buildPhases = (
+				5EFE9185203F6CC400E21BAA /* Sources */,
+				5EFE9186203F6CC400E21BAA /* Frameworks */,
+				5EFE9187203F6CC400E21BAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5EFE9192203F6CE500E21BAA /* PBXTargetDependency */,
+				5EFE91AB203F6DE100E21BAA /* PBXTargetDependency */,
+			);
+			name = PlaygroundLoggerTests_iOS;
+			productName = PlaygroundLoggerTests_iOS;
+			productReference = 5EFE9189203F6CC400E21BAA /* PlaygroundLoggerTests_iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5EFE9197203F6DD700E21BAA /* PlaygroundLoggerTestHost_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EFE91A7203F6DD900E21BAA /* Build configuration list for PBXNativeTarget "PlaygroundLoggerTestHost_iOS" */;
+			buildPhases = (
+				5EFE9194203F6DD700E21BAA /* Sources */,
+				5EFE9195203F6DD700E21BAA /* Frameworks */,
+				5EFE9196203F6DD700E21BAA /* Resources */,
+				5EFE91C3203F6EDD00E21BAA /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5EFE91C2203F6EDD00E21BAA /* PBXTargetDependency */,
+			);
+			name = PlaygroundLoggerTestHost_iOS;
+			productName = PlaygroundLoggerTestHost_iOS;
+			productReference = 5EFE9198203F6DD700E21BAA /* PlaygroundLoggerTestHost_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5EFE91AF203F6E8D00E21BAA /* PlaygroundLoggerTestHost_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EFE91BE203F6E8E00E21BAA /* Build configuration list for PBXNativeTarget "PlaygroundLoggerTestHost_tvOS" */;
+			buildPhases = (
+				5EFE91AC203F6E8D00E21BAA /* Sources */,
+				5EFE91AD203F6E8D00E21BAA /* Frameworks */,
+				5EFE91AE203F6E8D00E21BAA /* Resources */,
+				5EFE91C8203F6EEC00E21BAA /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5EFE91C7203F6EEC00E21BAA /* PBXTargetDependency */,
+			);
+			name = PlaygroundLoggerTestHost_tvOS;
+			productName = PlaygroundLoggerTestHost_tvOS;
+			productReference = 5EFE91B0203F6E8D00E21BAA /* PlaygroundLoggerTestHost_tvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5EFE91CC203F6F6900E21BAA /* PlaygroundLoggerTests_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EFE91D4203F6F6A00E21BAA /* Build configuration list for PBXNativeTarget "PlaygroundLoggerTests_tvOS" */;
+			buildPhases = (
+				5EFE91C9203F6F6900E21BAA /* Sources */,
+				5EFE91CA203F6F6900E21BAA /* Frameworks */,
+				5EFE91CB203F6F6900E21BAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5EFE91D9203F6FF800E21BAA /* PBXTargetDependency */,
+				5EFE91D3203F6F6A00E21BAA /* PBXTargetDependency */,
+			);
+			name = PlaygroundLoggerTests_tvOS;
+			productName = PlaygroundLoggerTests_tvOS;
+			productReference = 5EFE91CD203F6F6900E21BAA /* PlaygroundLoggerTests_tvOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		5E26461E1FB64876002DC6B6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Apple Inc. and the Swift project authors";
 				TargetAttributes = {
@@ -504,6 +748,24 @@
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
+					5EFE9188203F6CC400E21BAA = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5EFE9197203F6DD700E21BAA;
+					};
+					5EFE9197203F6DD700E21BAA = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
+					5EFE91AF203F6E8D00E21BAA = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
+					5EFE91CC203F6F6900E21BAA = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5EFE91AF203F6E8D00E21BAA;
+					};
 				};
 			};
 			buildConfigurationList = 5E2646211FB64876002DC6B6 /* Build configuration list for PBXProject "PlaygroundLogger" */;
@@ -512,6 +774,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 5E26461D1FB64876002DC6B6;
 			productRefGroup = 5E2646281FB64876002DC6B6 /* Products */;
@@ -520,6 +783,10 @@
 			targets = (
 				5E2646261FB64876002DC6B6 /* PlaygroundLogger */,
 				5E26462F1FB64876002DC6B6 /* PlaygroundLoggerTests_macOS */,
+				5EFE9188203F6CC400E21BAA /* PlaygroundLoggerTests_iOS */,
+				5EFE91CC203F6F6900E21BAA /* PlaygroundLoggerTests_tvOS */,
+				5EFE9197203F6DD700E21BAA /* PlaygroundLoggerTestHost_iOS */,
+				5EFE91AF203F6E8D00E21BAA /* PlaygroundLoggerTestHost_tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -533,6 +800,37 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5E26462E1FB64876002DC6B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EFE9187203F6CC400E21BAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EFE9196203F6DD700E21BAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EFE91A5203F6DD900E21BAA /* LaunchScreen.storyboard in Resources */,
+				5EFE91A0203F6DD700E21BAA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EFE91AE203F6E8D00E21BAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EFE91B8203F6E8D00E21BAA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EFE91CB203F6F6900E21BAA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -623,6 +921,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5EFE9185203F6CC400E21BAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EFE9193203F6CF900E21BAA /* LegacyPlaygroundLoggerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EFE9194203F6DD700E21BAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EFE919D203F6DD700E21BAA /* ViewController.swift in Sources */,
+				5EFE919B203F6DD700E21BAA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EFE91AC203F6E8D00E21BAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EFE91B5203F6E8D00E21BAA /* ViewController.swift in Sources */,
+				5EFE91B3203F6E8D00E21BAA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EFE91C9203F6F6900E21BAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EFE91D7203F6F8100E21BAA /* LegacyPlaygroundLoggerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -631,7 +963,64 @@
 			target = 5E2646261FB64876002DC6B6 /* PlaygroundLogger */;
 			targetProxy = 5E2646321FB64876002DC6B6 /* PBXContainerItemProxy */;
 		};
+		5EFE9192203F6CE500E21BAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E2646261FB64876002DC6B6 /* PlaygroundLogger */;
+			targetProxy = 5EFE9191203F6CE500E21BAA /* PBXContainerItemProxy */;
+		};
+		5EFE91AB203F6DE100E21BAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EFE9197203F6DD700E21BAA /* PlaygroundLoggerTestHost_iOS */;
+			targetProxy = 5EFE91AA203F6DE100E21BAA /* PBXContainerItemProxy */;
+		};
+		5EFE91C2203F6EDD00E21BAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E2646261FB64876002DC6B6 /* PlaygroundLogger */;
+			targetProxy = 5EFE91C1203F6EDD00E21BAA /* PBXContainerItemProxy */;
+		};
+		5EFE91C7203F6EEC00E21BAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E2646261FB64876002DC6B6 /* PlaygroundLogger */;
+			targetProxy = 5EFE91C6203F6EEC00E21BAA /* PBXContainerItemProxy */;
+		};
+		5EFE91D3203F6F6A00E21BAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EFE91AF203F6E8D00E21BAA /* PlaygroundLoggerTestHost_tvOS */;
+			targetProxy = 5EFE91D2203F6F6A00E21BAA /* PBXContainerItemProxy */;
+		};
+		5EFE91D9203F6FF800E21BAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E2646261FB64876002DC6B6 /* PlaygroundLogger */;
+			targetProxy = 5EFE91D8203F6FF800E21BAA /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5EFE919E203F6DD700E21BAA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EFE919F203F6DD700E21BAA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5EFE91A3203F6DD900E21BAA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EFE91A4203F6DD900E21BAA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5EFE91B6203F6E8D00E21BAA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EFE91B7203F6E8D00E21BAA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5E2646391FB64876002DC6B6 /* Debug */ = {
@@ -807,7 +1196,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = PlaygroundLoggerTests_macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.swift.PlaygroundLoggerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTests-macOS";
+				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -821,9 +1211,182 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = PlaygroundLoggerTests_macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.swift.PlaygroundLoggerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTests-macOS";
+				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		5EFE918E203F6CC400E21BAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PlaygroundLoggerTests_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTests-iOS";
+				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlaygroundLoggerTestHost_iOS.app/PlaygroundLoggerTestHost_iOS";
+			};
+			name = Debug;
+		};
+		5EFE918F203F6CC400E21BAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PlaygroundLoggerTests_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTests-iOS";
+				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlaygroundLoggerTestHost_iOS.app/PlaygroundLoggerTestHost_iOS";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5EFE91A8203F6DD900E21BAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PlaygroundLoggerTestHost_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTestHost-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5EFE91A9203F6DD900E21BAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PlaygroundLoggerTestHost_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTestHost-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5EFE91BC203F6E8E00E21BAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PlaygroundLoggerTestHost_tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTestHost-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.3;
+			};
+			name = Debug;
+		};
+		5EFE91BD203F6E8E00E21BAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PlaygroundLoggerTestHost_tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTestHost-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.3;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5EFE91D5203F6F6A00E21BAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PlaygroundLoggerTests_tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTests-tvOS";
+				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlaygroundLoggerTestHost_tvOS.app/PlaygroundLoggerTestHost_tvOS";
+				TVOS_DEPLOYMENT_TARGET = 11.3;
+			};
+			name = Debug;
+		};
+		5EFE91D6203F6F6A00E21BAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PlaygroundLoggerTests_tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTests-tvOS";
+				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlaygroundLoggerTestHost_tvOS.app/PlaygroundLoggerTestHost_tvOS";
+				TVOS_DEPLOYMENT_TARGET = 11.3;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -853,6 +1416,42 @@
 			buildConfigurations = (
 				5E26463F1FB64876002DC6B6 /* Debug */,
 				5E2646401FB64876002DC6B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EFE9190203F6CC400E21BAA /* Build configuration list for PBXNativeTarget "PlaygroundLoggerTests_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EFE918E203F6CC400E21BAA /* Debug */,
+				5EFE918F203F6CC400E21BAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EFE91A7203F6DD900E21BAA /* Build configuration list for PBXNativeTarget "PlaygroundLoggerTestHost_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EFE91A8203F6DD900E21BAA /* Debug */,
+				5EFE91A9203F6DD900E21BAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EFE91BE203F6E8E00E21BAA /* Build configuration list for PBXNativeTarget "PlaygroundLoggerTestHost_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EFE91BC203F6E8E00E21BAA /* Debug */,
+				5EFE91BD203F6E8E00E21BAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EFE91D4203F6F6A00E21BAA /* Build configuration list for PBXNativeTarget "PlaygroundLoggerTests_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EFE91D5203F6F6A00E21BAA /* Debug */,
+				5EFE91D6203F6F6A00E21BAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
