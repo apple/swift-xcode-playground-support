@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Legacy/PlaygroundLogger/PlaygroundLogger.xcodeproj">
+      location = "group:PlaygroundLogger/PlaygroundLogger.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:PlaygroundSupport/PlaygroundSupport.xcodeproj">
