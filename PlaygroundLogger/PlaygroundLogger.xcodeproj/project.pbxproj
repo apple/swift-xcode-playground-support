@@ -181,6 +181,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5E11805920414E2700B73EE9 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = ../XcodeConfig/Debug.xcconfig; sourceTree = "<group>"; };
+		5E11805A20414E2700B73EE9 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = ../XcodeConfig/Release.xcconfig; sourceTree = "<group>"; };
 		5E184714202BB72700F01AD1 /* TypeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeName.swift; sourceTree = "<group>"; };
 		5E184716202BB80200F01AD1 /* PGLConcurrentMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGLConcurrentMap.h; sourceTree = "<group>"; };
 		5E184717202BB80200F01AD1 /* PGLConcurrentMap_MRR.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGLConcurrentMap_MRR.m; sourceTree = "<group>"; };
@@ -327,6 +329,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E11805820414E0C00B73EE9 /* Config Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E11805920414E2700B73EE9 /* Debug.xcconfig */,
+				5E11805A20414E2700B73EE9 /* Release.xcconfig */,
+			);
+			name = "Config Files";
+			sourceTree = "<group>";
+		};
 		5E26461D1FB64876002DC6B6 = {
 			isa = PBXGroup;
 			children = (
@@ -337,8 +348,8 @@
 				5EFE91CE203F6F6A00E21BAA /* PlaygroundLoggerTests_tvOS */,
 				5EFE9199203F6DD700E21BAA /* PlaygroundLoggerTestHost_iOS */,
 				5EFE91B1203F6E8D00E21BAA /* PlaygroundLoggerTestHost_tvOS */,
+				5E11805820414E0C00B73EE9 /* Config Files */,
 				5E2646281FB64876002DC6B6 /* Products */,
-				5E26464F1FB64F95002DC6B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -395,13 +406,6 @@
 				5E2646371FB64876002DC6B6 /* Info.plist */,
 			);
 			path = PlaygroundLoggerTests_macOS;
-			sourceTree = "<group>";
-		};
-		5E26464F1FB64F95002DC6B6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5E27561B1FC4854C00B69C83 /* Opaque Representations */ = {
@@ -1069,13 +1073,13 @@
 /* Begin XCBuildConfiguration section */
 		5E2646391FB64876002DC6B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E11805920414E2700B73EE9 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1098,14 +1102,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1116,28 +1117,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TVOS_DEPLOYMENT_TARGET = 10.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
 		5E26463A1FB64876002DC6B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E11805A20414E2700B73EE9 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1160,7 +1154,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1172,21 +1165,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TVOS_DEPLOYMENT_TARGET = 10.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
 		5E26463C1FB64876002DC6B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1196,14 +1182,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = PlaygroundLogger/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../";
-				OTHER_SWIFT_FLAGS = "-Xfrontend -debugger-support";
 				PRODUCT_BUNDLE_IDENTIFIER = org.swift.PlaygroundLogger;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos appletvsimulator appletvos";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -1211,7 +1195,6 @@
 		5E26463D1FB64876002DC6B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1221,12 +1204,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = PlaygroundLogger/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INSTALL_PATH = "$(PGS_PRIVATEFRAMEWORKS_DIR_FOR_INSTALL)";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../../../";
-				OTHER_SWIFT_FLAGS = "-Xfrontend -debugger-support";
 				PRODUCT_BUNDLE_IDENTIFIER = org.swift.PlaygroundLogger;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos appletvsimulator appletvos";
 				SWIFT_VERSION = 4.0;
 			};
@@ -1271,7 +1253,6 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PlaygroundLoggerTests_iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTests-iOS";
 				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
@@ -1292,13 +1273,11 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PlaygroundLoggerTests_iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTests-iOS";
 				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlaygroundLoggerTestHost_iOS.app/PlaygroundLoggerTestHost_iOS";
@@ -1316,7 +1295,6 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PlaygroundLoggerTestHost_iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTestHost-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1336,12 +1314,10 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PlaygroundLoggerTestHost_iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTestHost-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1364,7 +1340,6 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 11.3;
 			};
 			name = Debug;
 		};
@@ -1382,10 +1357,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTestHost-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 11.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1407,7 +1380,6 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlaygroundLoggerTestHost_tvOS.app/PlaygroundLoggerTestHost_tvOS";
-				TVOS_DEPLOYMENT_TARGET = 11.3;
 			};
 			name = Debug;
 		};
@@ -1425,11 +1397,9 @@
 				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlaygroundLoggerTestHost_tvOS.app/PlaygroundLoggerTestHost_tvOS";
-				TVOS_DEPLOYMENT_TARGET = 11.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

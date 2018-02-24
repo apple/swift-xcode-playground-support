@@ -21,7 +21,7 @@ import CoreGraphics
 
 extension CIImage: CustomOpaqueLoggable {
     func opaqueRepresentation() -> LogEntry.OpaqueRepresentation {
-        if let cgImage = self.cgImage {
+        if #available(macOS 10.12, *), let cgImage = self.cgImage {
             return ImageOpaqueRepresentation(kind: .image, backedBy: cgImage)
         }
         else {

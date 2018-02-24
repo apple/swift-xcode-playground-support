@@ -308,7 +308,13 @@ class LegacyPlaygroundLoggerTests: XCTestCase {
                 return true
             }
         #elseif os(iOS) || os(tvOS)
-            let rendererFormat = UIGraphicsImageRendererFormat.preferred()
+            let rendererFormat: UIGraphicsImageRendererFormat
+            if #available(iOS 11.0, tvOS 11.0, *) {
+                rendererFormat = .preferred()
+            }
+            else {
+                rendererFormat = .default()
+            }
             rendererFormat.scale = 1
             rendererFormat.opaque = true
 
