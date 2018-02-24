@@ -13,7 +13,7 @@
 import Foundation
 
 protocol OpaqueImageRepresentable {
-    func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format)
+    func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) throws
 }
 
 struct ImageOpaqueRepresentation: TaggedOpaqueRepresentation {
@@ -24,16 +24,16 @@ struct ImageOpaqueRepresentation: TaggedOpaqueRepresentation {
     }
     
     private let kind: Kind
-    private let imageEncoder: (LogEncoder, LogEncoder.Format) -> Void
+    private let imageEncoder: (LogEncoder, LogEncoder.Format) throws -> Void
     
     init<Implementation: OpaqueImageRepresentable>(kind: Kind, backedBy implementation: Implementation) {
         self.kind = kind
-        self.imageEncoder = { implementation.encodeImage(into: $0, withFormat: $1) }
+        self.imageEncoder = { try implementation.encodeImage(into: $0, withFormat: $1) }
     }
     
     var tag: String { return kind.rawValue }
     
-    func encodePayload(into encoder: LogEncoder, usingFormat format: LogEncoder.Format) {
-        imageEncoder(encoder, format)
+    func encodePayload(into encoder: LogEncoder, usingFormat format: LogEncoder.Format) throws {
+        try imageEncoder(encoder, format)
     }
 }

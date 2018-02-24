@@ -14,14 +14,14 @@
     import AppKit
     
     extension NSView: OpaqueImageRepresentable {
-        func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) {
+        func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) throws {
             guard let bitmapRep = self.bitmapImageRepForCachingDisplay(in: self.bounds) else {
-                loggingError("Failed to get a bitmap representation of a view")
+                throw LoggingError.encodingFailure(reason: "Unable to create a bitmap representation of this NSView")
             }
 
             self.cacheDisplay(in: self.bounds, to: bitmapRep)
 
-            bitmapRep.encodeImage(into: encoder, withFormat: format)
+            try bitmapRep.encodeImage(into: encoder, withFormat: format)
         }
     }
 #endif

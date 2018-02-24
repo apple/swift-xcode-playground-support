@@ -33,7 +33,7 @@ enum LogEntry {
 }
 
 protocol OpaqueLogEntryRepresentation {
-    func encode(into encoder: LogEncoder, usingFormat format: LogEncoder.Format)
+    func encode(into encoder: LogEncoder, usingFormat format: LogEncoder.Format) throws
 }
 
 private let emptyName = ""

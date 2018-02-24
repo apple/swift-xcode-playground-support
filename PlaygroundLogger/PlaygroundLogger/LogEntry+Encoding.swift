@@ -66,7 +66,7 @@ extension LogEntry {
         }
     }
     
-    func encode(with encoder: LogEncoder, format: LogEncoder.Format) {
+    func encode(with encoder: LogEncoder, format: LogEncoder.Format) throws {
         // Start by encoding the name of the log entry.
         encoder.encode(string: name)
         
@@ -76,9 +76,9 @@ extension LogEntry {
         // Finally, encode the entry-type-specific information.
         switch self {
         case let.structured(_, typeName, summary, totalChildrenCount, children, _):
-            LogEntry.encode(structuredWithTypeName: typeName, summary: summary, totalChildrenCount: totalChildrenCount, children: children, into: encoder, usingFormat: format)
+            try LogEntry.encode(structuredWithTypeName: typeName, summary: summary, totalChildrenCount: totalChildrenCount, children: children, into: encoder, usingFormat: format)
         case let .opaque(_, typeName, summary, preferBriefSummary, representation):
-            LogEntry.encode(opaqueWithTypeName: typeName, summary: summary, preferBriefSummary: preferBriefSummary, representation: representation, into: encoder, usingFormat: format)
+            try LogEntry.encode(opaqueWithTypeName: typeName, summary: summary, preferBriefSummary: preferBriefSummary, representation: representation, into: encoder, usingFormat: format)
         case .gap, .scopeEntry, .scopeExit:
             // Gap, scope entry, and scope exit entries contain no additional data beyond what's common to all log entry types.
             break
@@ -87,7 +87,7 @@ extension LogEntry {
         }
     }
     
-    private static func encode(structuredWithTypeName typeName: String, summary: String, totalChildrenCount: Int, children: [LogEntry], into encoder: LogEncoder, usingFormat format: LogEncoder.Format) {
+    private static func encode(structuredWithTypeName typeName: String, summary: String, totalChildrenCount: Int, children: [LogEntry], into encoder: LogEncoder, usingFormat format: LogEncoder.Format) throws {
         // Structured entries contain the following type-specific information:
         //   - Type name, encoded as a string
         //   - Summary, encoded as a string
@@ -103,10 +103,10 @@ extension LogEntry {
         guard totalChildrenCount > 0 else { return }
         
         encoder.encode(number: UInt64(children.count))
-        children.forEach { $0.encode(with: encoder, format: format) }
+        try children.forEach { try $0.encode(with: encoder, format: format) }
     }
     
-    private static func encode(opaqueWithTypeName typeName: String, summary: String, preferBriefSummary: Bool, representation: LogEntry.OpaqueRepresentation, into encoder: LogEncoder, usingFormat format: LogEncoder.Format) {
+    private static func encode(opaqueWithTypeName typeName: String, summary: String, preferBriefSummary: Bool, representation: LogEntry.OpaqueRepresentation, into encoder: LogEncoder, usingFormat format: LogEncoder.Format) throws {
         // Opaque entries contain the following type-specific information:
         //   - Prefers brief summary, encoded as a boolean
         //   - Type name, encoded as a string
@@ -119,7 +119,8 @@ extension LogEntry {
         encoder.encode(boolean: preferBriefSummary)
         encoder.encode(string: typeName)
         encoder.encode(string: summary)
-        representation.encode(into: encoder, usingFormat: format)
+
+        try representation.encode(into: encoder, usingFormat: format)
     }
     
     private static func encode(errorWithReason reason: String, into encoder: LogEncoder) {

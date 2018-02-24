@@ -19,14 +19,14 @@ import CoreGraphics
 #endif
 
 extension CGImage: OpaqueImageRepresentable {
-    func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) {
+    func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) throws {
         #if os(macOS)
             // On macOS, simply create an NSBitmapImageRep with the receiver and use that.
             let bitmapRep = NSBitmapImageRep(cgImage: self)
-            bitmapRep.encodeImage(into: encoder, withFormat: format)
+            try bitmapRep.encodeImage(into: encoder, withFormat: format)
         #elseif os(iOS) || os(tvOS)
             let uiImage = UIImage(cgImage: self)
-            uiImage.encodeImage(into: encoder, withFormat: format)
+            try uiImage.encodeImage(into: encoder, withFormat: format)
         #endif
     }
 }

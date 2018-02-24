@@ -21,9 +21,9 @@ fileprivate let colorComponentsKey = "IDEColorComponentsKey"
 extension CGColor: KeyedArchiveOpaqueRepresentation {
     var tag: String { return colorTag }
     
-    func encodeOpaqueRepresentation(with encoder: NSCoder, usingFormat format: LogEncoder.Format) {
+    func encodeOpaqueRepresentation(with encoder: NSCoder, usingFormat format: LogEncoder.Format) throws {
         guard let colorSpace = self.colorSpace else {
-            loggingError("Unable to log colors without a colorspace")
+            throw LoggingError.encodingFailure(reason: "Unable to encode a color which does not have a color space")
         }
         
         guard colorSpace.model != .pattern else {
@@ -31,7 +31,7 @@ extension CGColor: KeyedArchiveOpaqueRepresentation {
         }
         
         guard let colorSpaceName = colorSpace.name, let components = self.components else {
-            loggingError("Unable to log non-pattern colors with unnamed colorspaces or which are missing components")
+            throw LoggingError.encodingFailure(reason: "Unable to encode a color which is in an unnamed color space or is missing components")
         }
         
         encoder.encode(colorSpaceName as NSString, forKey: colorSpaceKey)

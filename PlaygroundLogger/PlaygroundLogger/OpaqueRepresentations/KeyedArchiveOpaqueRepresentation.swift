@@ -13,15 +13,15 @@
 import Foundation
 
 protocol KeyedArchiveOpaqueRepresentation: TaggedOpaqueRepresentation {
-    func encodeOpaqueRepresentation(with encoder: NSCoder, usingFormat format: LogEncoder.Format)
+    func encodeOpaqueRepresentation(with encoder: NSCoder, usingFormat format: LogEncoder.Format) throws
 }
 
 extension KeyedArchiveOpaqueRepresentation {
-    func encodePayload(into encoder: LogEncoder, usingFormat format: LogEncoder.Format) {
+    func encodePayload(into encoder: LogEncoder, usingFormat format: LogEncoder.Format) throws {
         let archivedData = NSMutableData()
         let archiver = NSKeyedArchiver(forWritingWith: archivedData)
         
-        self.encodeOpaqueRepresentation(with: archiver, usingFormat: format)
+        try self.encodeOpaqueRepresentation(with: archiver, usingFormat: format)
         
         archiver.finishEncoding()
 

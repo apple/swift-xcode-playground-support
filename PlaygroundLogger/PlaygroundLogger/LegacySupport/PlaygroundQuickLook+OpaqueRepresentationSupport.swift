@@ -33,54 +33,54 @@ extension PlaygroundQuickLook {
             return float
         case let .double(double):
             return double
-        case let .image(image):
+        case let .image(imageObject):
             #if os(macOS)
-                guard let image = image as? NSImage else {
-                    loggingError("Must be an NSImage")
+                guard let image = imageObject as? NSImage else {
+                    throw LoggingError.failedToGenerateOpaqueRepresentation(reason: "Image is not an NSImage; it is '\(type(of: imageObject))' instead")
                 }
                 
                 return ImageOpaqueRepresentation(kind: .image, backedBy: image)
             #elseif os(iOS) || os(tvOS)
-                guard let image = image as? UIImage else {
-                    loggingError("Must be an IOImage")
+                guard let image = imageObject as? UIImage else {
+                    throw LoggingError.failedToGenerateOpaqueRepresentation(reason: "Image is not a UIImage; it is '\(type(of: imageObject))' instead")
                 }
                 
                 return ImageOpaqueRepresentation(kind: .image, backedBy: image)
                 
             #endif
         case .sound:
-            loggingError("Sounds not supported")
-        case let .color(color):
+            throw LoggingError.failedToGenerateOpaqueRepresentation(reason: "Sounds are not supported")
+        case let .color(colorObject):
             #if os(macOS)
-                guard let color = color as? NSColor else {
-                    loggingError("Must be an NSColor")
+                guard let color = colorObject as? NSColor else {
+                    throw LoggingError.failedToGenerateOpaqueRepresentation(reason: "Color is not an NSColor; it is '\(type(of: colorObject))' instead")
                 }
                 
                 return color.cgColor
             #elseif os(iOS) || os(tvOS)
-                guard let color = color as? UIColor else {
-                    loggingError("Must be a UIColor")
+                guard let color = colorObject as? UIColor else {
+                    throw LoggingError.failedToGenerateOpaqueRepresentation(reason: "Color is not a UIColor; it is '\(type(of: colorObject))' instead")
                 }
                 
                 return color.cgColor
             #endif
-        case let .bezierPath(bezierPath):
+        case let .bezierPath(bezierPathObject):
             #if os(macOS)
-                guard let bezierPath = bezierPath as? NSBezierPath else {
-                    loggingError("Must be an NSBezierPath")
+                guard let bezierPath = bezierPathObject as? NSBezierPath else {
+                    throw LoggingError.failedToGenerateOpaqueRepresentation(reason: "Bezier path is not an NSBezierPath; it is '\(type(of: bezierPathObject))' instead")
                 }
                 
                 return bezierPath
             #elseif os(iOS) || os(tvOS)
-                guard let bezierPath = bezierPath as? UIBezierPath else {
-                    loggingError("Must be a UIBezierPath")
+                guard let bezierPath = bezierPathObject as? UIBezierPath else {
+                    throw LoggingError.failedToGenerateOpaqueRepresentation(reason: "Bezier path is not a UIBezierPath; it is '\(type(of: bezierPathObject))' instead")
                 }
                 
                 return bezierPath
             #endif
-        case let .attributedString(attributedString):
-            guard let attributedString = attributedString as? NSAttributedString else {
-                loggingError("Must be an NSAttributedString")
+        case let .attributedString(attributedStringObject):
+            guard let attributedString = attributedStringObject as? NSAttributedString else {
+                throw LoggingError.failedToGenerateOpaqueRepresentation(reason: "Attributed string is not an NSAttributedString; it is '\(type(of: attributedStringObject))' instead")
             }
             
             return attributedString
@@ -103,7 +103,7 @@ extension PlaygroundQuickLook {
                     return ImageOpaqueRepresentation(kind: .view, backedBy: image)
                 }
                 else {
-                    loggingError("Must be an NSView or NSImage")
+                    throw LoggingError.failedToGenerateOpaqueRepresentation(reason: "View is not an NSView or NSImage; is is '\(type(of: viewOrImage))' instead")
                 }
             #elseif os(iOS) || os(tvOS)
                 if let view = viewOrImage as? UIView {
@@ -113,27 +113,27 @@ extension PlaygroundQuickLook {
                     return ImageOpaqueRepresentation(kind: .view, backedBy: image)
                 }
                 else {
-                    loggingError("Must be a UIView or UIImage")
+                    throw LoggingError.failedToGenerateOpaqueRepresentation(reason: "View is not a UIView or UIImage; is is '\(type(of: viewOrImage))' instead")
                 }
             #endif
-        case let .sprite(image):
+        case let .sprite(imageObject):
             // TODO: figure out if this is even a little bit right. (The previous implementation just logged a string for sprites?)
             #if os(macOS)
-                guard let image = image as? NSImage else {
-                    loggingError("Must be an NSImage")
+                guard let image = imageObject as? NSImage else {
+                    throw LoggingError.failedToGenerateOpaqueRepresentation(reason: "Sprite is not an NSImage; it is '\(type(of: imageObject))' instead")
                 }
                 
                 return ImageOpaqueRepresentation(kind: .sprite, backedBy: image)
             #elseif os(iOS) || os(tvOS)
-                guard let image = image as? UIImage else {
-                    loggingError("Must be a UIImage")
+                guard let image = imageObject as? UIImage else {
+                    throw LoggingError.failedToGenerateOpaqueRepresentation(reason: "Sprite is not a UIImage; it is '\(type(of: imageObject))' instead")
                 }
                 
                 return ImageOpaqueRepresentation(kind: .sprite, backedBy: image)
             #endif
         case let .url(urlString):
             guard let url = URL(string: urlString) else {
-                loggingError("Must be a valid URL string!")
+                throw LoggingError.failedToGenerateOpaqueRepresentation(reason: "String is not a valid URL string")
             }
             
             return url

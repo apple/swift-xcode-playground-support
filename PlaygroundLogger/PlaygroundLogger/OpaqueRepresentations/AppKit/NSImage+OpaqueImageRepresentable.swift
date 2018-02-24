@@ -32,12 +32,12 @@
             }
         }
 
-        func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) {
+        func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) throws {
             guard let bitmapRep = self.bestBitmapRepresentation else {
-                loggingError("Failed to convert image to a bitmap representation")
+                throw LoggingError.encodingFailure(reason: "Failed to get a bitmap representation of this NSImage")
             }
 
-            bitmapRep.encodeImage(into: encoder, withFormat: format)
+            try bitmapRep.encodeImage(into: encoder, withFormat: format)
         }
     }
 #endif

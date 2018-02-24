@@ -14,9 +14,9 @@
     import AppKit
     
     extension NSBitmapImageRep: OpaqueImageRepresentable {
-        func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) {
+        func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) throws {
             guard let pngData = self.representation(using: .png, properties: [:]) else {
-                loggingError("Failed to generate PNG data")
+                throw LoggingError.encodingFailure(reason: "Failed to generate PNG data for the bitmap representation")
             }
 
             encoder.encode(number: UInt64(pngData.count))

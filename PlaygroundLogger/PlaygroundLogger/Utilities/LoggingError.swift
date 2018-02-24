@@ -10,13 +10,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-/// A temporary function intended as a placeholder for real error handling, so that realistic error situations can be marked differently than a plain fatalError.
-func loggingError(_ message: String? = nil) -> Never {
-    if let message = message {
-        fatalError("Error encountered while logging: \(message)")
-    }
-    else {
-        fatalError("Error encountered while logging")
-    }
+enum LoggingError: Error {
+    case failedToGenerateOpaqueRepresentation(reason: String)
+    case encodingFailure(reason: String)
+    case otherFailure(reason: String)
 }
-

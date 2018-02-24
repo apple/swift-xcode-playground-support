@@ -21,9 +21,9 @@ import SpriteKit
 fileprivate protocol SpriteKitOpaqueLoggable: class, OpaqueImageRepresentable, CustomOpaqueLoggable {}
 
 extension SpriteKitOpaqueLoggable {
-    func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) {
+    func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) throws {
         guard let copyImageDataMethod = (self as AnyObject)._copyImageData, let imageData = copyImageDataMethod() else {
-            loggingError("SpriteKit did not return any image data")
+            throw LoggingError.encodingFailure(reason: "Unable to get image data for \(type(of: self))")
         }
         
         encoder.encode(number: UInt64(imageData.count))

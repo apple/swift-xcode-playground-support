@@ -13,7 +13,7 @@
 import Foundation
 
 extension LogPacket {
-    func encode(inFormat format: LogEncoder.Format = .current) -> Data {
+    func encode(inFormat format: LogEncoder.Format = .current) throws -> Data {
         let encoder = LogEncoder()
         
         // Encode the format version.
@@ -31,7 +31,7 @@ extension LogPacket {
         encoder.encode(string: threadID)
         
         // Encode our top-level log entry. (This will add any child entries automatically.)
-        logEntry.encode(with: encoder, format: format)
+        try logEntry.encode(with: encoder, format: format)
         
         return encoder.encodedData
     }

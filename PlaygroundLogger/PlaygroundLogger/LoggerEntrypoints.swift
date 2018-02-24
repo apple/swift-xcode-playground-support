@@ -21,7 +21,16 @@ func logResult(_ result: Any,
                endColumn: Int) {
     let packet = LogPacket(describingResult: result, named: name, withPolicy: .default, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
     
-    let data = packet.encode()
+    let data: Data
+    do {
+        data = try packet.encode()
+    }
+    catch {
+        let errorPacket = LogPacket(errorWithReason: "Error occurred while encoding log packet", startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: packet.threadID)
+
+        // Encoding an error packet should not fail under any circumstances.
+        data = try! errorPacket.encode()
+    }
     
     sendData(data as NSData)
 }
@@ -31,8 +40,9 @@ func logScopeEntry(startLine: Int,
                    startColumn: Int,
                    endColumn: Int) {
     let packet = LogPacket(scopeEntryWithStartLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
-    
-    let data = packet.encode()
+
+    // Encoding a scope entry packet should not fail under any circumstances.
+    let data = try! packet.encode()
     
     sendData(data as NSData)
 }
@@ -42,8 +52,9 @@ func logScopeExit(startLine: Int,
                   startColumn: Int,
                   endColumn: Int) {
     let packet = LogPacket(scopeExitWithStartLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
-    
-    let data = packet.encode()
+
+    // Encoding a scope exit packet should not fail under any circumstances.
+    let data = try! packet.encode()
     
     sendData(data as NSData)
 }
@@ -66,7 +77,16 @@ func logPostPrint(startLine: Int,
     
     let packet = LogPacket(printedString: printedString, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
     
-    let data = packet.encode()
+    let data: Data
+    do {
+        data = try packet.encode()
+    }
+    catch {
+        let errorPacket = LogPacket(errorWithReason: "Error occurred while encoding log packet", startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: packet.threadID)
+
+        // Encoding an error packet should not fail under any circumstances.
+        data = try! errorPacket.encode()
+    }
     
     sendData(data as NSData)
 }

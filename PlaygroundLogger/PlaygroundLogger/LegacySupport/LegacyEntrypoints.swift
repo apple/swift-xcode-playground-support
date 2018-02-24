@@ -37,8 +37,17 @@ fileprivate func legacySendDataStub(_: NSData) -> Void {
 @_silgen_name("playground_log_hidden")
 public func legacyLog<T>(instance: T, name: String, id: Int, startLine: Int, endLine: Int, startColumn: Int, endColumn: Int) -> AnyObject {
     let packet = LogPacket(describingResult: instance, named: name, withPolicy: .default, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
-    
-    let data = packet.encode()
+
+    let data: Data
+    do {
+        data = try packet.encode()
+    }
+    catch {
+        let errorPacket = LogPacket(errorWithReason: "Error occurred while encoding log packet", startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: packet.threadID)
+
+        // Encoding an error packet should not fail under any circumstances.
+        data = try! errorPacket.encode()
+    }
     
     return data as NSData
 }
@@ -46,8 +55,9 @@ public func legacyLog<T>(instance: T, name: String, id: Int, startLine: Int, end
 @_silgen_name ("playground_log_scope_entry")
 public func legacyLogScopeEntry(startLine: Int, endLine: Int, startColumn: Int, endColumn: Int) -> AnyObject {
     let packet = LogPacket(scopeEntryWithStartLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
-    
-    let data = packet.encode()
+
+    // Encoding a scope entry packet should not fail under any circumstances.
+    let data = try! packet.encode()
 
     return data as NSData
 }
@@ -55,8 +65,9 @@ public func legacyLogScopeEntry(startLine: Int, endLine: Int, startColumn: Int, 
 @_silgen_name ("playground_log_scope_exit")
 public func legacyLogScopeExit(startLine: Int, endLine: Int, startColumn: Int, endColumn: Int) -> AnyObject {
     let packet = LogPacket(scopeExitWithStartLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
-    
-    let data = packet.encode()
+
+    // Encoding a scope exit packet should not fail under any circumstances.
+    let data = try! packet.encode()
 
     return data as NSData
 }
@@ -69,7 +80,16 @@ func legacyLogPostPrint(startLine: Int, endLine: Int, startColumn: Int, endColum
     
     let packet = LogPacket(printedString: printedString, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
     
-    let data = packet.encode()
+    let data: Data
+    do {
+        data = try packet.encode()
+    }
+    catch {
+        let errorPacket = LogPacket(errorWithReason: "Error occurred while encoding log packet", startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: packet.threadID)
+
+        // Encoding an error packet should not fail under any circumstances.
+        data = try! errorPacket.encode()
+    }
 
     return data as NSData
 }

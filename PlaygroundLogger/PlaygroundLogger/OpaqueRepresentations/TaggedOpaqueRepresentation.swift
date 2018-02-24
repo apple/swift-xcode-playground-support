@@ -13,12 +13,12 @@
 protocol TaggedOpaqueRepresentation: LogEntry.OpaqueRepresentation {
     var tag: String { get }
     
-    func encodePayload(into encoder: LogEncoder, usingFormat format: LogEncoder.Format)
+    func encodePayload(into encoder: LogEncoder, usingFormat format: LogEncoder.Format) throws
 }
 
 extension TaggedOpaqueRepresentation {
-    func encode(into encoder: LogEncoder, usingFormat format: LogEncoder.Format) {
+    func encode(into encoder: LogEncoder, usingFormat format: LogEncoder.Format) throws {
         encoder.encode(string: tag)
-        self.encodePayload(into: encoder, usingFormat: format)
+        try self.encodePayload(into: encoder, usingFormat: format)
     }
 }
