@@ -21,12 +21,16 @@ fileprivate let emptyNameString = ""
 
 extension LogEntry {
     init(describing instance: Any, name: String? = nil, policy: LogPolicy) {
-        self = .init(describing: instance, name: name ?? emptyNameString, typeName: nil, summary: nil, policy: policy)
+        self = .init(describing: instance, name: name ?? emptyNameString, typeName: nil, summary: nil, policy: policy, currentDepth: 0)
     }
     
-    private init(describing instance: Any, name: String, typeName passedInTypeName: String?, summary passedInSummary: String?, policy: LogPolicy) {
-        // TODO: need to handle optionals better (e.g. implicitly unwrap optionality, I think)
-        
+    fileprivate init(describing instance: Any, name: String, typeName passedInTypeName: String?, summary passedInSummary: String?, policy: LogPolicy, currentDepth: Int) {
+        guard currentDepth <= policy.maximumDepth else {
+            // We're trying to log an instance that is "too deep"; as a result, we need to just return a gap.
+            self = .gap
+            return
+        }
+
         // Returns either the passed-in type name/summary or the type name/summary of `instance`.
         var typeName: String { return passedInTypeName ?? normalizedName(of: type(of: instance)) }
         var summary: String { return passedInSummary ?? String(describing: instance) }
@@ -47,7 +51,7 @@ extension LogEntry {
             
         // If a type implements the `debugQuickLookObject()` Objective-C method, then get their debug quick look object and use that for logging (by passing it back through this initializer).
         else if let debugQuickLookObjectMethod = (instance as AnyObject).debugQuickLookObject, let debugQuickLookObject = debugQuickLookObjectMethod() {
-            self = .init(describing: debugQuickLookObject, name: name, typeName: typeName, summary: nil, policy: policy)
+            self = .init(describing: debugQuickLookObject, name: name, typeName: typeName, summary: nil, policy: policy, currentDepth: currentDepth)
         }
             
         // Otherwise, first check if this is an interesting CF type before logging structure.
@@ -68,11 +72,11 @@ extension LogEntry {
                 
                 if mirror.displayStyle == .optional && mirror.children.count == 1 {
                     // If the mirror displays as an Optional and has exactly one child, then we want to unwrap the optionality and generate a log entry for the child.
-                    self = .init(describing: mirror.children.first!.value, name: name, typeName: typeName, summary: nil, policy: policy)
+                    self = .init(describing: mirror.children.first!.value, name: name, typeName: typeName, summary: nil, policy: policy, currentDepth: currentDepth)
                 }
                 else {
                     // Otherwise, we want to generate a log entry with the structure from the mirror.
-                    self = .init(structureFrom: mirror, name: name, typeName: typeName, summary: summary, policy: policy)
+                    self = .init(structureFrom: mirror, name: name, typeName: typeName, summary: summary, policy: policy, currentDepth: currentDepth)
                 }
             }
         }
@@ -85,12 +89,12 @@ extension LogEntry {
     
     fileprivate static let superclassLogEntryName = "super"
     
-    fileprivate init(structureFrom mirror: Mirror, name: String, typeName: String, summary: String, policy: LogPolicy) {
+    fileprivate init(structureFrom mirror: Mirror, name: String, typeName: String, summary: String, policy: LogPolicy, currentDepth: Int) {
         self = .structured(name: name,
                            typeName: typeName,
                            summary: summary,
                            totalChildrenCount: mirror.totalChildCount,
-                           children: mirror.childEntries(using: policy),
+                           children: mirror.childEntries(using: policy, currentDepth: currentDepth),
                            disposition: .init(displayStyle: mirror.displayStyle)
         )
     }
@@ -134,7 +138,7 @@ extension Mirror {
         }
     }
 
-    fileprivate func childEntries(using policy: LogPolicy) -> [LogEntry] {
+    fileprivate func childEntries(using policy: LogPolicy, currentDepth: Int) -> [LogEntry] {
         let childPolicy: LogPolicy.ChildPolicy = {
             switch self.displayStyle ?? .struct {
             case .class, .struct, .tuple, .enum:
@@ -144,14 +148,26 @@ extension Mirror {
             }
         }()
 
+        let childDepth: Int = {
+            switch self.displayStyle ?? .struct {
+            case .optional, .dictionary:
+                // We don't consume a level of depth for optionals or dictionaries.
+                // We don't want optional to count as a level of depth as we would quickly end up with gaps.
+                // We don't want dictionary to count as a level of depth as dictionary is modeled as a collection of (key, value) pairs, and we don't want to lose a level due to the pairs themselves consuming a level, so for ease of bookkeeping the dictionary level is counted as not consuming a level.
+                return currentDepth
+            case .class, .struct, .tuple, .enum, .collection, .set:
+                return currentDepth + 1
+            }
+        }()
+
         func logEntry(forChild child: Mirror.Child) -> LogEntry {
-            return LogEntry(describing: child.value, name: child.label, policy: policy)
+            return LogEntry(describing: child.value, name: child.label ?? emptyNameString, typeName: nil, summary: nil, policy: policy, currentDepth: childDepth)
         }
 
         func logEntriesForAllChildren() -> [LogEntry] {
             let childEntries = children.map(logEntry(forChild:))
             if let superclassMirror = superclassMirror {
-                return [superclassMirror.logEntry(named: LogEntry.superclassLogEntryName, usingPolicy: policy)] + childEntries
+                return [superclassMirror.logEntry(named: LogEntry.superclassLogEntryName, usingPolicy: policy, depth: childDepth)] + childEntries
             }
             else {
                 return childEntries
@@ -162,7 +178,7 @@ extension Mirror {
             let numberOfChildren: Int
             let superclassEntries: [LogEntry]
             if let superclassMirror = superclassMirror {
-                superclassEntries = [superclassMirror.logEntry(named: LogEntry.superclassLogEntryName, usingPolicy: policy)]
+                superclassEntries = [superclassMirror.logEntry(named: LogEntry.superclassLogEntryName, usingPolicy: policy, depth: childDepth)]
                 numberOfChildren = count - 1
             }
             else {
@@ -181,6 +197,12 @@ extension Mirror {
             let start = children.index(max, offsetBy: -count)
 
             return children[start..<max].map(logEntry(forChild:))
+        }
+
+        // Ensure that our children are loggable (i.e. their depth is not prohibited by our current policy).
+        // If our children **are** too deep, then simply return a single gap as our children.
+        guard childDepth <= policy.maximumDepth else {
+            return [.gap]
         }
 
         switch childPolicy {
@@ -203,8 +225,8 @@ extension Mirror {
         }
     }
 
-    fileprivate func logEntry(named name: String, usingPolicy policy: LogPolicy) -> LogEntry {
+    fileprivate func logEntry(named name: String, usingPolicy policy: LogPolicy, depth: Int) -> LogEntry {
         let subjectTypeName = normalizedName(of: self.subjectType)
-        return LogEntry(structureFrom: self, name: name, typeName: subjectTypeName, summary: subjectTypeName, policy: policy)
+        return LogEntry(structureFrom: self, name: name, typeName: subjectTypeName, summary: subjectTypeName, policy: policy, currentDepth: depth)
     }
 }

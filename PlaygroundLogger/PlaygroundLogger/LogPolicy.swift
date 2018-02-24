@@ -13,6 +13,9 @@
 struct LogPolicy {
     static let `default`: LogPolicy = LogPolicy()
 
+    /// The policy for the maximum depth level for log entries.
+    var maximumDepth: Int
+
     enum ChildPolicy {
         /// Indicates that all children should be logged.
         case all
@@ -32,10 +35,13 @@ struct LogPolicy {
 
     /// Initializes a new `LogPolicy`.
     ///
+    /// - parameter maximumDepth: The maximum depth level for logging children of children. Defaults to 2.
     /// - parameter aggregateChildPolicy: The policy to use for logging children of aggregates. Defaults to logging no more than the first 10,000 children.
     /// - parameter containerChildPolicy: The policy to use for logging children of collections. Defaults to logging no more than the first 80 children plus the last 20 children.
-    init(aggregateChildPolicy: ChildPolicy = .head(count: 10_000),
+    init(maximumDepth: Int = 2,
+         aggregateChildPolicy: ChildPolicy = .head(count: 10_000),
          containerChildPolicy: ChildPolicy = .headTail(headCount: 80, tailCount: 20)) {
+        self.maximumDepth = maximumDepth
         self.aggregateChildPolicy = aggregateChildPolicy
         self.containerChildPolicy = containerChildPolicy
     }

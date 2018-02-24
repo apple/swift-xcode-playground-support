@@ -23,7 +23,243 @@ fileprivate struct TestStruct {
     init() {}
 }
 
+fileprivate class TestClass {
+    let a: Int = 1
+    init() {}
+}
+
+fileprivate class TestSubclass: TestClass {
+    let b: Int = 2
+    override init() { super.init() }
+}
+
+fileprivate class TestSubsubclass: TestSubclass {
+    let c: Int = 3
+    override init() { super.init() }
+}
+
 class LogPolicyTests: XCTestCase {
+    func testMaximumDepthLimitZero() {
+        let testPolicy = LogPolicy(maximumDepth: 0)
+
+        let logEntry = LogEntry(describing: TestStruct(), name: "testStruct", policy: testPolicy)
+
+        guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
+            XCTFail("Expected a structured log entry for a struct")
+            return
+        }
+
+        XCTAssertEqual(name, "testStruct")
+        XCTAssertEqual(disposition, .struct)
+        XCTAssertEqual(totalChildrenCount, 5)
+
+        guard children.count == 1 else {
+            XCTFail("Expected the struct to have exactly one child")
+            return
+        }
+
+        guard case .gap = children[0] else {
+            XCTFail("Expected the struct's only child to be a gap")
+            return
+        }
+    }
+
+    func testMaximumDepthLimitOne() {
+        let testPolicy = LogPolicy(maximumDepth: 1)
+
+        let logEntry = LogEntry(describing: TestStruct(), name: "testStruct", policy: testPolicy)
+
+        guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
+            XCTFail("Expected a structured log entry for a struct")
+            return
+        }
+
+        XCTAssertEqual(name, "testStruct")
+        XCTAssertEqual(disposition, .struct)
+        XCTAssertEqual(totalChildrenCount, 5)
+        XCTAssertEqual(children.count, 5)
+
+        for (index, child) in children.enumerated() {
+            guard case let .opaque(_, typeName, _, _, representation) = child else {
+                XCTFail("Expected an opaque log entry for an item in the array")
+                continue
+            }
+
+            XCTAssertEqual(typeName, "Int")
+
+            guard let integer = representation as? Int64 else {
+                XCTFail("Expected an Int64 as the representation for an Int")
+                return
+            }
+
+            XCTAssertEqual(integer, Int64(index + 1))
+        }
+    }
+
+    func testMaximumDepthLimitTwoWithSuperclasses() {
+        let testPolicy = LogPolicy(maximumDepth: 2)
+
+        check_TestClass: do {
+            let logEntry = LogEntry(describing: TestClass(), name: "testClass", policy: testPolicy)
+
+            guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
+                XCTFail("Expected a structured log entry for a class")
+                return
+            }
+
+            XCTAssertEqual(name, "testClass")
+            XCTAssertEqual(disposition, .class)
+            XCTAssertEqual(totalChildrenCount, 1)
+
+            guard children.count == 1 else {
+                XCTFail("Expected TestClass to have exactly one child, but it had \(children.count)")
+                break check_TestClass
+            }
+
+            check_child: do {
+                guard case let .opaque(childName, childTypeName, _, _, childRepresentation) = children[0] else {
+                    XCTFail("Expected an opaque log entry for the first child")
+                    break check_TestClass
+                }
+
+                XCTAssertEqual(childName, "a")
+                XCTAssertEqual(childTypeName, "Int")
+                XCTAssertEqual(childRepresentation as? Int64, 1 as Int64)
+            }
+        }
+
+        check_TestSubclass: do {
+            let logEntry = LogEntry(describing: TestSubclass(), name: "testSubclass", policy: testPolicy)
+
+            guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
+                XCTFail("Expected a structured log entry for a class")
+                return
+            }
+
+            XCTAssertEqual(name, "testSubclass")
+            XCTAssertEqual(disposition, .class)
+            XCTAssertEqual(totalChildrenCount, 2)
+
+            guard children.count == 2 else {
+                XCTFail("Expected TestSubclass to have exactly two children, but it had \(children.count)")
+                break check_TestSubclass
+            }
+
+            check_superclassChild: do {
+                guard case let .structured(superclassName, _, _, superclassChildrenCount, superclassChildren, superclassDisposition) = children[0] else {
+                    XCTFail("Expected a structured log entry for the first child (superclass)")
+                    break check_TestSubclass
+                }
+
+                XCTAssertEqual(superclassName, "super")
+                XCTAssertEqual(superclassChildrenCount, 1)
+                XCTAssertEqual(superclassDisposition, .class)
+
+                guard superclassChildren.count == 1 else {
+                    XCTFail("Expected exactly one child of the superclass")
+                    break check_superclassChild
+                }
+
+                guard case let .opaque(childName, childTypeName, _, _, childRepresentation) = superclassChildren[0] else {
+                    XCTFail("Expected an opaque log entry for the first child")
+                    break check_superclassChild
+                }
+
+                XCTAssertEqual(childName, "a")
+                XCTAssertEqual(childTypeName, "Int")
+                XCTAssertEqual(childRepresentation as? Int64, 1 as Int64)
+            }
+
+            check_child: do {
+                guard case let .opaque(childName, childTypeName, _, _, childRepresentation) = children[1] else {
+                    XCTFail("Expected an opaque log entry for the second child")
+                    break check_TestSubclass
+                }
+
+                XCTAssertEqual(childName, "b")
+                XCTAssertEqual(childTypeName, "Int")
+                XCTAssertEqual(childRepresentation as? Int64, 2 as Int64)
+            }
+        }
+
+        check_TestSubsubclass: do {
+            let logEntry = LogEntry(describing: TestSubsubclass(), name: "testSubsubclass", policy: testPolicy)
+
+            guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
+                XCTFail("Expected a structured log entry for a class")
+                return
+            }
+
+            XCTAssertEqual(name, "testSubsubclass")
+            XCTAssertEqual(disposition, .class)
+            XCTAssertEqual(totalChildrenCount, 2)
+
+            guard children.count == 2 else {
+                XCTFail("Expected TestSubsubclass to have exactly two children, but it had \(children.count)")
+                break check_TestSubsubclass
+            }
+
+            check_superclass: do {
+                guard case let .structured(superclassName, _, _, superclassChildrenCount, superclassChildren, superclassDisposition) = children[0] else {
+                    XCTFail("Expected a structured log entry for the first child (superclass)")
+                    break check_superclass
+                }
+
+                XCTAssertEqual(superclassName, "super")
+                XCTAssertEqual(superclassChildrenCount, 2)
+                XCTAssertEqual(superclassDisposition, .class)
+
+                guard superclassChildren.count == 2 else {
+                    XCTFail("Expected exactly two children for the superclass")
+                    break check_superclass
+                }
+
+                check_doubleSuperclass: do {
+                    guard case let .structured(doubleSuperclassName, _, _, doubleSuperclassChildrenCount, doubleSuperclassChildren, doubleSuperclassDisposition) = superclassChildren[0] else {
+                        XCTFail("Expected a structured log entry for the superclass's first child (double-superclass)")
+                        break check_doubleSuperclass
+                    }
+
+                    XCTAssertEqual(doubleSuperclassName, "super")
+                    XCTAssertEqual(doubleSuperclassChildrenCount, 1)
+                    XCTAssertEqual(doubleSuperclassDisposition, .class)
+
+                    guard doubleSuperclassChildren.count == 1 else {
+                        XCTFail("Expected exactly one child for the double-superclass")
+                        break check_doubleSuperclass
+                    }
+
+                    guard case .gap = doubleSuperclassChildren[0] else {
+                        XCTFail("Expected the double-superclass's child to be a gap")
+                        break check_doubleSuperclass
+                    }
+                }
+
+                check_superclassChild: do {
+                    guard case let .opaque(superclassChildName, superclassChildTypeName, _, _, superclassChildRepresentation) = superclassChildren[1] else {
+                        XCTFail("Expected an opaque log entry for the superclass's second child")
+                        break check_superclassChild
+                    }
+
+                    XCTAssertEqual(superclassChildName, "b")
+                    XCTAssertEqual(superclassChildTypeName, "Int")
+                    XCTAssertEqual(superclassChildRepresentation as? Int64, 2 as Int64)
+                }
+            }
+
+            check_child: do {
+                guard case let .opaque(childName, childTypeName, _, _, childRepresentation) = children[1] else {
+                    XCTFail("Expected an opaque log entry for the second child")
+                    break check_child
+                }
+
+                XCTAssertEqual(childName, "c")
+                XCTAssertEqual(childTypeName, "Int")
+                XCTAssertEqual(childRepresentation as? Int64, 3 as Int64)
+            }
+        }
+    }
+
     func testContainerChildPolicyAll() {
         let testPolicy = LogPolicy(containerChildPolicy: .all)
 
