@@ -72,7 +72,6 @@
 		5E27568F1FCF964400B69C83 /* NSBitmapImageRep+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27568E1FCF964400B69C83 /* NSBitmapImageRep+CustomOpaqueLoggable.swift */; };
 		5E2756911FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756901FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift */; };
 		5E2756941FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756931FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift */; };
-		5E4AF1AD1FDDBDE400B7C9D9 /* Unimplemented.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4AF1AC1FDDBDE400B7C9D9 /* Unimplemented.swift */; };
 		5E4AF1AF1FDDC12A00B7C9D9 /* LegacyEntrypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4AF1AE1FDDC12A00B7C9D9 /* LegacyEntrypoints.swift */; };
 		5E5D77802040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5D777F2040BD7D00EBC3A9 /* LogPolicyTests.swift */; };
 		5E5D77812040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5D777F2040BD7D00EBC3A9 /* LogPolicyTests.swift */; };
@@ -241,7 +240,6 @@
 		5E27568E1FCF964400B69C83 /* NSBitmapImageRep+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBitmapImageRep+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 		5E2756901FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBitmapImageRep+OpaqueImageRepresentable.swift"; sourceTree = "<group>"; };
 		5E2756931FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitOpaqueLoggable.swift; sourceTree = "<group>"; };
-		5E4AF1AC1FDDBDE400B7C9D9 /* Unimplemented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unimplemented.swift; sourceTree = "<group>"; };
 		5E4AF1AE1FDDC12A00B7C9D9 /* LegacyEntrypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyEntrypoints.swift; sourceTree = "<group>"; };
 		5E5D777F2040BD7D00EBC3A9 /* LogPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPolicyTests.swift; sourceTree = "<group>"; };
 		5E5D77832040F5E900EBC3A9 /* LoggingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingError.swift; sourceTree = "<group>"; };
@@ -565,7 +563,6 @@
 		5E4AF1AB1FDDBDCD00B7C9D9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				5E4AF1AC1FDDBDE400B7C9D9 /* Unimplemented.swift */,
 				5E5D77832040F5E900EBC3A9 /* LoggingError.swift */,
 				5E184716202BB80200F01AD1 /* PGLConcurrentMap.h */,
 				5E184717202BB80200F01AD1 /* PGLConcurrentMap_MRR.m */,
@@ -889,7 +886,6 @@
 				5E2756911FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift in Sources */,
 				5E5FE50B202D13C800E28C3C /* PGLConcurrentMap.swift in Sources */,
 				5E2756891FCF454D00B69C83 /* UIColor+CustomOpaqueLoggable.swift in Sources */,
-				5E4AF1AD1FDDBDE400B7C9D9 /* Unimplemented.swift in Sources */,
 				5E27566E1FC51F7E00B69C83 /* CGGeometry+CustomOpaqueLoggable.swift in Sources */,
 				5E2756201FC485AA00B69C83 /* TaggedOpaqueRepresentation.swift in Sources */,
 				5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */,

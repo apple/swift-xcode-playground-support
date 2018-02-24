@@ -27,7 +27,8 @@ extension CGColor: KeyedArchiveOpaqueRepresentation {
         }
         
         guard colorSpace.model != .pattern else {
-            unimplemented("Need to handle pattern colors")
+            // TODO: implement support for encoding pattern colors.
+            throw LoggingError.encodingFailure(reason: "Unable to encode pattern colors at this time")
         }
         
         guard let colorSpaceName = colorSpace.name, let components = self.components else {
