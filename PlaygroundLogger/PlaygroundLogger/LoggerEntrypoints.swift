@@ -25,8 +25,23 @@ func logResult(_ result: Any,
     do {
         data = try packet.encode()
     }
+    catch LoggingError.failedToGenerateOpaqueRepresentation {
+        fatalError("Failures to generate opaque representations should not occur during encoding")
+    }
+    catch let LoggingError.encodingFailure(reason) {
+        let errorPacket = LogPacket(errorWithReason: reason, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: packet.threadID)
+
+        // Encoding an error packet should not fail under any circumstances.
+        data = try! errorPacket.encode()
+    }
+    catch let LoggingError.otherFailure(reason) {
+        let errorPacket = LogPacket(errorWithReason: reason, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: packet.threadID)
+
+        // Encoding an error packet should not fail under any circumstances.
+        data = try! errorPacket.encode()
+    }
     catch {
-        let errorPacket = LogPacket(errorWithReason: "Error occurred while encoding log packet", startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: packet.threadID)
+        let errorPacket = LogPacket(errorWithReason: "Unknown failure encoding log packet", startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: packet.threadID)
 
         // Encoding an error packet should not fail under any circumstances.
         data = try! errorPacket.encode()
@@ -81,8 +96,23 @@ func logPostPrint(startLine: Int,
     do {
         data = try packet.encode()
     }
+    catch LoggingError.failedToGenerateOpaqueRepresentation {
+        fatalError("Failures to generate opaque representations should not occur during encoding")
+    }
+    catch let LoggingError.encodingFailure(reason) {
+        let errorPacket = LogPacket(errorWithReason: reason, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: packet.threadID)
+
+        // Encoding an error packet should not fail under any circumstances.
+        data = try! errorPacket.encode()
+    }
+    catch let LoggingError.otherFailure(reason) {
+        let errorPacket = LogPacket(errorWithReason: reason, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: packet.threadID)
+
+        // Encoding an error packet should not fail under any circumstances.
+        data = try! errorPacket.encode()
+    }
     catch {
-        let errorPacket = LogPacket(errorWithReason: "Error occurred while encoding log packet", startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: packet.threadID)
+        let errorPacket = LogPacket(errorWithReason: "Unknown failure encoding log packet", startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: packet.threadID)
 
         // Encoding an error packet should not fail under any circumstances.
         data = try! errorPacket.encode()

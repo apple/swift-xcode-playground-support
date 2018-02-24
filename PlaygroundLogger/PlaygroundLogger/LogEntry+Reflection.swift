@@ -164,9 +164,17 @@ extension Mirror {
             do {
                 return try LogEntry(describing: child.value, name: child.label ?? emptyNameString, typeName: nil, summary: nil, policy: policy, currentDepth: childDepth)
             }
+            catch let LoggingError.failedToGenerateOpaqueRepresentation(reason) {
+                return LogEntry.error(reason: reason)
+            }
+            catch LoggingError.encodingFailure {
+                fatalError("Encoding failures should not be encountered while generating LogEntry values")
+            }
+            catch let LoggingError.otherFailure(reason) {
+                return LogEntry.error(reason: reason)
+            }
             catch {
-                // TODO: provide a better error string
-                return .error(reason: "Error generating log entry")
+                return LogEntry.error(reason: "Unknown error encountered when generating log entry")
             }
         }
 

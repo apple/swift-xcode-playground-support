@@ -40,9 +40,17 @@ extension LogPacket {
         do {
             logEntry = try LogEntry(describing: result, name: name, policy: policy)
         }
+        catch let LoggingError.failedToGenerateOpaqueRepresentation(reason) {
+            logEntry = .error(reason: reason)
+        }
+        catch LoggingError.encodingFailure {
+            fatalError("Encoding failures should not be encountered while generating LogEntry values")
+        }
+        catch let LoggingError.otherFailure(reason) {
+            logEntry = .error(reason: reason)
+        }
         catch {
-            // TODO: provide a better error string
-            logEntry = .error(reason: "Error generating log entry")
+            logEntry = .error(reason: "Unknown error encountered when generating log entry")
         }
         
         self = .init(logEntry: logEntry, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: threadID)
