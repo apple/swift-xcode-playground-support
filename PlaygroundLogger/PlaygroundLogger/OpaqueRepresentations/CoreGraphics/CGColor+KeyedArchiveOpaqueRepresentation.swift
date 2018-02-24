@@ -23,7 +23,7 @@ extension CGColor: KeyedArchiveOpaqueRepresentation {
     
     func encodeOpaqueRepresentation(with encoder: NSCoder, usingFormat format: LogEncoder.Format) {
         guard let colorSpace = self.colorSpace else {
-            unimplemented("Need to handle colors without a color space somehow")
+            loggingError("Unable to log colors without a colorspace")
         }
         
         guard colorSpace.model != .pattern else {
@@ -31,7 +31,7 @@ extension CGColor: KeyedArchiveOpaqueRepresentation {
         }
         
         guard let colorSpaceName = colorSpace.name, let components = self.components else {
-            unimplemented("Need to handle colors with an unnamed color space or with missing components")
+            loggingError("Unable to log non-pattern colors with unnamed colorspaces or which are missing components")
         }
         
         encoder.encode(colorSpaceName as NSString, forKey: colorSpaceKey)

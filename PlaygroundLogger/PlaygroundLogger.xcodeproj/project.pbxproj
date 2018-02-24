@@ -77,6 +77,7 @@
 		5E5D77802040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5D777F2040BD7D00EBC3A9 /* LogPolicyTests.swift */; };
 		5E5D77812040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5D777F2040BD7D00EBC3A9 /* LogPolicyTests.swift */; };
 		5E5D77822040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5D777F2040BD7D00EBC3A9 /* LogPolicyTests.swift */; };
+		5E5D77842040F5E900EBC3A9 /* LoggingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5D77832040F5E900EBC3A9 /* LoggingError.swift */; };
 		5E5F600B20409D4E007EF0A8 /* LogPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F600A20409D4E007EF0A8 /* LogPolicy.swift */; };
 		5E5FE50B202D13C800E28C3C /* PGLConcurrentMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */; };
 		5ECE8F911FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */; };
@@ -243,6 +244,7 @@
 		5E4AF1AC1FDDBDE400B7C9D9 /* Unimplemented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unimplemented.swift; sourceTree = "<group>"; };
 		5E4AF1AE1FDDC12A00B7C9D9 /* LegacyEntrypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyEntrypoints.swift; sourceTree = "<group>"; };
 		5E5D777F2040BD7D00EBC3A9 /* LogPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPolicyTests.swift; sourceTree = "<group>"; };
+		5E5D77832040F5E900EBC3A9 /* LoggingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingError.swift; sourceTree = "<group>"; };
 		5E5F600A20409D4E007EF0A8 /* LogPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPolicy.swift; sourceTree = "<group>"; };
 		5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGLConcurrentMap.swift; sourceTree = "<group>"; };
 		5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyPlaygroundLoggerTests.swift; sourceTree = "<group>"; };
@@ -564,6 +566,7 @@
 			isa = PBXGroup;
 			children = (
 				5E4AF1AC1FDDBDE400B7C9D9 /* Unimplemented.swift */,
+				5E5D77832040F5E900EBC3A9 /* LoggingError.swift */,
 				5E184716202BB80200F01AD1 /* PGLConcurrentMap.h */,
 				5E184717202BB80200F01AD1 /* PGLConcurrentMap_MRR.m */,
 				5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */,
@@ -890,6 +893,7 @@
 				5E27566E1FC51F7E00B69C83 /* CGGeometry+CustomOpaqueLoggable.swift in Sources */,
 				5E2756201FC485AA00B69C83 /* TaggedOpaqueRepresentation.swift in Sources */,
 				5E2646431FB64B2A002DC6B6 /* LoggerEntrypoints.swift in Sources */,
+				5E5D77842040F5E900EBC3A9 /* LoggingError.swift in Sources */,
 				5E2646521FB65026002DC6B6 /* LoggerInitialization.swift in Sources */,
 				5E2755D51FB6807F00B69C83 /* LogPacket+Encoding.swift in Sources */,
 				5E2756461FC4DC0C00B69C83 /* ImageOpaqueRepresentation.swift in Sources */,

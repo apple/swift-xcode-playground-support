@@ -15,8 +15,7 @@ import CoreImage
 extension CIColor: CustomOpaqueLoggable {
     var opaqueRepresentation: LogEntry.OpaqueRepresentation {
         guard let color = CGColor(colorSpace: self.colorSpace, components: self.components) else {
-            // TODO: don't crash in this case
-            fatalError("Unable to convert CIColor to CGColor")
+            loggingError("Unable to convert CIColor to CGColor")
         }
         
         return color

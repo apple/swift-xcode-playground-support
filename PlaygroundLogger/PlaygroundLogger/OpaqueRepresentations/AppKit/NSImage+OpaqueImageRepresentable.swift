@@ -34,7 +34,7 @@
 
         func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) {
             guard let bitmapRep = self.bestBitmapRepresentation else {
-                unimplemented("Need to figure out how to handle when we can't get the best bitmap rep!")
+                loggingError("Failed to convert image to a bitmap representation")
             }
 
             bitmapRep.encodeImage(into: encoder, withFormat: format)

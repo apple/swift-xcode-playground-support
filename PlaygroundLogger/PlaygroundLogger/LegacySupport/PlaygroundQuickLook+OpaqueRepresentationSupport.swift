@@ -36,30 +36,30 @@ extension PlaygroundQuickLook {
         case let .image(image):
             #if os(macOS)
                 guard let image = image as? NSImage else {
-                    fatalError("Must be an NSImage")
+                    loggingError("Must be an NSImage")
                 }
                 
                 return ImageOpaqueRepresentation(kind: .image, backedBy: image)
             #elseif os(iOS) || os(tvOS)
                 guard let image = image as? UIImage else {
-                    fatalError("Must be an IOImage")
+                    loggingError("Must be an IOImage")
                 }
                 
                 return ImageOpaqueRepresentation(kind: .image, backedBy: image)
                 
             #endif
         case .sound:
-            fatalError("Sounds not yet supported")
+            loggingError("Sounds not supported")
         case let .color(color):
             #if os(macOS)
                 guard let color = color as? NSColor else {
-                    fatalError("Must be an NSColor")
+                    loggingError("Must be an NSColor")
                 }
                 
                 return color.cgColor
             #elseif os(iOS) || os(tvOS)
                 guard let color = color as? UIColor else {
-                    fatalError("Must be a UIColor")
+                    loggingError("Must be a UIColor")
                 }
                 
                 return color.cgColor
@@ -67,20 +67,20 @@ extension PlaygroundQuickLook {
         case let .bezierPath(bezierPath):
             #if os(macOS)
                 guard let bezierPath = bezierPath as? NSBezierPath else {
-                    fatalError("Must be an NSBezierPath")
+                    loggingError("Must be an NSBezierPath")
                 }
                 
                 return bezierPath
             #elseif os(iOS) || os(tvOS)
                 guard let bezierPath = bezierPath as? UIBezierPath else {
-                    fatalError("Must be a UIBezierPath")
+                    loggingError("Must be a UIBezierPath")
                 }
                 
                 return bezierPath
             #endif
         case let .attributedString(attributedString):
             guard let attributedString = attributedString as? NSAttributedString else {
-                fatalError("Must be an NSAttributedString")
+                loggingError("Must be an NSAttributedString")
             }
             
             return attributedString
@@ -103,7 +103,7 @@ extension PlaygroundQuickLook {
                     return ImageOpaqueRepresentation(kind: .view, backedBy: image)
                 }
                 else {
-                    fatalError("Must be an NSView or NSImage")
+                    loggingError("Must be an NSView or NSImage")
                 }
             #elseif os(iOS) || os(tvOS)
                 if let view = viewOrImage as? UIView {
@@ -113,27 +113,27 @@ extension PlaygroundQuickLook {
                     return ImageOpaqueRepresentation(kind: .view, backedBy: image)
                 }
                 else {
-                    fatalError("Must be a UIView or UIImage")
+                    loggingError("Must be a UIView or UIImage")
                 }
             #endif
         case let .sprite(image):
             // TODO: figure out if this is even a little bit right. (The previous implementation just logged a string for sprites?)
             #if os(macOS)
                 guard let image = image as? NSImage else {
-                    fatalError("Must be an NSImage")
+                    loggingError("Must be an NSImage")
                 }
                 
                 return ImageOpaqueRepresentation(kind: .sprite, backedBy: image)
             #elseif os(iOS) || os(tvOS)
                 guard let image = image as? UIImage else {
-                    fatalError("Must be a UIImage")
+                    loggingError("Must be a UIImage")
                 }
                 
                 return ImageOpaqueRepresentation(kind: .sprite, backedBy: image)
             #endif
         case let .url(urlString):
             guard let url = URL(string: urlString) else {
-                fatalError("Must be a valid URL string!")
+                loggingError("Must be a valid URL string!")
             }
             
             return url
