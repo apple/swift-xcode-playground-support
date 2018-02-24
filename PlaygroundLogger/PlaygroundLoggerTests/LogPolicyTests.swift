@@ -39,10 +39,10 @@ fileprivate class TestSubsubclass: TestSubclass {
 }
 
 class LogPolicyTests: XCTestCase {
-    func testMaximumDepthLimitZero() {
+    func testMaximumDepthLimitZero() throws {
         let testPolicy = LogPolicy(maximumDepth: 0)
 
-        let logEntry = LogEntry(describing: TestStruct(), name: "testStruct", policy: testPolicy)
+        let logEntry = try LogEntry(describing: TestStruct(), name: "testStruct", policy: testPolicy)
 
         guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
             XCTFail("Expected a structured log entry for a struct")
@@ -64,10 +64,10 @@ class LogPolicyTests: XCTestCase {
         }
     }
 
-    func testMaximumDepthLimitOne() {
+    func testMaximumDepthLimitOne() throws {
         let testPolicy = LogPolicy(maximumDepth: 1)
 
-        let logEntry = LogEntry(describing: TestStruct(), name: "testStruct", policy: testPolicy)
+        let logEntry = try LogEntry(describing: TestStruct(), name: "testStruct", policy: testPolicy)
 
         guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
             XCTFail("Expected a structured log entry for a struct")
@@ -96,11 +96,11 @@ class LogPolicyTests: XCTestCase {
         }
     }
 
-    func testMaximumDepthLimitTwoWithSuperclasses() {
+    func testMaximumDepthLimitTwoWithSuperclasses() throws {
         let testPolicy = LogPolicy(maximumDepth: 2)
 
         check_TestClass: do {
-            let logEntry = LogEntry(describing: TestClass(), name: "testClass", policy: testPolicy)
+            let logEntry = try LogEntry(describing: TestClass(), name: "testClass", policy: testPolicy)
 
             guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
                 XCTFail("Expected a structured log entry for a class")
@@ -129,7 +129,7 @@ class LogPolicyTests: XCTestCase {
         }
 
         check_TestSubclass: do {
-            let logEntry = LogEntry(describing: TestSubclass(), name: "testSubclass", policy: testPolicy)
+            let logEntry = try LogEntry(describing: TestSubclass(), name: "testSubclass", policy: testPolicy)
 
             guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
                 XCTFail("Expected a structured log entry for a class")
@@ -183,7 +183,7 @@ class LogPolicyTests: XCTestCase {
         }
 
         check_TestSubsubclass: do {
-            let logEntry = LogEntry(describing: TestSubsubclass(), name: "testSubsubclass", policy: testPolicy)
+            let logEntry = try LogEntry(describing: TestSubsubclass(), name: "testSubsubclass", policy: testPolicy)
 
             guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
                 XCTFail("Expected a structured log entry for a class")
@@ -260,11 +260,11 @@ class LogPolicyTests: XCTestCase {
         }
     }
 
-    func testContainerChildPolicyAll() {
+    func testContainerChildPolicyAll() throws {
         let testPolicy = LogPolicy(containerChildPolicy: .all)
 
         let array = Array(0...1000)
-        let logEntry = LogEntry(describing: array, name: "array", policy: testPolicy)
+        let logEntry = try LogEntry(describing: array, name: "array", policy: testPolicy)
 
         guard case let .structured(name, typeName, _, totalChildrenCount, children, disposition) = logEntry else {
             XCTFail("Expected a structured log entry for an array")
@@ -294,12 +294,12 @@ class LogPolicyTests: XCTestCase {
         }
     }
 
-    func testContainerChildPolicyHead() {
+    func testContainerChildPolicyHead() throws {
         let testPolicy = LogPolicy(containerChildPolicy: .head(count: 10))
 
         let array = Array(0...1000)
 
-        let logEntry = LogEntry(describing: array, name: "array", policy: testPolicy)
+        let logEntry = try LogEntry(describing: array, name: "array", policy: testPolicy)
 
         guard case let .structured(name, typeName, _, totalChildrenCount, children, disposition) = logEntry else {
             XCTFail("Expected a structured log entry for an array")
@@ -341,12 +341,12 @@ class LogPolicyTests: XCTestCase {
         }
     }
 
-    func testContainerChildPolicyHeadTail() {
+    func testContainerChildPolicyHeadTail() throws {
         let testPolicy = LogPolicy(containerChildPolicy: .headTail(headCount: 10, tailCount: 5))
 
         let array = Array(0...1000)
 
-        let logEntry = LogEntry(describing: array, name: "array", policy: testPolicy)
+        let logEntry = try LogEntry(describing: array, name: "array", policy: testPolicy)
 
         guard case let .structured(name, typeName, _, totalChildrenCount, children, disposition) = logEntry else {
             XCTFail("Expected a structured log entry for an array")
@@ -406,11 +406,11 @@ class LogPolicyTests: XCTestCase {
         }
     }
 
-    func testContainerChildPolicyNone() {
+    func testContainerChildPolicyNone() throws {
         let testPolicy = LogPolicy(containerChildPolicy: .none)
 
         let array = Array(0...1000)
-        let logEntry = LogEntry(describing: array, name: "array", policy: testPolicy)
+        let logEntry = try LogEntry(describing: array, name: "array", policy: testPolicy)
 
         guard case let .structured(name, typeName, _, totalChildrenCount, children, disposition) = logEntry else {
             XCTFail("Expected a structured log entry for an array")
@@ -424,10 +424,10 @@ class LogPolicyTests: XCTestCase {
         XCTAssertEqual(children.count, 0)
     }
 
-    func testAggregateChildPolicyAll() {
+    func testAggregateChildPolicyAll() throws {
         let testPolicy = LogPolicy(aggregateChildPolicy: .all)
 
-        let logEntry = LogEntry(describing: TestStruct(), name: "testStruct", policy: testPolicy)
+        let logEntry = try LogEntry(describing: TestStruct(), name: "testStruct", policy: testPolicy)
 
         guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
             XCTFail("Expected a structured log entry for a struct")
@@ -456,10 +456,10 @@ class LogPolicyTests: XCTestCase {
         }
     }
 
-    func testAggregateChildPolicyHead() {
+    func testAggregateChildPolicyHead() throws {
         let testPolicy = LogPolicy(aggregateChildPolicy: .head(count: 2))
 
-        let logEntry = LogEntry(describing: TestStruct(), name: "testStruct", policy: testPolicy)
+        let logEntry = try LogEntry(describing: TestStruct(), name: "testStruct", policy: testPolicy)
 
         guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
             XCTFail("Expected a structured log entry for a struct")
@@ -499,10 +499,10 @@ class LogPolicyTests: XCTestCase {
         }
     }
 
-    func testAggregateChildPolicyHeadTail() {
+    func testAggregateChildPolicyHeadTail() throws {
         let testPolicy = LogPolicy(aggregateChildPolicy: .headTail(headCount: 2, tailCount: 1))
 
-        let logEntry = LogEntry(describing: TestStruct(), name: "testStruct", policy: testPolicy)
+        let logEntry = try LogEntry(describing: TestStruct(), name: "testStruct", policy: testPolicy)
 
         guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
             XCTFail("Expected a structured log entry for a struct")
@@ -556,10 +556,10 @@ class LogPolicyTests: XCTestCase {
         XCTAssertEqual(integer, 5)
     }
 
-    func testAggregateChildPolicyNone() {
+    func testAggregateChildPolicyNone() throws {
         let testPolicy = LogPolicy(aggregateChildPolicy: .none)
 
-        let logEntry = LogEntry(describing: TestStruct(), name: "testStruct", policy: testPolicy)
+        let logEntry = try LogEntry(describing: TestStruct(), name: "testStruct", policy: testPolicy)
 
         guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
             XCTFail("Expected a structured log entry for a struct")

@@ -20,11 +20,11 @@ fileprivate class DebugQuickLookObjectHook: NSObject {
 fileprivate let emptyNameString = ""
 
 extension LogEntry {
-    init(describing instance: Any, name: String? = nil, policy: LogPolicy) {
-        self = .init(describing: instance, name: name ?? emptyNameString, typeName: nil, summary: nil, policy: policy, currentDepth: 0)
+    init(describing instance: Any, name: String? = nil, policy: LogPolicy) throws {
+        self = try .init(describing: instance, name: name ?? emptyNameString, typeName: nil, summary: nil, policy: policy, currentDepth: 0)
     }
     
-    fileprivate init(describing instance: Any, name: String, typeName passedInTypeName: String?, summary passedInSummary: String?, policy: LogPolicy, currentDepth: Int) {
+    fileprivate init(describing instance: Any, name: String, typeName passedInTypeName: String?, summary passedInSummary: String?, policy: LogPolicy, currentDepth: Int) throws {
         guard currentDepth <= policy.maximumDepth else {
             // We're trying to log an instance that is "too deep"; as a result, we need to just return a gap.
             self = .gap
@@ -38,20 +38,20 @@ extension LogEntry {
         // For types which conform to the `CustomOpaqueLoggable` protocol, get their custom representation and construct an opaque log entry. (This is checked *second* so that user implementations of `CustomPlaygroundRepresentable` are honored over this framework's implementations of `CustomOpaqueLoggable`.)
         if let customOpaqueLoggable = instance as? CustomOpaqueLoggable {
             // TODO: figure out when to set `preferBriefSummary` to true
-            self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: customOpaqueLoggable.opaqueRepresentation)
+            self = try .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: customOpaqueLoggable.opaqueRepresentation())
         }
         
         // For types which conform to the legacy `CustomPlaygroundQuickLookable` or `_DefaultCustomPlaygroundQuickLookable` protocols, get their `PlaygroundQuickLook` and use that for logging.
         else if let customQuickLookable = instance as? CustomPlaygroundQuickLookable {
-            self = .init(playgroundQuickLook: customQuickLookable.customPlaygroundQuickLook, name: name, typeName: typeName, summary: summary)
+            self = try .init(playgroundQuickLook: customQuickLookable.customPlaygroundQuickLook, name: name, typeName: typeName, summary: summary)
         }
         else if let defaultQuickLookable = instance as? _DefaultCustomPlaygroundQuickLookable {
-            self = .init(playgroundQuickLook: defaultQuickLookable._defaultCustomPlaygroundQuickLook, name: name, typeName: typeName, summary: summary)
+            self = try .init(playgroundQuickLook: defaultQuickLookable._defaultCustomPlaygroundQuickLook, name: name, typeName: typeName, summary: summary)
         }
             
         // If a type implements the `debugQuickLookObject()` Objective-C method, then get their debug quick look object and use that for logging (by passing it back through this initializer).
         else if let debugQuickLookObjectMethod = (instance as AnyObject).debugQuickLookObject, let debugQuickLookObject = debugQuickLookObjectMethod() {
-            self = .init(describing: debugQuickLookObject, name: name, typeName: typeName, summary: nil, policy: policy, currentDepth: currentDepth)
+            self = try .init(describing: debugQuickLookObject, name: name, typeName: typeName, summary: nil, policy: policy, currentDepth: currentDepth)
         }
             
         // Otherwise, first check if this is an interesting CF type before logging structure.
@@ -60,10 +60,10 @@ extension LogEntry {
             switch CFGetTypeID(instance as CFTypeRef) {
             case CGColor.typeID:
                 let cgColor = instance as! CGColor
-                self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: cgColor.opaqueRepresentation)
+                self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: cgColor.opaqueRepresentation())
             case CGImage.typeID:
                 let cgImage = instance as! CGImage
-                self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: cgImage.opaqueRepresentation)
+                self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: cgImage.opaqueRepresentation())
             default:
                 // This isn't one of the CF types we want to specially handle, so the log entry should just reflect the instance's structure.
                 
@@ -72,7 +72,7 @@ extension LogEntry {
                 
                 if mirror.displayStyle == .optional && mirror.children.count == 1 {
                     // If the mirror displays as an Optional and has exactly one child, then we want to unwrap the optionality and generate a log entry for the child.
-                    self = .init(describing: mirror.children.first!.value, name: name, typeName: typeName, summary: nil, policy: policy, currentDepth: currentDepth)
+                    self = try .init(describing: mirror.children.first!.value, name: name, typeName: typeName, summary: nil, policy: policy, currentDepth: currentDepth)
                 }
                 else {
                     // Otherwise, we want to generate a log entry with the structure from the mirror.
@@ -82,9 +82,9 @@ extension LogEntry {
         }
     }
     
-    private init(playgroundQuickLook: PlaygroundQuickLook, name: String, typeName: String, summary: String) {
+    private init(playgroundQuickLook: PlaygroundQuickLook, name: String, typeName: String, summary: String) throws {
         // TODO: figure out when to set `preferBriefSummary` to true
-        self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: playgroundQuickLook.opaqueRepresentation)
+        self = try .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: playgroundQuickLook.opaqueRepresentation())
     }
     
     fileprivate static let superclassLogEntryName = "super"
@@ -161,7 +161,13 @@ extension Mirror {
         }()
 
         func logEntry(forChild child: Mirror.Child) -> LogEntry {
-            return LogEntry(describing: child.value, name: child.label ?? emptyNameString, typeName: nil, summary: nil, policy: policy, currentDepth: childDepth)
+            do {
+                return try LogEntry(describing: child.value, name: child.label ?? emptyNameString, typeName: nil, summary: nil, policy: policy, currentDepth: childDepth)
+            }
+            catch {
+                // TODO: provide a better error string
+                return .error(reason: "Error generating log entry")
+            }
         }
 
         func logEntriesForAllChildren() -> [LogEntry] {

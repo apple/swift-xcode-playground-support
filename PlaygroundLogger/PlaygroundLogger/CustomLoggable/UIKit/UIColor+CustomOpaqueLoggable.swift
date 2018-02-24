@@ -14,7 +14,7 @@
     import UIKit
     
     extension UIColor: CustomOpaqueLoggable {
-        var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+        func opaqueRepresentation() -> LogEntry.OpaqueRepresentation {
             return self.cgColor
         }
     }

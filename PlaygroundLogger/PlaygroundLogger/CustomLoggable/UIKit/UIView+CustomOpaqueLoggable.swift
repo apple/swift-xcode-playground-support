@@ -14,7 +14,7 @@
     import UIKit
     
     extension UIView: CustomOpaqueLoggable {
-        var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+        func opaqueRepresentation() -> LogEntry.OpaqueRepresentation {
             return ImageOpaqueRepresentation(kind: .view, backedBy: self)
         }
     }

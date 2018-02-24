@@ -13,7 +13,7 @@
 import CoreGraphics
 
 extension CGFloat: CustomOpaqueLoggable {
-    var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+    func opaqueRepresentation() -> LogEntry.OpaqueRepresentation {
         return self.native
     }
 }

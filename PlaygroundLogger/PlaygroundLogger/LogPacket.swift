@@ -36,7 +36,16 @@ extension LogPacket {
     }
     
     init(describingResult result: Any, named name: String, withPolicy policy: LogPolicy, startLine: Int, endLine: Int, startColumn: Int, endColumn: Int, threadID: String? = nil) {
-        self = .init(logEntry: LogEntry(describing: result, name: name, policy: policy), startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: threadID)
+        let logEntry: LogEntry
+        do {
+            logEntry = try LogEntry(describing: result, name: name, policy: policy)
+        }
+        catch {
+            // TODO: provide a better error string
+            logEntry = .error(reason: "Error generating log entry")
+        }
+        
+        self = .init(logEntry: logEntry, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn, threadID: threadID)
     }
     
     init(scopeEntryWithStartLine startLine: Int, endLine: Int, startColumn: Int, endColumn: Int, threadID: String? = nil) {

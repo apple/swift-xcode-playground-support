@@ -30,7 +30,7 @@ extension SpriteKitOpaqueLoggable {
         encoder.encode(data: imageData)
     }
     
-    var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+    func opaqueRepresentation() -> LogEntry.OpaqueRepresentation {
         return ImageOpaqueRepresentation(kind: .sprite, backedBy: self)
     }
 }

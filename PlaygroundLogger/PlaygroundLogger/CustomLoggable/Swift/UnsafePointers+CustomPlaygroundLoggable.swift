@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2017 Apple Inc. and the Swift project authors
+// Copyright (c) 2017-2018 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -11,28 +11,28 @@
 //===----------------------------------------------------------------------===//
 
 extension UnsafePointer: CustomOpaqueLoggable {
-    var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+    func opaqueRepresentation() -> LogEntry.OpaqueRepresentation {
         let uintValue = UInt64(UInt(bitPattern: self))
         return "UnsafePointer(\(uintValue == 0 ? "nil" : String(uintValue, radix: 16, uppercase: true)))"
     }
 }
 
 extension UnsafeRawPointer: CustomOpaqueLoggable {
-    var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+    func opaqueRepresentation() -> LogEntry.OpaqueRepresentation {
         let uintValue = UInt64(UInt(bitPattern: self))
         return "UnsafeRawPointer(\(uintValue == 0 ? "nil" : String(uintValue, radix: 16, uppercase: true)))"
     }
 }
 
 extension UnsafeMutablePointer: CustomOpaqueLoggable {
-    var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+    func opaqueRepresentation() -> LogEntry.OpaqueRepresentation {
         let uintValue = UInt64(UInt(bitPattern: self))
         return "UnsafeMutablePointer(\(uintValue == 0 ? "nil" : String(uintValue, radix: 16, uppercase: true)))"
     }
 }
 
 extension UnsafeMutableRawPointer: CustomOpaqueLoggable {
-    var opaqueRepresentation: LogEntry.OpaqueRepresentation {
+    func opaqueRepresentation() -> LogEntry.OpaqueRepresentation {
         let uintValue = UInt64(UInt(bitPattern: self))
         return "UnsafeMutableRawPointer(\(uintValue == 0 ? "nil" : String(uintValue, radix: 16, uppercase: true)))"
     }
