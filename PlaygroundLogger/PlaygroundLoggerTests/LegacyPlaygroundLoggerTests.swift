@@ -410,7 +410,7 @@ class LegacyPlaygroundLoggerTests: XCTestCase {
         }
         decodeLogdata()
             
-        XCTAssertEqual("SomeStruct #1 in PlaygroundLoggerTests.LegacyPlaygroundLoggerTests.testTypenameManagement() -> ()", structured.typeName)
+        XCTAssert(structured.typeName.hasSuffix(".SomeStruct"))
         object = (1,2,2,4)
         logdata = legacyLog(instance: object, name: "object", id: 0, startLine: 0, endLine: 0, startColumn: 0, endColumn: 0) as! NSData
         decodeLogdata()
@@ -423,7 +423,7 @@ class LegacyPlaygroundLoggerTests: XCTestCase {
         object = Foo.Swift.Bar.Baz()
         logdata = legacyLog(instance: object, name: "object", id: 0, startLine: 0, endLine: 0, startColumn: 0, endColumn: 0) as! NSData
         decodeLogdata()
-        XCTAssertEqual("Bar.Baz in Foo #1 in PlaygroundLoggerTests.LegacyPlaygroundLoggerTests.testTypenameManagement() -> ()", structured.typeName)
+        XCTAssert(structured.typeName.hasSuffix(".Foo.Swift.Bar.Baz"))
     }
     
     func testFloatDoubleDecoding() {
