@@ -81,6 +81,9 @@
 		5E5FE50B202D13C800E28C3C /* PGLConcurrentMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */; };
 		5ECE8F911FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */; };
 		5EE3867420352F3200D625F0 /* CGFloat+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3867320352F3200D625F0 /* CGFloat+CustomOpaqueLoggable.swift */; };
+		5EF581532041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF581512041384700AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift */; };
+		5EF581542041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF581512041384700AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift */; };
+		5EF581552041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF581512041384700AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift */; };
 		5EFE9193203F6CF900E21BAA /* LegacyPlaygroundLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */; };
 		5EFE919B203F6DD700E21BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFE919A203F6DD700E21BAA /* AppDelegate.swift */; };
 		5EFE919D203F6DD700E21BAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFE919C203F6DD700E21BAA /* ViewController.swift */; };
@@ -247,6 +250,7 @@
 		5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGLConcurrentMap.swift; sourceTree = "<group>"; };
 		5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyPlaygroundLoggerTests.swift; sourceTree = "<group>"; };
 		5EE3867320352F3200D625F0 /* CGFloat+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
+		5EF581512041384700AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlaygroundDisplayConvertibleTests.swift; sourceTree = "<group>"; };
 		5EFE9189203F6CC400E21BAA /* PlaygroundLoggerTests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundLoggerTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EFE918D203F6CC400E21BAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EFE9198203F6DD700E21BAA /* PlaygroundLoggerTestHost_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaygroundLoggerTestHost_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -366,6 +370,7 @@
 		5E2646341FB64876002DC6B6 /* PlaygroundLoggerTests */ = {
 			isa = PBXGroup;
 			children = (
+				5EF581512041384700AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift */,
 				5E5D777F2040BD7D00EBC3A9 /* LogPolicyTests.swift */,
 				5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */,
 			);
@@ -927,6 +932,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E5D77802040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */,
+				5EF581532041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */,
 				5ECE8F911FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -936,6 +942,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E5D77812040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */,
+				5EF581542041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */,
 				5EFE9193203F6CF900E21BAA /* LegacyPlaygroundLoggerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -963,6 +970,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E5D77822040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */,
+				5EF581552041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */,
 				5EFE91D7203F6F8100E21BAA /* LegacyPlaygroundLoggerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

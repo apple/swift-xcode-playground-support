@@ -34,9 +34,14 @@ extension LogEntry {
         // Returns either the passed-in type name/summary or the type name/summary of `instance`.
         var typeName: String { return passedInTypeName ?? normalizedName(of: type(of: instance)) }
         var summary: String { return passedInSummary ?? String(describing: instance) }
+
+        // For types which conform to the `CustomPlaygroundDisplayConvertible` protocol, get their custom representation and then run it back through the initializer.
+        if let customPlaygroundDisplayConvertible = instance as? CustomPlaygroundDisplayConvertible {
+            self = try .init(describing: customPlaygroundDisplayConvertible.playgroundDescription, name: name, typeName: typeName, summary: nil, policy: policy, currentDepth: currentDepth)
+        }
         
-        // For types which conform to the `CustomOpaqueLoggable` protocol, get their custom representation and construct an opaque log entry. (This is checked *second* so that user implementations of `CustomPlaygroundRepresentable` are honored over this framework's implementations of `CustomOpaqueLoggable`.)
-        if let customOpaqueLoggable = instance as? CustomOpaqueLoggable {
+        // For types which conform to the `CustomOpaqueLoggable` protocol, get their custom representation and construct an opaque log entry. (This is checked *second* so that user implementations of `CustomPlaygroundDisplayConvertible` are honored over this framework's implementations of `CustomOpaqueLoggable`.)
+        else if let customOpaqueLoggable = instance as? CustomOpaqueLoggable {
             // TODO: figure out when to set `preferBriefSummary` to true
             self = try .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: customOpaqueLoggable.opaqueRepresentation())
         }
