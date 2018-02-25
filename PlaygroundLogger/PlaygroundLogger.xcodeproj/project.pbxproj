@@ -72,6 +72,9 @@
 		5E27568F1FCF964400B69C83 /* NSBitmapImageRep+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E27568E1FCF964400B69C83 /* NSBitmapImageRep+CustomOpaqueLoggable.swift */; };
 		5E2756911FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756901FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift */; };
 		5E2756941FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2756931FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift */; };
+		5E48E0AA2042925B00C7712D /* LogEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E48E0A92042925B00C7712D /* LogEntryTests.swift */; };
+		5E48E0AB2042925B00C7712D /* LogEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E48E0A92042925B00C7712D /* LogEntryTests.swift */; };
+		5E48E0AC2042925B00C7712D /* LogEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E48E0A92042925B00C7712D /* LogEntryTests.swift */; };
 		5E4AF1AF1FDDC12A00B7C9D9 /* LegacyEntrypoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4AF1AE1FDDC12A00B7C9D9 /* LegacyEntrypoints.swift */; };
 		5E5D77802040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5D777F2040BD7D00EBC3A9 /* LogPolicyTests.swift */; };
 		5E5D77812040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5D777F2040BD7D00EBC3A9 /* LogPolicyTests.swift */; };
@@ -251,6 +254,7 @@
 		5E27568E1FCF964400B69C83 /* NSBitmapImageRep+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBitmapImageRep+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 		5E2756901FCF967300B69C83 /* NSBitmapImageRep+OpaqueImageRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBitmapImageRep+OpaqueImageRepresentable.swift"; sourceTree = "<group>"; };
 		5E2756931FCF9CB000B69C83 /* SpriteKitOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitOpaqueLoggable.swift; sourceTree = "<group>"; };
+		5E48E0A92042925B00C7712D /* LogEntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntryTests.swift; sourceTree = "<group>"; };
 		5E4AF1AE1FDDC12A00B7C9D9 /* LegacyEntrypoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyEntrypoints.swift; sourceTree = "<group>"; };
 		5E5D777F2040BD7D00EBC3A9 /* LogPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPolicyTests.swift; sourceTree = "<group>"; };
 		5E5D77832040F5E900EBC3A9 /* LoggingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingError.swift; sourceTree = "<group>"; };
@@ -394,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				5EF581512041384700AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift */,
+				5E48E0A92042925B00C7712D /* LogEntryTests.swift */,
 				5E5D777F2040BD7D00EBC3A9 /* LogPolicyTests.swift */,
 				5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */,
 			);
@@ -960,6 +965,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E5D77802040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */,
+				5E48E0AA2042925B00C7712D /* LogEntryTests.swift in Sources */,
 				5EF581532041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */,
 				5ECE8F911FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift in Sources */,
 			);
@@ -970,6 +976,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E5D77812040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */,
+				5E48E0AB2042925B00C7712D /* LogEntryTests.swift in Sources */,
 				5EF581542041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */,
 				5EFE9193203F6CF900E21BAA /* LegacyPlaygroundLoggerTests.swift in Sources */,
 			);
@@ -998,6 +1005,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E5D77822040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */,
+				5E48E0AC2042925B00C7712D /* LogEntryTests.swift in Sources */,
 				5EF581552041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */,
 				5EFE91D7203F6F8100E21BAA /* LegacyPlaygroundLoggerTests.swift in Sources */,
 			);
