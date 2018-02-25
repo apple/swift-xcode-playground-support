@@ -21,42 +21,62 @@ fileprivate let emptyNameString = ""
 
 extension LogEntry {
     init(describing instance: Any, name: String? = nil, policy: LogPolicy) throws {
-        self = try .init(describing: instance, name: name ?? emptyNameString, typeName: nil, summary: nil, policy: policy, currentDepth: 0)
+        self = try .init(describing: instance, name: name ?? emptyNameString, typeName: nil, policy: policy, currentDepth: 0)
     }
     
-    fileprivate init(describing instance: Any, name: String, typeName passedInTypeName: String?, summary passedInSummary: String?, policy: LogPolicy, currentDepth: Int) throws {
+    fileprivate init(describing instance: Any, name: String, typeName passedInTypeName: String?, policy: LogPolicy, currentDepth: Int) throws {
         guard currentDepth <= policy.maximumDepth else {
             // We're trying to log an instance that is "too deep"; as a result, we need to just return a gap.
             self = .gap
             return
         }
 
-        // Returns either the passed-in type name/summary or the type name/summary of `instance`.
-        var typeName: String { return passedInTypeName ?? normalizedName(of: type(of: instance)) }
-        var summary: String { return passedInSummary ?? String(describing: instance) }
+        // Lazily-load the Mirror for this instance. (This is factored out this way as the Mirror is needed in a few different code paths.)
+        var _mirrorStorage: Mirror? = nil
+        var mirror: Mirror {
+            if let mirror = _mirrorStorage {
+                return mirror
+            }
+
+            let mirror = Mirror(reflecting: instance)
+            _mirrorStorage = mirror
+            return mirror
+        }
+
+        // Lazily-load the normalized type name for this instance. (This is factored out this way as the type name is expensive to compute, so we only want to do it once.)
+        var _typeNameStorage: String? = nil
+        var typeName: String {
+            if let typeName = _typeNameStorage {
+                return typeName
+            }
+
+            let typeName = passedInTypeName ?? normalizedName(of: type(of: instance))
+            _typeNameStorage = typeName
+            return typeName
+        }
 
         // For types which conform to the `CustomPlaygroundDisplayConvertible` protocol, get their custom representation and then run it back through the initializer.
         if let customPlaygroundDisplayConvertible = instance as? CustomPlaygroundDisplayConvertible {
-            self = try .init(describing: customPlaygroundDisplayConvertible.playgroundDescription, name: name, typeName: typeName, summary: nil, policy: policy, currentDepth: currentDepth)
+            self = try .init(describing: customPlaygroundDisplayConvertible.playgroundDescription, name: name, typeName: typeName, policy: policy, currentDepth: currentDepth)
         }
         
         // For types which conform to the `CustomOpaqueLoggable` protocol, get their custom representation and construct an opaque log entry. (This is checked *second* so that user implementations of `CustomPlaygroundDisplayConvertible` are honored over this framework's implementations of `CustomOpaqueLoggable`.)
         else if let customOpaqueLoggable = instance as? CustomOpaqueLoggable {
             // TODO: figure out when to set `preferBriefSummary` to true
-            self = try .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: customOpaqueLoggable.opaqueRepresentation())
+            self = try .opaque(name: name, typeName: typeName, summary: generateSummary(for: instance, withTypeName: typeName, using: mirror), preferBriefSummary: false, representation: customOpaqueLoggable.opaqueRepresentation())
         }
         
         // For types which conform to the legacy `CustomPlaygroundQuickLookable` or `_DefaultCustomPlaygroundQuickLookable` protocols, get their `PlaygroundQuickLook` and use that for logging.
         else if let customQuickLookable = instance as? CustomPlaygroundQuickLookable {
-            self = try .init(playgroundQuickLook: customQuickLookable.customPlaygroundQuickLook, name: name, typeName: typeName, summary: summary)
+            self = try .init(playgroundQuickLook: customQuickLookable.customPlaygroundQuickLook, name: name, typeName: typeName, summary: generateSummary(for: instance, withTypeName: typeName, using: mirror))
         }
         else if let defaultQuickLookable = instance as? _DefaultCustomPlaygroundQuickLookable {
-            self = try .init(playgroundQuickLook: defaultQuickLookable._defaultCustomPlaygroundQuickLook, name: name, typeName: typeName, summary: summary)
+            self = try .init(playgroundQuickLook: defaultQuickLookable._defaultCustomPlaygroundQuickLook, name: name, typeName: typeName, summary: generateSummary(for: instance, withTypeName: typeName, using: mirror))
         }
             
         // If a type implements the `debugQuickLookObject()` Objective-C method, then get their debug quick look object and use that for logging (by passing it back through this initializer).
         else if let debugQuickLookObjectMethod = (instance as AnyObject).debugQuickLookObject, let debugQuickLookObject = debugQuickLookObjectMethod() {
-            self = try .init(describing: debugQuickLookObject, name: name, typeName: typeName, summary: nil, policy: policy, currentDepth: currentDepth)
+            self = try .init(describing: debugQuickLookObject, name: name, typeName: typeName, policy: policy, currentDepth: currentDepth)
         }
             
         // Otherwise, first check if this is an interesting CF type before logging structure.
@@ -65,23 +85,20 @@ extension LogEntry {
             switch CFGetTypeID(instance as CFTypeRef) {
             case CGColor.typeID:
                 let cgColor = instance as! CGColor
-                self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: cgColor.opaqueRepresentation())
+                self = .opaque(name: name, typeName: typeName, summary: generateSummary(for: instance, withTypeName: typeName, using: mirror), preferBriefSummary: false, representation: cgColor.opaqueRepresentation())
             case CGImage.typeID:
                 let cgImage = instance as! CGImage
-                self = .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: cgImage.opaqueRepresentation())
+                self = .opaque(name: name, typeName: typeName, summary: generateSummary(for: instance, withTypeName: typeName, using: mirror), preferBriefSummary: false, representation: cgImage.opaqueRepresentation())
             default:
                 // This isn't one of the CF types we want to specially handle, so the log entry should just reflect the instance's structure.
-                
-                // Get a Mirror which reflects the instance being logged.
-                let mirror = Mirror(reflecting: instance)
-                
+
                 if mirror.displayStyle == .optional && mirror.children.count == 1 {
                     // If the mirror displays as an Optional and has exactly one child, then we want to unwrap the optionality and generate a log entry for the child.
-                    self = try .init(describing: mirror.children.first!.value, name: name, typeName: nil, summary: nil, policy: policy, currentDepth: currentDepth)
+                    self = try .init(describing: mirror.children.first!.value, name: name, typeName: nil, policy: policy, currentDepth: currentDepth)
                 }
                 else {
                     // Otherwise, we want to generate a log entry with the structure from the mirror.
-                    self = .init(structureFrom: mirror, name: name, typeName: typeName, summary: summary, policy: policy, currentDepth: currentDepth)
+                    self = .init(structureFrom: mirror, name: name, typeName: typeName, summary: generateSummary(for: instance, withTypeName: typeName, using: mirror), policy: policy, currentDepth: currentDepth)
                 }
             }
         }
@@ -167,7 +184,7 @@ extension Mirror {
 
         func logEntry(forChild child: Mirror.Child) -> LogEntry {
             do {
-                return try LogEntry(describing: child.value, name: child.label ?? emptyNameString, typeName: nil, summary: nil, policy: policy, currentDepth: childDepth)
+                return try LogEntry(describing: child.value, name: child.label ?? emptyNameString, typeName: nil, policy: policy, currentDepth: childDepth)
             }
             catch let LoggingError.failedToGenerateOpaqueRepresentation(reason) {
                 return LogEntry.error(reason: reason)
@@ -248,4 +265,28 @@ extension Mirror {
         let subjectTypeName = normalizedName(of: self.subjectType)
         return LogEntry(structureFrom: self, name: name, typeName: subjectTypeName, summary: subjectTypeName, policy: policy, currentDepth: depth)
     }
+}
+
+/// Construct the summary for `instance`.
+///
+/// In precedence order, the rules are:
+///   - If the instance is itself a `String`, return the instance
+///   - If the instance is `CustomStringConvertible` or `CustomDebugStringConvertible`, use `String(reflecting:)`
+///   - If the instance is an enum (as reported using Mirror), use `String(describing:)`
+///   - Otherwise, use the normalized type name
+fileprivate func generateSummary(for instance: Any, withTypeName typeNameProvider: @autoclosure () -> String, using mirrorProvider: @autoclosure () -> Mirror) -> String {
+    if let string = instance as? String {
+        return string
+    }
+
+    if instance is CustomStringConvertible || instance is CustomDebugStringConvertible {
+        return String(reflecting: instance)
+    }
+
+    let mirror = mirrorProvider()
+    if mirror.displayStyle == .enum {
+        return String(describing: instance)
+    }
+
+    return typeNameProvider()
 }
