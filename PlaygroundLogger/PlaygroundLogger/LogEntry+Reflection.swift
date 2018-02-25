@@ -77,7 +77,7 @@ extension LogEntry {
                 
                 if mirror.displayStyle == .optional && mirror.children.count == 1 {
                     // If the mirror displays as an Optional and has exactly one child, then we want to unwrap the optionality and generate a log entry for the child.
-                    self = try .init(describing: mirror.children.first!.value, name: name, typeName: typeName, summary: nil, policy: policy, currentDepth: currentDepth)
+                    self = try .init(describing: mirror.children.first!.value, name: name, typeName: nil, summary: nil, policy: policy, currentDepth: currentDepth)
                 }
                 else {
                     // Otherwise, we want to generate a log entry with the structure from the mirror.
