@@ -88,7 +88,7 @@ public func legacyLogScopeExit(startLine: Int, endLine: Int, startColumn: Int, e
 }
 
 @_silgen_name ("playground_log_postprint")
-func legacyLogPostPrint(startLine: Int, endLine: Int, startColumn: Int, endColumn: Int) -> AnyObject {
+public func legacyLogPostPrint(startLine: Int, endLine: Int, startColumn: Int, endColumn: Int) -> AnyObject {
     let printedString = Thread.current.threadDictionary[printedStringThreadDictionaryKey] as! String? ?? ""
     
     Thread.current.threadDictionary.removeObject(forKey: printedStringThreadDictionaryKey)
