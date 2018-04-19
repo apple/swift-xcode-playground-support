@@ -894,9 +894,7 @@ extension UInt64 {
 
 extension String {
 	init (rawBytes: [UInt8]) {
-        self = rawBytes.withUnsafeBufferPointer { (storage : UnsafeBufferPointer<UInt8>) in
-            return String._fromCodeUnitSequenceWithRepair(UTF8.self, input: storage).0
-        }
+        self = String(decoding: rawBytes, as: UTF8.self)
     }
     
     init? (storage: BytesStorage) {
