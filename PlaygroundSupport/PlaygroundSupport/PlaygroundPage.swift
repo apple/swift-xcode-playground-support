@@ -14,6 +14,8 @@
 import UIKit
 #elseif os(macOS)
 import AppKit
+#elseif os(watchOS)
+import Foundation
 #endif
 
 /// The URL for the directory where data which is shared between all playgrounds may be stored.
@@ -128,6 +130,17 @@ public enum PlaygroundLiveViewRepresentation {
     ///
     /// - note: This view controller must be the root of a view controller hierarchy (i.e. it has no parent view controller), and its view must *not* have a superview.
     case viewController(NSViewController)
+#elseif os(watchOS)
+    /// A view which will be displayed as the live view.
+    ///
+    /// - note: This view must be the root of a view hierarchy (i.e. it must not have a superview), and it must *not* be owned by a view controller.
+    case view(UIView)
+
+    /// A view controller whose view will be displayed as the live view.
+    ///
+    /// - note: This view controller must be the root of a view controller hierarchy (i.e. it has no parent view controller), and its view must *not* have a superview.
+    case viewController(UIViewController)
+
 
 #endif
 }
@@ -173,6 +186,22 @@ extension NSView: PlaygroundLiveViewable {
 }
 
 extension NSViewController: PlaygroundLiveViewable {
+    public var playgroundLiveViewRepresentation: PlaygroundLiveViewRepresentation {
+        get {
+            return .viewController(self)
+        }
+    }
+}
+#elseif os(watchOS)
+extension UIView: PlaygroundLiveViewable {
+    public var playgroundLiveViewRepresentation: PlaygroundLiveViewRepresentation {
+        get {
+            return .view(self)
+        }
+    }
+}
+
+extension UIViewController: PlaygroundLiveViewable {
     public var playgroundLiveViewRepresentation: PlaygroundLiveViewRepresentation {
         get {
             return .viewController(self)
