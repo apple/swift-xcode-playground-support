@@ -341,7 +341,21 @@ class LegacyPlaygroundLoggerTests: XCTestCase {
             XCTFail("Decoded payload is not an image")
             return
         }
-        XCTAssertEqual(payloadImage.size, size)
+
+        let expectedSize: CGSize
+        #if os(macOS)
+            // On macOS, the image we create above is rendered at a scale factor. We get the best-available scale factor from all screens and use that when creating our expectation.
+            let scaleFactor = NSScreen.screens.reduce(1.0) { previousBestScaleFactor, screen in
+                return max(previousBestScaleFactor, screen.backingScaleFactor)
+            }
+
+            expectedSize = CGSize(width: size.width * scaleFactor, height: size.height * scaleFactor)
+        #elseif os(iOS) || os(tvOS)
+            // On iOS and tvOS, we expect the output image to be the same size as the input image.
+            expectedSize = size
+        #endif
+
+        XCTAssertEqual(payloadImage.size, expectedSize)
     }
     
     // testSpriteKitLogging() is excluded, as it cannot be trivially ported.
