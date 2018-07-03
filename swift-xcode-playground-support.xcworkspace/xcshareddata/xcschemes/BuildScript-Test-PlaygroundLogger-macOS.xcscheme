@@ -21,6 +21,11 @@
                BlueprintName = "PlaygroundLoggerTests_macOS"
                ReferencedContainer = "container:PlaygroundLogger/PlaygroundLogger.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "LegacyPlaygroundLoggerTests/testSKShapeNode()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
