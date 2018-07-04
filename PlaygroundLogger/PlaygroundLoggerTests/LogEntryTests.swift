@@ -80,4 +80,42 @@ class LogEntryTests: XCTestCase {
         let encoder = LogEncoder()
         try logEntry.encode(with: encoder, format: .current)
     }
+
+    func testLargeSet() throws {
+        let set = Set(1...1000)
+
+        let logEntry = try LogEntry(describing: set, name: "set", policy: .default)
+
+        guard case let .structured(name, _, _, totalChildrenCount, children, disposition) = logEntry else {
+            XCTFail("Expected a structured log entry")
+            return
+        }
+
+        XCTAssertEqual(name, "set")
+        XCTAssertEqual(totalChildrenCount, 1000)
+        XCTAssertEqual(children.count, 101)
+
+        for (index, childEntry) in children.enumerated() {
+            if index == 80 {
+                // We expect the 81st child to be a gap based on the default logging policy for containers.
+                guard case .gap = childEntry else {
+                    XCTFail("Expected this entry to be a gap entry!")
+                    return
+                }
+            }
+            else {
+                // We expect all other children to be opaque entries representing the Ints in the set.
+                guard case let .opaque(_, _, _, _, representation) = childEntry else {
+                    XCTFail("Expected this entry to be an opaque entry!")
+                    return
+                }
+
+                // We don't know the precise value, due to hashing in the set.
+                // But we *do* know that the value should be an Int64, so check that at least.
+                XCTAssert(representation is Int64)
+            }
+        }
+
+        XCTAssertEqual(disposition, .membershipContainer)
+    }
 }

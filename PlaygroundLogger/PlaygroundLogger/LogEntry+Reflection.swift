@@ -222,17 +222,11 @@ extension Mirror {
                 numberOfChildren = count
             }
 
-            let start = children.startIndex
-            let max = children.index(start, offsetBy: numberOfChildren)
-
-            return superclassEntries + children[start..<max].map(logEntry(forChild:))
+            return superclassEntries + children.prefix(numberOfChildren).map(logEntry(forChild:))
         }
 
         func logEntries(forLastChildren count: Int) -> [LogEntry] {
-            let max = children.endIndex
-            let start = children.index(max, offsetBy: -count)
-
-            return children[start..<max].map(logEntry(forChild:))
+            return children.suffix(count).map(logEntry(forChild:))
         }
 
         // Ensure that our children are loggable (i.e. their depth is not prohibited by our current policy).
