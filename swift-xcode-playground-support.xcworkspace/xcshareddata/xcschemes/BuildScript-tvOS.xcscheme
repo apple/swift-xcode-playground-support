@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A80FEB081C59453A004E722A"
+               BlueprintIdentifier = "5E2646261FB64876002DC6B6"
                BuildableName = "PlaygroundLogger.framework"
-               BlueprintName = "PlaygroundLogger_tvOS"
+               BlueprintName = "PlaygroundLogger"
                ReferencedContainer = "container:PlaygroundLogger/PlaygroundLogger.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -54,17 +54,16 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A80FEB081C59453A004E722A"
-            BuildableName = "PlaygroundLogger.framework"
-            BlueprintName = "PlaygroundLogger_tvOS"
-            ReferencedContainer = "container:PlaygroundLogger/PlaygroundLogger.xcodeproj">
+            BlueprintIdentifier = "A8318FB41CF603790015809A"
+            BuildableName = "PlaygroundSupport.framework"
+            BlueprintName = "PlaygroundSupport_tvOS"
+            ReferencedContainer = "container:PlaygroundSupport/PlaygroundSupport.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -74,7 +73,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -84,10 +82,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A80FEB081C59453A004E722A"
-            BuildableName = "PlaygroundLogger.framework"
-            BlueprintName = "PlaygroundLogger_tvOS"
-            ReferencedContainer = "container:PlaygroundLogger/PlaygroundLogger.xcodeproj">
+            BlueprintIdentifier = "A8318FB41CF603790015809A"
+            BuildableName = "PlaygroundSupport.framework"
+            BlueprintName = "PlaygroundSupport_tvOS"
+            ReferencedContainer = "container:PlaygroundSupport/PlaygroundSupport.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -102,10 +100,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A80FEB081C59453A004E722A"
-            BuildableName = "PlaygroundLogger.framework"
-            BlueprintName = "PlaygroundLogger_tvOS"
-            ReferencedContainer = "container:PlaygroundLogger/PlaygroundLogger.xcodeproj">
+            BlueprintIdentifier = "A8318FB41CF603790015809A"
+            BuildableName = "PlaygroundSupport.framework"
+            BlueprintName = "PlaygroundSupport_tvOS"
+            ReferencedContainer = "container:PlaygroundSupport/PlaygroundSupport.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
