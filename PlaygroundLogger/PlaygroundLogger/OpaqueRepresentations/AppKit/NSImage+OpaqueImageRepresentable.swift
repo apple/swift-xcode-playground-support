@@ -34,7 +34,14 @@
 
         func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) throws {
             guard let bitmapRep = self.bestBitmapRepresentation else {
-                throw LoggingError.encodingFailure(reason: "Failed to get a bitmap representation of this NSImage")
+                if size == .zero {
+                    // If we couldn't get a bitmap representation because the image was empty, encode empty PNG data.
+                    encoder.encode(number: 0)
+                    return
+                }
+                else {
+                    throw LoggingError.encodingFailure(reason: "Failed to get a bitmap representation of this NSImage")
+                }
             }
 
             try bitmapRep.encodeImage(into: encoder, withFormat: format)
