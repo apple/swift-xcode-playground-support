@@ -92,7 +92,11 @@ class LogEntryTests: XCTestCase {
         }
 
         XCTAssertEqual(name, "set")
+
+        // We expect `totalChildrenCount` to be 1000 because `set` has 1000 elements.
         XCTAssertEqual(totalChildrenCount, 1000)
+
+        // We expect `children.count` to be 101 due to the default logging policy, which encodes the first 80 and the last 20 children when there's more than 100 children, plus a gap in between to indicate what was elided.
         XCTAssertEqual(children.count, 101)
 
         for (index, childEntry) in children.enumerated() {
