@@ -16,7 +16,15 @@
     extension UIImage: OpaqueImageRepresentable {
         func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) throws {
             guard let pngData = UIImagePNGRepresentation(self) else {
-                throw LoggingError.encodingFailure(reason: "Failed to convert UIImage to PNG")
+                if size == .zero {
+                    // We tried encoding an empty image, so it understandably failed.
+                    // In this case, simply encode empty PNG data.
+                    encoder.encode(number: 0)
+                    return
+                }
+                else {
+                    throw LoggingError.encodingFailure(reason: "Failed to convert UIImage to PNG")
+                }
             }
 
             encoder.encode(number: UInt64(pngData.count))
