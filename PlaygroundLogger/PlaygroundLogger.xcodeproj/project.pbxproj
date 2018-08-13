@@ -93,6 +93,8 @@
 		5EF6403E204148B80007BDD2 /* NSBezierPath+PGLKeyedArchivingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6403C204148B80007BDD2 /* NSBezierPath+PGLKeyedArchivingUtilities.m */; settings = {COMPILER_FLAGS = "-fobjc-arc-exceptions"; }; };
 		5EF64041204149DE0007BDD2 /* UIBezierPath+PGLKeyedArchivingUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EF6403F204149DE0007BDD2 /* UIBezierPath+PGLKeyedArchivingUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5EF64042204149DE0007BDD2 /* UIBezierPath+PGLKeyedArchivingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF64040204149DE0007BDD2 /* UIBezierPath+PGLKeyedArchivingUtilities.m */; settings = {COMPILER_FLAGS = "-fobjc-arc-exceptions"; }; };
+		5EFB2A5321211BC300BA43D3 /* PGLThreadIsLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EFB2A5121211BC300BA43D3 /* PGLThreadIsLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5EFB2A5421211BC300BA43D3 /* PGLThreadIsLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB2A5221211BC300BA43D3 /* PGLThreadIsLogging.m */; };
 		5EFE9193203F6CF900E21BAA /* LegacyPlaygroundLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */; };
 		5EFE919B203F6DD700E21BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFE919A203F6DD700E21BAA /* AppDelegate.swift */; };
 		5EFE919D203F6DD700E21BAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFE919C203F6DD700E21BAA /* ViewController.swift */; };
@@ -269,6 +271,8 @@
 		5EF6403C204148B80007BDD2 /* NSBezierPath+PGLKeyedArchivingUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+PGLKeyedArchivingUtilities.m"; sourceTree = "<group>"; };
 		5EF6403F204149DE0007BDD2 /* UIBezierPath+PGLKeyedArchivingUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+PGLKeyedArchivingUtilities.h"; sourceTree = "<group>"; };
 		5EF64040204149DE0007BDD2 /* UIBezierPath+PGLKeyedArchivingUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+PGLKeyedArchivingUtilities.m"; sourceTree = "<group>"; };
+		5EFB2A5121211BC300BA43D3 /* PGLThreadIsLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGLThreadIsLogging.h; sourceTree = "<group>"; };
+		5EFB2A5221211BC300BA43D3 /* PGLThreadIsLogging.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGLThreadIsLogging.m; sourceTree = "<group>"; };
 		5EFE9189203F6CC400E21BAA /* PlaygroundLoggerTests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundLoggerTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EFE918D203F6CC400E21BAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EFE9198203F6DD700E21BAA /* PlaygroundLoggerTestHost_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaygroundLoggerTestHost_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -354,6 +358,7 @@
 				5EFE91B1203F6E8D00E21BAA /* PlaygroundLoggerTestHost_tvOS */,
 				5E11805820414E0C00B73EE9 /* Config Files */,
 				5E2646281FB64876002DC6B6 /* Products */,
+				5EFB2A352121145E00BA43D3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -599,8 +604,17 @@
 				5E184716202BB80200F01AD1 /* PGLConcurrentMap.h */,
 				5E184717202BB80200F01AD1 /* PGLConcurrentMap_MRR.m */,
 				5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */,
+				5EFB2A5121211BC300BA43D3 /* PGLThreadIsLogging.h */,
+				5EFB2A5221211BC300BA43D3 /* PGLThreadIsLogging.m */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5EFB2A352121145E00BA43D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5EFE918A203F6CC400E21BAA /* PlaygroundLoggerTests_iOS */ = {
@@ -651,6 +665,7 @@
 			files = (
 				5E184718202BB80200F01AD1 /* PGLConcurrentMap.h in Headers */,
 				5EF64041204149DE0007BDD2 /* UIBezierPath+PGLKeyedArchivingUtilities.h in Headers */,
+				5EFB2A5321211BC300BA43D3 /* PGLThreadIsLogging.h in Headers */,
 				5EF6403D204148B80007BDD2 /* NSBezierPath+PGLKeyedArchivingUtilities.h in Headers */,
 				5EF64039204145A80007BDD2 /* NSAttributedString+PGLKeyedArchivingUtilities.h in Headers */,
 				5E2646381FB64876002DC6B6 /* PlaygroundLogger.h in Headers */,
@@ -778,7 +793,7 @@
 		5E26461E1FB64876002DC6B6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Apple Inc. and the Swift project authors";
 				TargetAttributes = {
@@ -952,6 +967,7 @@
 				5E2755CF1FB657F200B69C83 /* LogEntry.swift in Sources */,
 				5E2756221FC4873000B69C83 /* UInt64+TaggedOpaqueRepresentation.swift in Sources */,
 				5E2756281FC4895100B69C83 /* Double+TaggedOpaqueRepresentation.swift in Sources */,
+				5EFB2A5421211BC300BA43D3 /* PGLThreadIsLogging.m in Sources */,
 				5E2756481FC4DE1500B69C83 /* NSView+OpaqueImageRepresentable.swift in Sources */,
 				5E2755D31FB672DC00B69C83 /* SendData.swift in Sources */,
 				5E27567E1FCF429900B69C83 /* NSCursor+CustomOpaqueLoggable.swift in Sources */,
