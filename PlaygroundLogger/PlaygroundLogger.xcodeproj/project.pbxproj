@@ -82,6 +82,12 @@
 		5E5D77842040F5E900EBC3A9 /* LoggingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5D77832040F5E900EBC3A9 /* LoggingError.swift */; };
 		5E5F600B20409D4E007EF0A8 /* LogPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F600A20409D4E007EF0A8 /* LogPolicy.swift */; };
 		5E5FE50B202D13C800E28C3C /* PGLConcurrentMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */; };
+		5EB651C0213A01D0001CC984 /* LegacyEntrypointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB651BF213A01D0001CC984 /* LegacyEntrypointTests.swift */; };
+		5EB651C1213A01D0001CC984 /* LegacyEntrypointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB651BF213A01D0001CC984 /* LegacyEntrypointTests.swift */; };
+		5EB651C2213A01D0001CC984 /* LegacyEntrypointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB651BF213A01D0001CC984 /* LegacyEntrypointTests.swift */; };
+		5EB651C4213A081A001CC984 /* LoggerEntrypointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB651C3213A081A001CC984 /* LoggerEntrypointTests.swift */; };
+		5EB651C5213A081A001CC984 /* LoggerEntrypointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB651C3213A081A001CC984 /* LoggerEntrypointTests.swift */; };
+		5EB651C6213A081A001CC984 /* LoggerEntrypointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB651C3213A081A001CC984 /* LoggerEntrypointTests.swift */; };
 		5ECE8F911FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */; };
 		5EE3867420352F3200D625F0 /* CGFloat+CustomOpaqueLoggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3867320352F3200D625F0 /* CGFloat+CustomOpaqueLoggable.swift */; };
 		5EF581532041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF581512041384700AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift */; };
@@ -262,6 +268,8 @@
 		5E5D77832040F5E900EBC3A9 /* LoggingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingError.swift; sourceTree = "<group>"; };
 		5E5F600A20409D4E007EF0A8 /* LogPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPolicy.swift; sourceTree = "<group>"; };
 		5E5FE50A202D13C800E28C3C /* PGLConcurrentMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGLConcurrentMap.swift; sourceTree = "<group>"; };
+		5EB651BF213A01D0001CC984 /* LegacyEntrypointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyEntrypointTests.swift; sourceTree = "<group>"; };
+		5EB651C3213A081A001CC984 /* LoggerEntrypointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerEntrypointTests.swift; sourceTree = "<group>"; };
 		5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyPlaygroundLoggerTests.swift; sourceTree = "<group>"; };
 		5EE3867320352F3200D625F0 /* CGFloat+CustomOpaqueLoggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+CustomOpaqueLoggable.swift"; sourceTree = "<group>"; };
 		5EF581512041384700AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlaygroundDisplayConvertibleTests.swift; sourceTree = "<group>"; };
@@ -405,6 +413,8 @@
 				5EF581512041384700AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift */,
 				5E48E0A92042925B00C7712D /* LogEntryTests.swift */,
 				5E5D777F2040BD7D00EBC3A9 /* LogPolicyTests.swift */,
+				5EB651C3213A081A001CC984 /* LoggerEntrypointTests.swift */,
+				5EB651BF213A01D0001CC984 /* LegacyEntrypointTests.swift */,
 				5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */,
 			);
 			path = PlaygroundLoggerTests;
@@ -980,6 +990,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EB651C0213A01D0001CC984 /* LegacyEntrypointTests.swift in Sources */,
+				5EB651C4213A081A001CC984 /* LoggerEntrypointTests.swift in Sources */,
 				5E5D77802040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */,
 				5E48E0AA2042925B00C7712D /* LogEntryTests.swift in Sources */,
 				5EF581532041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */,
@@ -991,6 +1003,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EB651C1213A01D0001CC984 /* LegacyEntrypointTests.swift in Sources */,
+				5EB651C5213A081A001CC984 /* LoggerEntrypointTests.swift in Sources */,
 				5E5D77812040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */,
 				5E48E0AB2042925B00C7712D /* LogEntryTests.swift in Sources */,
 				5EF581542041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */,
@@ -1020,6 +1034,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EB651C2213A01D0001CC984 /* LegacyEntrypointTests.swift in Sources */,
+				5EB651C6213A081A001CC984 /* LoggerEntrypointTests.swift in Sources */,
 				5E5D77822040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */,
 				5E48E0AC2042925B00C7712D /* LogEntryTests.swift in Sources */,
 				5EF581552041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */,
