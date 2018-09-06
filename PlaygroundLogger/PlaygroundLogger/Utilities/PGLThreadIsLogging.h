@@ -24,4 +24,14 @@ __BEGIN_DECLS
 /// themselves logged.
 extern __thread bool PGLThreadIsLogging;
 
+/// A helper function to get the value of `PGLThreadIsLogging` safely from Swift.
+static inline bool PGLGetThreadIsLogging(void) {
+    return PGLThreadIsLogging;
+}
+
+/// A helper function to set the value of `PGLThreadIsLogging` safely from Swift.
+static inline void PGLSetThreadIsLogging(bool threadIsLogging) {
+    PGLThreadIsLogging = threadIsLogging;
+}
+
 __END_DECLS

@@ -36,9 +36,9 @@ fileprivate func legacySendDataStub(_: NSData) -> Void {
 
 @_silgen_name("playground_log_hidden")
 public func legacyLog<T>(instance: T, name: String, id: Int, startLine: Int, endLine: Int, startColumn: Int, endColumn: Int) -> AnyObject? {
-    guard !PGLThreadIsLogging else { return nil }
-    PGLThreadIsLogging = true
-    defer { PGLThreadIsLogging = false }
+    guard !PGLGetThreadIsLogging() else { return nil }
+    PGLSetThreadIsLogging(true)
+    defer { PGLSetThreadIsLogging(false) }
     
     let packet = LogPacket(describingResult: instance, named: name, withPolicy: .default, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
 
@@ -73,9 +73,9 @@ public func legacyLog<T>(instance: T, name: String, id: Int, startLine: Int, end
 
 @_silgen_name ("playground_log_scope_entry")
 public func legacyLogScopeEntry(startLine: Int, endLine: Int, startColumn: Int, endColumn: Int) -> AnyObject? {
-    guard !PGLThreadIsLogging else { return nil }
-    PGLThreadIsLogging = true
-    defer { PGLThreadIsLogging = false }
+    guard !PGLGetThreadIsLogging() else { return nil }
+    PGLSetThreadIsLogging(true)
+    defer { PGLSetThreadIsLogging(false) }
     
     let packet = LogPacket(scopeEntryWithStartLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
 
@@ -87,9 +87,9 @@ public func legacyLogScopeEntry(startLine: Int, endLine: Int, startColumn: Int, 
 
 @_silgen_name ("playground_log_scope_exit")
 public func legacyLogScopeExit(startLine: Int, endLine: Int, startColumn: Int, endColumn: Int) -> AnyObject? {
-    guard !PGLThreadIsLogging else { return nil }
-    PGLThreadIsLogging = true
-    defer { PGLThreadIsLogging = false }
+    guard !PGLGetThreadIsLogging() else { return nil }
+    PGLSetThreadIsLogging(true)
+    defer { PGLSetThreadIsLogging(false) }
     
     let packet = LogPacket(scopeExitWithStartLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
 
@@ -101,9 +101,9 @@ public func legacyLogScopeExit(startLine: Int, endLine: Int, startColumn: Int, e
 
 @_silgen_name ("playground_log_postprint")
 public func legacyLogPostPrint(startLine: Int, endLine: Int, startColumn: Int, endColumn: Int) -> AnyObject? {
-    guard !PGLThreadIsLogging else { return nil }
-    PGLThreadIsLogging = true
-    defer { PGLThreadIsLogging = false }
+    guard !PGLGetThreadIsLogging() else { return nil }
+    PGLSetThreadIsLogging(true)
+    defer { PGLSetThreadIsLogging(false) }
     
     let printedString = Thread.current.threadDictionary[printedStringThreadDictionaryKey] as! String? ?? ""
     
