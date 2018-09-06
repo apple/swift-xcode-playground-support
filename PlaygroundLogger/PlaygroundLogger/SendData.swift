@@ -12,7 +12,7 @@
 
 import Foundation
 
-fileprivate func unsetSendData(_: NSData) {
+internal /*testable*/ func unsetSendData(_: NSData) {
     fatalError("PlaygroundLogger not initialized")
 }
 

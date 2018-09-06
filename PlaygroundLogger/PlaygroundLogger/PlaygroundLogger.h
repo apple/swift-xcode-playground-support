@@ -19,6 +19,7 @@ FOUNDATION_EXPORT double PlaygroundLoggerVersionNumber;
 FOUNDATION_EXPORT const unsigned char PlaygroundLoggerVersionString[];
 
 #import <PlaygroundLogger/PGLConcurrentMap.h>
+#import <PlaygroundLogger/PGLThreadIsLogging.h>
 
 #import <PlaygroundLogger/NSAttributedString+PGLKeyedArchivingUtilities.h>
 #import <PlaygroundLogger/NSBezierPath+PGLKeyedArchivingUtilities.h>

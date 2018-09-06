@@ -19,6 +19,10 @@ func logResult(_ result: Any,
                endLine: Int,
                startColumn: Int,
                endColumn: Int) {
+    guard !PGLGetThreadIsLogging() else { return }
+    PGLSetThreadIsLogging(true)
+    defer { PGLSetThreadIsLogging(false) }
+    
     let packet = LogPacket(describingResult: result, named: name, withPolicy: .default, startLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
     
     let data: Data
@@ -54,6 +58,10 @@ func logScopeEntry(startLine: Int,
                    endLine: Int,
                    startColumn: Int,
                    endColumn: Int) {
+    guard !PGLGetThreadIsLogging() else { return }
+    PGLSetThreadIsLogging(true)
+    defer { PGLSetThreadIsLogging(false) }
+    
     let packet = LogPacket(scopeEntryWithStartLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
 
     // Encoding a scope entry packet should not fail under any circumstances.
@@ -66,6 +74,10 @@ func logScopeExit(startLine: Int,
                   endLine: Int,
                   startColumn: Int,
                   endColumn: Int) {
+    guard !PGLGetThreadIsLogging() else { return }
+    PGLSetThreadIsLogging(true)
+    defer { PGLSetThreadIsLogging(false) }
+    
     let packet = LogPacket(scopeExitWithStartLine: startLine, endLine: endLine, startColumn: startColumn, endColumn: endColumn)
 
     // Encoding a scope exit packet should not fail under any circumstances.
@@ -77,6 +89,9 @@ func logScopeExit(startLine: Int,
 let printedStringThreadDictionaryKey: NSString = "org.swift.PlaygroundLogger.printedString"
 
 func printHook(string: String) {
+    // Don't store the printed string if we're already logging elsewhere in this thread.
+    guard !PGLGetThreadIsLogging() else { return }
+    
     Thread.current.threadDictionary[printedStringThreadDictionaryKey] = string as NSString
 }
 
@@ -84,6 +99,10 @@ func logPostPrint(startLine: Int,
                   endLine: Int,
                   startColumn: Int,
                   endColumn: Int) {
+    guard !PGLGetThreadIsLogging() else { return }
+    PGLSetThreadIsLogging(true)
+    defer { PGLSetThreadIsLogging(false) }
+    
     guard let printedString = Thread.current.threadDictionary[printedStringThreadDictionaryKey] as! String? else {
         return
     }
