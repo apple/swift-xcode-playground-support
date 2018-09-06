@@ -19,7 +19,7 @@ __BEGIN_DECLS
 /// logging.
 ///
 /// This is used by the functions in LoggerEntrypoints.swift and
-/// LegacyEntrypoints.swift to prevent generating log packets while in already
+/// LegacyEntrypoints.swift to prevent generating log packets while already
 /// generating a log packet. It means the side-effects of logging are not
 /// themselves logged.
 extern __thread bool PGLThreadIsLogging;
