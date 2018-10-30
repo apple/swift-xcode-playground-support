@@ -25,6 +25,9 @@ fileprivate typealias ViewType = UIView
 fileprivate typealias ViewControllerType = UIViewController
 #endif
 
+// This is intentionally redefined here in the tests, as this string cannot change as it has clients which refer to it by the string value rather than by symbol.
+let playgroundPageLiveViewDidChangeNotification = Notification.Name(rawValue: "XCPlaygroundPageLiveViewDidChangeNotification")
+
 class LiveViewTests: XCTestCase {
 
     override func setUp() {
@@ -41,7 +44,7 @@ class LiveViewTests: XCTestCase {
         let view = ViewType()
 
         // Test setting to a view
-        expectation(forNotification: "XCPlaygroundPageLiveViewDidChangeNotification", object: XCPlaygroundPage.currentPage) { (notification) in
+        expectation(forNotification: playgroundPageLiveViewDidChangeNotification, object: XCPlaygroundPage.currentPage) { (notification) in
             guard let userInfoView = notification.userInfo?["XCPlaygroundPageLiveView"] as? ViewType else { return false }
             guard notification.userInfo?["XCPlaygroundPageLiveViewController"] == nil else { return false }
             XCTAssertEqual(userInfoView, view)
@@ -51,7 +54,7 @@ class LiveViewTests: XCTestCase {
         waitForExpectations(timeout: 0.1, handler: nil)
 
         // Test setting back to nil
-        expectation(forNotification: "XCPlaygroundPageLiveViewDidChangeNotification", object: XCPlaygroundPage.currentPage) { (notification) in
+        expectation(forNotification: playgroundPageLiveViewDidChangeNotification, object: XCPlaygroundPage.currentPage) { (notification) in
             guard notification.userInfo?["XCPlaygroundPageLiveView"] == nil else { return false }
             guard notification.userInfo?["XCPlaygroundPageLiveViewController"] == nil else { return false }
             return true
@@ -64,7 +67,7 @@ class LiveViewTests: XCTestCase {
         let viewController = ViewControllerType()
 
         // Test setting to a view controller
-        expectation(forNotification: "XCPlaygroundPageLiveViewDidChangeNotification", object: XCPlaygroundPage.currentPage) { (notification) in
+        expectation(forNotification: playgroundPageLiveViewDidChangeNotification, object: XCPlaygroundPage.currentPage) { (notification) in
             guard let userInfoViewController = notification.userInfo?["XCPlaygroundPageLiveViewController"] as? ViewControllerType else { return false }
             guard notification.userInfo?["XCPlaygroundPageLiveView"] == nil else { return false }
             XCTAssertEqual(userInfoViewController, viewController)
@@ -74,7 +77,7 @@ class LiveViewTests: XCTestCase {
         waitForExpectations(timeout: 0.1, handler: nil)
 
         // Test setting back to nil
-        expectation(forNotification: "XCPlaygroundPageLiveViewDidChangeNotification", object: XCPlaygroundPage.currentPage) { (notification) in
+        expectation(forNotification: playgroundPageLiveViewDidChangeNotification, object: XCPlaygroundPage.currentPage) { (notification) in
             guard notification.userInfo?["XCPlaygroundPageLiveView"] == nil else { return false }
             guard notification.userInfo?["XCPlaygroundPageLiveViewController"] == nil else { return false }
             return true
@@ -87,7 +90,7 @@ class LiveViewTests: XCTestCase {
 
     func testXCPShowView() {
         let view = ViewType()
-        expectation(forNotification: "XCPlaygroundPageLiveViewDidChangeNotification", object: XCPlaygroundPage.currentPage) { (notification) in
+        expectation(forNotification: playgroundPageLiveViewDidChangeNotification, object: XCPlaygroundPage.currentPage) { (notification) in
             guard let userInfoView = notification.userInfo?["XCPlaygroundPageLiveView"] as? ViewType else { return false }
             XCTAssertEqual(userInfoView, view)
             return true

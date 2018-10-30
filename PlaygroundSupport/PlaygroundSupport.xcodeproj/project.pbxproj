@@ -819,8 +819,14 @@
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Apple Inc.";
 				TargetAttributes = {
+					1DF4116118DCB596001CDFC7 = {
+						LastSwiftMigration = 1010;
+					};
 					5E36505A1B56D83300205D2D = {
 						CreatedOnToolsVersion = 7.0;
+					};
+					620174C9194645E60012C53A = {
+						LastSwiftMigration = 1010;
 					};
 					94182A0A1D25D5F5002CCB9E = {
 						CreatedOnToolsVersion = 8.0;
@@ -850,14 +856,20 @@
 					A83190111CF607C70015809A = {
 						LastSwiftMigration = 1010;
 					};
+					A8E46BDD1ACB6C9D003F5755 = {
+						LastSwiftMigration = 1010;
+					};
 					A8FBD6A21C74FEE6005B5982 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 1010;
 					};
 					A8FBD6B11C752475005B5982 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 1010;
 					};
 					A8FBD6C11C75249E005B5982 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -1308,7 +1320,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				SWIFT_STDLIB = swiftCore;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1342,7 +1354,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				SWIFT_SKIP_IMPLICIT_STDLIB_RUNPATH_SEARCH_PATH = YES;
 				SWIFT_STDLIB = swiftCore;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1535,7 +1547,6 @@
 				SDKROOT = macosx;
 				STRIP_SWIFT_SYMBOLS = NO;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1557,7 +1568,6 @@
 				SDKROOT = macosx;
 				STRIP_SWIFT_SYMBOLS = NO;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1604,7 +1614,6 @@
 				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1647,7 +1656,6 @@
 				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
@@ -1697,7 +1705,6 @@
 				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1740,7 +1747,6 @@
 				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
@@ -1801,7 +1807,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-OSX";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1840,7 +1845,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-OSX";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1882,7 +1886,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1919,7 +1922,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1961,7 +1963,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1997,7 +1998,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

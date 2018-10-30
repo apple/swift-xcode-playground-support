@@ -13,6 +13,9 @@
 import XCTest
 import XCPlayground
 
+// This is intentionally redefined here in the tests, as this string cannot change as it has clients which refer to it by the string value rather than by symbol.
+let captureValueNotification = Notification.Name(rawValue: "XCPCaptureValue")
+
 class CaptureValueTests: XCTestCase {
         
     // MARK: Deprected XCPlaygroundPage
@@ -20,7 +23,7 @@ class CaptureValueTests: XCTestCase {
     func testPlaygroundPageCaptureValue() {
         let value = 321
         let identifier = "My Identifier 101"
-        expectation(forNotification: "XCPCaptureValue", object: XCPlaygroundPage.currentPage) { (notification) in
+        expectation(forNotification: captureValueNotification, object: XCPlaygroundPage.currentPage) { (notification) in
             guard let userInfoValue = notification.userInfo?["value"] as? Int else { return false }
             XCTAssertEqual(userInfoValue, value)
             
@@ -38,7 +41,7 @@ class CaptureValueTests: XCTestCase {
     func testLegacyCaptureValue() {
         let value = 123
         let identifier = "My Identifier"
-        expectation(forNotification: "XCPCaptureValue", object: XCPlaygroundPage.currentPage) { (notification) in
+        expectation(forNotification: captureValueNotification, object: XCPlaygroundPage.currentPage) { (notification) in
             guard let userInfoValue = notification.userInfo?["value"] as? Int else { return false }
             XCTAssertEqual(userInfoValue, value)
             
