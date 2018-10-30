@@ -832,6 +832,24 @@
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
 					};
+					A8318F8F1CF603630015809A = {
+						LastSwiftMigration = 1010;
+					};
+					A8318FA21CF6036E0015809A = {
+						LastSwiftMigration = 1010;
+					};
+					A8318FB41CF603790015809A = {
+						LastSwiftMigration = 1010;
+					};
+					A8318FF51CF607C00015809A = {
+						LastSwiftMigration = 1010;
+					};
+					A83190031CF607C50015809A = {
+						LastSwiftMigration = 1010;
+					};
+					A83190111CF607C70015809A = {
+						LastSwiftMigration = 1010;
+					};
 					A8FBD6A21C74FEE6005B5982 = {
 						CreatedOnToolsVersion = 7.3;
 					};
@@ -1517,6 +1535,7 @@
 				SDKROOT = macosx;
 				STRIP_SWIFT_SYMBOLS = NO;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1538,6 +1557,7 @@
 				SDKROOT = macosx;
 				STRIP_SWIFT_SYMBOLS = NO;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1584,6 +1604,7 @@
 				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1626,6 +1647,7 @@
 				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
@@ -1675,6 +1697,7 @@
 				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1717,6 +1740,7 @@
 				STRIP_SWIFT_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = framework;
@@ -1777,6 +1801,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-OSX";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1815,6 +1840,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-OSX";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1856,6 +1882,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1892,6 +1919,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1933,6 +1961,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1968,6 +1997,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.apple.dt.Xcode.PlaygroundSupportTests-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
