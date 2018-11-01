@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Copyright (c) 2014 - 2018 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -13,24 +13,17 @@
 import XCTest
 import XCPlayground
 
-class XCPlaygroundCommonTests: XCTestCase {
-    
-    // MARK:
-    
-    /*
-    func testFinishExecution() {
-        expectation(forNotification: "XCPFinishExecution", object: XCPlaygroundPage.currentPage, handler: nil)
-        XCPlaygroundPage.currentPage.finishExecution()
-        waitForExpectationsWithTimeout(0.1, handler: nil)
-    }
-    */
-    
+// This is intentionally redefined here in the tests, as this string cannot change as it has clients which refer to it by the string value rather than by symbol.
+let captureValueNotification = Notification.Name(rawValue: "XCPCaptureValue")
+
+class CaptureValueTests: XCTestCase {
+        
     // MARK: Deprected XCPlaygroundPage
     
     func testPlaygroundPageCaptureValue() {
         let value = 321
         let identifier = "My Identifier 101"
-        expectation(forNotification: "XCPCaptureValue", object: XCPlaygroundPage.currentPage) { (notification) in
+        expectation(forNotification: captureValueNotification, object: XCPlaygroundPage.currentPage) { (notification) in
             guard let userInfoValue = notification.userInfo?["value"] as? Int else { return false }
             XCTAssertEqual(userInfoValue, value)
             
@@ -40,7 +33,7 @@ class XCPlaygroundCommonTests: XCTestCase {
             return true
         }
         XCPlaygroundPage.currentPage.captureValue(value: value, withIdentifier: identifier)
-        waitForExpectations(withTimeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.1, handler: nil)
     }
     
     // MARK: Deprecated Functions
@@ -48,7 +41,7 @@ class XCPlaygroundCommonTests: XCTestCase {
     func testLegacyCaptureValue() {
         let value = 123
         let identifier = "My Identifier"
-        expectation(forNotification: "XCPCaptureValue", object: XCPlaygroundPage.currentPage) { (notification) in
+        expectation(forNotification: captureValueNotification, object: XCPlaygroundPage.currentPage) { (notification) in
             guard let userInfoValue = notification.userInfo?["value"] as? Int else { return false }
             XCTAssertEqual(userInfoValue, value)
             
@@ -57,7 +50,7 @@ class XCPlaygroundCommonTests: XCTestCase {
             return true
         }
         XCPCaptureValue(identifier: identifier, value: value)
-        waitForExpectations(withTimeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.1, handler: nil)
     }
     
     func testXCPExecutionShouldContinueIndefinitely() {
