@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2018 Apple Inc. and the Swift project authors
+// Copyright (c) 2018-2019 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -79,6 +79,51 @@ class LogEntryTests: XCTestCase {
         // Try to encode the log entry. This operation shouldn't throw; if it does, it will fail the test.
         let encoder = LogEncoder()
         try logEntry.encode(with: encoder, format: .current)
+    }
+
+    func testViewBackgroundThread() throws {
+        #if os(macOS)
+            let view = NSView(frame: NSRect(x: 0, y: 0, width: 100, height: 100))
+        #elseif os(iOS) || os(tvOS)
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        #endif
+
+        func testLoggingOfView() throws {
+            let logEntry = try LogEntry(describing: view, name: "view", policy: .default)
+
+            guard case let .opaque(name, _, _, _, representation) = logEntry else {
+                XCTFail("Expected an opaque log entry")
+                return
+            }
+
+            XCTAssertEqual(name, "view")
+            XCTAssert(representation is ImageOpaqueRepresentation)
+
+            // Try to encode the log entry. This operation shouldn't throw; if it does, it will fail the test.
+            let encoder = LogEncoder()
+            try logEntry.encode(with: encoder, format: .current)
+        }
+
+        try testLoggingOfView()
+
+        var backgroundTestSucceeded = false
+        let expectation = self.expectation(description: "Background logging expectation")
+
+        DispatchQueue.global().async {
+            do {
+                try testLoggingOfView()
+                backgroundTestSucceeded = true
+            }
+            catch {
+                XCTFail("Logging the view failed")
+            }
+
+            expectation.fulfill()
+        }
+
+        self.wait(for: [expectation], timeout: 5)
+
+        XCTAssertTrue(backgroundTestSucceeded)
     }
 
     func testLargeSet() throws {

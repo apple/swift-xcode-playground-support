@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2017-2018 Apple Inc. and the Swift project authors
+// Copyright (c) 2017-2019 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -15,6 +15,12 @@
     
     extension UIView: OpaqueImageRepresentable {
         func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) {
+            guard Thread.isMainThread else {
+                // If we're not on the main thread, then just encode empty PNG data.
+                encoder.encode(number: 0)
+                return
+            }
+
             let ir = UIGraphicsImageRenderer(size: bounds.size)
             let pngData = ir.pngData { _ in
                 self.drawHierarchy(in: bounds, afterScreenUpdates: true)
