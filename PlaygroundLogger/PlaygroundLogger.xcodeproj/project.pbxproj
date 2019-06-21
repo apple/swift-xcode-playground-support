@@ -710,6 +710,7 @@
 				5E26462C1FB64876002DC6B6 /* Sources */,
 				5E26462D1FB64876002DC6B6 /* Frameworks */,
 				5E26462E1FB64876002DC6B6 /* Resources */,
+				329FAAE222BD3BD100F0D07E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -911,6 +912,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		329FAAE222BD3BD100F0D07E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Workaround rdar://47528005\nfind \"${BUILT_PRODUCTS_DIR}\" -path '*.xctest/Contents/MacOS/*' -or -path '*.framework/Versions/*' -perm +111 -type f -exec install_name_tool -delete_rpath /usr/lib/swift {} \\;\nexit 0\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5E2646221FB64876002DC6B6 /* Sources */ = {
