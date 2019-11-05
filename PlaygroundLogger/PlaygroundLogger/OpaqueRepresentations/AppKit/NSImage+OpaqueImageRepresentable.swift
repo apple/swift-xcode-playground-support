@@ -34,7 +34,7 @@
 
         func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) throws {
             guard let bitmapRep = self.bestBitmapRepresentation else {
-                if size == .zero {
+                if (size == .zero) || self.representations.isEmpty  {
                     // If we couldn't get a bitmap representation because the image was empty, encode empty PNG data.
                     encoder.encode(number: 0)
                     return
