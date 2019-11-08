@@ -28,6 +28,7 @@ extension CIImage: CustomOpaqueLoggable {
             #if os(macOS)
                 let imageRep = NSCIImageRep(ciImage: self)
                 let image = NSImage(size: imageRep.size)
+                image.addRepresentation(imageRep)
             #elseif os(iOS) || os(tvOS)
                 let image = UIImage(ciImage: self)
             #endif
