@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E1069A323CFD68100C79FC2 /* PGLNilObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1069A223CFD68100C79FC2 /* PGLNilObject.m */; };
+		5E1069A423CFD68100C79FC2 /* PGLNilObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1069A223CFD68100C79FC2 /* PGLNilObject.m */; };
+		5E1069A523CFD68100C79FC2 /* PGLNilObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1069A223CFD68100C79FC2 /* PGLNilObject.m */; };
 		5E184715202BB72700F01AD1 /* TypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E184714202BB72700F01AD1 /* TypeName.swift */; };
 		5E184718202BB80200F01AD1 /* PGLConcurrentMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E184716202BB80200F01AD1 /* PGLConcurrentMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E184719202BB80200F01AD1 /* PGLConcurrentMap_MRR.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E184717202BB80200F01AD1 /* PGLConcurrentMap_MRR.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -192,6 +195,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5E10699E23CFD68100C79FC2 /* PlaygroundLoggerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlaygroundLoggerTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		5E1069A123CFD68100C79FC2 /* PGLNilObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGLNilObject.h; sourceTree = "<group>"; };
+		5E1069A223CFD68100C79FC2 /* PGLNilObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGLNilObject.m; sourceTree = "<group>"; };
 		5E11805920414E2700B73EE9 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = ../XcodeConfig/Debug.xcconfig; sourceTree = "<group>"; };
 		5E11805A20414E2700B73EE9 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = ../XcodeConfig/Release.xcconfig; sourceTree = "<group>"; };
 		5E184714202BB72700F01AD1 /* TypeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeName.swift; sourceTree = "<group>"; };
@@ -416,6 +422,9 @@
 				5EB651C3213A081A001CC984 /* LoggerEntrypointTests.swift */,
 				5EB651BF213A01D0001CC984 /* LegacyEntrypointTests.swift */,
 				5ECE8F901FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift */,
+				5E1069A123CFD68100C79FC2 /* PGLNilObject.h */,
+				5E1069A223CFD68100C79FC2 /* PGLNilObject.m */,
+				5E10699E23CFD68100C79FC2 /* PlaygroundLoggerTests-Bridging-Header.h */,
 			);
 			path = PlaygroundLoggerTests;
 			sourceTree = "<group>";
@@ -814,12 +823,12 @@
 					};
 					5E26462F1FB64876002DC6B6 = {
 						CreatedOnToolsVersion = 9.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					5EFE9188203F6CC400E21BAA = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 5EFE9197203F6DD700E21BAA;
 					};
@@ -835,7 +844,7 @@
 					};
 					5EFE91CC203F6F6900E21BAA = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 5EFE91AF203F6E8D00E21BAA;
 					};
@@ -1000,6 +1009,7 @@
 				5E5D77802040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */,
 				5E48E0AA2042925B00C7712D /* LogEntryTests.swift in Sources */,
 				5EF581532041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */,
+				5E1069A323CFD68100C79FC2 /* PGLNilObject.m in Sources */,
 				5ECE8F911FFCD2A70034D9BC /* LegacyPlaygroundLoggerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1013,6 +1023,7 @@
 				5E5D77812040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */,
 				5E48E0AB2042925B00C7712D /* LogEntryTests.swift in Sources */,
 				5EF581542041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */,
+				5E1069A423CFD68100C79FC2 /* PGLNilObject.m in Sources */,
 				5EFE9193203F6CF900E21BAA /* LegacyPlaygroundLoggerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1044,6 +1055,7 @@
 				5E5D77822040BD7D00EBC3A9 /* LogPolicyTests.swift in Sources */,
 				5E48E0AC2042925B00C7712D /* LogEntryTests.swift in Sources */,
 				5EF581552041387C00AC14FE /* CustomPlaygroundDisplayConvertibleTests.swift in Sources */,
+				5E1069A523CFD68100C79FC2 /* PGLNilObject.m in Sources */,
 				5EFE91D7203F6F8100E21BAA /* LegacyPlaygroundLoggerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1263,6 +1275,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = PlaygroundLoggerTests_macOS/Info.plist;
@@ -1270,6 +1283,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTests-macOS";
 				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PlaygroundLoggerTests/PlaygroundLoggerTests-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -1277,6 +1291,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = PlaygroundLoggerTests_macOS/Info.plist;
@@ -1284,12 +1299,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.swift.PlaygroundLoggerTests-macOS";
 				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PlaygroundLoggerTests/PlaygroundLoggerTests-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		5EFE918E203F6CC400E21BAA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
@@ -1301,6 +1318,7 @@
 				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "PlaygroundLoggerTests/PlaygroundLoggerTests-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlaygroundLoggerTestHost_iOS.app/PlaygroundLoggerTestHost_iOS";
 			};
@@ -1309,6 +1327,7 @@
 		5EFE918F203F6CC400E21BAA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
@@ -1320,6 +1339,7 @@
 				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "PlaygroundLoggerTests/PlaygroundLoggerTests-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlaygroundLoggerTestHost_iOS.app/PlaygroundLoggerTestHost_iOS";
 				VALIDATE_PRODUCT = YES;
@@ -1403,6 +1423,7 @@
 		5EFE91D5203F6F6A00E21BAA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
@@ -1414,6 +1435,7 @@
 				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = "PlaygroundLoggerTests/PlaygroundLoggerTests-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlaygroundLoggerTestHost_tvOS.app/PlaygroundLoggerTestHost_tvOS";
 			};
@@ -1422,6 +1444,7 @@
 		5EFE91D6203F6F6A00E21BAA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
@@ -1433,6 +1456,7 @@
 				PRODUCT_MODULE_NAME = PlaygroundLoggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = "PlaygroundLoggerTests/PlaygroundLoggerTests-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlaygroundLoggerTestHost_tvOS.app/PlaygroundLoggerTestHost_tvOS";
 				VALIDATE_PRODUCT = YES;
