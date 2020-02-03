@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2018-2019 Apple Inc. and the Swift project authors
+// Copyright (c) 2018-2020 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -166,5 +166,54 @@ class LogEntryTests: XCTestCase {
         }
 
         XCTAssertEqual(disposition, .membershipContainer)
+    }
+
+    func testOptionalNilObject() throws {
+        let object: NSObject? = nil
+
+        let logEntry = try LogEntry(describing: object as Any, name: "object", policy: .default)
+
+        guard case let .structured(name, typeName, summary, totalChildrenCount, children, disposition) = logEntry else {
+            XCTFail("Expected to receive a structured log entry, but didn't")
+            return
+        }
+
+        XCTAssertEqual(name, "object")
+        XCTAssert(typeName.hasPrefix("Optional<"))
+        XCTAssertEqual(summary, "nil")
+        XCTAssertEqual(totalChildrenCount, 0)
+        XCTAssert(children.isEmpty)
+
+        guard case .aggregate = disposition else {
+            XCTFail("Expected to receive an aggregate, but didn't")
+            return
+        }
+    }
+
+    func testNonOptionalNilObject() throws {
+        // PGLNilObject is a type which returns nil from -init.
+        // This occurs despite the fact that -init is marked as return a nonnull value.
+        // This allows us to test PlaygroundLogger against Objective-C types which have bad nullability annotations.
+        let object: PGLNilObject = PGLNilObject()
+
+        XCTAssertEqual(Int(bitPattern: ObjectIdentifier(object)), 0, "We expect PGLNilObject to produce a nil object")
+
+        let logEntry = try LogEntry(describing: object, name: "object", policy: .default)
+
+        guard case let .structured(name, typeName, summary, totalChildrenCount, children, disposition) = logEntry else {
+            XCTFail("Expected to receive an error log entry, but didn't")
+            return
+        }
+
+        XCTAssertEqual(name, "object")
+        XCTAssertEqual(typeName, "PGLNilObject")
+        XCTAssertEqual(summary, "nil")
+        XCTAssertEqual(totalChildrenCount, 0)
+        XCTAssert(children.isEmpty)
+
+        guard case .aggregate = disposition else {
+            XCTFail("Expected to receive an aggregate, but didn't")
+            return
+        }
     }
 }

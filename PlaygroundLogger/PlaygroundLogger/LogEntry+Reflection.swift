@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2017-2018 Apple Inc. and the Swift project authors
+// Copyright (c) 2017-2020 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -29,6 +29,32 @@ extension LogEntry {
             // We're trying to log an instance that is "too deep"; as a result, we need to just return a gap.
             self = .gap
             return
+        }
+
+        // In Swift, it is undefined behavior to have a value of non-Optional class type which is set to nil.
+        // Unfortunately, these can be encountered in the wild; the most common example is an incorrect Objective-C nullability annotation.
+        // To prevent PlaygroundLogger from triggering undefined behavior (which, as of this writing, causes a crash in the Swift runtime), perform a safety check before proceeding with logging.
+        do {
+            // First, parse the existential container for `instance` so we can examine its contents directly.
+            let existentialContainer = AnyExistentialContainer(instance)
+
+            // Next, get the type of `instance` which is stored in the existential container.
+            guard let instanceType = existentialContainer.type else {
+                // The existential container does not contain a type, which is invalid.
+                // Rather than crash by trying to proceed along from here, return an error LogEntry.
+                self = .error(reason: "Value does not contain a type")
+                return
+            }
+
+            // If `instance` contains a non-Optional class type (e.g. AnyObject), then `instanceType is AnyClass` will be true.
+            // If `instance` contains an Optional class type (e.g. AnyObject? aka Optional<AnyObject>), then `instanceType is AnyClass` will be false, as Optional is *not* a class.
+            //
+            // If `instance` contains a non-Optional class type, then the first pointer in the existential container's buffer will be the object pointer. We can check to see if that pointer is nil to see if the object is nil.
+            if instanceType is AnyClass && existentialContainer.fixedSizeBuffer.0 == nil {
+                // `instance` is broken. As a result, return a log entry which indicates that the value is nil.
+                self = .structured(name: name, typeName: passedInTypeName ?? normalizedName(of: instanceType), summary: "nil", totalChildrenCount: 0, children: [], disposition: .aggregate)
+                return
+            }
         }
 
         // Lazily-load the Mirror for this instance. (This is factored out this way as the Mirror is needed in a few different code paths.)
@@ -258,6 +284,66 @@ extension Mirror {
     fileprivate func logEntry(named name: String, usingPolicy policy: LogPolicy, depth: Int) -> LogEntry {
         let subjectTypeName = normalizedName(of: self.subjectType)
         return LogEntry(structureFrom: self, name: name, typeName: subjectTypeName, summary: subjectTypeName, policy: policy, currentDepth: depth)
+    }
+}
+
+/// A struct representing the memory contents of an `Any` -- the existential container for the `Any` rather than the value itself contained in the `Any`.
+///
+/// The memory layout of an existential container is part of Swift's ABI. It is defined as:
+///
+/// - Three words of fixed storage for an inline buffer containing either the value or a pointer to a box containing the value
+/// - One word containing a pointer to the type metadata for the value stored in the existential
+/// - Zero or more words containing pointers to the protocol witness tables for the protocols to which the existential is constrained
+///
+/// Since `Any` is an existential with no protocol constraints, it ultimately is a four-word value where the first three words are a fixed-size buffer
+/// and the last word is a pointer to the type metadata.
+///
+/// This struct stores the fixed-size buffer as three `UnsafeRawPointer?` values.
+/// An `Any.Type?` (aka `Optional<Any.Type>`, not `Optional<Any>.Type`) in Swift is itself a pointer to the type metadata, so this struct loads that pointer as an `Any.Type?` for examination.
+fileprivate struct AnyExistentialContainer {
+    /// A fixed-size, three-word buffer containing the value or a pointer to a box containing the value stored in this existential container.
+    ///
+    /// The contents of this buffer must only be interpreted in the context of a particular type.
+    /// For example, if this existential container contains an object, the first word will contain the pointer to that object while the contents of the other two words are undefined.
+    var fixedSizeBuffer: (UnsafeRawPointer?, UnsafeRawPointer?, UnsafeRawPointer?)
+
+    /// The type of the value stored in this existential container.
+    ///
+    /// This can be used to interpret the value stored in `fixedSizeBuffer`.
+    /// For example, if this existential container contains an object, `self.type is AnyClass` will be true.
+    var type: Any.Type?
+
+    /// Initializes a new `AnyExistentialContainer` with the contents of `instance`.
+    ///
+    /// This initializer does this with direct memory access to load the `Any` as its container rather than as the value contained in the `Any`.
+    ///
+    /// - important: This initializer does not use the Swift runtime to interact with the contents of `instance`.
+    ///              It is **critical** that this remain true so that an untrusted `Any` can be examined by PlaygroundLogger before proceeding with logging.
+    ///
+    /// - parameter instance: The `Any` whose existential container should be made available in a new instance of `AnyExistentialContainer`
+    init(_ instance: Any) {
+        // TODO: If Swift implements support for static/compile-time assertions, we should adopt those here.
+
+        // We require that `AnyExistentialContainer` and `Any` have the same memory layouts.
+        assert(MemoryLayout<AnyExistentialContainer>.size == MemoryLayout<Any>.size)
+        assert(MemoryLayout<AnyExistentialContainer>.alignment == MemoryLayout<Any>.alignment)
+        assert(MemoryLayout<AnyExistentialContainer>.stride == MemoryLayout<Any>.stride)
+
+        // Ensure that we catch any changes to the struct layout which might move it out of alignment with `Any`.
+        // Importantly, `fixedSizeBuffer` should be at offset 0, `fixedSizeBuffer` should be exactly three words wide, and `type` should be at an offset immediately after `fixedSizeBuffer`.
+        assert(MemoryLayout<AnyExistentialContainer>.offset(of: \AnyExistentialContainer.fixedSizeBuffer) == 0)
+        assert(MemoryLayout<(UnsafeRawPointer?, UnsafeRawPointer?, UnsafeRawPointer?)>.size == (3 * MemoryLayout<UnsafeRawPointer?>.size))
+        assert(MemoryLayout<AnyExistentialContainer>.offset(of: \AnyExistentialContainer.type) == MemoryLayout<(UnsafeRawPointer?, UnsafeRawPointer?, UnsafeRawPointer?)>.size)
+
+        // We also require that `Any.Type?` be a trivial type so that it's safe to load this way.
+        assert(_isPOD(Any.Type?.self))
+
+        // Finally, we require that we are a trivial type as well.
+        assert(_isPOD(AnyExistentialContainer.self))
+
+        self = withUnsafeBytes(of: instance) { bytes in
+            return bytes.load(as: AnyExistentialContainer.self)
+        }
     }
 }
 
