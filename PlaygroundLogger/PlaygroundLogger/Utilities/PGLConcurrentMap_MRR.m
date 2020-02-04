@@ -97,7 +97,7 @@ __attribute__((visibility("hidden")))
     return nil;
 }
 
-- (id)objectForKey:(NSInteger)key insertingObjectProvidedByBlockIfNotPresent:(id(^)(void))objectProvider didInsert:(BOOL *)outDidInsert {
+- (id)objectForKey:(NSInteger)key insertingObjectProvidedByBlockIfNotPresent:(id(^ NS_NOESCAPE)(void))objectProvider didInsert:(BOOL *)outDidInsert {
     // The node we created.
     PGLConcurrentMapNode *newNode = nil;
     
