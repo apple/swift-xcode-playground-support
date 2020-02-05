@@ -640,12 +640,12 @@ class LegacyPlaygroundLoggerTests: XCTestCase {
     }
     
     func testPlaygroundQuickLookCalledOnce() {
-        class MyObject : CustomPlaygroundQuickLookable {
+        class MyObject : _CustomPlaygroundQuickLookable {
             var numCalls = 0
-            var customPlaygroundQuickLook: PlaygroundQuickLook {
+            var customPlaygroundQuickLook: _PlaygroundQuickLook {
                 get {
                     numCalls = numCalls + 1
-                    return PlaygroundQuickLook(reflecting: "Hello world")
+                    return .text("Hello world")
                 }
             }
         }

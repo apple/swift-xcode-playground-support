@@ -93,10 +93,10 @@ extension LogEntry {
         }
         
         // For types which conform to the legacy `CustomPlaygroundQuickLookable` or `_DefaultCustomPlaygroundQuickLookable` protocols, get their `PlaygroundQuickLook` and use that for logging.
-        else if let customQuickLookable = instance as? CustomPlaygroundQuickLookable {
+        else if let customQuickLookable = instance as? _CustomPlaygroundQuickLookable {
             self = try .init(playgroundQuickLook: customQuickLookable.customPlaygroundQuickLook, name: name, typeName: typeName, summary: generateSummary(for: instance, withTypeName: typeName, using: mirror))
         }
-        else if let defaultQuickLookable = instance as? _DefaultCustomPlaygroundQuickLookable {
+        else if let defaultQuickLookable = instance as? __DefaultCustomPlaygroundQuickLookable {
             self = try .init(playgroundQuickLook: defaultQuickLookable._defaultCustomPlaygroundQuickLook, name: name, typeName: typeName, summary: generateSummary(for: instance, withTypeName: typeName, using: mirror))
         }
             
@@ -130,7 +130,7 @@ extension LogEntry {
         }
     }
     
-    private init(playgroundQuickLook: PlaygroundQuickLook, name: String, typeName: String, summary: String) throws {
+    private init(playgroundQuickLook: _PlaygroundQuickLook, name: String, typeName: String, summary: String) throws {
         // TODO: figure out when to set `preferBriefSummary` to true
         self = try .opaque(name: name, typeName: typeName, summary: summary, preferBriefSummary: false, representation: playgroundQuickLook.opaqueRepresentation())
     }

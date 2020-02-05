@@ -18,7 +18,7 @@ import Foundation
     import AppKit
 #endif
 
-extension PlaygroundQuickLook {
+extension _PlaygroundQuickLook {
     func opaqueRepresentation() throws -> LogEntry.OpaqueRepresentation {
         // TODO: don't crash in this function; instead, throw an error so we can encode an error log message instead
         
