@@ -830,6 +830,7 @@ enum PlaygroundRepresentation : UInt8, Hashable, CustomStringConvertible, Equata
         case .collection: self = .IndexContainer
         case .dictionary: self = .KeyContainer
         case .set: self = .MembershipContainer
+        @unknown default: self = .Container
         }
     }
 }

@@ -818,7 +818,7 @@
 				TargetAttributes = {
 					5E2646261FB64876002DC6B6 = {
 						CreatedOnToolsVersion = 9.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					5E26462F1FB64876002DC6B6 = {
@@ -834,12 +834,12 @@
 					};
 					5EFE9197203F6DD700E21BAA = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					5EFE91AF203F6E8D00E21BAA = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					5EFE91CC203F6F6900E21BAA = {
@@ -1177,7 +1177,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1225,7 +1225,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

@@ -172,6 +172,9 @@ extension LogEntry.StructuredDisposition {
             self = .keyContainer
         case .set:
             self = .membershipContainer
+        @unknown default:
+            // If this is an unknown display style, default to .container.
+            self = .container
         }
     }
 }
@@ -193,6 +196,9 @@ extension Mirror {
                 return policy.aggregateChildPolicy
             case .optional, .collection, .dictionary, .set:
                 return policy.containerChildPolicy
+            @unknown default:
+                // If this is an unknown display style, default to treating it like an aggregate.
+                return policy.aggregateChildPolicy
             }
         }()
 
@@ -204,6 +210,9 @@ extension Mirror {
                 // We don't want dictionary to count as a level of depth as dictionary is modeled as a collection of (key, value) pairs, and we don't want to lose a level due to the pairs themselves consuming a level, so for ease of bookkeeping the dictionary level is counted as not consuming a level.
                 return currentDepth
             case .class, .struct, .tuple, .enum, .collection, .set:
+                return currentDepth + 1
+            @unknown default:
+                // If this is an unknown display style, assume it consumes a level of depth.
                 return currentDepth + 1
             }
         }()
