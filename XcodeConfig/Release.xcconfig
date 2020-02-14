@@ -13,7 +13,8 @@
 #include "Common.xcconfig"
 
 // Compile Swift code at -O with WMO enabled in Release.
-SWIFT_OPTIMIZATION_LEVEL = -Owholemodule
+SWIFT_OPTIMIZATION_LEVEL = -O
+SWIFT_COMPILATION_MODE = wholemodule
 
 // Compile C/Objective-C/C++ code at -Os in Release.
 GCC_OPTIMIZATION_LEVEL = s
