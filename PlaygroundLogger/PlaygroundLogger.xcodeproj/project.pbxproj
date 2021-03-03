@@ -1251,6 +1251,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = NO;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos appletvsimulator appletvos";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Debug;
 		};
@@ -1272,6 +1273,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = NO;
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos appletvsimulator appletvos";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Release;
 		};
