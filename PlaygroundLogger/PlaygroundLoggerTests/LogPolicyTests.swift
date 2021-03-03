@@ -2,7 +2,7 @@
 //
 // This source file is part of the Swift.org open source project
 //
-// Copyright (c) 2018 Apple Inc. and the Swift project authors
+// Copyright (c) 2018-2021 Apple Inc. and the Swift project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See http://swift.org/LICENSE.txt for license information
@@ -39,6 +39,14 @@ fileprivate class TestSubsubclass: TestSubclass {
 }
 
 class LogPolicyTests: XCTestCase {
+    func testMaximumDepthEnvironmentOverride() {
+        setenv("LOGGER_DEPTH", "4", 0)
+        let testPolicy = LogPolicy()
+        
+        XCTAssertEqual(testPolicy.maximumDepth, 4)
+        unsetenv("LOGGER_DEPTH")
+    }
+    
     func testMaximumDepthLimitZero() throws {
         let testPolicy = LogPolicy(maximumDepth: 0)
 
