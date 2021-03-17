@@ -592,7 +592,6 @@
 				1DF4117018DCB596001CDFC7 /* Frameworks */,
 				1DF4117218DCB596001CDFC7 /* Headers */,
 				1DF4117318DCB596001CDFC7 /* Resources */,
-				5EB831EE19247927007D5493 /* Copy swiftdoc */,
 			);
 			buildRules = (
 			);
@@ -631,7 +630,6 @@
 				A8318F921CF603630015809A /* Sources */,
 				A8318F981CF603630015809A /* Frameworks */,
 				A8318F9A1CF603630015809A /* Resources */,
-				A8318F9C1CF603630015809A /* Copy swiftdoc */,
 			);
 			buildRules = (
 			);
@@ -878,6 +876,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 1D7FD51118BFE00400C718C6;
@@ -1008,34 +1007,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "swiftc -v";
-		};
-		5EB831EE19247927007D5493 /* Copy swiftdoc */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy swiftdoc";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "# Copy x86_64's swiftdoc from the object file dir to the target build dir.\nsrc_swiftdoc=\"${OBJECT_FILE_DIR_normal}/x86_64/${PRODUCT_MODULE_NAME}.swiftdoc\"\ndst_swiftdoc=\"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Modules/${PRODUCT_MODULE_NAME}.swiftmodule/x86_64.swiftdoc\"\n\necho \"Copying swiftdoc for XCPlayground.framework\"\ncp -v \"${src_swiftdoc}\" \"${dst_swiftdoc}\"";
-		};
-		A8318F9C1CF603630015809A /* Copy swiftdoc */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy swiftdoc";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "# Copy x86_64's swiftdoc from the object file dir to the target build dir.\nsrc_swiftdoc=\"${OBJECT_FILE_DIR_normal}/x86_64/${PRODUCT_MODULE_NAME}.swiftdoc\"\ndst_swiftdoc=\"${TARGET_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/Modules/${PRODUCT_MODULE_NAME}.swiftmodule/x86_64.swiftdoc\"\n\necho \"Copying swiftdoc for XCPlayground.framework\"\ncp -v \"${src_swiftdoc}\" \"${dst_swiftdoc}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
