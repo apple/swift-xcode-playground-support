@@ -18,7 +18,7 @@ import SpriteKit
     }
 }
 
-fileprivate protocol SpriteKitOpaqueLoggable: class, OpaqueImageRepresentable, CustomOpaqueLoggable {}
+fileprivate protocol SpriteKitOpaqueLoggable: AnyObject, OpaqueImageRepresentable, CustomOpaqueLoggable {}
 
 extension SpriteKitOpaqueLoggable {
     func encodeImage(into encoder: LogEncoder, withFormat format: LogEncoder.Format) throws {
