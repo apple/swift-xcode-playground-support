@@ -12,7 +12,7 @@
 
 #if os(iOS) || os(tvOS)
 import UIKit
-#elseif os(OSX)
+#elseif os(macOS)
 import AppKit
 #endif
 
@@ -132,7 +132,7 @@ public enum XCPlaygroundLiveViewRepresentation {
     /// - note: This view controller must be the root of a view controller hierarchy (i.e. it has no parent view controller), and its view must *not* have a superview.
     case ViewController(UIViewController)
 
-#elseif os(OSX)
+#elseif os(macOS)
     /// A view which will be displayed as the live view.
     ///
     /// - note: This view must be the root of a view hierarchy (i.e. it must not have a superview), and it must *not* be owned by a view controller.
@@ -173,7 +173,7 @@ extension UIViewController: XCPlaygroundLiveViewable {
         return .ViewController(self)
     }
 }
-#elseif os(OSX)
+#elseif os(macOS)
 extension NSView: XCPlaygroundLiveViewable {
     public func playgroundLiveViewRepresentation() -> XCPlaygroundLiveViewRepresentation {
         return .View(self)
