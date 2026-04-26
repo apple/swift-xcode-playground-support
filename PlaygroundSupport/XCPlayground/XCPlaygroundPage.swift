@@ -44,7 +44,7 @@ public final class XCPlaygroundPage {
     ///
     /// - note: This function has been deprecated. 
     @available(*,deprecated) public func captureValue<T>(value: T, withIdentifier identifier: String) {
-        NotificationCenter.default.post(name: "XCPCaptureValue" as NSString as NSNotification.Name, object: self, userInfo: [ "value" : value, "identifier": identifier as AnyObject])
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "XCPCaptureValue"), object: self, userInfo: [ "value" : value, "identifier": identifier as AnyObject])
     }
 
     /// Indicates whether the playground page needs to execute indefinitely.
@@ -60,7 +60,7 @@ public final class XCPlaygroundPage {
     @available(*,deprecated,message:"Use 'PlaygroundPage.current.needsIndefiniteExecution' from the 'PlaygroundSupport' module instead")
     public var needsIndefiniteExecution: Bool = false {
         didSet {
-            NotificationCenter.default.post(name: "XCPlaygroundPageNeedsIndefiniteExecutionDidChangeNotification" as NSString as NSNotification.Name, object: self, userInfo: [ "XCPlaygroundPageNeedsIndefiniteExecution" : needsIndefiniteExecution as AnyObject])
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "XCPlaygroundPageNeedsIndefiniteExecutionDidChangeNotification"), object: self, userInfo: [ "XCPlaygroundPageNeedsIndefiniteExecution" : needsIndefiniteExecution as AnyObject])
         }
     }
 
@@ -70,7 +70,7 @@ public final class XCPlaygroundPage {
     @available(*,deprecated,message:"Use 'PlaygroundPage.current.finishExecution()' from the 'PlaygroundSupport' module instead")
     public func finishExecution() -> Never {
         // Send a message to Xcode requesting that we be killed.
-        NotificationCenter.default.post(name: "XCPlaygroundPageFinishExecutionNotification" as NSString as NSNotification.Name, object: self, userInfo: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "XCPlaygroundPageFinishExecutionNotification"), object: self, userInfo: nil)
     
         // Sleep for a while to let Xcode kill us.
         for _ in 1...10 {
@@ -114,7 +114,7 @@ public final class XCPlaygroundPage {
                 userInfo = [:]
             }
 
-            NotificationCenter.default.post(name: "XCPlaygroundPageLiveViewDidChangeNotification" as NSString as NSNotification.Name, object: self, userInfo: userInfo)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "XCPlaygroundPageLiveViewDidChangeNotification"), object: self, userInfo: userInfo)
         }
     }
 }
